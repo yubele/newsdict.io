@@ -1,3 +1,10 @@
+GIT
+  remote: git@github.com:yubele/annotate_gem.git
+  revision: d5fcd892b16a9b57aa53c46f639837a9bc9648e6
+  specs:
+    annotate_gem (0.0.13)
+      bundler (> 1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -199,6 +206,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate_gem!
   bootsnap (>= 1.1.0)
   byebug
   capybara (>= 2.15)
