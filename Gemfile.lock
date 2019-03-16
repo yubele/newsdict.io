@@ -1,9 +1,10 @@
 GIT
-  remote: git@github.com:yubele/annotate_gem.git
-  revision: d5fcd892b16a9b57aa53c46f639837a9bc9648e6
+  remote: git@github.com:newsdict/annotate_gem.git
+  revision: 07fd3113cd79658acdc35e8f5047a741cdb1efc1
+  branch: bundler_bump
   specs:
     annotate_gem (0.0.13)
-      bundler (> 1.1)
+      bundler (>= 1.1)
 
 GEM
   remote: https://rubygems.org/

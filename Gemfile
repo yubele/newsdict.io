@@ -49,7 +49,7 @@ end
 
 group :development do
   # Add comments to your Gemfile with each dependency's description. (https://github.com/ivantsepp/annotate_gem)
-  gem 'annotate_gem', :git => 'git@github.com:yubele/annotate_gem.git'
+  gem 'annotate_gem', :git => 'git@github.com:newsdict/annotate_gem.git', :branch => :bundler_bump
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   # A debugging tool for your Ruby on Rails applications. (https://github.com/rails/web-console)
   gem 'web-console', '>= 3.3.0'
