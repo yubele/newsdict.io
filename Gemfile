@@ -50,7 +50,7 @@ group :development, :test do
   # Fixtures for Mongoid (https://github.com/Aethelflaed/mongoid-fixture_set) 
   gem 'mongoid-fixture_set', :git => 'https://github.com/yubele/mongoid-fixture_set'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
-  gem 'bundle-locker', git: 'https://github.com/newsdict/bundle-locker', branch: 'feature/ignore_require_and_path'
+  gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
 end
 
 group :development do
