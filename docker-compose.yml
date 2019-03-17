@@ -1,0 +1,31 @@
+version: "2"
+networks:
+  app-tier:
+    driver: bridge
+services:
+  redis:
+    image: 'redis'
+    networks:
+      - app-tier
+  mongo:
+    image: mongo
+    restart: always
+    networks:
+      - app-tier
+  web:
+    tty: true
+    stdin_open: true
+    container_name: ${DOCKER_COMPOSE_NAME}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - ./:/var/www/opendict
+    working_dir: /var/www/opendict
+    command: >
+      bash -c "bundle install --path .bundle --no-deployment --with development test
+      && bundle exec rails s -b 0.0.0.0 -p 3000"
+    ports: 
+      - 3000:3000
+    networks:
+      - app-tier
