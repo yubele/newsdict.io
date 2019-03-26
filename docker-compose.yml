@@ -20,8 +20,8 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-    - ./:/var/www/opendict
-    working_dir: /var/www/opendict
+    - ./:/var/www/newsdict
+    working_dir: /var/www/newsdict
     command: >
       bash -c "bundle install --path .bundle --no-deployment --with development test
       && bundle exec rails s -b 0.0.0.0 -p 3000"

@@ -1,5 +1,5 @@
 {
-  "name": "opendict",
+  "name": "newsdict",
   "private": true,
   "dependencies": {
     "@rails/webpacker": "^4.0.2"

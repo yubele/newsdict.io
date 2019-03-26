@@ -5,8 +5,8 @@
 FROM phusion/passenger-ruby25:1.0.5
 
 # Set correct environment variables.
-RUN mkdir -p /var/www/opendict
-ENV HOME /var/www/opendict
+RUN mkdir -p /var/www/newsdict
+ENV HOME /var/www/newsdict
 
 # Use baseimage-docker's init process.
 CMD ["/sbin/my_init"]
@@ -26,7 +26,7 @@ WORKDIR /var/www/opensdict
 COPY . .
 COPY provisioning/nginx/sites-availabled/prod.conf /etc/nginx/sites-available/default
 
-RUN chown www-data.www-data -R /var/www/opendict
+RUN chown www-data.www-data -R /var/www/newsdict
 
 RUN bundle install --path .bundle --deployment --without development test --quiet
 #RUN ruby bin/generate_tagdic.rb
