@@ -19,8 +19,6 @@ gem 'rails_admin', '1.4.2'
 # used by rails_admin
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid', '1.0.1'
-# Rails_Admin FLAT theme overhaul (https://github.com/rollincode/rails_admin_theme)
-gem 'rails_admin_rollincode', '1.2.1'
 
 ##
 # mongodb
