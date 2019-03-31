@@ -12,9 +12,9 @@ ruby '2.5.3'
 gem 'devise', '4.6.2'
 
 ##
-# Admin
+# User
 ##
-# Admin for Rails (https://github.com/sferik/rails_admin)
+# User for Rails (https://github.com/sferik/rails_admin)
 gem 'rails_admin', '1.4.2'
 # used by rails_admin
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)

@@ -4,10 +4,12 @@ networks:
     driver: bridge
 services:
   redis:
+    container_name: ${APP}_redis
     image: 'redis'
     networks:
       - app-tier
   mongo:
+    container_name: ${APP}_mongodb
     image: mongo
     restart: always
     networks:
