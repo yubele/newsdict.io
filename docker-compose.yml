@@ -23,7 +23,8 @@ services:
     - ./:/var/www/newsdict
     working_dir: /var/www/newsdict
     command: >
-      bash -c "bundle install --path .bundle --no-deployment --with development test
+      bash -c "yarn install --check-files
+      && bundle install --path .bundle --no-deployment --with development test
       && bundle exec rails s -b 0.0.0.0 -p 3000"
     ports: 
       - 3000:3000

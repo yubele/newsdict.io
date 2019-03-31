@@ -6,11 +6,29 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 ##
+# User Manage
+##
+# Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
+gem 'devise', '4.6.2'
+
+##
+# Admin
+##
+# Admin for Rails (https://github.com/sferik/rails_admin)
+gem 'rails_admin', '1.4.2'
+# used by rails_admin
+# Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
+gem 'kaminari-mongoid', '1.0.1'
+# Rails_Admin FLAT theme overhaul (https://github.com/rollincode/rails_admin_theme)
+gem 'rails_admin_rollincode', '1.2.1'
+
+##
 # mongodb
 ##
 # Elegant Persistence in Ruby for MongoDB. (http://mongoid.org)
 gem 'mongoid', '7.0.2'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/ahoward/mongoid-grid_fs)
+# A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs', '2.4.0'
 # Search implementation for Mongoid ORM (http://www.papodenerd.net/mongoid-search-full-text-search-for-your-mongoid-models/)
 gem 'mongoid_search', '0.3.6'
@@ -19,13 +37,14 @@ gem 'mongoid_search', '0.3.6'
 # default gems
 ##
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+# Full-stack web application framework. (http://rubyonrails.org)
 gem 'rails', '5.2.2'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '3.12.0'
 # Use SCSS for stylesheets
 # Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
-gem 'sass-rails'
+gem 'sass-rails', '5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 # Ruby wrapper for UglifyJS JavaScript compressor (http://github.com/lautis/uglifier)
 gem 'uglifier', '4.1.20'
@@ -50,6 +69,7 @@ group :development, :test do
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug', '11.0.0'
   # Fixtures for Mongoid (https://github.com/Aethelflaed/mongoid-fixture_set) 
+  # Fixtures for Mongoid (https://github.com/Aethelflaed/mongoid-fixture_set)
   gem 'mongoid-fixture_set', :git => 'https://github.com/yubele/mongoid-fixture_set'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
