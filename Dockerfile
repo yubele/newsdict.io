@@ -27,7 +27,6 @@ COPY . .
 COPY provisioning/nginx/sites-availabled/prod.conf /etc/nginx/sites-available/default
 
 RUN chown www-data.www-data -R /var/www/newsdict
-
 RUN bundle install --path .bundle --deployment --without development test --quiet
 #RUN ruby bin/generate_tagdic.rb
 EXPOSE 80

@@ -1,3 +1,2 @@
 #!/usr/bin/env bash
-. $(dirname $BASH_SOURCE)/../.env
-docker exec -it $(docker ps |grep $DOCKER_COMPOSE_NAME |awk '{print $1}') /bin/bash -c "bin/rails $*"
+docker exec -it $(docker ps |grep newsdict_web |awk '{print $1}') /bin/bash -c "bin/rails $*"

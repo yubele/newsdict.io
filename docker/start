@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-. $(dirname $BASH_SOURCE)/../.env
-docker-compose down &&
+docker-compose stop &&
 docker-compose up -d &&
-docker attach $(docker ps |grep $DOCKER_COMPOSE_NAME |cut -f 1 -d" ") 
+docker attach $(docker ps |grep newsdict_web |cut -f 1 -d" ")

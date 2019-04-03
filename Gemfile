@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 # Cannot use 2.6.x, because webpacker-4.0.1 is not support
 # RubyInstaller(windows) is only supported up to `ruby-2.5.3`
 ruby '2.5.3'
+# Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
+gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 
 ##
 # User Manage
@@ -15,6 +17,7 @@ gem 'devise', '4.6.2'
 # User
 ##
 # User for Rails (https://github.com/sferik/rails_admin)
+# Admin for Rails (https://github.com/sferik/rails_admin)
 gem 'rails_admin', '1.4.2'
 # used by rails_admin
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)

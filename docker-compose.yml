@@ -4,12 +4,12 @@ networks:
     driver: bridge
 services:
   redis:
-    container_name: ${APP}_redis
+    container_name: newsdict_redis
     image: 'redis'
     networks:
       - app-tier
   mongo:
-    container_name: ${APP}_mongodb
+    container_name: newsdict_mongodb
     image: mongo
     restart: always
     networks:
@@ -17,7 +17,7 @@ services:
   web:
     tty: true
     stdin_open: true
-    container_name: ${DOCKER_COMPOSE_NAME}
+    container_name: newsdict_web
     build:
       context: .
       dockerfile: Dockerfile
