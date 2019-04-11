@@ -8,6 +8,12 @@ ruby '2.5.3'
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 
 ##
+# Social Api Gems
+##
+# A Ruby interface to the Twitter API. (http://sferik.github.com/twitter/)
+gem 'twitter', '6.2.0'
+
+##
 # User Manage
 ##
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
@@ -74,6 +80,8 @@ group :development, :test do
   gem 'mongoid-fixture_set', :git => 'https://github.com/yubele/mongoid-fixture_set'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
+  # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
+  gem 'pry-byebug', '3.7.0'
 end
 
 group :development do
@@ -100,6 +108,8 @@ group :test do
   # Easy installation and use of chromedriver to run system tests with Chrome
   # Easy installation and use of chromedriver. (https://github.com/flavorjones/chromedriver-helper)
   gem 'chromedriver-helper', '2.1.0'
+  ## Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
+  gem 'webmock', '3.5.1'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
