@@ -37,9 +37,9 @@ def stub_put(path)
   stub_request(:put, Twitter::REST::Request::BASE_URL + path)
 end
 
-# Change path `fixtures` to `fixtures/files/twitter`
+# Change path `fixtures` to `fixtures/web_mock/twitter`
 def fixture_path
-  File.expand_path('fixtures/files/twitter', __dir__)
+  File.expand_path('fixtures/', __dir__)
 end
 
 def fixture(file)

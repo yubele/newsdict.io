@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap: https://newsdict.blog/sitemap.xml
+Disallow: /ghost/
+Disallow: /p/
