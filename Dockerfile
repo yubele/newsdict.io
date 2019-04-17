@@ -2,13 +2,13 @@
 # sure you lock down to a specific version, not to `latest`!
 # See https://github.com/phusion/passenger-docker/blob/master/Changelog.md for
 # a list of version numbers.
-FROM phusion/passenger-ruby25:1.0.3
+FROM phusion/passenger-ruby26:1.0.5
 
 # Set correct environment variables.
 RUN mkdir -p /var/www/newsdict
 ENV HOME /var/www/newsdict
 
-# Use baseimage-docker's init process.
+# Use baseimage-bash's init process.
 CMD ["/sbin/my_init"]
 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -28,5 +28,4 @@ COPY provisioning/nginx/sites-availabled/prod.conf /etc/nginx/sites-available/de
 
 RUN chown www-data.www-data -R /var/www/newsdict
 RUN bundle install --path .bundle --deployment --without development test --quiet
-#RUN ruby bin/generate_tagdic.rb
 EXPOSE 80
