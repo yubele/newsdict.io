@@ -4,9 +4,6 @@ class FetchUrlsJob < ApplicationJob
   # Fetch the web pages by url
   # @param [Source] source
   def perform(source)
-    # @todo Implementation
-    source.urls.each do |url|
-      #WebStat.stat_by_url(url)
-    end
+    SourceRepository.new(source).active_job
   end
 end
