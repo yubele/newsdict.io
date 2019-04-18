@@ -32,3 +32,16 @@ services:
       - 3000:3000
     networks:
       - app-tier
+  worker:
+    tty: true
+    stdin_open: true
+    container_name: newsdict_worker
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /var/www/newsdict
+    command: "bundle exec sidekiq -q default"
+    volumes:
+    - ./:/var/www/newsdict
+    networks:
+      - app-tier
