@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-# Cannot use 2.6.x, because webpacker-4.0.1 is not support
-# RubyInstaller(windows) is only supported up to `ruby-2.5.3`
 ruby '2.6.2'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
