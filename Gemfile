@@ -10,7 +10,7 @@ gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 gem 'sidekiq', '5.2.5'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.6.0'
-# Get the status of  the web pages. (https://newsdict.blog/web-stat/)
+# Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '0.1.4'
 
 ##
@@ -24,14 +24,18 @@ gem 'twitter', '6.2.0'
 ##
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
 gem 'devise', '4.6.2'
+# Simple authorization solution for Rails. (https://github.com/CanCanCommunity/cancancan)
+gem 'cancancan', '2.3.0'
+# Mongoid database adapter for CanCanCan. (https://github.com/CanCanCommunity/cancancan-mongoid)
+gem 'cancancan-mongoid', '2.0.0.beta1'
 
 ##
 # User
 ##
-# User for Rails (https://github.com/sferik/rails_admin)
 # Admin for Rails (https://github.com/sferik/rails_admin)
 gem 'rails_admin', '1.4.2'
-# used by rails_admin
+# Easily track model change history and mantain audit log with mongoid (https://github.com/rs-pro/mongoid-audit)
+gem 'mongoid-audit', '1.4.0'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid', '1.0.1'
 
@@ -40,7 +44,6 @@ gem 'kaminari-mongoid', '1.0.1'
 ##
 # Elegant Persistence in Ruby for MongoDB. (http://mongoid.org)
 gem 'mongoid', '7.0.2'
-# A MongoDB GridFS implementation for Mongoid (https://github.com/ahoward/mongoid-grid_fs)
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs', '2.4.0'
 # Search implementation for Mongoid ORM (http://www.papodenerd.net/mongoid-search-full-text-search-for-your-mongoid-models/)

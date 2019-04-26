@@ -6,7 +6,7 @@ class Source < ApplicationRecord
   # Source Description
   field :description, type: String
   # relation at User
-  field :user_id, type: Object
+  field :user_id, type: BSON::ObjectId
   # last crawling datetime
   field :fetch_at, type: DateTime
 end
