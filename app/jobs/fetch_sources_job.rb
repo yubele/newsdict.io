@@ -1,4 +1,4 @@
-class FetchUrlsJob < ApplicationJob
+class FetchSourcesJob < ApplicationJob
   queue_as :default
 
   # Fetch the web pages by url

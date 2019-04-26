@@ -21,11 +21,11 @@ class FetchUrlsJobTest < ActiveJob::TestCase
     Contents::Web.destroy_all
 
     # Save Contents::Web's documents.
-    FetchUrlsJob.new.perform(twitter_account)
+    FetchSourcesJob.new.perform(twitter_account)
     assert_enqueued_jobs 0
     assert_equal(twitter_account.urls.count, Contents::Web.count)
 
-    FetchUrlsJob.perform_later(twitter_account)
+    FetchSourcesJob.perform_later(twitter_account)
     assert_enqueued_jobs 1
   end
 end
