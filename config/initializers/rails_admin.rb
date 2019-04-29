@@ -12,7 +12,9 @@ RailsAdmin.config do |config|
   config.actions do
     dashboard
     index
-    new
+    new do
+      except  ['User']
+    end
     history_index do
       only ['User']
     end

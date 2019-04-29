@@ -84,11 +84,8 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug', '11.0.0'
-  # Fixtures for Mongoid (https://github.com/Aethelflaed/mongoid-fixture_set) 
-  # Fixtures for Mongoid (https://github.com/Aethelflaed/mongoid-fixture_set)
-  gem 'mongoid-fixture_set', :git => 'https://github.com/yubele/mongoid-fixture_set'
-  # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
-  gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
+  # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer (https://github.com/thoughtbot/factory_bot_rails)
+  gem 'factory_bot_rails', '5.0.2'
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
   gem 'pry-byebug', '3.7.0'
 end
@@ -106,6 +103,8 @@ group :development do
   gem 'spring', '2.0.2'
   # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
   gem 'spring-watcher-listen', '2.0.1'
+  # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
+  gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
 end
 
 group :test do
@@ -114,12 +113,14 @@ group :test do
   gem 'capybara', '3.14.0'
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.141.0'
-  # Easy installation and use of chromedriver to run system tests with Chrome
   # Easy installation and use of chromedriver. (https://github.com/flavorjones/chromedriver-helper)
   gem 'chromedriver-helper', '2.1.0'
-  ## Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock', '3.5.1'
+  # Easily generate fake data (https://github.com/stympy/faker)
+  gem 'faker', '1.9.3'
+  # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
+  gem 'database_cleaner', '1.7.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FetchUrlsJobTest < ActiveJob::TestCase
+class FetchSourcesJobTest < ActiveJob::TestCase
   test "the truth" do
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})
 
