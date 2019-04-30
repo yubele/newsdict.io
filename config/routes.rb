@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount Sidekiq::Web => ENV['SIDEKIQ_WEB_URL'], constraints: SuperAdminConstraint.new
+  mount RailsAdmin::Engine => ENV['ADMIN_URL'], as: 'rails_admin'
   devise_for 'user'
 end

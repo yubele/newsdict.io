@@ -12,10 +12,4 @@ RailsAdmin.config do |config|
     navigation_label 'Global View'
     weight 20
   end
-
-  #config.navigation_static_label = "Settings"
-  #config.navigation_static_links = {
-  #    'Google' => 'http://www.google.com'
-  #}
-
 end
