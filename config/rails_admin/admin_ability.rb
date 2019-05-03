@@ -11,11 +11,19 @@ class AdminAbility
         config.navigation_static_links = {
             'Sidekiq' => ENV['SIDEKIQ_WEB_URL']
         }
+        config.model User do
+          edit do
+            field :is_manual_locked do
+              visible true
+            end
+          end
+        end
       end
     else
       # user role
-      can :create, Sources::TwitterAccount, user_id: user.id if user
+      can :create, Sources::TwitterAccount, user_id: user.id
       can :manage, Sources::TwitterAccount, user_id: user.id
+      can :update, User, id: user.id
     end
   end
 end

@@ -15,7 +15,8 @@ class SourceRepository
           :content => web_stat[:content],
           :expanded_url => web_stat[:original_url],
           :eyecatch_image_path => web_stat[:eyecatch_image_path],
-          :tags => web_stat[:tags]}).save
+          :tags => web_stat[:tags],
+          :user_id => @object.user_id}).save
     end
   end
 end

@@ -1,13 +1,15 @@
 class User < ApplicationRecord
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Trackable
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :trackable, :lockable
+  validates :username, length: {minimum: 4, maximum: 30}, presence: true, uniqueness: true
 
   ## Database authenticatable
+  field :username,           type: String, default: ""
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
 
@@ -56,6 +58,6 @@ class User < ApplicationRecord
 
   # Check manually lock
   def account_active?
-    send(:is_manual_locked) == false
+    send(:is_manual_locked).nil? || send(:is_manual_locked) == false
   end
 end

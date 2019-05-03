@@ -4,6 +4,6 @@ FactoryBot.define do
     password { 'password' }
     password_confirmation { 'password' }
     confirmed_at { Date.today }
-    updater { User.new }
+    username { Faker::String.random(4..30) }
   end
 end

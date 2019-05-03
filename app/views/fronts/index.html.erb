@@ -1,0 +1,37 @@
+<%= render partial: "nav" %>
+
+<section class="section main">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-2">
+      </div>
+      <div class="column is-8">
+        <div class="box">
+          <% @contents.each do |content| %>
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <img src="http://placehold.it/128x128" alt="Image">
+              </figure>
+            </div>
+            <div class="media-content">
+              <h2><strong><%= content.title %></strong></h2>
+              <div class="content">
+                  <%= content.content.truncate(100) %>
+              </div>
+              <hr>
+              <% content.tags.first(5).each do |tag| %>
+                <span class="tag is-success"><%= tag %></span>
+              <% end %>
+              <p class="is-pulled-right">
+                <%= t('Recommended') %>: <strong><%= User.find(content.user_id).username %></strong> <small><%= Time.at(content.created_at).zone %></small>
+              </p>
+          </article>
+          <% end %>
+        </div>
+      </div>
+      <div class="column is-2">
+      </div>
+    </div>
+  </div>
+</section>

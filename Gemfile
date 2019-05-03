@@ -5,13 +5,19 @@ ruby '2.6.2'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 
+# frontend
+# This gem adds the bulma.io assets to your asset pipeline so you can import them in your Rails project. (https://github.com/joshuajansen/bulma-rails)
+gem 'bulma-rails', '0.7.4'
+# Font-Awesome SASS (https://github.com/FortAwesome/font-awesome-sass)
+gem 'font-awesome-sass', '5.8.1'
+
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
 gem 'sidekiq', '5.2.5'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.6.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.1.4'
+gem 'web_stat', '0.1.6'
 
 ##
 # Social Api Gems
@@ -34,8 +40,6 @@ gem 'cancancan-mongoid', '2.0.0.beta1'
 ##
 # Admin for Rails (https://github.com/sferik/rails_admin)
 gem 'rails_admin', '1.4.2'
-# Easily track model change history and mantain audit log with mongoid (https://github.com/rs-pro/mongoid-audit)
-gem 'mongoid-audit', '1.4.0'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid', '1.0.1'
 
