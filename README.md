@@ -11,14 +11,22 @@ smtp settings
 # Development Tools
 Newsdict use docker-compse on development env.
 
+## build
+    $ sudo docker-compose build
+
 ## start docker-compose
-$ docker/start
+    $ docker/start
 
 ## rails comamnds
 sample ex)
-- $ docker/rails -T
-- $ docker/rails test -v
+
+    $ docker/rails -T
+    $ docker/rails test -v
+
+## bundle comamnds
+sample ex)
+
+    $ docker/bundle exec ruby -v
 
 ## shell exec
-sample ex)
-- $ docker/docker pwd
+    $ docker/bash

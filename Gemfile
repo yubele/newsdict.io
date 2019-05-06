@@ -14,6 +14,8 @@ gem 'font-awesome-sass', '5.8.1'
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
 gem 'sidekiq', '5.2.5'
+# Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
+gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.6.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)

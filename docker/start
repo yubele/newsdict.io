@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 docker-compose stop &&
 docker-compose up -d &&
-docker attach $(docker ps |grep newsdict_web |cut -f 1 -d" ")
+docker attach $(docker ps |grep newsdict_web$ |cut -f 1 -d" ")

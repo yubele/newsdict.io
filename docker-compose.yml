@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 networks:
   app-tier:
     driver: bridge
@@ -29,18 +29,19 @@ services:
     command: >
       bash -c "yarn install --check-files
       && bundle install --path .bundle --no-deployment --with development test
+      && (/usr/sbin/nginx -c /etc/nginx/nginx.conf &)
+      && (bin/webpack-dev-server &)
       && bundle exec rails s -b 0.0.0.0 -p 3000"
-    ports: 
+    ports:
       - 3000:3000
+      - 3036:3036
     networks:
       - app-tier
   worker:
     tty: true
     stdin_open: true
+    image: newsdictio_web
     container_name: newsdict_worker
-    build:
-      context: .
-      dockerfile: Dockerfile
     working_dir: /var/www/newsdict
     command: "bundle exec sidekiq -q default"
     volumes:

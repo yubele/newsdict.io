@@ -24,8 +24,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 WORKDIR /var/www/opensdict
 COPY . .
-COPY provisioning/nginx/sites-availabled/prod.conf /etc/nginx/sites-available/default
+COPY provisioning/nginx/sites-available/default /etc/nginx/sites-available/default
 
 RUN chown www-data.www-data -R /var/www/newsdict
 RUN bundle install --path .bundle --deployment --without development test --quiet
-EXPOSE 80
+EXPOSE 80 3036

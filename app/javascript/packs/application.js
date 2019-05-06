@@ -14,5 +14,10 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-console.log('Hello World from Webpacker')
+import Vue from 'vue/dist/vue.js'
+var app = new Vue({
+    el: '#mobile-menu',
+    data: {
+        isOpen: false
+    }
+})

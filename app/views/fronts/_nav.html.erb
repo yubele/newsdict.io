@@ -1,29 +1,28 @@
-<nav class="navbar is-white">
+<nav id="mobile-menu" class="navbar" role="navigation" aria-label="main navigation">
   <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item">
+        <%= t('sitename') %>
+      </a>
 
-    <div id="navMenu" class="navbar-menu">
-      <div class="navbar-start">
-        <div class="navbar-brand">
-          <a class="navbar-item brand-text" href="../">
-            Newsdict
-          </a>
-          <div class="navbar-burger burger" data-target="navMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-      </div>
-      <div class="nav-end">
-        <div class="tabs is-right">
-          <span class="navbar-item">
+      <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar" @click="isOpen = !isOpen" v-bind:class="{'is-active': isOpen}">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="navbar" class="navbar-menu" v-bind:class="{'is-active': isOpen}">
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
             <%= link_to rails_admin_path, class: 'button' do %>
               <span class="icon">
                 <i class="fa fa-cogs"></i>
               </span>
               <span><%= t('Dashboard') %></span>
             <% end %>
-          </span>
+          </div>
         </div>
       </div>
     </div>
