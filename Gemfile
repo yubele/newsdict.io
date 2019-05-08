@@ -5,7 +5,7 @@ ruby '2.6.2'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', '2.7.2', require: 'dotenv/rails-now'
 
-# frontend
+# Frontend
 # This gem adds the bulma.io assets to your asset pipeline so you can import them in your Rails project. (https://github.com/joshuajansen/bulma-rails)
 gem 'bulma-rails', '0.7.4'
 # Font-Awesome SASS (https://github.com/FortAwesome/font-awesome-sass)
@@ -111,6 +111,26 @@ group :development do
   gem 'spring-watcher-listen', '2.0.1'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
+  # Documentation tool for consistent and usable documentation in Ruby. (http://yardoc.org)
+end
+
+group :document do
+  # Documentation tool for consistent and usable documentation in Ruby. (http://yardoc.org)
+  gem 'yard', '0.9.19'
+  # A YARD plugin to handle modules using ActiveSupport::Concern (https://github.com/digitalcuisine/yard-activesupport-concern)
+  gem 'yard-activesupport-concern', '0.0.1'
+  # An implementation of the AsciiDoc text processor and publishing toolchain (https://asciidoctor.org)
+  gem 'asciidoctor', '2.0.9'
+  # An extension for asciidoctor that adds support for UML diagram generation using PlantUML (https://github.com/asciidoctor/asciidoctor-diagram)
+  gem 'asciidoctor-diagram', '1.5.16'
+  # Guard keeps an eye on your file modifications (http://guardgem.org)
+  gem 'guard', '2.15.0'
+  # Guard gem for YARD (https://github.com/panthomakos/guard-yard)
+  gem 'guard-yard', '2.2.1'
+  # Guard gem for running shell commands (http://github.com/hawx/guard-shell)
+  gem 'guard-shell', '0.7.1'
+  # A Ruby wrapper for Linux inotify, using FFI (https://github.com/guard/rb-inotify)
+  gem 'rb-inotify', '0.10.0', :require => false
 end
 
 group :test do

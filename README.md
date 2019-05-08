@@ -30,3 +30,6 @@ sample ex)
 
 ## shell exec
     $ docker/bash
+    
+## Secret
+    $ EDITOR="mate --wait" bin/rails credentials:edit

@@ -48,3 +48,19 @@ services:
     - ./:/var/www/newsdict
     networks:
       - app-tier
+  document:
+    tty: true
+    stdin_open: true
+    image: newsdictio_web
+    container_name: newsdict_document
+    working_dir: /var/www/newsdict
+    command: >
+      bash -c "(/usr/sbin/nginx -c /etc/nginx/nginx.conf &)
+      && bin/generate_all_documents
+      && bundle exec guard"
+    volumes:
+      - ./:/var/www/newsdict
+    ports:
+      - 8080:8080
+    networks:
+      - app-tier

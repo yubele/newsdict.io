@@ -4,14 +4,10 @@ server {
     root /var/www/newsdict/public;
     index index.html;
 
-    location ~ ^/(assets|fonts)/ {
+    location ~ ^/assets/ {
         expires 10d;
         passenger_enabled on;
         passenger_app_env "production";
-    }
-
-    location /static {
-        expires 10d;
     }
 
     location / {
@@ -40,5 +36,15 @@ server {
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-Proto $scheme;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+server {
+    listen 8080 default_server;
+    server_name _;
+    root /var/www/newsdict/doc;
+    index index.html;
+
+    location / {
+        # something
     }
 }

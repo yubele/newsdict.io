@@ -162,3 +162,28 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
+
+document:
+  clients:
+    default:
+      database: newsdict_document
+      hosts:
+        - mongo:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1
+
+production:
+  clients:
+    default:
+      database: newsdict_document
+      hosts:
+        - mongo:27017
+      options:
+        read:
+          mode: :primary
+        max_pool_size: 1kkjjj:wq
+
+
+
