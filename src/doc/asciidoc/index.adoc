@@ -2,6 +2,6 @@
 
 = newsdict.io Overview
 
-** link:getting_started.html[Getting Started]
+** link:./getting_started.html[Getting Started]
 
 
