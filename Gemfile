@@ -125,8 +125,6 @@ group :document do
   gem 'asciidoctor-diagram', '1.5.16'
   # Guard keeps an eye on your file modifications (http://guardgem.org)
   gem 'guard', '2.15.0'
-  # Guard gem for YARD (https://github.com/panthomakos/guard-yard)
-  gem 'guard-yard', '2.2.1'
   # Guard gem for running shell commands (http://github.com/hawx/guard-shell)
   gem 'guard-shell', '0.7.1'
   # A Ruby wrapper for Linux inotify, using FFI (https://github.com/guard/rb-inotify)

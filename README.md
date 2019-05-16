@@ -1,3 +1,5 @@
+[back to Doc home](../)
+
 # newsdict
 Correct the conntents from Internet.
 
