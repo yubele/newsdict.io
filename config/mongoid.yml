@@ -177,13 +177,13 @@ document:
 production:
   clients:
     default:
-      database: newsdict_document
+      database: newsdict_production
       hosts:
-        - mongo:27017
+        - <%= ENV['MONGODB_HOST'] %>
       options:
         read:
           mode: :primary
-        max_pool_size: 1kkjjj:wq
+        max_pool_size: 1
 
 
 
