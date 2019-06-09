@@ -1,7 +1,7 @@
 server {
     listen 80 default_server;
     server_name _;
-    root /var/www/newsdict/public;
+    root /var/www/docker/public;
     index index.html;
 
     location ~ ^/assets/ {
@@ -21,7 +21,7 @@ upstream webpack-dev-server {
 server {
     listen 3036 default_server;
     server_name _;
-    root /var/www/newsdict/public;
+    root /var/www/docker/public;
     index index.html;
 
     location / {
@@ -41,7 +41,7 @@ server {
 server {
     listen 8080 default_server;
     server_name _;
-    root /var/www/newsdict/doc;
+    root /var/www/docker/doc;
     index index.html;
 
     location / {

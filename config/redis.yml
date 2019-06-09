@@ -1,5 +1,5 @@
 development: &default
-  host: redis:3679
+  host: redis:6379
 test:
   <<: *default
 document:
