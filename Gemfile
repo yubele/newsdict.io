@@ -85,6 +85,11 @@ gem 'jbuilder', '2.8.0'
 # Reduces boot times through caching; required in config/boot.rb
 # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
 gem 'bootsnap', '>= 1.1.0', require: false
+# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+# Rails application preloader (https://github.com/rails/spring)
+gem 'spring', '2.0.2'
+# Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
+gem 'spring-watcher-listen', '2.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -104,11 +109,6 @@ group :development do
   gem 'web-console', '3.7.0'
   # Listen to file modifications (https://github.com/guard/listen)
   gem 'listen', '3.1.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  # Rails application preloader (https://github.com/rails/spring)
-  gem 'spring', '2.0.2'
-  # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
-  gem 'spring-watcher-listen', '2.0.1'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
   # Documentation tool for consistent and usable documentation in Ruby. (http://yardoc.org)

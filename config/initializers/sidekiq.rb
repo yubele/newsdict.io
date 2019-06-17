@@ -1,4 +1,4 @@
-redis = YAML.load_file("#{Rails.root}/config/redis.yml")[Rails.env]
+redis = YAML.load(ERB.new(File.read("#{Rails.root}/config/redis.yml")).result)[Rails.env]
 
 Sidekiq.configure_client do |config|
   config.redis = { url: "redis://#{redis['host']}", namespace: ENV['SIDEKIQ_NAMESPACE'] }

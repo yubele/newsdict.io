@@ -1,5 +1,5 @@
 # define ubuntu version, you can use --build-arg
-ARG ubuntu_version="19.10"
+ARG ubuntu_version="18.10"
 FROM ubuntu:${ubuntu_version}
 
 # Dockerfile on bash
@@ -12,7 +12,7 @@ ARG node_version="v12.4.0"
 ARG ruby_version="2.6.3"
 
 RUN apt update
-RUN apt install -y curl yarn libmecab-dev mecab-ipadic-utf8 libmagickwand-dev openjdk-8-jdk nodejs graphicsmagick graphviz curl nginx
+RUN apt install -y vim git curl yarn libmecab-dev mecab-ipadic-utf8 libmagickwand-dev openjdk-8-jdk nodejs graphicsmagick graphviz curl nginx
 
 # install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
@@ -34,6 +34,7 @@ RUN . /etc/profile.d/rvm.sh \
     && rvm install ${ruby_version} \
     && gem install bundler
 
+
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Set correct environment variables.
@@ -43,8 +44,19 @@ WORKDIR /var/www/docker
 # Set up application
 COPY . .
 COPY src/provisioning/nginx/sites-available/default /etc/nginx/sites-available/default
+COPY src/provisioning/startup.sh /startup.sh
 
-RUN . /etc/profile.d/rvm.sh \
+# Initialize rails
+RUN yarn install --check-files \
+    && . /etc/profile.d/rvm.sh \
     && bundle install --path .bundle --deployment --without development test --quiet
+
+# Start application
+RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \
+        rm /var/www/docker/tmp/pids/server.pid; \
+    fi
+RUN . /etc/profile.d/rvm.sh \
+    && bin/rails log:clear
+CMD ["bash", "/startup.sh"]
+
 EXPOSE 80 8080 3036
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]

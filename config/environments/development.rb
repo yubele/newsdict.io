@@ -50,4 +50,8 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # An Array of strings specifying locations that should be searched for factory definitions.
+  # By default, factory_bot will attempt to require “factories”, “test/factories” and “spec/factories”. Only the first existing file will be loaded.
+  config.factory_bot.definition_file_paths = ['test/fixtures/factories']
 end
