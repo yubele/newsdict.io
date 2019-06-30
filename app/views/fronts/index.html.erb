@@ -19,10 +19,10 @@
               </div>
               <hr>
               <% content.tags.first(5).each do |tag| %>
-                <span class="tag is-success"><%= tag %></span>
+                <span class="tag is-dark"><%= tag %></span>
               <% end %>
               <p class="is-pulled-right">
-                <%= t('Recommended') %>: <strong><%= User.find(content.user_id).username %></strong> <small><%= Time.at(content.created_at).zone %></small>
+                <%= t('shared by') %> <strong><%= find_name_by_source(content.source_id) %></strong> / <small><%= Time.at(content.created_at).in_time_zone %></small>
               </p>
           </article>
           <% end %>

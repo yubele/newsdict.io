@@ -7,5 +7,6 @@ class Content < ApplicationRecord
   field :expanded_url, type: String
   field :eyecatch_image_path, type: String
   field :tags, type: Array
+  field :source_id, type: BSON::ObjectId
   field :user_id, type: BSON::ObjectId
 end

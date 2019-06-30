@@ -1,6 +1,9 @@
 # Repository for source object
 class SourceRepository
   attr_accessor :object
+
+  # initialize
+  # @param [Source]
   def initialize(object)
     @object = object
   end
@@ -16,6 +19,7 @@ class SourceRepository
           :expanded_url => web_stat[:original_url],
           :eyecatch_image_path => web_stat[:eyecatch_image_path],
           :tags => web_stat[:tags],
+          :source_id => @object.id,
           :user_id => @object.user_id}).save
     end
   end
