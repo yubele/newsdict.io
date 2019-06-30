@@ -9,7 +9,7 @@ class AdminAbility
       # super admin navigation
       RailsAdmin.config do |config|
         config.navigation_static_links = {
-            'Sidekiq' => ENV['SIDEKIQ_WEB_URL']
+            'Sidekiq' => "/sidekiq"
         }
         config.model User do
           edit do
