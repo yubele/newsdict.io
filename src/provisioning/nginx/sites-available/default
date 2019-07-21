@@ -66,3 +66,15 @@ server {
         # something
     }
 }
+
+# Content Delivery Network Server
+server {
+    listen 6060 default_server;
+    server_name _;
+    root /var/www/docker/vendor/cdn;
+    index index.html;
+
+    location / {l
+        # something
+    }
+}

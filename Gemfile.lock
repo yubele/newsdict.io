@@ -424,7 +424,7 @@ GEM
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    web_stat (0.1.6)
+    web_stat (0.1.7)
       bundler (~> 2.0)
       final_redirect_url (~> 0.1.0)
       mechanize (~> 2.7)
@@ -499,7 +499,7 @@ DEPENDENCIES
   tzinfo-data (= 1.2018.9)
   uglifier (= 4.1.20)
   web-console (= 3.7.0)
-  web_stat (= 0.1.6)
+  web_stat (= 0.1.7)
   webmock (= 3.5.1)
   webpacker (= 4.0.1)
   yard (= 0.9.19)
@@ -509,4 +509,4 @@ RUBY VERSION
    ruby 2.6.3p62
 
 BUNDLED WITH
-   2.0.1
+   2.0.2
