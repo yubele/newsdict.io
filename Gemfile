@@ -56,7 +56,7 @@ gem 'mongoid-grid_fs', '2.4.0'
 gem 'mongoid_search', '0.3.6'
 
 ##
-# default gems
+# system gems
 ##
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Full-stack web application framework. (http://rubyonrails.org)
@@ -90,6 +90,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'spring', '2.0.2'
 # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
 gem 'spring-watcher-listen', '2.0.1'
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Timezone Data for TZInfo (http://tzinfo.github.io)
+gem 'tzinfo-data', '1.2018.9'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -111,12 +114,12 @@ group :development do
   gem 'listen', '3.1.5'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
-  # Documentation tool for consistent and usable documentation in Ruby. (http://yardoc.org)
+  gem 'bundler-audit'
 end
 
 group :document do
   # Documentation tool for consistent and usable documentation in Ruby. (http://yardoc.org)
-  gem 'yard', '0.9.19'
+  gem 'yard', '0.9.20'
   # A YARD plugin to handle modules using ActiveSupport::Concern (https://github.com/digitalcuisine/yard-activesupport-concern)
   gem 'yard-activesupport-concern', '0.0.1'
   # An implementation of the AsciiDoc text processor and publishing toolchain (https://asciidoctor.org)
@@ -146,7 +149,3 @@ group :test do
   # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
   gem 'database_cleaner', '1.7.0'
 end
-
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# Timezone Data for TZInfo (http://tzinfo.github.io)
-gem 'tzinfo-data', '1.2018.9'
