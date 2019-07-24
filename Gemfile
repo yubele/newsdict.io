@@ -114,7 +114,8 @@ group :development do
   gem 'listen', '3.1.5'
   # Lock Gemfile gem declarations to specific Gemfile.lock versions (https://github.com/jeremyf/bundle-locker)
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
-  gem 'bundler-audit'
+  # Patch-level verification for Bundler (https://github.com/rubysec/bundler-audit#readme)
+  gem 'bundler-audit', '0.6.1'
 end
 
 group :document do

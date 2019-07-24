@@ -463,7 +463,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bulma-rails (= 0.7.4)
   bundle-locker!
-  bundler-audit
+  bundler-audit (= 0.6.1)
   byebug (= 11.0.0)
   cancancan (= 2.3.0)
   cancancan-mongoid (= 2.0.0.beta1)
