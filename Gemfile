@@ -19,7 +19,8 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.6.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.1.7'
+gem 'web_stat', '0.1.10'
+gem 'mini_magick'
 
 ##
 # Social Api Gems
@@ -144,7 +145,7 @@ group :test do
   # Easy installation and use of chromedriver. (https://github.com/flavorjones/chromedriver-helper)
   gem 'chromedriver-helper', '2.1.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
-  gem 'webmock', '3.5.1'
+  gem 'webmock', '3.6.0'
   # Easily generate fake data (https://github.com/stympy/faker)
   gem 'faker', '1.9.3'
   # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)

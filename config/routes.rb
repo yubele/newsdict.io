@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   }
   # For health-check
   get 'active', to: proc { [200, Hash.new, Array.new] }
+  get '/img/:id', to: "images#index"
   get '/', to: "fronts#index", as: 'root'
 end
