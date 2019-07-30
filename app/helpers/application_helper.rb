@@ -1,4 +1,9 @@
 module ApplicationHelper
+  # Count user
+  def count_user
+    User.all.count
+  end
+
   # Get the source url
   # @param [BSON::ObjectId]
   # @return string
@@ -8,6 +13,7 @@ module ApplicationHelper
       "#{source.source_url}/#{source.name}"
     end
   end
+
   # Get the name of source
   # @param [BSON::ObjectId]
   # @return string
