@@ -1,0 +1,8 @@
+development: &default
+  host: redis:6379
+test:
+  <<: *default
+document:
+  <<: *default
+production:
+  host: <%= ENV['REDIS_HOST'] %>

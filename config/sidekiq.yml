@@ -1,0 +1,5 @@
+:schedule:
+  hello_world:
+    enabled: false
+    cron: '0 1 * * * *'
+    class: TwitterAccountsJob

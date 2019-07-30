@@ -1,0 +1,13 @@
+:toc: left
+
+= newsdict.io Documents
+
+Find valuable information
+
+== Overview
+link:/asciidoc/[Asciidoc index]
+
+== Source Document
+link:/yard/[Yard Index]
+
+== Source Graph

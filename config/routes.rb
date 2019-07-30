@@ -1,3 +1,11 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  mount Sidekiq::Web => "/sidekiq", constraints: SuperAdminConstraint.new, as: 'sidekiq_web'
+  mount RailsAdmin::Engine => "/admin", as: 'rails_admin'
+  devise_for 'user', :controllers => {
+    :registrations => 'admins/registrations'
+  }
+  # For health-check
+  get 'active', to: proc { [200, Hash.new, Array.new] }
+  get '/img/:id', to: "images#index"
+  get '/', to: "fronts#index", as: 'root'
 end

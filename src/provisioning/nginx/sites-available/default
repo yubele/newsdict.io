@@ -1,0 +1,80 @@
+upstream puma {
+    server unix:///var/www/docker/tmp/sockets/puma.sock;
+}
+server {
+    listen 80 default_server;
+    server_name _;
+    root /var/www/docker/public;
+    index index.html;
+
+    # For compiled css
+    location /assets {
+        root /var/www/docker/public;
+    }
+
+    # For webpacker's js
+    location /packs {
+        root /var/www/docker/public;
+    }
+
+    # For rails
+    location / {
+        proxy_pass    http://puma/;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+
+        proxy_set_header Host $http_host;
+        proxy_read_timeout 180s;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+# development webpacker
+upstream webpack-dev-server {
+  server localhost:3035;
+}
+server {
+    listen 3036 default_server;
+    server_name _;
+    root /var/www/docker/public;
+    index index.html;
+    location / {
+        proxy_pass http://webpack-dev-server;
+
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "Upgrade";
+
+        proxy_set_header Host $http_host;
+        proxy_read_timeout 180s;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}
+
+# Documentation Server
+server {
+    listen 8080 default_server;
+    server_name _;
+    root /var/www/docker/doc;
+    index index.html;
+
+    location / {
+        # something
+    }
+}
+
+# Content Delivery Network Server
+server {
+    listen 6060 default_server;
+    server_name _;
+    root /var/www/docker/vendor/cdn;
+    index index.html;
+
+    location / {l
+        # something
+    }
+}

@@ -1,0 +1,68 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *= require bulma
+ *= require_tree .
+ *= require_self
+ */
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+html, body {
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.hero {
+  &.is-success {
+    background: #F2F6FA;
+   }
+  .nav, &.is-success .nav {
+     -webkit-box-shadow: none;
+     box-shadow: none;
+   }
+}
+
+.avatar {
+  margin-top: -70px;
+  padding-bottom: 20px;
+  img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  }
+}
+
+input {
+  font-weight: 300;
+}
+
+p {
+  font-weight: 700;
+  &.subtitle {
+    padding-top: 1rem;
+  }
+}
+.media-source-name a {
+  color: #2E2F30;
+}
+.media-content h2 {
+  font-size: 130%;
+  text-decoration: underline;
+  color: #2E2F30;
+}
+.media-content .tags span {
+  letter-spacing: 3px;
+  font-weight:bold;
+}

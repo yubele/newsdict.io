@@ -1,24 +1,37 @@
-# README
+[back to Doc home](../)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# newsdict
+Correct the conntents from Internet.
 
-Things you may want to cover:
+# Settings
 
-* Ruby version
+smtp settings 
 
-* System dependencies
+1. copy `.env-sample` file to `.env` file.
+2. Edit `.env`.
 
-* Configuration
+# Development Tools
+Newsdict use docker-compse on development env.
 
-* Database creation
+## build
+    $ sudo docker-compose build
 
-* Database initialization
+## start docker-compose
+    $ docker/start
 
-* How to run the test suite
+## rails comamnds
+sample ex)
 
-* Services (job queues, cache servers, search engines, etc.)
+    $ docker/rails -T
+    $ docker/rails test -v
 
-* Deployment instructions
+## bundle comamnds
+sample ex)
 
-* ...
+    $ docker/bundle exec ruby -v
+
+## shell exec
+    $ docker/bash
+    
+## Secret
+    $ EDITOR="mate --wait" bin/rails credentials:edit

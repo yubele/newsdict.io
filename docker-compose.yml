@@ -1,0 +1,73 @@
+version: "3"
+networks:
+  app-tier:
+    driver: bridge
+services:
+  redis:
+    container_name: newsdict_redis
+    image: 'redis'
+    networks:
+      - app-tier
+  mongo:
+    container_name: newsdict_mongodb
+    image: mongo
+    restart: always
+    ports:
+      - ${LOCAL_MONGODB_PORT}:27017
+    networks:
+      - app-tier
+  web:
+    tty: true
+    stdin_open: true
+    container_name: newsdict_web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - ./:/var/www/newsdict
+    working_dir: /var/www/newsdict
+    command: >
+      bash -c "yarn install --check-files
+      && . /etc/profile.d/rvm.sh
+      && bundle install --path .bundle --no-deployment --with development test
+      && (bin/webpack-dev-server &)
+      && bundle exec rails s"
+    ports:
+      - 3000:3000
+      - 3036:3036
+    networks:
+      - app-tier
+  worker:
+    tty: true
+    stdin_open: true
+    image: newsdictio_web
+    container_name: newsdict_worker
+    working_dir: /var/www/newsdict
+    command: >
+      bash -c "yarn install --check-files
+      && . /etc/profile.d/rvm.sh
+      && bundle exec sidekiq -q default"
+    volumes:
+    - ./:/var/www/newsdict
+    networks:
+      - app-tier
+    depends_on:
+      - redis
+  document:
+    tty: true
+    stdin_open: true
+    image: newsdictio_web
+    container_name: newsdict_document
+    working_dir: /var/www/newsdict
+    command: >
+      bash -c "(/usr/sbin/nginx -c /etc/nginx/nginx.conf &)
+      && yarn install --check-files
+      && . /etc/profile.d/rvm.sh
+      && bin/generate_all_documents
+      && bundle exec guard"
+    volumes:
+      - ./:/var/www/newsdict
+    ports:
+      - 8080:8080
+    networks:
+      - app-tier

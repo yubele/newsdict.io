@@ -1,0 +1,23 @@
+<%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
+  <section class="hero is-success is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-4 is-offset-4">
+          <h3 class="title has-text-grey"><%= t('Resend unlock instructions') %></h3>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="box">
+            <div class="field">
+              <%= f.label :email, class: 'label' %>
+              <div class="control">
+                <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "input is-large" %>
+              </div>
+            </div>
+            <%= f.submit "Resend unlock instructions" %>
+            <hr/>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

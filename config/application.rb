@@ -1,19 +1,36 @@
 require_relative 'boot'
 
-require 'rails/all'
+require "rails"
+# Pick the frameworks you want:
+require "active_model/railtie"
+require "active_job/railtie"
+# require "active_record/railtie"
+# require "active_storage/engine"
+require "action_controller/railtie"
+require "action_mailer/railtie"
+require "action_view/railtie"
+require "action_cable/engine"
+require "sprockets/railtie"
+require "rails/test_unit/railtie"
+require 'sidekiq/web'
+require 'sidekiq-scheduler/web'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Opendict
+module Newsdict
   class Application < Rails::Application
+    config.time_zone = 'Tokyo'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration can go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded after loading
-    # the framework and any gems in your application.
+    # Recursively including all model subdirectories
+    config.autoload_paths += Dir[Rails.root.join('app', 'models', '*', '**')]
+    # Active Job
+    config.active_job.queue_adapter = :sidekiq
+    # Web site's prefix used by Source
+    config.web_site_prefix = {
+        twitter_account: 'https://twitter.com'
+    }
   end
 end

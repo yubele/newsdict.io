@@ -1,0 +1,36 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <section class="hero is-success is-fullheight">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <div class="column is-4 is-offset-4">
+          <h3 class="title has-text-grey"><%= t('Log in Form') %></h3>
+          <p class="subtitle has-text-grey"><%= t('Please log in.') %></p>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <div class="box">
+            <div class="field">
+              <%= f.label :email, class: 'label' %>
+              <div class="control">
+                <%= f.email_field :email, autofocus: false, autocomplete: "email", class: "input is-large" %>
+              </div>
+            </div>
+            <div class="field">
+              <%= f.label :password, class: 'label' %>
+              <div class="control">
+                <%= f.password_field :password, autocomplete: "current-password", class: "input is-large" %>
+              </div>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end %>
+            <%= f.submit "Log in" %>
+            <hr/>
+            <%= render "devise/shared/links" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<% end %>

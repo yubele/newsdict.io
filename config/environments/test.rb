@@ -28,9 +28,6 @@ Rails.application.configure do
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
 
-  # Store uploaded files on the local file system in a temporary directory
-  config.active_storage.service = :test
-
   config.action_mailer.perform_caching = false
 
   # Tell Action Mailer not to deliver emails to the real world.
@@ -43,4 +40,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # An Array of strings specifying locations that should be searched for factory definitions.
+  # By default, factory_bot will attempt to require “factories”, “test/factories” and “spec/factories”. Only the first existing file will be loaded.
+  config.factory_bot.definition_file_paths = ['test/fixtures/factories']
 end
