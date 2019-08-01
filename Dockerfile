@@ -47,7 +47,7 @@ COPY src/provisioning/nginx/sites-available/default /etc/nginx/sites-available/d
 COPY src/provisioning/startup.sh /startup.sh
 
 # Initialize rails
-RUN yarn install --check-files \
+RUN yarn install --production --check-files \
     && . /etc/profile.d/rvm.sh \
     && bundle install --path .bundle --deployment --without development test --quiet
 
@@ -56,7 +56,8 @@ RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \
         rm /var/www/docker/tmp/pids/server.pid; \
     fi
 RUN . /etc/profile.d/rvm.sh \
-    && bin/rails log:clear
+    && bin/rails log:clear \
+    && RAILS_ENV=production EDITOR="mate --wait" bin/rails credentials:edit
 CMD ["bash", "/startup.sh"]
 
 EXPOSE 80 8080 3036
