@@ -46,18 +46,14 @@ COPY . .
 COPY src/provisioning/nginx/sites-available/default /etc/nginx/sites-available/default
 COPY src/provisioning/startup.sh /startup.sh
 
-# Initialize rails
-RUN yarn install --production --check-files \
-    && . /etc/profile.d/rvm.sh \
-    && bundle install --path .bundle --deployment --without development test --quiet
-
-# Start application
+# If you are running the development environment, the pid file will remain, so delete the pid file
 RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \
         rm /var/www/docker/tmp/pids/server.pid; \
     fi
-RUN . /etc/profile.d/rvm.sh \
-    && bin/rails log:clear \
-    && RAILS_ENV=production EDITOR="mate --wait" bin/rails credentials:edit
+    
 CMD ["bash", "/startup.sh"]
 
+# Port 80: Application (nginx + puma)
+# Port 8080: Document (yard + asciidoctor)
+# Port 3036: webpack-dev-server
 EXPOSE 80 8080 3036
