@@ -1,5 +1,5 @@
 :schedule:
-  hello_world:
-    enabled: false
+  twitter_account_job:
+    enabled: true
     cron: '0 1 * * * *'
     class: TwitterAccountsJob
