@@ -21,6 +21,7 @@ gem 'redis-namespace', '1.6.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '0.1.10'
 gem 'mini_magick'
+gem 'nokogiri', '1.10.4'
 
 ##
 # Social Api Gems
@@ -32,7 +33,7 @@ gem 'twitter', '6.2.0'
 # User Manage
 ##
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
-gem 'devise', '4.6.2'
+gem 'devise', '4.7.1'
 # Simple authorization solution for Rails. (https://github.com/CanCanCommunity/cancancan)
 gem 'cancancan', '2.3.0'
 # Mongoid database adapter for CanCanCan. (https://github.com/CanCanCommunity/cancancan-mongoid)
