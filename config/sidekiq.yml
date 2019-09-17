@@ -1,5 +1,5 @@
 :schedule:
   twitter_account_job:
     enabled: true
-    cron: '0 1 * * * *'
+    cron: '0 0 */3 * * *'
     class: TwitterAccountsJob
