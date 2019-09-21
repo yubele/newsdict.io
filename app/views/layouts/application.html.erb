@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= Config[:head] %>
     <title>Newsdict</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+    <%= Config[:after_body] %>
     <%= yield %>
 
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+    <%= Config[:end_body] %>
   </body>
 </html>

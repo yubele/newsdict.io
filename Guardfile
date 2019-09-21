@@ -19,5 +19,6 @@ guard 'shell' do
     `echo "--------" >> #{Dir.pwd}/#{tmp_src}`
     `echo "link:/source-graph.svg[Expansion Image]" >> #{Dir.pwd}/#{tmp_src}`
     `bundle exec asciidoctor -r asciidoctor-diagram #{Dir.pwd}/#{tmp_src} -o #{Dir.pwd}/doc/index.html`
+    `rm #{Dir.pwd}/#{tmp_src}`
   end
 end

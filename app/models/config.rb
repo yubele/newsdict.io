@@ -7,4 +7,9 @@ class Config < ApplicationRecord
   field :describe, type: String
   # value
   field :value, type: String
+  
+  # Get config
+  def self.[](key)
+    return find_by(key: key).value
+  end
 end
