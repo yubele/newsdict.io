@@ -10,6 +10,17 @@ class Config < ApplicationRecord
   
   # Get config
   def self.[](key)
-    return find_by(key: key).value
+    if item = find_by(key: key)
+      item.value
+    end
+  end
+  
+  # Check Exists
+  def self.has_key?(key)
+    if find_by(key: key)
+      true
+    else
+      false
+    end
   end
 end
