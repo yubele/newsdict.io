@@ -8,6 +8,10 @@ RailsAdmin.config do |config|
     navigation_label 'Global Setting'
     weight 10
   end
+  config.model "Config" do
+    navigation_label 'Global Setting'
+    weight 15
+  end
   config.model "Contents::Web" do
     navigation_label 'Global View'
     weight 20

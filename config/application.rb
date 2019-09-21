@@ -30,7 +30,11 @@ module Newsdict
     config.active_job.queue_adapter = :sidekiq
     # Web site's prefix used by Source
     config.web_site_prefix = {
-        twitter_account: 'https://twitter.com'
-    }
+        twitter_account: 'https://twitter.com'}
+    # config names
+    config.keys = {
+      head: 'Insert this code as high in the <head> tag',
+      after_body: 'Insert this code immediately after the opening <body> tag',
+      end_body: 'Insert this code immediately end the opening <body> tag'}
   end
 end

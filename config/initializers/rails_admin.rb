@@ -11,12 +11,16 @@ RailsAdmin.config do |config|
     dashboard
     index
     new do
-      except  ['User']
+      except  ['User', 'Config']
     end
-    bulk_delete
+    bulk_delete do
+      except ['Config']
+    end
     show
     edit
-    delete
+    delete do
+      except ['Config']
+    end
     show_in_app
   end
 end
