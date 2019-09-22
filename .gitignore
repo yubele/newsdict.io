@@ -43,3 +43,6 @@
 /.yardoc
 /.asciidoc
 /doc
+
+# google
+/public/ads.txt

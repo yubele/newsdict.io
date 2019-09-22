@@ -27,7 +27,9 @@ class SourceRepository
         image.resize "128x"
         attrs[:image_blob] = BSON::Binary.new(image.to_blob)
       end
-      if content = Contents::Web.where(expanded_url: web_stat[:url]).exists?
+      # Check duplicated news
+      if content = Contents::Web.find_by(expanded_url: web_stat[:url]) ||
+          content = Contents::Web.find_by(title: web_stat[:title])
         content.update_attributes(attrs)
       else
         Contents::Web.new(attrs).save
