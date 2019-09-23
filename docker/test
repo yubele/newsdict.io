@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+docker-compose stop &&
+docker-compose up -d &&
+docker exec -it $(docker ps |grep newsdict_web |awk '{print $1}') /bin/bash -c ". /etc/profile.d/rvm.sh && bin/rails test -v"
