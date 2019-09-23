@@ -41,8 +41,10 @@ services:
   worker:
     tty: true
     stdin_open: true
-    image: newsdictio_web
     container_name: newsdict_worker
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /var/www/newsdict
     command: >
       bash -c "yarn install --check-files
@@ -57,8 +59,10 @@ services:
   document:
     tty: true
     stdin_open: true
-    image: newsdictio_web
     container_name: newsdict_document
+    build:
+      context: .
+      dockerfile: Dockerfile
     working_dir: /var/www/newsdict
     command: >
       bash -c "(/usr/sbin/nginx -c /etc/nginx/nginx.conf &)

@@ -17,10 +17,16 @@ jobs:
           command: |
             cp .env-sample .env
       - run:
-          name: rails test -v
+          name: docker-compose down
+          command: |
+            docker-compose down
+      - run:
+          name: build & rails test -v
           command: |
             set -x
-            docker/test
+            docker-compose --project-name newsdict build web
+            docker-compose up -d
+            docker-compose exec web /bin/bash -c ". /etc/profile.d/rvm.sh && cd /var/www/docker && bundle install && bin/rails test -v"
       - run:
           name: docker-compose down
           command: docker-compose down
