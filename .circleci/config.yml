@@ -15,7 +15,7 @@ jobs:
       - run:
           name: set .env
           command: |
-            copy .env-sample 
+            cp .env-sample .env
       - run:
           name: rails test -v
           command: |
