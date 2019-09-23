@@ -19,7 +19,7 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.6.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.1.10'
+gem 'web_stat', '0.1.11'
 gem 'mini_magick'
 gem 'nokogiri', '1.10.4'
 
