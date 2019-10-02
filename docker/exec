@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker exec -it $(docker ps |grep newsdict_web$ |awk '{print $1}') $@
+docker-compose exec web /bin/bash -c ". /etc/profile.d/rvm.sh && $*"
