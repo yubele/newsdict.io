@@ -1,5 +1,5 @@
 # define newsdict/rails version, you can use --build-arg
-ARG version="v0.0.3"
+ARG version="v0.0.4"
 FROM newsdict/rails:${version}
 
 # Set correct environment variables.
