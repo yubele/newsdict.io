@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-root=$(readlink -f $(dirname $BASH_SOURCE)/../)
-for i in $(find $root/src/doc -name '*.adoc')
-do
-    _file=$i
-    _name=$(echo $i | sed "s#$root/src##" |sed 's/\.adoc//')
-    bundle exec asciidoctor -r asciidoctor-diagram $_file -o $root/$_name.html
-done
-bundle exec yard

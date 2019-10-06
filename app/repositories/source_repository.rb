@@ -3,7 +3,7 @@ class SourceRepository
   attr_accessor :object
 
   # initialize
-  # @param [Source]
+  # @param object [Source]
   def initialize(object)
     @object = object
   end
