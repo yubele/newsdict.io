@@ -24,17 +24,11 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-    - ./:/var/www/newsdict
-    working_dir: /var/www/newsdict
-    command: >
-      bash -c "yarn install --check-files
-      && . /etc/profile.d/rvm.sh
-      && bundle install --path .bundle --no-deployment --with development test
-      && bundle exec rails db:seed
-      && (bin/webpack-dev-server &)
-      && bundle exec rails s -b 0.0.0.0 -p 3000"
+    - ./:/var/www/docker
+    working_dir: /var/www/docker
+    command: "bash /startup/web/startup.sh"
     ports:
-      - 3000:3000
+      - 3000:80
       - 3036:3036
     networks:
       - app-tier
@@ -45,13 +39,14 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    working_dir: /var/www/newsdict
-    command: >
-      bash -c "yarn install --check-files
-      && . /etc/profile.d/rvm.sh
-      && bundle exec sidekiq -q default"
+    working_dir: /var/www/docker
+    command: "bash /startup/worker/startup.sh"
+    #command: >
+    #  bash -c "yarn install --check-files
+    #  && . /etc/profile.d/rvm.sh
+    #  && bundle exec sidekiq -q default"
     volumes:
-    - ./:/var/www/newsdict
+    - ./:/var/www/docker
     networks:
       - app-tier
     depends_on:
@@ -63,15 +58,16 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    working_dir: /var/www/newsdict
-    command: >
-      bash -c "(/usr/sbin/nginx -c /etc/nginx/nginx.conf &)
-      && yarn install --check-files
-      && . /etc/profile.d/rvm.sh
-      && bin/generate_all_documents
-      && bundle exec guard"
+    working_dir: /var/www/docker
+    command: "bash /startup/document/startup.sh"
+    #command: >
+    #  bash -c "(/usr/sbin/nginx -c /etc/nginx/nginx.conf &)
+    #  && yarn install --check-files
+    #  && . /etc/profile.d/rvm.sh
+    #  && bin/generate_all_documents
+    #  && bundle exec guard"
     volumes:
-      - ./:/var/www/newsdict
+      - ./:/var/www/docker
     ports:
       - 8080:8080
     networks:

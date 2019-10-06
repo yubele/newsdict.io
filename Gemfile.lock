@@ -142,7 +142,7 @@ GEM
     et-orbi (1.2.2)
       tzinfo
     execjs (2.7.0)
-    factory_bot (5.1.0)
+    factory_bot (5.1.1)
       activesupport (>= 4.2.0)
     factory_bot_rails (5.1.0)
       factory_bot (~> 5.1.0)
@@ -472,59 +472,59 @@ PLATFORMS
 
 DEPENDENCIES
   annotate_gem!
-  asciidoctor
-  asciidoctor-diagram
+  asciidoctor (= 2.0.10)
+  asciidoctor-diagram (= 1.5.18)
   bootsnap
-  bulma-rails
+  bulma-rails (= 0.7.5)
   bundle-locker!
-  bundler-audit
-  byebug
-  cancancan
-  cancancan-mongoid
-  capybara
-  chromedriver-helper
-  coffee-rails
-  database_cleaner
-  devise
+  bundler-audit (= 0.6.1)
+  byebug (= 11.0.1)
+  cancancan (= 2.3.0)
+  cancancan-mongoid (= 2.0.0.beta1)
+  capybara (= 3.29.0)
+  chromedriver-helper (= 2.1.1)
+  coffee-rails (= 5.0.0)
+  database_cleaner (= 1.7.0)
+  devise (= 4.7.1)
   dotenv-rails
-  factory_bot_rails
-  faker
-  font-awesome-sass
-  guard
-  guard-shell
-  jbuilder
-  kaminari-mongoid
-  listen
-  mini_magick
-  mongoid
-  mongoid-grid_fs
-  mongoid_search
-  nokogiri
-  pry-byebug
-  puma
+  factory_bot_rails (= 5.1.0)
+  faker (= 2.5.0)
+  font-awesome-sass (= 5.11.2)
+  guard (= 2.15.1)
+  guard-shell (= 0.7.1)
+  jbuilder (= 2.9.1)
+  kaminari-mongoid (= 1.0.1)
+  listen (= 3.2.0)
+  mini_magick (= 4.9.5)
+  mongoid (= 7.0.5)
+  mongoid-grid_fs (= 2.4.0)
+  mongoid_search (= 0.3.6)
+  nokogiri (= 1.10.4)
+  pry-byebug (= 3.7.0)
+  puma (= 4.2.0)
   rails (= 6.0.0)
-  rails_admin
+  rails_admin (= 2.0.0)
   rb-inotify
-  redis-namespace
-  sass-rails
-  selenium-webdriver
-  sidekiq
-  sidekiq-scheduler
-  spring
-  spring-watcher-listen
-  turbolinks
-  twitter
-  tzinfo-data
-  uglifier
-  web-console
-  web_stat
-  webmock
-  webpacker
-  yard
-  yard-activesupport-concern
+  redis-namespace (= 1.6.0)
+  sass-rails (= 6.0.0)
+  selenium-webdriver (= 3.142.5)
+  sidekiq (= 6.0.0)
+  sidekiq-scheduler (= 3.0.0)
+  spring (= 2.1.0)
+  spring-watcher-listen (= 2.0.1)
+  turbolinks (= 5.2.1)
+  twitter (= 6.2.0)
+  tzinfo-data (= 1.2019.3)
+  uglifier (= 4.2.0)
+  web-console (= 4.0.1)
+  web_stat (= 0.1.11)
+  webmock (= 3.7.6)
+  webpacker (= 4.0.7)
+  yard (= 0.9.20)
+  yard-activesupport-concern (= 0.0.1)
 
 RUBY VERSION
-   ruby 2.6.3p62
+   ruby 2.6.5p114
 
 BUNDLED WITH
    2.0.2
