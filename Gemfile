@@ -20,7 +20,9 @@ gem 'sidekiq-scheduler', '3.0.0'
 gem 'redis-namespace', '1.6.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '0.1.11'
+# Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
+# Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
 gem 'nokogiri', '1.10.4'
 
 ##
@@ -62,6 +64,7 @@ gem 'mongoid_search', '0.3.6'
 ##
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Full-stack web application framework. (http://rubyonrails.org)
+# Full-stack web application framework. (https://rubyonrails.org)
 gem 'rails', '6.0.0'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
@@ -95,6 +98,8 @@ gem 'spring-watcher-listen', '2.0.1'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # Timezone Data for TZInfo (http://tzinfo.github.io)
 gem 'tzinfo-data', '1.2019.3'
+# Minimal embedded v8 for Ruby (https://github.com/discourse/mini_racer)
+gem 'mini_racer', '0.2.6'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -144,10 +149,12 @@ group :test do
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.142.5'
   # Easy installation and use of chromedriver. (https://github.com/flavorjones/chromedriver-helper)
+  # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
   gem 'chromedriver-helper', '2.1.1'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock', '3.7.6'
   # Easily generate fake data (https://github.com/stympy/faker)
+  # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker', '2.5.0'
   # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
   gem 'database_cleaner', '1.7.0'

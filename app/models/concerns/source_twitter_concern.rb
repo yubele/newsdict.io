@@ -1,4 +1,4 @@
-module TwitterConcern
+module SourceTwitterConcern
   extend ActiveSupport::Concern
 
   # Get external urls
