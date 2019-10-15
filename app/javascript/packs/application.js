@@ -14,6 +14,8 @@
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+import '../css/application.scss'
+const images = require.context('../images/', true)
 import Vue from 'vue/dist/vue.js'
 var app = new Vue({
     el: '#mobile-menu',
