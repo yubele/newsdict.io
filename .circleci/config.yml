@@ -26,7 +26,7 @@ jobs:
             set -x
             docker-compose --project-name newsdict build web
             docker-compose up -d
-            docker-compose exec web /bin/bash -c "bash src/provisioning/startup/test/test.sh"
+            docker-compose exec web /bin/bash -c ". src/provisioning/startup/bootstrap.sh && bin/rails test -v"
       - run:
           name: docker-compose down
           command: docker-compose down
