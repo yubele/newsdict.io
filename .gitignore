@@ -46,3 +46,6 @@
 
 # google
 /public/ads.txt
+
+# document
+/src/doc/**/*.tmp.adoc
