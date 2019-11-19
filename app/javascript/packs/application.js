@@ -8,7 +8,7 @@
 // layout file, like app/views/layouts/application.html.erb
 const images = require.context('../images/', true)
 import Vue from 'vue/dist/vue.js'
-import '../css/application.scss'
+import 'css/application.scss'
 var app = new Vue({
     el: '#mobile-menu',
     data: {

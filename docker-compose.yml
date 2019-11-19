@@ -29,7 +29,7 @@ services:
     command: "bash src/provisioning/startup/web/startup.sh"
     ports:
       - 3000:80
-      - 3036:3036
+      - 3035:3036
     networks:
       - app-tier
   worker:

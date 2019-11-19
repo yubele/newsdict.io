@@ -77,7 +77,7 @@ gem 'sass-rails', '6.0.0'
 gem 'uglifier', '4.2.0'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 # Use webpack to manage app-like JavaScript modules in Rails (https://github.com/rails/webpacker)
-gem 'webpacker', '4.0.7'
+gem 'webpacker', '4.2.0'
 # Use CoffeeScript for .coffee assets and views
 # CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
 gem 'coffee-rails', '5.0.0'
@@ -113,7 +113,7 @@ end
 
 group :development do
   # Add comments to your Gemfile with each dependency's description. (https://github.com/ivantsepp/annotate_gem)
-  gem 'annotate_gem', :git => 'https://github.com/newsdict/annotate_gem.git', :branch => :bundler_bump
+  gem 'annotate_gem', '0.0.14'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   # A debugging tool for your Ruby on Rails applications. (https://github.com/rails/web-console)
   gem 'web-console', '4.0.1'
