@@ -9,16 +9,11 @@ default: &default
   check_yarn_integrity: false
   webpack_compile_output: false
 
-  # Additional paths webpack should lookup modules
-  # ['app/assets', 'engine/foo/app/assets']
-  resolved_paths:
-    - app/javascript
-
   # Reload manifest.json on all requests so we reload latest compiled packs
   cache_manifest: false
 
   # Extract and emit a css file
-  extract_css: false
+  extract_css: true
 
   static_assets_extensions:
     - .jpg
@@ -87,9 +82,6 @@ document:
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
 
-  # Extract and emit a css file
-  extract_css: true
-
   # Cache manifest.json for performance
   cache_manifest: true
 
@@ -98,9 +90,6 @@ production:
 
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
-
-  # Extract and emit a css file
-  extract_css: true
 
   # Cache manifest.json for performance
   cache_manifest: true

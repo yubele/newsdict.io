@@ -62,4 +62,7 @@ Rails.application.configure do
   if ENV['WEBPACK_DEV_SERVER_PUBLIC'].present?
     config.action_controller.asset_host = ENV['WEBPACK_DEV_SERVER_PUBLIC']
   end
+  
+  # To allow requests to puma, add the following to your environment configuration
+  config.hosts << "puma"
 end
