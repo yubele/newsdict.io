@@ -1,40 +1,39 @@
 <%= render partial: "nav" %>
 <section class="section main">
-    <div class="columns">
-      <div class="columns is-centered">
-        <div class="column is-8">
-        <div class="box">
-          <% @contents.each do |content| %>
-            <% unless content.expanded_url.match(/^https:\/\/twitter.com/) %>
-              <%= link_to content.expanded_url, {target: '_blank'}  do %>
-                <article class="media">
-                  <div class="media-left">
-                    <figure class="image is-128x128">
-                      <img src="/img/<%= content.id %>" alt="Image">
-                    </figure>
+  <div class="columns">
+    <div class="column is-full">
+      <div class="box">
+        <% @contents.each do |content| %>
+          <% unless content.expanded_url.match(/^https:\/\/twitter.com/) %>
+            <%= link_to content.expanded_url, {target: '_blank'}  do %>
+              <article class="media">
+                <div class="media-left">
+                  <figure class="image is-128x128">
+                    <img src="/img/<%= content.id %>" alt="Image">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <h2><strong><%= content.title %></strong></h2>
+                  <div class="content">
+                      <%= content.content.truncate(100) %>
                   </div>
-                  <div class="media-content">
-                    <h2><strong><%= content.title %></strong></h2>
-                    <div class="content">
-                        <%= content.content.truncate(100) %>
-                    </div>
-                    <div class="tags">
-                      <% content.tags.first(5).each do |tag| %>
-                        <span class="tag is-dark"><%= tag %></span>
-                      <% end %>
-                    </div>
-                    <p class="is-pulled-right media-source-name">
-                      <%= link_to get_source_url(content.source_id), {target: '_blank'} do %>
-                       <%= t('shared by') %> <strong><%= get_name_by_source(content.source_id) %></strong> / <small><%= Time.at(content.updated_at).in_time_zone %></small>
-                      <% end %>
-                    </p>
+                  <div class="tags">
+                    <% content.tags.first(5).each do |tag| %>
+                      <span class="tag is-dark"><%= tag %></span>
+                    <% end %>
                   </div>
-                </article>
-              <% end %>
-             <hr>
+                  <p class="is-pulled-right media-source-name">
+                    <%= link_to get_source_url(content.source_id), {target: '_blank'} do %>
+                     <%= t('shared by') %> <strong><%= get_name_by_source(content.source_id) %></strong> / <small><%= Time.at(content.updated_at).in_time_zone %></small>
+                    <% end %>
+                  </p>
+                </div>
+              </article>
             <% end %>
+           <hr>
           <% end %>
-        </div>
+        <% end %>
       </div>
+    </div>
   </div>
 </section>
