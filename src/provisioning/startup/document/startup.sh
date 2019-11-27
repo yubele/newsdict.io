@@ -13,6 +13,8 @@ do
 done
 bundle exec yard
 # Watch to modify
-if [ -z $RAILS_ENV ];then
+if [ "$RAILS_ENV" != "production" ];then
   bundle exec guard
+else
+  tail -f /var/log/nginx/access.log
 fi
