@@ -71,10 +71,6 @@ server {
     server_name _;
     root /var/www/docker/doc;
     index index.html;
-
-    location / {
-        # something
-    }
 }
 
 # Content Delivery Network Server
