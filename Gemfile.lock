@@ -453,58 +453,58 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate_gem
-  asciidoctor
-  asciidoctor-diagram
+  annotate_gem (= 0.0.14)
+  asciidoctor (= 2.0.10)
+  asciidoctor-diagram (= 2.0.0)
   bootsnap
-  bulma-rails
+  bulma-rails (= 0.8.0)
   bundle-locker!
-  bundler-audit
-  byebug
-  cancancan
+  bundler-audit (= 0.6.1)
+  byebug (= 11.0.1)
+  cancancan (= 2.3.0)
   cancancan-mongoid (= 2.0.0.beta1)
-  capybara
-  chromedriver-helper
-  coffee-rails
-  database_cleaner
-  devise
+  capybara (= 3.29.0)
+  chromedriver-helper (= 2.1.1)
+  coffee-rails (= 5.0.0)
+  database_cleaner (= 1.7.0)
+  devise (= 4.7.1)
   dotenv-rails
-  factory_bot_rails
-  faker
-  font-awesome-sass
-  guard
-  guard-shell
-  jbuilder
-  kaminari-mongoid
-  listen
-  mini_magick
-  mini_racer
-  mongoid
-  mongoid-grid_fs
-  mongoid_search
-  nokogiri
-  pry-byebug
-  puma
-  rails
-  rails_admin
+  factory_bot_rails (= 5.1.1)
+  faker (= 2.9.0)
+  font-awesome-sass (= 5.12.0)
+  guard (= 2.16.1)
+  guard-shell (= 0.7.1)
+  jbuilder (= 2.9.1)
+  kaminari-mongoid (= 1.0.1)
+  listen (= 3.2.1)
+  mini_magick (= 4.9.5)
+  mini_racer (= 0.2.8)
+  mongoid (= 7.0.5)
+  mongoid-grid_fs (= 2.4.0)
+  mongoid_search (= 0.3.6)
+  nokogiri (= 1.10.7)
+  pry-byebug (= 3.7.0)
+  puma (= 4.3.1)
+  rails (= 6.0.2.1)
+  rails_admin (= 2.0.0)
   rb-inotify
-  redis-namespace
-  sass-rails
-  selenium-webdriver
-  sidekiq
-  sidekiq-scheduler
-  spring
-  spring-watcher-listen
-  turbolinks
-  twitter
-  tzinfo-data
-  uglifier
-  web-console
-  web_stat
-  webmock
-  webpacker
-  yard
-  yard-activesupport-concern
+  redis-namespace (= 1.7.0)
+  sass-rails (= 6.0.0)
+  selenium-webdriver (= 3.142.6)
+  sidekiq (= 6.0.4)
+  sidekiq-scheduler (= 3.0.0)
+  spring (= 2.1.0)
+  spring-watcher-listen (= 2.0.1)
+  turbolinks (= 5.2.1)
+  twitter (= 6.2.0)
+  tzinfo-data (= 1.2019.3)
+  uglifier (= 4.2.0)
+  web-console (= 4.0.1)
+  web_stat (= 0.1.10)
+  webmock (= 3.7.6)
+  webpacker (= 4.2.2)
+  yard (= 0.9.20)
+  yard-activesupport-concern (= 0.0.1)
 
 RUBY VERSION
    ruby 2.6.5p114
