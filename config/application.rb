@@ -23,7 +23,7 @@ module Newsdict
   class Application < Rails::Application
     config.time_zone = 'Tokyo'
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
+    config.load_defaults 6.0
     # These autoloaded constants would have been unloaded if `config.autoloader` had been set to `:zeitwerk`.
     config.autoloder = :zeitwerk
     # Recursively including all model subdirectories
