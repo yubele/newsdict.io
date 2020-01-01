@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.0'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -53,7 +53,7 @@ gem 'kaminari-mongoid', '1.0.1'
 # mongodb
 ##
 # Elegant Persistence in Ruby for MongoDB. (http://mongoid.org)
-gem 'mongoid', '7.0.5'
+gem 'mongoid', '7.1.0.rc0'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs', '2.4.0'
 # Search implementation for Mongoid ORM (http://www.papodenerd.net/mongoid-search-full-text-search-for-your-mongoid-models/)
@@ -100,6 +100,9 @@ gem 'spring-watcher-listen', '2.0.1'
 gem 'tzinfo-data', '1.2019.3'
 # Minimal embedded v8 for Ruby (https://github.com/discourse/mini_racer)
 gem 'mini_racer', '0.2.8'
+gem 'mimemagic'
+gem 'thwait'
+gem 'e2mmap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

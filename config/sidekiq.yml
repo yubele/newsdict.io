@@ -1,5 +1,9 @@
 :schedule:
   twitter_account_job:
     enabled: true
-    cron: '0 0 */3 * * *'
+    cron: '0 */3 * * * *'
     class: TwitterAccountsJob
+  update_mecab_dic_job:
+    enabled: true
+    cron: '0 0 * * * *'
+    class: UpdateMecabDicsJob

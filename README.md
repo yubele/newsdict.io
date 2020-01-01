@@ -33,3 +33,10 @@ sample ex)
     
 ## Secret
     $ EDITOR="mate --wait" bin/rails credentials:edit
+    
+# functions
+
+## Mecab
+
+### Update mecab dic
+1. Add Configs::MecabDic on /admin/configs~mecab_dic

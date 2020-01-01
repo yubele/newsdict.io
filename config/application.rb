@@ -38,5 +38,7 @@ module Newsdict
       head: 'Insert this code as high in the <head> tag',
       after_body: 'Insert this code immediately after the opening <body> tag',
       end_body: 'Insert this code immediately end the closing <body> tag'}
+    # path of `mecab-dict-index` in worker
+    config.path_of_smecab_dict_index = "/usr/lib/mecab/mecab-dict-index"
   end
 end

@@ -1,6 +1,8 @@
 class Config < ApplicationRecord
   include Mongoid::Document
   include Mongoid::Timestamps
+  validates :key, length: {minimum: 4, maximum: 256}, presence: true, uniqueness: true
+  validates :describe, length: {minimum: 4, maximum: 128}, presence: true, uniqueness: true
   # key
   field :key, type: String
   # describe
