@@ -9,7 +9,7 @@ class UpdateMecabDicsJob < ApplicationJob
       # The reason to use curl is to prevent Memory Allocate
       system("curl #{mecab_dic.url} | #{decompress_command} > /tmp/#{mecab_dic.key}")
       # Create dic-index from csv
-      CSV.open("/mnt/#{mecab_dic.key}.csv", 'w') do |csv|
+      CSV.open("/tmp/#{mecab_dic.key}.csv", 'w') do |csv|
         open("/tmp/#{mecab_dic.key}").each_with_index do |_keyword, index|
           next if index == 0 && mecab_dic.is_header
           _, keyword = Array(_keyword.strip.match(/#{mecab_dic.regex_for_extract_title}/))
@@ -20,6 +20,8 @@ class UpdateMecabDicsJob < ApplicationJob
     			end
         end
       end
+      system("#{Newsdict::Application.config.path_of_mecab_dict_index} -f utf-8 -t utf-8 -u #{Newsdict::Application.config.path_of_mecab_dict_dir}/#{mecab_dic.key}.dic /tmp/#{mecab_dic.key}.csv")
+      File.unlink("/tmp/#{mecab_dic.key}", "/tmp/#{mecab_dic.key}.csv")
     end
   end
   
