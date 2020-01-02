@@ -23,6 +23,7 @@ gem 'web_stat', '0.1.12'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
+# Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
 gem 'nokogiri', '1.10.7'
 
 ##
@@ -53,6 +54,7 @@ gem 'kaminari-mongoid', '1.0.1'
 # mongodb
 ##
 # Elegant Persistence in Ruby for MongoDB. (http://mongoid.org)
+# Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
 gem 'mongoid', '7.1.0.rc0'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs', '2.4.0'
@@ -100,9 +102,12 @@ gem 'spring-watcher-listen', '2.0.1'
 gem 'tzinfo-data', '1.2019.3'
 # Minimal embedded v8 for Ruby (https://github.com/discourse/mini_racer)
 gem 'mini_racer', '0.2.8'
-gem 'mimemagic'
-gem 'thwait'
-gem 'e2mmap'
+# Fast mime detection by extension or content (https://github.com/minad/mimemagic)
+gem 'mimemagic', '0.3.3'
+# Watches for termination of multiple threads. (https://github.com/ruby/thwait)
+gem 'thwait', '0.1.0'
+# Module for defining custom exceptions with specific messages. (https://github.com/ruby/e2mmap)
+gem 'e2mmap', '0.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
