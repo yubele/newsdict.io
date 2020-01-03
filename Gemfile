@@ -19,10 +19,9 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.1.12'
+gem 'web_stat', '0.2.0'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
-# Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
 gem 'nokogiri', '1.10.7'
 
@@ -53,7 +52,6 @@ gem 'kaminari-mongoid', '1.0.1'
 ##
 # mongodb
 ##
-# Elegant Persistence in Ruby for MongoDB. (http://mongoid.org)
 # Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
 gem 'mongoid', '7.1.0.rc0'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
@@ -65,7 +63,6 @@ gem 'mongoid_search', '0.3.6'
 # system gems
 ##
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-# Full-stack web application framework. (http://rubyonrails.org)
 # Full-stack web application framework. (https://rubyonrails.org)
 gem 'rails', '6.0.2.1'
 # Use Puma as the app server
@@ -83,10 +80,8 @@ gem 'webpacker', '4.2.2'
 # Use CoffeeScript for .coffee assets and views
 # CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
 gem 'coffee-rails', '5.0.0'
-# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
 gem 'turbolinks', '5.2.1'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # Create JSON structures via a Builder-style DSL (https://github.com/rails/jbuilder)
 gem 'jbuilder', '2.9.1'
 # Reduces boot times through caching; required in config/boot.rb
@@ -156,12 +151,10 @@ group :test do
   gem 'capybara', '3.29.0'
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.142.6'
-  # Easy installation and use of chromedriver. (https://github.com/flavorjones/chromedriver-helper)
   # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
   gem 'chromedriver-helper', '2.1.1'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock', '3.7.6'
-  # Easily generate fake data (https://github.com/stympy/faker)
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker', '2.9.0'
   # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
