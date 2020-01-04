@@ -8,6 +8,7 @@ class Content < ApplicationRecord
   # image blob (because active-storage is not support mongoid.)
   field :image_blob, type: BSON::Binary
   field :tags, type: Array
+  field :language_code, type: String
   field :source_id, type: BSON::ObjectId
   field :user_id, type: BSON::ObjectId
 end

@@ -1,6 +1,6 @@
 #!/bin/bash
 # set env
-. $(dirname $BASH_SOURCE)/../bootstrap.sh $1
+. $(dirname $BASH_SOURCE)/../bootstrap.sh web $1
 /usr/sbin/nginx -c /etc/nginx/nginx.conf
 cd /var/www/docker
 bundle exec bin/rails log:clear

@@ -46,6 +46,7 @@ services:
     networks:
       - app-tier
     depends_on:
+      - web
       - redis
   document:
     tty: true
@@ -62,3 +63,5 @@ services:
       - 8080:8080
     networks:
       - app-tier
+    depends_on:
+      - web

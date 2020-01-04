@@ -1,5 +1,5 @@
 # define newsdict/rails version, you can use --build-arg
-ARG version="v0.0.8"
+ARG version="v0.0.9"
 FROM newsdict/rails:${version}
 
 # Set correct environment variables.
@@ -10,6 +10,9 @@ WORKDIR /var/www/docker
 COPY . .
 COPY src/provisioning/nginx/sites-available/default /etc/nginx/sites-available/default
 COPY src/provisioning/startup /startup
+
+# Update Gemfile.lock
+RUN . /etc/profile.d/rvm.sh && bundle install --no-deployment
 
 # If you are running the development environment, the pid file will remain, so delete the pid file
 RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \

@@ -1,6 +1,6 @@
 #!/bin/bash
 # set env
-. $(dirname $BASH_SOURCE)/../bootstrap.sh $1
+. $(dirname $BASH_SOURCE)/../bootstrap.sh document $1
 /usr/sbin/nginx -c /etc/nginx/nginx.conf
 cd /var/www/docker
 yarn install --check-files

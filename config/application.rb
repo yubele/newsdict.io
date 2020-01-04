@@ -23,20 +23,22 @@ module Newsdict
   class Application < Rails::Application
     config.time_zone = 'Tokyo'
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.2
-    # These autoloaded constants would have been unloaded if `config.autoloader` had been set to `:zeitwerk`.
-    config.autoloder = :zeitwerk
+    config.load_defaults 6.0
     # Recursively including all model subdirectories
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '*', '**')]
     # Active Job
     config.active_job.queue_adapter = :sidekiq
     # Web site's prefix used by Source
     config.web_site_prefix = {
-        twitter_account: 'https://twitter.com'}
+      twitter_account: 'https://twitter.com'}
     # config names
     config.keys = {
       head: 'Insert this code as high in the <head> tag',
       after_body: 'Insert this code immediately after the opening <body> tag',
       end_body: 'Insert this code immediately end the closing <body> tag'}
+    # path of `mecab-dict-index` in worker
+    config.path_of_mecab_dict_index = "/usr/lib/mecab/mecab-dict-index"
+    # path of custom mecab dictinary
+    config.path_of_mecab_dict_dir = "/mnt"
   end
 end
