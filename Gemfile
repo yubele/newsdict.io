@@ -19,7 +19,7 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.2.3'
+gem 'web_stat', '0.2.4'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
