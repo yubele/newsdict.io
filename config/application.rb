@@ -24,15 +24,13 @@ module Newsdict
     config.time_zone = 'Tokyo'
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-    # These autoloaded constants would have been unloaded if `config.autoloader` had been set to `:zeitwerk`.
-    config.autoloder = :zeitwerk
     # Recursively including all model subdirectories
     config.autoload_paths += Dir[Rails.root.join('app', 'models', '*', '**')]
     # Active Job
     config.active_job.queue_adapter = :sidekiq
     # Web site's prefix used by Source
     config.web_site_prefix = {
-        twitter_account: 'https://twitter.com'}
+      twitter_account: 'https://twitter.com'}
     # config names
     config.keys = {
       head: 'Insert this code as high in the <head> tag',

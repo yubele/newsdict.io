@@ -11,6 +11,9 @@ COPY . .
 COPY src/provisioning/nginx/sites-available/default /etc/nginx/sites-available/default
 COPY src/provisioning/startup /startup
 
+# Update Gemfile.lock
+RUN . /etc/profile.d/rvm.sh && bundle install --no-deployment
+
 # If you are running the development environment, the pid file will remain, so delete the pid file
 RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \
         rm /var/www/docker/tmp/pids/server.pid; \

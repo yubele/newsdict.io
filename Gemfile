@@ -19,7 +19,7 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.2.0'
+gem 'web_stat', '0.2.3'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
@@ -152,7 +152,7 @@ group :test do
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.142.6'
   # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
-  gem 'chromedriver-helper', '2.1.1'
+  gem 'webdrivers', '4.2.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock', '3.7.6'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
