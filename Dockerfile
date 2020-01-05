@@ -2,6 +2,9 @@
 ARG version="v0.0.9"
 FROM newsdict/rails:${version}
 
+# Set locale
+ENV LANG "C.UTF-8"
+
 # Set correct environment variables.
 RUN mkdir -p /var/www/docker
 WORKDIR /var/www/docker
@@ -11,7 +14,8 @@ COPY . .
 COPY src/provisioning/nginx/sites-available/default /etc/nginx/sites-available/default
 COPY src/provisioning/startup /startup
 
-# Update Gemfile.lock
+# Init gems
+RUN rm -rf vendor/bundle
 RUN . /etc/profile.d/rvm.sh && bundle install --no-deployment
 
 # If you are running the development environment, the pid file will remain, so delete the pid file
