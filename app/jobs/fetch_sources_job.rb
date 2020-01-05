@@ -6,7 +6,13 @@ class FetchSourcesJob < ApplicationJob
   # @param [Object] object
   # @param [String] url
   def perform(object, url)
-    web_stat = WebStat.stat_by_url(url)
+    userdics = Hash.new
+    Configs::MecabDic.each do |dic|
+      userdics[dic.language_code] = File.join(
+        Newsdict::Application.config.path_of_mecab_dict_dir,
+        "#{dic.key}.dic")
+    end
+    web_stat = WebStat.stat_by_url(url, userdics: userdics)
     attrs = {
         :title => web_stat[:title],
         :site_name => web_stat[:site_name],

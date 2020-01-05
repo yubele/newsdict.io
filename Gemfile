@@ -19,7 +19,9 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.2.6'
+gem 'web_stat', '0.2.7'
+# use web_stat
+gem "final_redirect_url", :git => "https://github.com/yubele/final_redirect_url.git"
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
@@ -103,6 +105,7 @@ gem 'mimemagic', '0.3.3'
 gem 'thwait', '0.1.0'
 # Module for defining custom exceptions with specific messages. (https://github.com/ruby/e2mmap)
 gem 'e2mmap', '0.1.0'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
