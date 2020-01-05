@@ -4,8 +4,8 @@ class FetchSourcesJobTest < ActiveJob::TestCase
   test "A series of web acquisition job passes" do
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})
 
-    # count of fixture
-    save_count = 1
+    # Flush Contents::Web's documents.
+    Contents::Web.destroy_all
 
     # user_timeline mock
     stub_get('/1.1/statuses/user_timeline.json').with(query: {screen_name: :yubele}).to_return(body: fixture('web_mock/twitter/statuses.json'), headers: {content_type: 'application/json; charset=utf-8'})
@@ -19,17 +19,9 @@ class FetchSourcesJobTest < ActiveJob::TestCase
       fetch_as_url = WebStat::FetchAsHtml.new(fixture('web_mock/web_stat/blog.html'))
       fetch_as_url.url = url
       stub_request(:get, fetch_as_url.eyecatch_image_path).to_return(body: fixture('assets/dummy.png'))
+      # Save Contents::Web's documents.
+      FetchSourcesJob.perform_later(url)
     end
-
-    # Flush Contents::Web's documents.
-    Contents::Web.destroy_all
-
-    # Save Contents::Web's documents.
-    FetchSourcesJob.new.perform(twitter_account)
-    assert_enqueued_jobs 0
-    assert_equal(save_count, Contents::Web.count)
-
-    FetchSourcesJob.perform_later(twitter_account)
-    assert_enqueued_jobs 1
+    assert_enqueued_jobs twitter_account.urls.count
   end
 end
