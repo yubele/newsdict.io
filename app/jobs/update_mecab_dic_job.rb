@@ -1,4 +1,4 @@
-class UpdateMecabDicsJob < ApplicationJob
+class UpdateMecabDicJob < ApplicationJob
   queue_as :default
 
   # Update mecab dic

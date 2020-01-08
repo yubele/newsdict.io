@@ -18,7 +18,7 @@
                       <%= content.content.truncate(100) %>
                   </div>
                   <div class="tags">
-                    <% content.tags.first(5).each do |tag| %>
+                    <% content.longer_tags.first(5).each do |tag| %>
                       <span class="tag is-dark"><%= tag %></span>
                     <% end %>
                   </div>
