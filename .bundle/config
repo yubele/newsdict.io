@@ -1,2 +1,5 @@
 ---
 BUNDLE_PATH: "vendor/bundle"
+BUNDLE_UNSET: "deployment"
+BUNDLE_FROZEN: "true"
+BUNDLE_WITHOUT: "development:test"

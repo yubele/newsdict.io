@@ -21,7 +21,7 @@ gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '0.2.7'
 # use web_stat
-gem "final_redirect_url", :git => "https://github.com/yubele/final_redirect_url.git"
+gem "final_redirect_url", :git => "https://github.com/yubele/final_redirect_url"
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)

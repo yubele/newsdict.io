@@ -1,6 +1,5 @@
 class FetchSourcesJob < ApplicationJob
   queue_as :default
-  sidekiq_options retry: 2, backtrace: 20
   
   # Fetch the web pages by url
   # @param [Object] object
