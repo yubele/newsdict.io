@@ -19,7 +19,7 @@ gem 'sidekiq-scheduler', '3.0.0'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.2.7'
+gem 'web_stat', '0.2.9'
 # use web_stat
 gem "final_redirect_url", :git => "https://github.com/yubele/final_redirect_url"
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)

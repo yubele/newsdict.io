@@ -19,7 +19,7 @@ RUN rm -rf vendor/bundle
 RUN . /etc/profile.d/rvm.sh && \
   bundle install --no-deployment && \
   bundle config set without 'development test' && \
-  bundle config set deployment 'true' && \
+  bundle config set frozen 'true' && \
   bundle install
 
 # If you are running the development environment, the pid file will remain, so delete the pid file
