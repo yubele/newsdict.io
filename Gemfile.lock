@@ -1,15 +1,15 @@
 GIT
-  remote: git@github.com:yubele/final_redirect_url.git
-  revision: 45df878ec9495ebbfa06dc0a60cc5043c2519e16
-  specs:
-    final_redirect_url (0.1.1)
-
-GIT
   remote: https://github.com/newsdict/bundle-locker
   revision: 30a4a68815164a9738cb4d7fb0f8fa378a50563d
   branch: feature/ignore_require_and_path
   specs:
     bundle-locker (0.0.7)
+
+GIT
+  remote: https://github.com/yubele/final_redirect_url
+  revision: 45df878ec9495ebbfa06dc0a60cc5043c2519e16
+  specs:
+    final_redirect_url (0.1.1)
 
 GEM
   remote: https://rubygems.org/
@@ -215,7 +215,7 @@ GEM
     loofah (2.4.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    lumberjack (1.0.13)
+    lumberjack (1.1.0)
     mail (2.7.1)
       mini_mime (>= 0.1.1)
     marcel (0.3.3)
@@ -279,7 +279,7 @@ GEM
     pry-byebug (3.7.0)
       byebug (~> 11.0)
       pry (~> 0.10)
-    public_suffix (4.0.2)
+    public_suffix (4.0.3)
     puma (4.3.1)
       nio4r (~> 2.0)
     raabro (1.1.6)
@@ -287,7 +287,7 @@ GEM
     rack-pjax (1.1.0)
       nokogiri (~> 1.5)
       rack (>= 1.1)
-    rack-protection (2.0.8)
+    rack-protection (2.0.8.1)
       rack
     rack-proxy (0.6.5)
       rack
@@ -425,7 +425,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    web_stat (0.2.7)
+    web_stat (0.2.9)
       bundler (>= 2.0.2)
       cld (>= 0.8.0)
       mechanize (>= 2.7)
@@ -510,7 +510,7 @@ DEPENDENCIES
   tzinfo-data (= 1.2019.3)
   uglifier (= 4.2.0)
   web-console (= 4.0.1)
-  web_stat (= 0.2.7)
+  web_stat (= 0.2.9)
   webdrivers (= 4.2.0)
   webmock (= 3.7.6)
   webpacker (= 4.2.2)

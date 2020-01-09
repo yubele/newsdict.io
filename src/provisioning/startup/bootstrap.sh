@@ -17,8 +17,10 @@ export NVM_DIR="$HOME/.nvm"
 . /etc/profile.d/rvm.sh
 # Install the gems of bundler
 if [ "$RAILS_ENV" = "production" ];then
-  bundle install --deployment --without development test --quiet
+  bundle install
 elif [ "$APP_TYPE" = "web" ];then
+  bundle config --delete without
+  bundle config --delete frozen
   bundle install
 fi
 # Recreate bins. In development, it only run on web server
