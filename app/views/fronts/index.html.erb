@@ -24,7 +24,7 @@
                   </div>
                   <p class="is-pulled-right media-source-name">
                     <%= link_to get_source_url(content.source_id), {target: '_blank'} do %>
-                     <%= t('shared by') %> <strong><%= get_name_by_source(content.source_id) %></strong> / <small><%= Time.at(content.updated_at).in_time_zone %></small>
+                     <%= t('shared by') %> <strong><%= get_name_by_source(content.source_id) %></strong> / <small><%= Time.at(content.created_at).in_time_zone %></small>
                     <% end %>
                   </p>
                 </div>

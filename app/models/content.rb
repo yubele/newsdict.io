@@ -1,6 +1,7 @@
 class Content < ApplicationRecord
   include Mongoid::Document
   include Mongoid::Timestamps
+  include ContentConcern
   field :title, type: String
   field :site_name, type: String
   field :content, type: String
@@ -11,4 +12,14 @@ class Content < ApplicationRecord
   field :language_code, type: String
   field :source_id, type: BSON::ObjectId
   field :user_id, type: BSON::ObjectId
+  # Get the records
+  # @param order default :desc
+  # @param limit default: 50
+  # @param skip default: 0
+  def self.contents(order: :desc, skip: 0, limit: 50)
+    self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
+      .order_by(created_at: order)
+      .skip(skip)
+      .limit(limit)
+  end
 end
