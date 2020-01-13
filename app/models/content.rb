@@ -12,6 +12,7 @@ class Content < ApplicationRecord
   field :language_code, type: String
   field :source_id, type: BSON::ObjectId
   field :user_id, type: BSON::ObjectId
+  field :count_of_shared, type: Integer
   # Get the records
   # @param order default :desc
   # @param limit default: 50
