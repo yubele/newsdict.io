@@ -9,6 +9,7 @@ class Contents::WebTest < ActiveSupport::TestCase
     twitter_account.urls.each do |url|
       set_webmock(url)
       web_stat = WebStat.stat_by_url(url)
+      web_stat[:title] << web_stat[:url] << web_stat[:title]
       attrs = Contents::Web.set_attributes_by_web_stat(twitter_account, web_stat)
       Contents::Web.save_form_job(web_stat, attrs)
       urls << attrs[:expanded_url]
@@ -24,6 +25,7 @@ class Contents::WebTest < ActiveSupport::TestCase
       twitter_account.urls.each do |url|
         set_webmock(url)
         web_stat = WebStat.stat_by_url(url)
+        web_stat[:title] << web_stat[:url] << web_stat[:title]
         attrs = Contents::Web.set_attributes_by_web_stat(twitter_account, web_stat)
         Contents::Web.save_form_job(web_stat, attrs)
         urls << attrs[:expanded_url]

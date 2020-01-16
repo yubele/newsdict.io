@@ -6,7 +6,7 @@ module Contents
     # @return [Hash] attributes
     def self.set_attributes_by_web_stat(object, web_stat)
       attrs = {
-        :title => "#{web_stat[:url]}#{web_stat[:url]}",
+        :title => web_stat[:title],
         :site_name => web_stat[:site_name],
         :content => web_stat[:content],
         :expanded_url => web_stat[:url],
