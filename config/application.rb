@@ -41,5 +41,12 @@ module Newsdict
     config.path_of_mecab_dict_index = "/usr/lib/mecab/mecab-dict-index"
     # path of custom mecab dictinary
     config.path_of_mecab_dict_dir = "/mnt"
+    config.to_prepare do
+      Devise::SessionsController.layout "devise"
+      Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
+      Devise::ConfirmationsController.layout "devise"
+      Devise::UnlocksController.layout "devise"            
+      Devise::PasswordsController.layout "devise"        
+    end
   end
 end
