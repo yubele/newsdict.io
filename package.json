@@ -1,18 +1,22 @@
 {
   "name": "newsdict",
   "private": true,
+  "scripts": {
+    "npm-check-updates": "npm-check-updates -u"
+  },
   "dependencies": {
-    "@rails/webpacker": "^4.2.0",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "@rails/webpacker": "^4.2.2",
     "bulma": "^0.8.0",
-    "core-js": "^3.4.0",
+    "core-js": "^3.6.3",
     "dotenv": "^8.2.0",
-    "font-awesome": "^4.7.0",
-    "vue": "^2.6.10",
-    "vue-loader": "^15.7.2",
-    "vue-template-compiler": "^2.6.10",
+    "npm-check-updates": "^4.0.1",
+    "vue": "^2.6.11",
+    "vue-loader": "^15.8.3",
+    "vue-template-compiler": "^2.6.11",
     "webpack-merge": "^4.2.2"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.10.1"
   }
 }
