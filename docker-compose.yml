@@ -16,6 +16,8 @@ services:
       - ${LOCAL_MONGODB_PORT}:27017
     networks:
       - app-tier
+    volumes:
+      - ./tmp/data:/data
   web:
     tty: true
     stdin_open: true
@@ -24,7 +26,7 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-    - ./:/var/www/docker
+      - ./:/var/www/docker
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/web/startup.sh"
     ports:
@@ -42,7 +44,7 @@ services:
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/worker/startup.sh"
     volumes:
-    - ./:/var/www/docker
+      - ./:/var/www/docker
     networks:
       - app-tier
     depends_on:
