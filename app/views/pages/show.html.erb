@@ -1,0 +1,17 @@
+<section class="section main">
+  <div class="columns">
+    <div class="column is-full">
+      <div class="box">
+        <% @contents.each do |content| %>
+          <% logger.info(content) %>
+          <% unless content["expanded_url"].match(/^https:\/\/twitter.com/) %>
+            <%= link_to content["expanded_url"], {target: '_blank'}  do %>
+              <%= render partial: 'article', locals: {content: content} %>
+            <% end %>
+           <hr>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
