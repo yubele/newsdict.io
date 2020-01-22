@@ -37,9 +37,10 @@ var app = new Vue({
         if (this.is_scroll == false) {
           this.is_scroll = true
           Axios.get("/api/v1/contents.json",{
-            skip: this.current_page * 25,
-            limit: 25
-          })
+            params: {
+              skip: this.current_page * 25,
+              limit: 25
+          }})
           .then(response => {
             this.contents = this.contents.concat(response.data)
             this.current_page++

@@ -8,6 +8,7 @@ module Api
     def contents(limit: 25, skip:0)
       Contents::Web
         .contents
+        .exclude_domain
         .limit(limit)
         .skip(skip)
         .map { |c|

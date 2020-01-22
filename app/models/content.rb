@@ -34,4 +34,8 @@ class Content < ApplicationRecord
       self.order_by((SORT_TYPE[:newest]))
     end
   end
+  # Exclude domain
+  def self.exclude_domain
+    self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
+  end
 end

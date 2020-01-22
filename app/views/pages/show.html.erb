@@ -3,9 +3,7 @@
     <div class="column is-full">
       <div class="box">
         <% @contents.each do |content| %>
-          <% unless content["expanded_url"].match(/^https:\/\/twitter.com/) %>
-            <%= render partial: 'article', locals: {content: content} %>
-          <% end %>
+          <%= render partial: 'article', locals: {content: content} %>
         <% end %>
         <div id="more-contents">
           <div v-for="(content,index) in contents" v-if="content">
