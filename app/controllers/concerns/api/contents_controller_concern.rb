@@ -1,14 +1,15 @@
 module Api
   module ContentsControllerConcern
+    include ApplicationHelper
     extend ActiveSupport::Concern
     # /api/v*/contents
-    # @param [Integer] limit
+    # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
-    def contents(limit:, skip:0)
+    def contents(limit: 25, skip:0)
       Contents::Web
         .contents
-        .skip(skip)
         .limit(limit)
+        .skip(skip)
         .map { |c|
           c.attributes.select { |k,v|
             k.include?("title") ||
@@ -19,22 +20,20 @@ module Api
             k.include?("created_at") ||
             k.include?("updated_at")
           }.merge({
-            "title" => c.title.truncate(100)
+            "created_at" => in_time_zone(c.created_at)
+          }).merge({
+            "content" => c.content.truncate(100)
           }).merge({
             "id" => c.id.to_s
           }).merge({
-            "longer_tags" => c.longer_tags
+            "longer_tags" => tag_element(c.longer_tags)
           }).merge({
             "source" => c.source.attributes.select { |k,v|
               k.include?("name")
             }.merge({
               "source_url" => c.source.source_url
             })
-          }).merge({
-            "user" => c.user.attributes.select { |k,v|
-              k.include?("name")
-            }})
-        }
+        })}
     end
   end
 end

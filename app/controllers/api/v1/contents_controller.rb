@@ -5,7 +5,7 @@ class Api::V1::ContentsController < ApplicationController
   # @param [Integer] limit
   def show
     respond_to do |format|
-      format.json { render json: contents(skip: params["skip"], limit: params["limit"]) }
+      format.json { render json: contents(params.permit(:skip, :limit)) }
     end
   end
 end

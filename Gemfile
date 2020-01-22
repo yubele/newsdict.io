@@ -10,6 +10,8 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'bulma-rails', '0.8.0'
 # Font-Awesome SASS (https://github.com/FortAwesome/font-awesome-sass)
 gem 'font-awesome-sass', '5.12.0'
+# A custom Rails form builder for Vue.js (https://github.com/kuroda/vue-rails-form-builder)
+gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-builder.git'
 
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
@@ -21,7 +23,8 @@ gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '0.2.9'
 # use web_stat
-gem "final_redirect_url", :git => "https://github.com/yubele/final_redirect_url"
+# Get a final redirect url for a given url. (https://github.com/indyarocks/final_redirect_url)
+gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
@@ -155,6 +158,7 @@ group :test do
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.142.6'
   # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
+  # Easy download and use of browser drivers. (https://github.com/titusfortner/webdrivers)
   gem 'webdrivers', '4.2.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock', '3.7.6'
