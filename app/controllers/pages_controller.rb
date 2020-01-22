@@ -2,6 +2,6 @@ class PagesController < ApplicationController
   include Api::ContentsControllerConcern
   # show
   def show
-    @contents = contents(limit: 25)
+    @contents = contents(**params.permit(:sort).to_hash.symbolize_keys)
   end
 end

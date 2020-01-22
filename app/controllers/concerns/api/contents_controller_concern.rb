@@ -5,9 +5,11 @@ module Api
     # /api/v*/contents
     # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
-    def contents(limit: 25, skip:0)
+    # @param [String] sort default: Content::SORT_TYPE[:updated_at]
+    def contents(limit: 25, skip:0, sort: Content::SORT_TYPE[:updated_at])
       Contents::Web
         .contents
+        .sortable(sort)
         .exclude_domain
         .limit(limit)
         .skip(skip)

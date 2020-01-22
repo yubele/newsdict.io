@@ -35,11 +35,13 @@ var app = new Vue({
       const windowScrollMaxY = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       if (window.scrollY > windowScrollMaxY - 200) {
         if (this.is_scroll == false) {
+          const urlParams = new URLSearchParams(window.location.search);
           this.is_scroll = true
           Axios.get("/api/v1/contents.json",{
             params: {
               skip: this.current_page * 25,
-              limit: 25
+              limit: 25,
+              sort: urlParams.get('sort')
           }})
           .then(response => {
             this.contents = this.contents.concat(response.data)
@@ -52,3 +54,21 @@ var app = new Vue({
     }
   }
 })
+// ref. https://stackoverflow.com/questions/45758837/script5009-urlsearchparams-is-undefined-in-ie-11
+(function (w) {
+
+    w.URLSearchParams = w.URLSearchParams || function (searchString) {
+        var self = this;
+        self.searchString = searchString;
+        self.get = function (name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(self.searchString);
+            if (results == null) {
+                return null;
+            }
+            else {
+                return decodeURI(results[1]) || 0;
+            }
+        };
+    }
+
+})(window)

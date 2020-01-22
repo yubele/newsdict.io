@@ -17,7 +17,7 @@ class Content < ApplicationRecord
   belongs_to :user
   SORT_TYPE = {
     :newest => [:created_at, :desc],
-    :updated => [:updated_at, :asc],
+    :updated => [:updated_at, :desc],
     :count => [:count_of_shared, :desc]
   }
   # Get the records
