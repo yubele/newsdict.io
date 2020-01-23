@@ -13,8 +13,8 @@ class Content < ApplicationRecord
   field :source_id, type: BSON::ObjectId
   field :user_id, type: BSON::ObjectId
   field :count_of_shared, type: Integer
-  belongs_to :source
-  belongs_to :user
+  belongs_to :source, optional: true
+  belongs_to :user, optional: true
   SORT_TYPE = {
     :newest => [:created_at, :desc],
     :updated => [:updated_at, :desc],
