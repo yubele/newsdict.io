@@ -264,7 +264,7 @@ GEM
     net-http-persistent (3.1.0)
       connection_pool (~> 2.2)
     nio4r (2.5.2)
-    nokogiri (1.10.7)
+    nokogiri (1.10.8)
       mini_portile2 (~> 2.4.0)
     nokogumbo (2.0.2)
       nokogiri (~> 1.8, >= 1.8.4)
@@ -491,7 +491,7 @@ DEPENDENCIES
   mongoid (= 7.1.0.rc0)
   mongoid-grid_fs (= 2.4.0)
   mongoid_search (= 0.3.6)
-  nokogiri (= 1.10.7)
+  nokogiri
   pry-byebug (= 3.7.0)
   puma (= 4.3.1)
   rails (= 6.0.2.1)
