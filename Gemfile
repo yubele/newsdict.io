@@ -28,7 +28,7 @@ gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
-gem 'nokogiri', '1.10.7'
+gem 'nokogiri', '1.10.8'
 
 ##
 # Social Api Gems
