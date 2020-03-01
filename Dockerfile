@@ -1,6 +1,6 @@
-# define newsdict/rails version, you can use --build-arg
-ARG version="ubuntu19.10_nvmv0.35.2_nodev12.14.0_rubyv2.6.5"
-FROM newsdict/rails:${version}
+# define base image, you can use --build-arg
+ARG base_image="newsdict/rails:ubuntu19.10_nvmv0.35.2_nodev12.16.1_rubyv2.7.0"
+FROM $base_image
 
 # Set locale
 ENV LANG "C.UTF-8"
