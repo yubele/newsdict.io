@@ -499,7 +499,7 @@ DEPENDENCIES
   mongoid (= 7.1.0.rc0)
   mongoid-grid_fs (= 2.4.0)
   mongoid_search (= 0.3.6)
-  nokogiri
+  nokogiri (= 1.10.8)
   pry-byebug (= 3.7.0)
   puma (= 4.3.1)
   rails (= 6.0.2.1)
