@@ -1,0 +1,45 @@
+<% if content["is_vue"]
+  key = "v-bind:href"
+  value = content["expanded_url"]
+else
+  key = "href"
+  value = content["expanded_url"]
+end %>
+<%= vue_content_tag :a, key => value, :target => :_blank do %>
+  <article class="media" v-bind:index="index">
+    <div class="media-left">
+      <figure class="image is-128x128">
+        <% if content["is_vue"] %>
+        <%= vue_content_tag :div, "", class: "content-image", alt: "Image", bind: {style: "{ 'background-image': 'url(/img/' + #{content["id"]} + ')' }"} %>
+        <% else %>
+        <%= vue_content_tag :div, "", class: "content-image", alt: "Image", style: "background-image: url(/img/#{content["id"]});" %>
+        <% end %>
+      </figure>
+    </div>
+    <div class="media-content">
+      <%= vue_content_tag :h2, content["title"] %>
+      <%= vue_content_tag :div, content["content"], class: "content" %>
+      <%= vue_content_tag :div, content["longer_tags"].html_safe, "v-html" => content["longer_tags"], class: "tags" %>
+      <p class="is-pulled-right media-source-name">
+        <% if content["is_vue"]
+          key = "v-bind:href"
+          value = "#{content["source"]["source_url"]} + '/' + #{content["source"]["name"]}"
+        else
+          key = "href"
+          value = "#{content["source"]["source_url"]}/#{content["source"]["name"]}"
+        end %>
+        <%= vue_content_tag :a, key => value, :target => :_blank do %>
+          <%= t('Shared By') %>&nbsp;
+          <% if content["is_vue"] %>
+          <strong>{{<%= content["source"]["name"] %>}} (<%= content["count_of_shared"] %>)</strong>
+          <% else %>
+          <strong><%= content["source"]["name"] %> (<%= content["count_of_shared"] %>)</strong>
+          <% end %>
+          &nbsp;/&nbsp;
+          <%= vue_content_tag :small, content["created_at"] %>
+        <% end %>
+      </p>
+    </div>
+  </article>
+  <hr/>
+<% end %>

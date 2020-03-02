@@ -4,27 +4,30 @@ networks:
     driver: bridge
 services:
   redis:
-    container_name: newsdict_redis
+    container_name: newsdict-redis
     image: 'redis'
     networks:
       - app-tier
   mongo:
-    container_name: newsdict_mongodb
+    container_name: newsdict-mongodb
     image: mongo
     restart: always
     ports:
       - ${LOCAL_MONGODB_PORT}:27017
     networks:
       - app-tier
+    volumes:
+      - ./tmp/data:/data
   web:
     tty: true
     stdin_open: true
-    container_name: newsdict_web
+    container_name: newsdict-web
     build:
       context: .
       dockerfile: Dockerfile
+    image: newsdictio
     volumes:
-    - ./:/var/www/docker
+      - ./:/var/www/docker
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/web/startup.sh"
     ports:
@@ -35,14 +38,12 @@ services:
   worker:
     tty: true
     stdin_open: true
-    container_name: newsdict_worker
-    build:
-      context: .
-      dockerfile: Dockerfile
+    container_name: newsdict-worker
+    image: newsdictio
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/worker/startup.sh"
     volumes:
-    - ./:/var/www/docker
+      - ./:/var/www/docker
     networks:
       - app-tier
     depends_on:
@@ -51,11 +52,8 @@ services:
   document:
     tty: true
     stdin_open: true
-    container_name: newsdict_document
-    build:
-      context: .
-      dockerfile: Dockerfile
-    working_dir: /var/www/docker
+    container_name: newsdict-document
+    image: newsdictio
     command: "bash src/provisioning/startup/document/startup.sh"
     volumes:
       - ./:/var/www/docker

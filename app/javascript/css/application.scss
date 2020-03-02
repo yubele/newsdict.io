@@ -1,9 +1,8 @@
 /*
  * css for webpacker
  */
-@import '~bulma';
+@import '~bulma/bulma';
 $fa-font-path: "~font-awesome/fonts";
-@import '~font-awesome/scss/font-awesome';
 
 html, body {
   font-family: 'Open Sans', serif;
@@ -48,6 +47,7 @@ p {
 }
 .media-content h2 {
   font-size: 130%;
+  font-weight: bold;
   text-decoration: underline;
   color: #2E2F30;
 }
@@ -64,4 +64,8 @@ p {
 
 a:hover {
   color: rgb(63, 0, 255);
+}
+
+#order-desktop {
+  padding: 0.5rem 1.5rem;
 }

@@ -3,21 +3,19 @@ module ApplicationHelper
   def count_user
     User.all.count
   end
-
-  # Get the source url
-  # @param source_id [BSON::ObjectId]
-  # @return string
-  def get_source_url(source_id)
-    unless source_id.nil?
-      source = Source.find(source_id)
-      "#{source.source_url}/#{source.name}"
+  # Tag elements
+  # @param [Array] tags Tag names
+  # @param [Integer] limit Limit of count
+  def tag_element(tags, limit=5)
+    element = String.new
+    tags.first(5).each do |tag|
+      element << "<span class='tag is-dark'>#{tag}</span>"
     end
+    element
   end
-
-  # Get the name of source
-  # @param source_id [BSON::ObjectId]
-  # @return string
-  def get_name_by_source(source_id)
-    Source.find(source_id).name unless source_id.nil?
+  # View date
+  # @params [Datetime] datetime
+  def in_time_zone(datetime)
+    Time.at(datetime).in_time_zone
   end
 end

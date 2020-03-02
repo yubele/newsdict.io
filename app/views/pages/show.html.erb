@@ -1,0 +1,29 @@
+<section class="section main">
+  <div class="columns">
+    <div class="column is-full">
+      <div class="box">
+        <% @contents.each do |content| %>
+          <%= render partial: 'article', locals: {content: content} %>
+        <% end %>
+        <div id="more-contents">
+          <div v-for="(content,index) in contents" v-if="content">
+            <%= render partial: 'article', locals: {content: {
+              "is_vue" => true,
+              "id" => "content.id",
+              "title" => "{{content.title}}",
+              "content" => "{{content.content}}",
+              "longer_tags" => "content.longer_tags",
+              "expanded_url" => "content.expanded_url",
+              "count_of_shared" => "{{content.count_of_shared}}",
+              "created_at" => "{{content.created_at}}",
+              "source" => {
+                "source_url" => "content.source.source_url",
+                "name" => "content.source.name"
+              }
+            }} %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

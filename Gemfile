@@ -10,6 +10,8 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'bulma-rails', '0.8.0'
 # Font-Awesome SASS (https://github.com/FortAwesome/font-awesome-sass)
 gem 'font-awesome-sass', '5.12.0'
+# A custom Rails form builder for Vue.js (https://github.com/kuroda/vue-rails-form-builder)
+gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-builder.git'
 
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
@@ -21,7 +23,8 @@ gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '0.2.9'
 # use web_stat
-gem "final_redirect_url", :git => "https://github.com/yubele/final_redirect_url"
+# Get a final redirect url for a given url. (https://github.com/indyarocks/final_redirect_url)
+gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick', '4.9.5'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
@@ -69,10 +72,11 @@ gem 'mongoid_search', '0.3.6'
 gem 'rails', '6.0.2.1'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-gem 'puma', '4.3.1'
-# Use SCSS for stylesheets
-# Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
-gem 'sass-rails', '6.0.0'
+gem 'puma', '4.3.3'
+# Ruby FFI (https://github.com/ffi/ffi/wiki)
+gem 'ffi', '1.12.2'
+# Integrate SassC-Ruby into Rails. (https://github.com/sass/sassc-rails)
+gem 'sassc-rails', '2.1.2'
 # Use Uglifier as compressor for JavaScript assets
 # Ruby wrapper for UglifyJS JavaScript compressor (http://github.com/lautis/uglifier)
 gem 'uglifier', '4.2.0'
@@ -155,6 +159,7 @@ group :test do
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.142.6'
   # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
+  # Easy download and use of browser drivers. (https://github.com/titusfortner/webdrivers)
   gem 'webdrivers', '4.2.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock', '3.7.6'

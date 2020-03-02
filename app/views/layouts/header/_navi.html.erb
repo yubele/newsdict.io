@@ -12,7 +12,7 @@
       </a>
     </div>
 
-    <div id="navbar" class="navbar-menu" v-bind:class="{'is-active': isOpen}">
+    <div id="navbar" class="navbar-menu is-desktop" v-bind:class="{'is-active': isOpen}">
       <div class="navbar-end">
         <div class="navbar-item">
           <% if count_user < ENV['MAX_MEMBER_COUNT'].to_i %>
@@ -30,3 +30,6 @@
     </div>
   </div>
 </nav>
+<section id="order-desktop" class="is-hidden-touch">
+  <%= render partial: "layouts/header/order" %>
+</section>

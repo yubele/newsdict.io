@@ -2,7 +2,7 @@
 <html>
   <head>
     <%= Config[:head].html_safe %>
-    <title>Newsdict</title>
+    <title>Newsdict Admin </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +10,6 @@
   </head>
   <body>
     <%= Config[:after_body].html_safe %>
-    <%= render partial: "layouts/header/navi" %>
     <%= yield %>
     <%= Config[:end_body].html_safe %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>

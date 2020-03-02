@@ -1,5 +1,3 @@
-[back to Doc home](../)
-
 # newsdict
 Correct the conntents from Internet.
 
@@ -11,11 +9,15 @@ Correct the conntents from Internet.
 # Development Tools
 Newsdict use docker-compse on development env.
 
-## build
-    $ sudo docker-compose build
+## Build
+    $ docker-compose build
 
-## start docker-compose
+## Start the containers.
     $ docker/start
+    
+### Start a container
+
+    $ docker/start (web|worker|document)
 
 ## rails comamnds
 sample ex)
