@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.7.0'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -72,10 +72,11 @@ gem 'mongoid_search', '0.3.6'
 gem 'rails', '6.0.2.1'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-gem 'puma', '4.3.1'
-# Use SCSS for stylesheets
-# Sass adapter for the Rails asset pipeline. (https://github.com/rails/sass-rails)
-gem 'sass-rails', '6.0.0'
+gem 'puma', '4.3.3'
+# Ruby FFI (https://github.com/ffi/ffi/wiki)
+gem 'ffi', '1.12.2'
+# Integrate SassC-Ruby into Rails. (https://github.com/sass/sassc-rails)
+gem 'sassc-rails', '2.1.2'
 # Use Uglifier as compressor for JavaScript assets
 # Ruby wrapper for UglifyJS JavaScript compressor (http://github.com/lautis/uglifier)
 gem 'uglifier', '4.2.0'

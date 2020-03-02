@@ -18,9 +18,10 @@ export NVM_DIR="$HOME/.nvm"
 # Install the gems of bundler
 if [ "$RAILS_ENV" = "production" ];then
   bundle install
-elif [ "$APP_TYPE" = "web" ];then
-  bundle config --delete without
-  bundle config --delete frozen
+else
+  bundle config --global --delete without
+  bundle config --global --delete frozen
+  rm Gemfile.lock # Run only when docker-compose build
   bundle install
 fi
 # Recreate bins. In development, it only run on web server
