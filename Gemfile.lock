@@ -500,12 +500,12 @@ DEPENDENCIES
   mongoid_search (= 0.3.6)
   nokogiri (= 1.10.8)
   pry-byebug (= 3.7.0)
-  puma
+  puma (= 4.3.3)
   rails (= 6.0.2.1)
   rails_admin (= 2.0.0)
   rb-inotify
   redis-namespace (= 1.7.0)
-  sassc-rails
+  sassc-rails (= 2.1.2)
   selenium-webdriver (= 3.142.6)
   sidekiq (= 6.0.4)
   sidekiq-scheduler (= 3.0.0)
