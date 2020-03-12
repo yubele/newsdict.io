@@ -53,3 +53,11 @@
 
 # Generated docker
 /bin
+
+# sitemaps
+public/shared/sitemap*.xml.gz
+
+# shared files
+/shared/*
+!/shared/.keep
+!/shared/public/.keep

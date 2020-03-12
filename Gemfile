@@ -5,6 +5,11 @@ ruby '2.7.0'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
+##
+# SEO
+# Easily generate XML Sitemaps (http://github.com/kjvarga/sitemap_generator)
+gem 'sitemap_generator', '6.1.0'
+
 # Frontend
 # This gem adds the bulma.io assets to your asset pipeline so you can import them in your Rails project. (https://github.com/joshuajansen/bulma-rails)
 gem 'bulma-rails', '0.8.0'
