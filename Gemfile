@@ -20,9 +20,9 @@ gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-
 
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
-gem 'sidekiq', '6.0.4'
+gem 'sidekiq', '6.0.5'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
-gem 'sidekiq-scheduler', '3.0.0'
+gem 'sidekiq-scheduler', '3.0.1'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
@@ -31,15 +31,15 @@ gem 'web_stat', '0.2.9'
 # Get a final redirect url for a given url. (https://github.com/indyarocks/final_redirect_url)
 gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
-gem 'mini_magick', '4.9.5'
+gem 'mini_magick', '4.10.1'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
-gem 'nokogiri', '1.10.8'
+gem 'nokogiri', '1.10.9'
 
 ##
 # Social Api Gems
 ##
 # A Ruby interface to the Twitter API. (http://sferik.github.com/twitter/)
-gem 'twitter', '6.2.0'
+gem 'twitter', '7.0.0'
 
 ##
 # User Manage
@@ -55,7 +55,7 @@ gem 'cancancan-mongoid', '2.0.0.beta1'
 # User
 ##
 # Admin for Rails (https://github.com/sferik/rails_admin)
-gem 'rails_admin', '2.0.0'
+gem 'rails_admin', '2.0.1'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid', '1.0.1'
 
@@ -63,7 +63,7 @@ gem 'kaminari-mongoid', '1.0.1'
 # mongodb
 ##
 # Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
-gem 'mongoid', '7.1.0.rc0'
+gem 'mongoid', '7.1.0'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs', '2.4.0'
 # Search implementation for Mongoid ORM (http://www.papodenerd.net/mongoid-search-full-text-search-for-your-mongoid-models/)
@@ -94,7 +94,7 @@ gem 'coffee-rails', '5.0.0'
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
 gem 'turbolinks', '5.2.1'
 # Create JSON structures via a Builder-style DSL (https://github.com/rails/jbuilder)
-gem 'jbuilder', '2.9.1'
+gem 'jbuilder', '2.10.0'
 # Reduces boot times through caching; required in config/boot.rb
 # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
 gem 'bootsnap', require: false
@@ -107,9 +107,9 @@ gem 'spring-watcher-listen', '2.0.1'
 # Timezone Data for TZInfo (http://tzinfo.github.io)
 gem 'tzinfo-data', '1.2019.3'
 # Minimal embedded v8 for Ruby (https://github.com/discourse/mini_racer)
-gem 'mini_racer', '0.2.8'
+gem 'mini_racer', '0.2.9'
 # Fast mime detection by extension or content (https://github.com/minad/mimemagic)
-gem 'mimemagic', '0.3.3'
+gem 'mimemagic', '0.3.4'
 # Watches for termination of multiple threads. (https://github.com/ruby/thwait)
 gem 'thwait', '0.1.0'
 # Module for defining custom exceptions with specific messages. (https://github.com/ruby/e2mmap)
@@ -119,11 +119,11 @@ gem 'e2mmap', '0.1.0'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
-  gem 'byebug', '11.0.1'
+  gem 'byebug', '11.1.1'
   # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails', '5.1.1'
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
-  gem 'pry-byebug', '3.7.0'
+  gem 'pry-byebug', '3.8.0'
 end
 
 group :development do
@@ -142,13 +142,13 @@ end
 
 group :document do
   # Documentation tool for consistent and usable documentation in Ruby. (http://yardoc.org)
-  gem 'yard', '0.9.20'
+  gem 'yard', '0.9.24'
   # A YARD plugin to handle modules using ActiveSupport::Concern (https://github.com/digitalcuisine/yard-activesupport-concern)
   gem 'yard-activesupport-concern', '0.0.1'
   # An implementation of the AsciiDoc text processor and publishing toolchain (https://asciidoctor.org)
   gem 'asciidoctor', '2.0.10'
   # An extension for asciidoctor that adds support for UML diagram generation using PlantUML (https://github.com/asciidoctor/asciidoctor-diagram)
-  gem 'asciidoctor-diagram', '2.0.0'
+  gem 'asciidoctor-diagram', '2.0.1'
   # Guard keeps an eye on your file modifications (http://guardgem.org)
   gem 'guard', '2.16.1'
   # Guard gem for running shell commands (http://github.com/hawx/guard-shell)
@@ -160,16 +160,16 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
-  gem 'capybara', '3.29.0'
+  gem 'capybara', '3.31.0'
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
-  gem 'selenium-webdriver', '3.142.6'
+  gem 'selenium-webdriver', '3.142.7'
   # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
   # Easy download and use of browser drivers. (https://github.com/titusfortner/webdrivers)
   gem 'webdrivers', '4.2.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
-  gem 'webmock', '3.7.6'
+  gem 'webmock', '3.8.3'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
-  gem 'faker', '2.9.0'
+  gem 'faker', '2.10.2'
   # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
-  gem 'database_cleaner', '1.7.0'
+  gem 'database_cleaner', '1.8.3'
 end

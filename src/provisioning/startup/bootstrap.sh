@@ -24,7 +24,7 @@ else
   rm Gemfile.lock # Run only when docker-compose build
   bundle install
 fi
-# Recreate bins. In development, it only run on web server
+# Recreate bins. It only run on web server and production.
 if [ "$RAILS_ENV" = "production" ] || [ "$APP_TYPE" = "web" ];then
   rm -rf /var/www/docker/bin
   bundle exec rake app:update:bin

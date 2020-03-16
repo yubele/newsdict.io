@@ -24,8 +24,9 @@ jobs:
           name: build & rails test -v
           command: |
             set -x
-            docker-compose --project-name newsdict build web
+            docker-compose build web
             docker-compose up -d
+            sleep 10
             docker-compose exec web /bin/bash -c ". src/provisioning/startup/bootstrap.sh web && bin/rails test -v"
       - run:
           name: docker-compose down
