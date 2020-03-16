@@ -26,7 +26,8 @@ jobs:
             set -x
             docker-compose build web
             docker-compose up -d
-            docker/exec bin/rails test -v
+            docker/exec bash src/provisioning/startup/bootstrap.sh web
+            docker/exec bundle exec rails test -v
       - run:
           name: docker-compose down
           command: docker-compose down
