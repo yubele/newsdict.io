@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-docker-compose exec web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && bin/rails $*"
+docker-compose exec web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && bundle exec bin/rails $*"
