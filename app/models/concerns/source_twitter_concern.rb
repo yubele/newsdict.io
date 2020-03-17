@@ -4,8 +4,14 @@ module SourceTwitterConcern
   # Get external urls
   def urls
     user_timeline.map { |tweet|
-      tweet.to_h[:entities][:urls].map {|t| t[:expanded_url] }
-    }.flatten
+      if Origins::Twitter.exists(unique_id: tweet.id)
+        # Skip already tweet id
+        next
+      else
+        Origins::Twitter.new(unique_id: tweet.id).save
+        tweet.to_h[:entities][:urls].map {|t| t[:expanded_url] }
+      end
+    }.flatten.compact
   end
 
   # Get home_timeline.entries.url.urls
