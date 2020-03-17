@@ -48,5 +48,7 @@ module Newsdict
       Devise::UnlocksController.layout "devise"            
       Devise::PasswordsController.layout "devise"        
     end
+    # XML Sitemaps
+    config.gem 'sitemap_generator'
   end
 end

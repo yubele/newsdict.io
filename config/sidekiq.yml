@@ -7,3 +7,7 @@
     enabled: true
     cron: '0 0 * * *'
     class: UpdateMecabDicsJob
+  sitemap_job:
+    enabled: true
+    cron: '0 0 0 * *'
+    class: SitemapsJob
