@@ -20,6 +20,7 @@ RUN echo "gem: --no-rdoc --no-ri" > ~/.gemrc
 RUN . /etc/profile.d/rvm.sh && \
   bundle config --global without 'development test' && \
   bundle config --global system true && \
+  bundle config --global path vendor/bundle && \
   bundle install --quiet && \
   bundle config --global frozen true
 

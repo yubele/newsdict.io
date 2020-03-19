@@ -29,7 +29,7 @@ services:
     volumes:
       - ./:/var/www/docker
     working_dir: /var/www/docker
-    command: "bash src/provisioning/startup/web/startup.sh"
+    command: "bash src/provisioning/startup/web/startup.sh development"
     ports:
       - 3000:80
       - 3035:3036
@@ -41,7 +41,7 @@ services:
     container_name: newsdict-worker
     image: newsdictio
     working_dir: /var/www/docker
-    command: "bash src/provisioning/startup/worker/startup.sh"
+    command: "bash src/provisioning/startup/worker/startup.sh development"
     volumes:
       - ./:/var/www/docker
     networks:
@@ -54,7 +54,7 @@ services:
     stdin_open: true
     container_name: newsdict-document
     image: newsdictio
-    command: "bash src/provisioning/startup/document/startup.sh"
+    command: "bash src/provisioning/startup/document/startup.sh development"
     volumes:
       - ./:/var/www/docker
     ports:

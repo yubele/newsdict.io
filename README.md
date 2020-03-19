@@ -14,6 +14,9 @@ Newsdict use docker-compse on development env.
 
 ## Start the containers.
     $ docker/start
+
+### Build and start.
+    $ docker/start --build
     
 ### Start a container
 
