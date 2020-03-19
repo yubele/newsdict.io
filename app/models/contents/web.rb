@@ -29,8 +29,7 @@ module Contents
     # @param [Hash] attr
     def self.save_form_job(web_stat, attrs)
       # Check duplicated news
-      if content = Contents::Web.find_by(expanded_url: web_stat[:url]) ||
-          content = Contents::Web.find_by(title: web_stat[:title])
+      if content = Contents::Web.find_by(expanded_url: web_stat[:url])
         content.inc(count_of_shared: 1)
         content.update_attributes(attrs)
       else

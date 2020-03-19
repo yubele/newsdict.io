@@ -3,7 +3,8 @@ class FetchSourcesJob < ApplicationJob
   # Fetch the web pages by url
   # @param [Source] object
   # @param [String] url
-  def perform(object, url)
+  # @param [Mixed] unique_id
+  def perform(object, url, unique_id: nil)
     userdics = Hash.new
     Configs::MecabDic.each do |dic|
       userdics[dic.language_code] = File.join(
@@ -12,6 +13,8 @@ class FetchSourcesJob < ApplicationJob
     end
     web_stat = WebStat.stat_by_url(url, userdics: userdics)
     attrs = Contents::Web.set_attributes_by_web_stat(object, web_stat)
+    # Record unique ID to prevent duplicate registration
+    attrs[:unique_id] = unique_id
     Contents::Web.save_form_job(web_stat, attrs)
   end
 end
