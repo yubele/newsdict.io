@@ -14,6 +14,9 @@ Newsdict use docker-compse on development env.
 
 ## Start the containers.
     $ docker/start
+
+### Build and start.
+    $ docker/start --build
     
 ### Start a container
 
@@ -42,3 +45,19 @@ sample ex)
 
 ### Update mecab dic
 1. Add Configs::MecabDic on /admin/configs~mecab_dic
+
+# Q&A
+
+## A server is already running.
+
+* In development, The following error is displayed.
+```
+newsdict-web | A server is already running. Check /var/www/docker/tmp/pids/server.pid.
+newsdict-web | Exiting
+```
+
+> Execute the following command.
+
+```
+$ rm tmp/pids/server.pid
+```

@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
-docker-compose rm -f &&
-docker-compose stop &&
+set -e
+docker-compose rm -f
+docker-compose stop
 docker-compose up $@
