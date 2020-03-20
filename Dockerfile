@@ -28,6 +28,9 @@ RUN . /etc/profile.d/rvm.sh && \
 RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \
         rm /var/www/docker/tmp/pids/server.pid; \
     fi
+    
+# Clean assets
+RUN rm -rf public/packs/* public assets/*
 
 CMD ["bash", "/startup/web/startup.sh", "production"]
 
