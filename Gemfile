@@ -74,7 +74,7 @@ gem 'mongoid_search', '0.3.6'
 ##
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Full-stack web application framework. (https://rubyonrails.org)
-gem 'rails', '6.0.2.1'
+gem 'rails', '6.0.2.2'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '4.3.3'
