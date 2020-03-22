@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 set -e
-docker-compose rm -f
+if [ "$1" = "rm" ];then
+  shift
+  docker-compose rm -f
+fi
 docker-compose stop
 docker-compose up $@

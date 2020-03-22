@@ -122,8 +122,6 @@ group :development, :test do
   gem 'byebug', '11.1.1'
   # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails', '5.1.1'
-  # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
-  gem 'pry-byebug', '3.8.0'
 end
 
 group :development do

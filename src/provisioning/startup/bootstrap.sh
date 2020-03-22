@@ -9,16 +9,13 @@ if [ ! -z $2 ];then
   export RAILS_ENV=$2
   export NODE_ENV=$2
 fi
-if [ "$APP_TYPE" != "web" ];then
-  sleep 0
+if [ -f installed.$APP_TYPE.lock ];then
+  rm installed.$APP_TYPE.lock
 fi
 while [ "$RAILS_ENV" = "development" ] && [ "$APP_TYPE" != "web" ] && [ ! -f installed.$APP_TYPE.lock ]
 do
   sleep 1
 done
-if [ -f installed.$APP_TYPE.lock ];then
-  rm installed.$APP_TYPE.lock
-fi
 # Initialize nvm
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -32,7 +29,8 @@ elif [ "$APP_TYPE" = "web" ] && [ "$RAILS_ENV" = "development" ];then
 # Only run bundler in web when env is development.
   bundle config --global --delete without
   bundle config --global --delete frozen
-  rm Gemfile.lock # Run only when docker-compose build
+  bundle config --global with 'development document test'
+  [ -f Gemfile.lock ] && rm Gemfile.lock # Run only when docker-compose build
   bundle install
 fi
 # Recreate bins. It only run on web server and production.
