@@ -29,7 +29,7 @@ class Content < ApplicationRecord
     self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
   end
   # Sort the content by sort_type
-  # @param [String] SORT_TYPE key
+  # @param [String] sort_type
   def self.sortable(sort_type)
     if sort_type && SORT_TYPE.key?(sort_type.to_sym)
       self.order_by((SORT_TYPE[sort_type.to_sym]))

@@ -14,7 +14,7 @@ module ApplicationHelper
     element
   end
   # View date
-  # @params [Datetime] datetime
+  # @param [Datetime] datetime
   def in_time_zone(datetime)
     Time.at(datetime).in_time_zone
   end

@@ -153,6 +153,8 @@ group :document do
   gem 'guard-shell', '0.7.1'
   # A Ruby wrapper for Linux inotify, using FFI (https://github.com/guard/rb-inotify)
   gem 'rb-inotify', :require => false
+  # Downgrade 0.12.2. because `bundle/ruby/2.7.0/gems/guard-2.16.1/lib/guard/jobs/pry_wrapper.rb:131:in `_setup': undefined method `file=' for #<Pry::History:0x000055bbc76c16b8>`
+  gem 'pry', '0.12.2'
 end
 
 group :test do
