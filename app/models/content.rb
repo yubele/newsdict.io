@@ -39,6 +39,10 @@ class Content < ApplicationRecord
   end
   # Exclude domain
   def self.exclude_domain
-    self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
+    if ::Filters::Content.exists?
+      self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
+    else
+      self
+    end
   end
 end
