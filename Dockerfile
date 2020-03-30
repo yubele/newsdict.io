@@ -30,7 +30,7 @@ RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \
     fi
 
 # Clean assets
-RUN rm -rf public/packs/* public assets/*
+RUN rm -rf public/packs/* public/assets/*
 
 CMD ["bash", "/startup/web/startup.sh", "production"]
 
