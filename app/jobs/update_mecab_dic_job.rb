@@ -8,12 +8,9 @@ class UpdateMecabDicJob < ApplicationJob
     system("curl #{mecab_dic.url} | #{decompress_command} > /tmp/#{mecab_dic.key}")
     # Create dic-index from csv
     CSV.open("/tmp/#{mecab_dic.key}.csv", 'w') do |csv|
-      open("/tmp/#{mecab_dic.key}").each_with_index do |_keyword, index|
+      open("/tmp/#{mecab_dic.key}").each_with_index do |keyword, index|
         next if index == 0 && mecab_dic.is_header
-        _, keyword = Array(_keyword.strip.match(/#{mecab_dic.regex_for_extract_title}/))
-        if keyword =~ /#{mecab_dic.regex_for_ignore_line}/
-  			  next
-  			end
+        next if keyword =~ /#{mecab_dic.regex_for_ignore_line}/
   			if keyword.length > 3
   				score = [-36000.0, -400 * (keyword.length ** 1.5)].max.to_i
   				csv << [keyword, nil, nil, score, '名詞', '一般', '*', '*', '*', '*', keyword, '*', '*', mecab_dic.key]
@@ -24,7 +21,7 @@ class UpdateMecabDicJob < ApplicationJob
     raise stderr_str unless status.success?
     File.unlink("/tmp/#{mecab_dic.key}", "/tmp/#{mecab_dic.key}.csv")
   end
-  
+
   def get_decompress_command(url)
     url.strip!
     if url =~ /.tar.gz$/
