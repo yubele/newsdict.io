@@ -114,6 +114,10 @@ gem 'mimemagic', '0.3.4'
 gem 'thwait', '0.1.0'
 # Module for defining custom exceptions with specific messages. (https://github.com/ruby/e2mmap)
 gem 'e2mmap', '0.1.0'
+# Translations for the devise gem (http://github.com/tigrish/devise-i18n)
+gem 'devise-i18n', '1.9.1'
+# I18n support for devise views (http://github.com/mcasimir/devise-i18n-views)
+gem 'devise-i18n-views', '0.3.7'
 
 
 group :development, :test do
@@ -136,6 +140,8 @@ group :development do
   gem 'bundle-locker', :git => 'https://github.com/newsdict/bundle-locker', :branch => 'feature/ignore_require_and_path'
   # Patch-level verification for Bundler (https://github.com/rubysec/bundler-audit#readme)
   gem 'bundler-audit', '0.6.1'
+  # Ever wondered which translations are being looked up by Rails, a gem, or simply your app? Wonder no more! (https://github.com/fphilipe/i18n-debug)
+  gem 'i18n-debug', '1.2.0'
 end
 
 group :document do
@@ -154,6 +160,7 @@ group :document do
   # A Ruby wrapper for Linux inotify, using FFI (https://github.com/guard/rb-inotify)
   gem 'rb-inotify', :require => false
   # Downgrade 0.12.2. because `bundle/ruby/2.7.0/gems/guard-2.16.1/lib/guard/jobs/pry_wrapper.rb:131:in `_setup': undefined method `file=' for #<Pry::History:0x000055bbc76c16b8>`
+  # An IRB alternative and runtime developer console (http://pryrepl.org)
   gem 'pry', '0.12.2'
 end
 
@@ -171,5 +178,6 @@ group :test do
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker', '2.10.2'
   # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
+  # Strategies for cleaning databases. Can be used to ensure a clean slate for testing. (https://github.com/DatabaseCleaner/database_cleaner)
   gem 'database_cleaner', '1.8.3'
 end
