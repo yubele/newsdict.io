@@ -1,9 +1,2 @@
 ja:
-  mongoid:
-    attributes:
-      user:
-        username: "ユーザ名"
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "パスワードの再確認"
   sitename: "newsdict"

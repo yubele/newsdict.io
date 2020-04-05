@@ -1,7 +1,8 @@
 ja:
-  activerecord:
+  mongoid:
     attributes:
       user:
+        username: ユーザ名
         confirmation_sent_at: パスワード確認送信時刻
         confirmation_token: パスワード確認用トークン
         confirmed_at: パスワード確認時刻
@@ -27,6 +28,14 @@ ja:
         updated_at: 更新日
     models:
       user: ユーザ
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: が既に登録済みです
+            username:
+              taken: が既に登録済みです
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。

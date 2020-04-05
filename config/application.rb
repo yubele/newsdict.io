@@ -24,9 +24,9 @@ module Newsdict
   class Application < Rails::Application
     config.time_zone = 'Tokyo'
     # White list, this app use those.
-    I18n.available_locales = [:en, :ja]
+    I18n.available_locales = [:en, :ja, ENV["default_locale"]]
     # Set locale
-    I18n.default_locale = :ja
+    I18n.default_locale = ENV["default_locale"]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     # Recursively including all model subdirectories
