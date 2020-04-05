@@ -1,4 +1,11 @@
 en:
+  admin:
+    actions:
+      dashboard:
+        title: admin top
+        breadcrumb: admin
+    misc:
+      navigation: menu
   mongoid:
     attributes:
       user:

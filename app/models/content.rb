@@ -29,7 +29,7 @@ class Content < ApplicationRecord
     self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
   end
   # Sort the content by sort_type
-  # @param [String] SORT_TYPE key
+  # @param [String] sort_type
   def self.sortable(sort_type)
     if sort_type && SORT_TYPE.key?(sort_type.to_sym)
       self.order_by((SORT_TYPE[sort_type.to_sym]))
@@ -39,6 +39,10 @@ class Content < ApplicationRecord
   end
   # Exclude domain
   def self.exclude_domain
-    self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
+    if ::Filters::Content.exists?
+      self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
+    else
+      self
+    end
   end
 end

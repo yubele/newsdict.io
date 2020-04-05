@@ -1,7 +1,11 @@
 <% if resource.errors.any? %>
   <article class="message is-warning">
     <div class="message-header">
-      <p><%= t('Error Messages') %></p>
+      <p>
+      <%= I18n.t("errors.messages.not_saved",
+                 count: resource.errors.count,
+                 resource: resource.class.model_name.human.downcase)
+       %></p>
       <button class="delete" aria-label="delete"></button>
     </div>
     <ul class="message-body">

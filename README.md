@@ -18,6 +18,9 @@ Newsdict use docker-compse on development env.
 ### Build and start.
     $ docker/start --build
     
+### Remove container and start
+    $ docker/start rm
+    
 ### Start a container
 
     $ docker/start (web|worker|document)

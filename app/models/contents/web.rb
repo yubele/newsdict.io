@@ -1,7 +1,7 @@
 module Contents
   class Web < ::Content
     # Set attributes by `WebStat` gems
-    # @param [Object] Sources
+    # @param [Source] object
     # @param [Object] web_stat
     # @return [Hash] attributes
     def self.set_attributes_by_web_stat(object, web_stat)
@@ -26,7 +26,7 @@ module Contents
 
     # Save a content from job
     # @param [Hash] web_stat
-    # @param [Hash] attr
+    # @param [Hash] attrs
     def self.save_form_job(web_stat, attrs)
       # Check duplicated news
       if content = Contents::Web.find_by(expanded_url: web_stat[:url])

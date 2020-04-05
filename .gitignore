@@ -60,3 +60,7 @@ public/shared/sitemap*.xml.gz
 # shared files
 /shared/*
 !/shared/.keep
+
+# lock files of docker-compose
+/installed.document.lock
+/installed.worker.lock
