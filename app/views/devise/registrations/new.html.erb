@@ -3,8 +3,7 @@
   <div class="hero-body">
     <div class="container has-text-centered">
       <div class="column is-4 is-offset-4">
-        <h3 class="title has-text-grey"><%= t('Sign up Form') %></h3>
-        <p class="subtitle has-text-grey"><%= t('Please sign to proceed.') %></p>
+        <h3 class="title has-text-grey"><%= t('.sign_up') %></h3>
         <%= render "devise/shared/error_messages", resource: resource %>
         <div class="box">
             <div class="field">
@@ -34,7 +33,7 @@
                 <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input is-large" %>
               </div>
             </div>
-          <%= f.submit "Sign up" %>
+          <%= f.submit t('.sign_up') %>
           <hr/>
           <%= render "devise/shared/links" %>
         </div>
