@@ -1,5 +1,8 @@
 en:
   admin:
+    navigation:
+      setting: Setting
+      global_setting: Global Setting
     js:
       true: True
       false: False

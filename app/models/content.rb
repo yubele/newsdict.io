@@ -1,6 +1,5 @@
 class Content < ApplicationRecord
   include Mongoid::Document
-  include Mongoid::Timestamps
   include ContentConcern
   field :title, type: String
   field :site_name, type: String
@@ -15,6 +14,7 @@ class Content < ApplicationRecord
   field :count_of_shared, type: Integer
   # unique id of source
   field :unique_id, type: String
+  include Mongoid::Timestamps
   belongs_to :source, optional: true
   belongs_to :user, optional: true
   validates_uniqueness_of :unique_id, :allow_nil => true

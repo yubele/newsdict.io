@@ -1,5 +1,8 @@
 ja:
   admin:
+    navigation:
+      setting: 設定
+      global_setting: アプリ設定
     js:
       true: True
       false: False

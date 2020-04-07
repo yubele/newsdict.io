@@ -1,6 +1,5 @@
 class Source < ApplicationRecord
   include Mongoid::Document
-  include Mongoid::Timestamps
   # Source Name
   field :name, type: String
   # Source Description
@@ -9,4 +8,5 @@ class Source < ApplicationRecord
   field :user_id, type: BSON::ObjectId
   # Last crawling datetime
   field :fetch_at, type: DateTime
+  include Mongoid::Timestamps
 end

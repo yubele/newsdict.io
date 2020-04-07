@@ -9,7 +9,7 @@
     <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= Configs::View[:after_body].html_safe if Configs::View[:after_body]..is_a?(String) %>
+    <%= Configs::View[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
     <%= render partial: "layouts/header/navi" %>
     <%= yield %>
     <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
