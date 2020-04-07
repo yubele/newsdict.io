@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= Configs::View[:head].html_safe %>
+    <%= Configs::View[:head].html_safe if Configs::View[:head].is_a?(String) %>
     <title>Newsdict</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,10 +9,10 @@
     <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= Configs::View[:after_body].html_safe %>
+    <%= Configs::View[:after_body].html_safe if Configs::View[:after_body]..is_a?(String) %>
     <%= render partial: "layouts/header/navi" %>
     <%= yield %>
-    <%= Configs::View[:end_body].html_safe %>
+    <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
