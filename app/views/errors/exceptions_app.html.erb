@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= Config[:head].html_safe %>
-    <title>Page Not Found - Newsdict</title>
+    <%= Configs::View[:head].html_safe if Configs::View[:head].is_a?(String) %>
+    <title>Newsdict</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
     <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <%= Config[:after_body].html_safe %>
-
-    <section class="hero is-success is-fullheight">
+    <%= Configs::View[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
+    <%= render partial: "layouts/header/navi" %>
+     <section class="hero is-success is-fullheight">
         <div class="hero-body">
             <div class="container has-text-centered">
                 <div class="column is-4 is-offset-4">
@@ -22,8 +24,7 @@
             </div>
         </div>
     </section>
-
-    <%= Config[:end_body].html_safe %>
+    <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
