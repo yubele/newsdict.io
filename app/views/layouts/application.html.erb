@@ -2,7 +2,11 @@
 <html>
   <head>
     <%= Configs::View[:head].html_safe if Configs::View[:head].is_a?(String) %>
-    <title>Newsdict</title>
+    <% if current_page?('/') %>
+      <title><%= t('sitename') %></title>
+    <% elsif params[:category] %>
+      <title><%= params[:category] %> | <%= t('sitename') %></title>
+    <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>

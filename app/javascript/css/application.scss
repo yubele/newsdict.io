@@ -76,3 +76,8 @@ div.tabs > ul > li#logo {
   text-align: center;
   letter-spacing: 2px;
 }
+
+div.tabs > ul > li#logo > a {
+  padding: 2px 0 3px;
+  border: 0;
+}
