@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   devise_for 'user', :controllers => {
     :registrations => 'admin/registrations'
   }
+  get "/category/:category/", to: "pages#show"
   get "/img/:id", to: "images#index"
   # Apis
   namespace :api do

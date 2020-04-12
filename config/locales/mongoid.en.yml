@@ -43,6 +43,8 @@ en:
     models:
       "filters/content": Content filters
       user: user
+      source: "source"
+      "sources:twitter_account": twitter account
       "config/mecab_dic": "Morphological element analysis Setting"
       "config/view": "HTML Setting"
       "contents/web": "contents data"

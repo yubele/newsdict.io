@@ -25,8 +25,13 @@ class Content < ApplicationRecord
   }
   # Get the records
   # @param order default :desc
-  def self.contents(order: :desc)
-    self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
+  # @param category default: nil
+  def self.contents(order: :desc, category: nil)
+    if category
+      self.in(source_id: Sources::TwitterAccount.where(category: category).map {|u| u.id })
+    else
+      self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
+    end
   end
   # Sort the content by sort_type
   # @param [String] sort_type
@@ -42,7 +47,7 @@ class Content < ApplicationRecord
     if ::Filters::Content.exists?
       self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
     else
-      self
+      self.all
     end
   end
 end

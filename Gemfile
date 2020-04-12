@@ -129,6 +129,8 @@ group :development, :test do
 end
 
 group :development do
+  # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
+  gem 'pry-byebug', '3.8.0'
   # Add comments to your Gemfile with each dependency's description. (https://github.com/ivantsepp/annotate_gem)
   gem 'annotate_gem', '0.0.14'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.

@@ -71,6 +71,7 @@ ja:
       "filters/content": コンテンツのフィルター
       user: ユーザ
       source: 記事元
+      "sources/twitter_account": "ツイッターアカウント"
       "configs/mecab_dic": 形態要素解析
       "configs/view": HTML設定
       "contents/web": 記事情報

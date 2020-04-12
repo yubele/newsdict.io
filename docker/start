@@ -8,4 +8,9 @@ if [ "$1" = "rm" ];then
   docker-compose rm -f
 fi
 docker-compose stop
-docker-compose up $@
+if [ "$1" = "debug" ]; then
+  docker-compose up -d
+  docker attach newsdict-web
+else
+  docker-compose up $@
+fi

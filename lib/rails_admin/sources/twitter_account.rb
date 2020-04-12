@@ -9,6 +9,9 @@ RailsAdmin.config do |config|
     field :description do
       visible true
     end
+    field :category do
+      visible true
+    end
     # login user id
     field :user_id do
       label "User Email"
