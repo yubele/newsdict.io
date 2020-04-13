@@ -1,4 +1,16 @@
 ja:
+  be_shared_content_list: "%{name}がシェアした記事一覧"
+  count_of_shared: シェア重複数
+  shared_at: シェア日付
+  media: メディア
+  information: 情報
+  image: 画像
+  tag: タグ
+  shared_person: シェアした人
+  language_code: 言語
+  category: カテゴリー
+  content_description: コンテンツ概要
+  more_information: 詳細な情報を見る
   date:
     abbr_day_names:
     - 日

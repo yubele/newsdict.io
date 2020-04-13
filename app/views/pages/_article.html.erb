@@ -20,6 +20,11 @@ end %>
       <%= vue_content_tag :h2, content["title"] %>
       <%= vue_content_tag :div, content["content"], class: "content" %>
       <%= vue_content_tag :div, content["longer_tags"].html_safe, "v-html" => content["longer_tags"], class: "tags" %>
+      <a href="/content/<%= content["id"] %>/">
+        <button class="button is-primary is-rounded is-small">
+          <%= t(:more_information) %>
+        </button>
+      </a>
       <p class="is-pulled-right media-source-name">
         <% if content["is_vue"]
           key = "v-bind:href"

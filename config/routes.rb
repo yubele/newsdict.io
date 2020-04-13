@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     :registrations => 'admin/registrations'
   }
   get "/category/:category/", to: "pages#show"
+  get "/content/:id/", to: "pages#content"
   get "/img/:id", to: "images#index"
   # Apis
   namespace :api do

@@ -5,6 +5,9 @@ RailsAdmin.config do |config|
     field :name do
       visible true
     end
+    field :alias do
+      visible true
+    end
     # description of twitter account
     field :description do
       visible true

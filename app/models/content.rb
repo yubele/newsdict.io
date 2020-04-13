@@ -1,6 +1,7 @@
 class Content < ApplicationRecord
   include Mongoid::Document
   include ContentConcern
+  has_one :source
   field :title, type: String
   field :site_name, type: String
   field :content, type: String
@@ -26,8 +27,10 @@ class Content < ApplicationRecord
   # Get the records
   # @param order default :desc
   # @param category default: nil
-  def self.contents(order: :desc, category: nil)
-    if category
+  def self.contents(order: :desc, category: nil, name: nil)
+    if name
+      self.in(source_id: Sources::TwitterAccount.find_by(name: name))
+    elsif category
       self.in(source_id: Sources::TwitterAccount.where(category: category).map {|u| u.id })
     else
       self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
