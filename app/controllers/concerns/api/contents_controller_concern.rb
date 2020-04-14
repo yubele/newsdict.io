@@ -32,12 +32,12 @@ module Api
           }).merge({
             "longer_tags" => tag_element(c.longer_tags)
           }).merge({
-            "source" => c.source.attributes.select { |k,v|
-              k.include?("name")
-            }.merge({
+            "source" => {
+              "name" => c.source.name,
+              "view_name" => c.source.view_name,
               "source_url" => c.source.source_url
-            })
-        })}
+          }})
+        }
     end
   end
 end

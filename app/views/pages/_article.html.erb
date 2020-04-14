@@ -36,9 +36,9 @@ end %>
         <%= vue_content_tag :a, key => value, :target => :_blank do %>
           <%= t('Shared By') %>&nbsp;
           <% if content["is_vue"] %>
-          <strong>{{<%= content["source"]["name"] %>}} (<%= content["count_of_shared"] %>)</strong>
+          <strong>{{<%= content["source"]["view_name"] %>}} (<%= content["count_of_shared"] %>)</strong>
           <% else %>
-          <strong><%= content["source"]["name"] %> (<%= content["count_of_shared"] %>)</strong>
+          <strong><%= content["source"]["view_name"] %> (<%= content["count_of_shared"] %>)</strong>
           <% end %>
           &nbsp;/&nbsp;
           <%= vue_content_tag :small, content["created_at"] %>
