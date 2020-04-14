@@ -3,7 +3,14 @@ SitemapGenerator::Sitemap.default_host = "https://newsdict.jp"
 SitemapGenerator::Sitemap.sitemaps_path = 'shared/'
 SitemapGenerator::Sitemap.create_index = true
 SitemapGenerator::Sitemap.create do
-  add '/', priority: 1.0, changefreq: 'daily'
+  add '/', priority: 1.0, changefreq: 'always'
+  Configs::Category.all.each do |config|
+    add "/category/#{CGI::escape(config.key)}/", priority: 0.8, changefreq: 'hourly'
+  end
+  Content.all.each do |content|
+    add "/content/#{content.id}/", priority: 0.5, changefreq: 'monthly'
+  end
+  
   # Put links creation logic here.
   #
   # The root path '/' and sitemap index file are added automatically for you.
