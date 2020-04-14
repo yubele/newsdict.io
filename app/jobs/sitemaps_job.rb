@@ -3,6 +3,6 @@ class SitemapsJob < ApplicationJob
   # Genetate sitemaps
   def perform
     load File.expand_path('../../../bin/rake', __FILE__)
-    Rake::Task['sitemap:refresh:no_ping'].invoke
+    Rake::Task['sitemap:refresh'].invoke
   end
 end
