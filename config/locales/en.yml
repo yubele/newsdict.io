@@ -1,4 +1,17 @@
 en:
+  be_shared_content_list: "List of contents %{name} shared."
+  count_of_shared: Count of shared
+  shared_at: shared date
+  media: Media
+  information: Information
+  image: Image
+  tag: Tags
+  shared_person: Person of shared
+  language_code: Language code
+  category: Category
+  content_description: Description
+  more_information: More detail
+  content_title: "%{name} shared `%{title}`"
   date:
     abbr_day_names:
     - Sun
