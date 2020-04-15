@@ -7,7 +7,7 @@
     <% elsif params[:category] %>
       <title><%= params[:category] %> | <%= t('sitename') %></title>
     <% elsif @content %>
-      <title><%= t(:content_title, name: @content.source.name, title: @content.title %>) | <%= t('sitename') %></title>
+      <title><%= t(:content_title, name: @content.source.name, title: @content.title) %> | <%= t('sitename') %></title>
     <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
