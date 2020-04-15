@@ -49,5 +49,7 @@ module Newsdict
     end
     # XML Sitemaps
     config.gem 'sitemap_generator'
+    # For vuejs
+    config.vuejs_suffix = "v-bind:"
   end
 end
