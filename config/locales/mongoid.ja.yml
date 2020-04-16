@@ -77,6 +77,18 @@ ja:
       "contents/web": 記事情報
     errors:
       models:
+        inquiry:
+          attributes:
+            name:
+              too_short: 文字が短すぎます
+              blank: 文字を入力してください
+            mailaddress:
+              too_short: 文字が短すぎます
+              blank: 文字を入力してください
+              invalid: メールアドレスを入力してください
+            inquiry:
+              too_short: 文字が短すぎます
+              blank: 文字を入力してください
         user:
           attributes:
             email:

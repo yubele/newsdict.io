@@ -1,7 +1,12 @@
-<section id="order-desktop" class="is-hidden-touch">
-  <%= render partial: "order" %>
-</section>
-<section class="section main">
+<div class="container">
+  <div class="header">
+    <div class="order">
+      <%= render partial: "order" %>
+    </div>
+    <dl class="information">
+      <dd><%= link_to t('inquiry'), inquiries_path %></dd>
+    </dl>
+  </div>
   <div class="columns">
     <div class="column is-full">
       <div class="box">

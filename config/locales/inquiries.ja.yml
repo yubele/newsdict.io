@@ -1,0 +1,9 @@
+ja:
+  inquiries:
+    show:
+      your_name: お名前
+      your_mailaddress: メールアドレス
+      inquiry: お問い合わせ内容
+      submit: 送信
+    confirm:
+      thank_you_for_inquiry: お問い合わせありがとうございました

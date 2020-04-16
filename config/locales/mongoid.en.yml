@@ -50,6 +50,18 @@ en:
       "contents/web": "contents data"
     errors:
       models:
+        inquiry:
+          attributes:
+            name:
+              too_short: Too Short
+              blank: Blank
+            mailaddress:
+              too_short: Too Short
+              blank: Blank
+              invalid: Invalid
+            inquiry:
+              too_short: Too Short
+              blank: Blank
         user:
           attributes:
             email:

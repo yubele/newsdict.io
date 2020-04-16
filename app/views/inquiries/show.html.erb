@@ -1,0 +1,30 @@
+<%= form_for(@resource, url: inquiries_path) do |f| %>
+<div class="container">
+    <div class="field">
+        <label class="label"><%= t('.your_name') %></label>
+        <div class="control">
+            <%= f.text_field :name, class: :input, autofocus: false, placeholder: t('.your_name') %>
+        </div>
+        <p class="help is-danger"><%= @resource.errors.messages[:name].join(",") %></p>
+    </div>
+    <div class="field">
+        <label class="label"><%= t('.your_mailaddress') %></label>
+        <div class="control">
+            <%= f.text_field :mailaddress, class: :input, autofocus: false, placeholder: t('.your_mailaddress') %>
+        </div>
+        <p class="help is-danger"><%= @resource.errors.messages[:mailaddress].join(",") %></p>
+    </div>
+    <div class="field">
+        <label class="label"><%= t('.inquiry') %></label>
+        <div class="control">
+            <%= f.text_area :inquiry, row: 3, class: :textarea, autofocus: false, placeholder: t('.inquiry') %>
+        </div>
+        <p class="help is-danger"><%= @resource.errors.messages[:inquiry].join(",") %></p>
+    </div>
+    <div class="field">
+        <div class="control">
+          <%= f.submit t('.submit'), class: :button %>
+        </div>
+    </div>
+</div>
+<% end %>
