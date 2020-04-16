@@ -12,12 +12,6 @@ import Axios from 'axios/dist/axios.js'
 import '../imports/fontawesome.js'
 import '../imports/dropdown.js'
 import '../css/application.scss'
-new Vue({
-    el: '#mobile-menu',
-    data: {
-        isOpen: false
-    }
-})
 var app = new Vue({
   el: "#more-contents",
   data: {
