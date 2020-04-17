@@ -1,9 +1,8 @@
 <div class="container">
   <div class="header">
-    <div class="order">
-      <%= render partial: "order" %>
-    </div>
+    <%= render partial: "order" %>
     <dl class="information">
+      <dd><%= link_to t('official_site'), 'https://newsdict.io/', target: :_blank %></dd>
       <dd><%= link_to t('inquiry'), inquiries_path %></dd>
     </dl>
   </div>
