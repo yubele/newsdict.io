@@ -2,6 +2,7 @@ class Content < ApplicationRecord
   include Mongoid::Document
   include ContentConcern
   has_one :source
+  has_one :user
   field :title, type: String
   field :site_name, type: String
   field :content, type: String

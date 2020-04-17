@@ -2,6 +2,7 @@ ja:
   official_site: オフィシャルサイト
   inquiry: お問い合わせ
   sidekiq: ジョブ管理
+  read_more: もっと見る（記事のサイトに飛びます）
   be_shared_content_list: "%{name}がシェアした記事一覧"
   count_of_shared: シェア重複数
   shared_at: シェア日付

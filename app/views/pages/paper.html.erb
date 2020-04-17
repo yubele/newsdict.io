@@ -1,0 +1,43 @@
+<section class="container">
+    <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Hello, Admin.
+                </h1>
+                <h2 class="subtitle">
+                    I hope you are having a great day!
+                </h2>
+            </div>
+        </div>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="../">Bulma</a></li>
+            <li><a href="../">Templates</a></li>
+            <li><a href="../">Examples</a></li>
+            <li class="is-active"><a href="#" aria-current="page">Admin</a></li>
+        </ul>
+    </nav>
+    <div class="columns features">
+        <% @max_column.times.each do |index| %>
+        <div class="is-3">
+        <% @paper.contents.each_slice(@max_column) do |content| %>
+            <div class="column paper card is-shady">
+                <div class="card-head"  style="background-image: url(/img/<%= content[index].id %>)">
+                    <div class="card-title">
+                        <h4><%= content[index].title %></h4>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p><%= content[index].content.truncate(100) %></p>
+                </div>
+                <footer>
+                    <span class="button">
+                        <%= link_to t(:read_more), content[index].expanded_url ,target: :_blank %>
+                    </span>
+                </footer>
+            </div>
+        <% end %>
+        </div>
+        <% end %>
+    </div>
+</section>

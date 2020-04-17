@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   }
   get "/category/:category/", to: "pages#show"
   get "/content/:id/", to: "pages#content"
+  get '/paper/:id/', to: "pages#paper"
   resource :inquiries, only: [:show, :create]
   get "/img/:id", to: "images#index"
   # Apis

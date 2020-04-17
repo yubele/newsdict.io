@@ -87,6 +87,9 @@ h2.menu-label {
 .media-content > a > button {
   margin: 20px 0;
 }
+.column {
+  margin:10px 10px 0 0 ;
+}
 div.header {
   display:flex;
   justify-content: flex-start;
@@ -100,4 +103,20 @@ div.header > dl.information {
 }
 div.header > dl.information > dd {
   margin:0 5px;
+}
+.paper.card > .card-head {
+  background-repeat: no-repeat;
+  background-position: right;
+}
+.paper.card > .card-head > .card-title {
+  width: 50%;
+  margin: 10px 0 10px 25px;
+  text-decoration: underline;
+  font-size: 115%;
+  font-weight: bold;
+}
+.paper.card > footer {
+  display: inline-flex;
+  justify-content:center;
+  width: 100%;
 }

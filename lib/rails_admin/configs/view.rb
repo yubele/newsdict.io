@@ -2,6 +2,7 @@ RailsAdmin.config do |config|
   config.model "Configs::View" do
     edit do
       field :key do
+        read_only true
         visible true
       end
       field :description

@@ -8,8 +8,12 @@
       <title><%= params[:category] %> | <%= t('sitename') %></title>
     <% elsif @content %>
       <title><%= t(:content_title, name: @content.source.name, title: @content.title) %> | <%= t('sitename') %></title>
+    <% elseif @title %>
+      <title><%= @title %> | <%= t('sitename') %></title>
     <% end %>
+    <% if defined? @noindex && @noindex %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <% end %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
