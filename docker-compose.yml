@@ -12,8 +12,6 @@ services:
     container_name: newsdict-mongodb
     image: mongo
     restart: always
-    ports:
-      - ${LOCAL_MONGODB_PORT}:27017
     networks:
       - app-tier
     volumes:
