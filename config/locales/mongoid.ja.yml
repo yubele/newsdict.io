@@ -69,12 +69,14 @@ ja:
         updated_at: 更新日時
     models:
       "filters/content": コンテンツのフィルター
-      user: ユーザ
+      user: 管理ユーザ
       source: 記事元
       "sources/twitter_account": "ツイッターアカウント"
       "configs/mecab_dic": 形態要素解析
       "configs/view": HTML設定
+      "configs/category": カテゴリー設定
       "contents/web": 記事情報
+      inquiry: 問い合わせ
     errors:
       models:
         inquiry:

@@ -42,12 +42,14 @@ en:
         description: description
     models:
       "filters/content": Content filters
-      user: user
+      user: Admin User
       source: "source"
       "sources:twitter_account": twitter account
       "config/mecab_dic": "Morphological element analysis Setting"
       "config/view": "HTML Setting"
+      "configs/category": "Category Setting"
       "contents/web": "contents data"
+      inquiry: Inquiry
     errors:
       models:
         inquiry:

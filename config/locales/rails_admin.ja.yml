@@ -3,6 +3,8 @@ ja:
     navigation:
       setting: 設定
       global_setting: アプリ設定
+      other_system_admin: その他の管理画面
+      inquiries_management: 問い合わせ管理
     js:
       true: True
       false: False
