@@ -8,7 +8,7 @@
       <title><%= params[:category] %> | <%= t('sitename') %></title>
     <% elsif @content %>
       <title><%= t(:content_title, name: @content.source.name, title: @content.title) %> | <%= t('sitename') %></title>
-    <% elseif @title %>
+    <% elsif @title %>
       <title><%= @title %> | <%= t('sitename') %></title>
     <% end %>
     <% if defined? @noindex && @noindex %>

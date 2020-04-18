@@ -9,9 +9,14 @@ class PagesController < ApplicationController
     @content = Content.find_by(id: params[:id])
   end
   def paper
+    @title = 'paper'
     @max_column = 4
+    # @todo: implements
     @paper = Paper.new
-    Contents::Web.limit(24).each do |content|
+    @paper.title = 'test'
+    @paper.description = 'test description'
+    @paper.user = User.first
+    Contents::Web.gte( :created_at => Time.now.ago(7.days) ).limit(16).each do |content|
       @paper.contents << content
     end
   end

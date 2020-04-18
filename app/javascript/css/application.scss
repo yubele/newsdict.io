@@ -104,16 +104,39 @@ div.header > dl.information {
 div.header > dl.information > dd {
   margin:0 5px;
 }
+.paper.container {
+  padding-left: 10px;
+  margin-bottom: 50px;
+}
+@media only screen and (min-width: 768px) {
+  .paper > .row {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .columns {
+      margin-left: 0;
+  }
+}
 .paper.card > .card-head {
   background-repeat: no-repeat;
   background-position: right;
+  background-size: 50%;
 }
 .paper.card > .card-head > .card-title {
-  width: 50%;
-  margin: 10px 0 10px 25px;
+  padding: 10px 0 10px 25px;
   text-decoration: underline;
+  word-wrap: break-word;
   font-size: 115%;
   font-weight: bold;
+  width: 46%;
+}
+.paper.card > .card-head > .card-title > a:link {
+  color: #000;
+}
+
+.paper.card > .card-head > .card-title > a:visit {
+  color: #666;
 }
 .paper.card > footer {
   display: inline-flex;
