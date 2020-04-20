@@ -28,10 +28,8 @@ jobs:
     - name: build & rails test -v
       run: |
         set -x
-        docker-compose build web
-        docker-compose up -d
-        docker/exec bash src/provisioning/startup/bootstrap.sh web
-        docker/exec bundle exec rails test -v
+        docker/start -d
+        docker/rails test -v
     - name: DockerCompose down
       run: |
         docker-compose down

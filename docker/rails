@@ -1,2 +1,9 @@
 #!/usr/bin/env bash
+echo -n "Wait to run dev server "
+while [ "$(ls tmp/pids/server.pid 2>&1 > /dev/null; echo $?)" != "0" ]
+do
+    echo -n "."
+    sleep 1
+done
+echo ""
 docker-compose exec web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && bundle exec bin/rails $*"
