@@ -51,5 +51,9 @@ module Newsdict
     config.gem 'sitemap_generator'
     # For vuejs
     config.vuejs_suffix = "v-bind:"
+    # Paper item limit
+    config.paper_item_limit = 16
+    # Paper column number
+    config.paper_column_number = 4
   end
 end

@@ -22,6 +22,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    action_args (2.4.0)
     actioncable (6.0.2.2)
       actionpack (= 6.0.2.2)
       nio4r (~> 2.0)
@@ -480,6 +481,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  action_args (= 2.4.0)
   annotate_gem (= 0.0.14)
   asciidoctor (= 2.0.10)
   asciidoctor-diagram (= 2.0.1)
@@ -507,6 +509,7 @@ DEPENDENCIES
   guard-shell (= 0.7.1)
   i18n-debug (= 1.2.0)
   jbuilder (= 2.10.0)
+  kaminari-actionview (= 1.2.0)
   kaminari-mongoid (= 1.0.1)
   listen (= 3.2.1)
   mimemagic (= 0.3.4)

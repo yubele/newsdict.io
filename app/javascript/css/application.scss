@@ -90,6 +90,9 @@ h2.menu-label {
 .column {
   margin:10px 10px 0 0 ;
 }
+#information {
+  padding-left: 10px;
+}
 div.header {
   display:flex;
   justify-content: flex-start;
@@ -97,17 +100,14 @@ div.header {
 div.header > div.order {
   margin: 0 auto 10px 10px;
 }
-div.header > dl.information {
+div.header > dl.links {
   display: flex;
   margin:0 10px;
 }
-div.header > dl.information > dd {
+div.header > dl.links > dd {
   margin:0 5px;
 }
-.paper.container {
-  padding-left: 10px;
-  margin-bottom: 50px;
-}
+
 @media only screen and (min-width: 768px) {
   .paper > .row {
     width: 25%;
@@ -125,7 +125,7 @@ div.header > dl.information > dd {
 }
 .paper.card > .card-head > .card-title {
   padding: 10px 0 10px 25px;
-  text-decoration: underline;
+  text-decoration: none;
   word-wrap: break-word;
   font-size: 115%;
   font-weight: bold;

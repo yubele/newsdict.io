@@ -58,6 +58,8 @@ gem 'cancancan-mongoid', '2.0.0.beta1'
 gem 'rails_admin', '2.0.1'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid', '1.0.1'
+# Kaminari Action View adapter (https://github.com/kaminari/kaminari)
+gem 'kaminari-actionview', '1.2.0'
 
 ##
 # mongodb
@@ -118,7 +120,8 @@ gem 'e2mmap', '0.1.0'
 gem 'devise-i18n', '1.9.1'
 # I18n support for devise views (http://github.com/mcasimir/devise-i18n-views)
 gem 'devise-i18n-views', '0.3.7'
-
+# Controller action arguments parameterizer for Rails 4+ & Ruby 2.0+ (http://asakusa.rubyist.net/)
+gem 'action_args', '2.4.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

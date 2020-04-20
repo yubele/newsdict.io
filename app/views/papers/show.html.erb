@@ -1,0 +1,49 @@
+<section class="container">
+    <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <%= @paper.title %>
+                </h1>
+                <h2 class="subtitle">
+                    <%= @paper.description %>
+                </h2>
+            </div>
+        </div>
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/">Top</a></li>
+            <li><a><%= @paper.user.username %></a></li>
+            <li class="is-active"><a href="#" aria-current="page"><%= @paper.title.truncate(20) %></a></li>
+        </ul>
+    </nav>
+    <%= paginate(@contents) %>
+    <div class="paper columns features">
+        <% @column_number.times.each do |column_num| %>
+        <div class="row is-3">
+        <% (column_num+1).step(@per_page, @column_number) do |index| %>
+            <% break unless @contents[index] %>
+            <div class="column paper card is-shady">
+                <div class="card-head"  style="background-image: url(/img/<%= @contents[index].id %>)">
+                    <div class="card-title">
+                        <%= link_to @contents[index].expanded_url ,target: :_blank, ref: :nofollow do %>
+                        <h4><%= @contents[index].title %></h4>
+                        <% end %>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <p><%= @contents[index].content.truncate(100) %></p>
+                </div>
+                <footer>
+                    <%= link_to "/content/#{@contents[index].id}" do %>
+                        <span class="button is-link">
+                            <%= t(:more_information) %>
+                        </span>
+                    <% end %>
+                </footer>
+            </div>
+        <% end %>
+        </div>
+        <% end %>
+    </div>
+    <%= paginate(@contents) %>
+</section>

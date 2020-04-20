@@ -1,0 +1,6 @@
+en:
+  paper:
+    term:
+      title: Articles from %{from_date} to %{to_date}
+    one_day:
+      title: Articles of %{date}

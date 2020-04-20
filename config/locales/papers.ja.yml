@@ -1,0 +1,6 @@
+ja:
+  paper:
+    term:
+      title: "%{from_date}から%{to_date}までの記事"
+    one_day:
+      title: "%{date}の記事"

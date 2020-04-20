@@ -21,6 +21,7 @@
   <body>
     <%= Configs::View[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
     <%= render partial: "layouts/header/navi" %>
+    <%= render partial: "layouts/header/information" %>
     <%= yield %>
     <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
