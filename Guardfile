@@ -1,16 +1,16 @@
 # Generate documents from asciidoc
 guard 'shell' do
-  watch(/^src\/(doc\/asciidoc\/.*)\.adoc$/) do |m|
+  watch(%r{^src/(doc/asciidoc/.*).adoc$}) do |m|
     `bundle exec asciidoctor -r asciidoctor-diagram #{Dir.pwd}/#{m[0]} -o #{Dir.pwd}/#{m[1]}.html`
   end
 end
 
-# Generate Yard Graph
+# Generate Yard and asciidoc graph
 guard 'shell' do
-  watch(/(\.rb|\.md|src\/doc\/index\.adoc)$/) do |m|
+  watch(%r{^*\.md$|^(app|config|db|lib)|^src/doc/index\.adoc$}) do |m|
+    `bundle exec yardoc`
     src = "src/doc/index.adoc"
     tmp_src = "src/doc/index.tmp.adoc"
-    `bundle exec yardoc`
     `cp #{src} #{tmp_src}`
     `echo "" >> #{Dir.pwd}/#{tmp_src}`
     `echo "[graphviz, source-graph, svg]" >> #{Dir.pwd}/#{tmp_src}`
