@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
-docker-compose exec -T web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && $*"
+# Check to support tty.
+if [ "$(tty;echo $?)" != "0" ];then
+    DOCKERCOMPOSE_EXEC="docker-compose exec -T"
+else
+    DOCKERCOMPOSE_EXEC="docker-compose exec"
+fi
+$DOCKERCOMPOSE_EXEC web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && $*"

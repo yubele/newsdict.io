@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-docker exec -it $(docker ps |grep newsdict_web |awk '{print $1}') /bin/bash -c ". /etc/profile.d/rvm.sh && bundle $*"
