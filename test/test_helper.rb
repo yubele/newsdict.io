@@ -5,10 +5,9 @@ require 'twitter_helper'
 Dir.glob(Rails.root.join('test/**/*_test.rb')).each { |file| require file}
 
 class ActiveSupport::TestCase
-  # Initialize
+  # Initialize DB
   def setup
     DatabaseCleaner.clean
-    self.set_oauth_mock
   end
   # Set a webmock for web_mock/web_stat/blog.html
   # @param [String] url
@@ -22,10 +21,5 @@ class ActiveSupport::TestCase
     fetch_as_url = WebStat::FetchAsHtml.new(fixture('web_mock/web_stat/blog.html'))
     fetch_as_url.url = url
     stub_request(:get, fetch_as_url.eyecatch_image_path).to_return(body: fixture('assets/dummy.png'))
-  end
-  
-  private
-  def set_oauth_mock
-    stub_post("/oauth2/token").with(query: {"grant_type"=>"client_credentials"}).to_return(status: 200, body: "", headers: {})
   end
 end
