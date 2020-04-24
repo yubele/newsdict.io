@@ -261,7 +261,7 @@ GEM
     mini_racer (0.2.9)
       libv8 (>= 6.9.411)
     minitest (5.14.0)
-    mongo (2.12.0)
+    mongo (2.12.1)
       bson (>= 4.8.2, < 5.0.0)
     mongoid (7.1.0)
       activemodel (>= 5.1, < 6.1)

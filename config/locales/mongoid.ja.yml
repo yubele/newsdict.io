@@ -96,6 +96,7 @@ ja:
             email:
               taken: が既に登録済みです
             username:
+              too_short: が短すぎます
               taken: が既に登録済みです
       messages:
         blank_in_locale:

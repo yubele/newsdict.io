@@ -69,6 +69,7 @@ en:
             email:
               taken: is already registered
             username:
+              too_short: is too short
               taken: is already registered
       messages:
         blank_in_locale:
