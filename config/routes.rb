@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     :registrations => 'admin/registrations'
   }
   get "/category/:category/", to: "pages#show"
-  get "/content/:id/", to: "pages#content"
+  get "/content/:id/", to: "contents#show"
   get "/paper/term/:from_date/:to_date/", to: "papers#term"
   get "/paper/term/:date/", to: "papers#one_day"
   get "/paper/:id/", to: "papers#show"

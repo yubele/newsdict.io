@@ -91,7 +91,7 @@ h2.menu-label {
   margin:10px 10px 0 0 ;
 }
 #information {
-  padding-left: 10px;
+  padding: 50px 10px 0 0;
 }
 div.header {
   display:flex;
@@ -143,4 +143,12 @@ div.header > dl.links > dd {
   display: inline-flex;
   justify-content:center;
   width: 100%;
+}
+.fixed-header {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index:999;
 }

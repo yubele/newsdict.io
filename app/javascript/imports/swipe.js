@@ -1,4 +1,7 @@
 function setSwipe(elem) {
+    if (!document.querySelector(elem)) {
+        return;
+    }
     var t = document.querySelector(elem);
     var startX;
     var startY;
@@ -30,5 +33,5 @@ function setSwipe(elem) {
     });
 }
 (function() {
-    setSwipe('.swipeContainer');
+     setSwipe('.swipeContainer');
 })(window)
