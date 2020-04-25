@@ -1,66 +1,30 @@
-# newsdict
-Correct the conntents from Internet.
+# newsdict.io
+A Rails app that lists the articles that the account you follow has created.
+In the future, we aim to be an OSS that can easily build a portal site.
 
-# Settings
+![License](https://img.shields.io/github/license/newsdict/newsdict.io)
+![Release](https://img.shields.io/github/v/release/newsdict/newsdict.io)
+![Rails](https://img.shields.io/badge/rails-v6.0.2.2-orange)
+![Mongoid](https://img.shields.io/badge/mongoid-7.1.0-blue)
+![RailsAdmin](https://img.shields.io/badge/rails_admin-2.0.1-blue)
+![Yard](https://img.shields.io/badge/yard-0.9.24-blue)
+![AsciiDoctor](https://img.shields.io/badge/asciidoctor-2.0.10-blue)
 
-1. copy `.env-sample` file to `.env` file.
-2. Edit `.env`.
+## Documentation
+https://doc.newsdict.io
 
-# Development Tools
-Newsdict use docker-compse on development env.
+## Quick Start
 
-## Build
-    $ docker-compose build
+### Install docker
+https://docs.docker.com/engine/install/ubuntu/
 
-## Start the containers.
-    $ docker/start
+### Install docker-compose
+https://docs.docker.com/compose/install/
 
-### Build and start.
-    $ docker/start --build
-    
-### Remove container and start
-    $ docker/start rm
-    
-### Start a container
+### .env
+1. copy `.env-example` file to `.env` file.
 
-    $ docker/start (web|worker|document)
-
-## rails comamnds
-sample ex)
-
-    $ docker/rails -T
-    $ docker/rails test -v
-
-## bundle comamnds
-sample ex)
-
-    $ docker/bundle exec ruby -v
-
-## shell exec
-    $ docker/bash
-    
-## Secret
-    $ EDITOR="mate --wait" bin/rails credentials:edit
-    
-# functions
-
-## Mecab
-
-### Update mecab dic
-1. Add Configs::MecabDic on /admin/configs~mecab_dic
-
-# Q&A
-
-## A server is already running.
-
-* In development, The following error is displayed.
+## Start development server
 ```
-newsdict-web | A server is already running. Check /var/www/docker/tmp/pids/server.pid.
-newsdict-web | Exiting
-```
-
-> Execute the following command.
-
-```
-$ rm tmp/pids/server.pid
+$ docker/start
 ```
