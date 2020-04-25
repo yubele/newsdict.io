@@ -6,13 +6,12 @@ end_body: 'Insert this code immediately end the closing <body> tag'}.each do |ke
   if Configs::View.has_key?(key)
     p "already exits #{key}"
   else
-
     Configs::View.create!(
       key: key,
       description: value,
       value: String.new
     )
-    p "create key #{key}"
+    p "Insert #{key}."
   end
 end
 p "End of db:seed"

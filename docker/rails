@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 # Check to support tty.
-if [ "$(tty;echo $?)" != "0" ];then
+if [ "$(tty>/dev/null;echo $?)" != "0" ];then
     DOCKERCOMPOSE_EXEC="docker-compose exec -T"
 else
     DOCKERCOMPOSE_EXEC="docker-compose exec"
@@ -16,6 +16,6 @@ if  [ "$(ls tmp/pids/server.pid 2>&1 > /dev/null; echo $?)" != "0" ];then
         echo -n "."
         sleep 1
     done
+    echo ""
 fi
-echo ""
 $DOCKERCOMPOSE_EXEC web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && bundle exec bin/rails $*"

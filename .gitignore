@@ -64,3 +64,7 @@ public/shared/sitemap*.xml.gz
 # lock files of docker-compose
 /installed.document.lock
 /installed.worker.lock
+
+# App themes
+/app/themes/*
+!/app/themes/default

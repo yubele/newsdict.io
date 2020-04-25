@@ -10,7 +10,7 @@ fi
 docker-compose stop
 if [ "$1" = "debug" ]; then
   docker-compose up $@
-elif [ "$1" -ne "" ]; then
+elif [ "$1" != "" ]; then
   docker-compose up -d
   docker attach newsdict-$1
 else
