@@ -52,6 +52,8 @@ ja:
         value: 設定値
         created_at: 作成日時
         updated_at: 更新日時
+      "configs/category":
+        key: カテゴリー名
       content:
         type: 記事タイプ
         title: タイトル
@@ -67,6 +69,9 @@ ja:
         unique_id: 識別番号
         created_at: 作成日時
         updated_at: 更新日時
+      theme:
+        name: 名前
+        description: 概要
     models:
       "filters/content": コンテンツのフィルター
       user: 管理ユーザ
@@ -77,6 +82,7 @@ ja:
       "configs/category": カテゴリー設定
       "contents/web": 記事情報
       inquiry: 問い合わせ
+      theme: テーマ
     errors:
       models:
         inquiry:

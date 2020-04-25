@@ -11,7 +11,6 @@ class Config < ApplicationRecord
       item.value
     end
   end
-  
   # Check Exists
   def self.has_key?(key)
     if find_by(key: key)

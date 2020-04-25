@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.excluded_models = [:Source, :Content, :Config, :Filter]
+  config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper]
   config.model "Sources::TwitterAccount" do
     navigation_label I18n.t('admin.navigation.setting')
     weight 1
@@ -9,6 +9,10 @@ RailsAdmin.config do |config|
     weight 5
   end
   config.model "User" do
+    navigation_label I18n.t('admin.navigation.global_setting')
+    weight 5
+  end
+  config.model "Theme" do
     navigation_label I18n.t('admin.navigation.global_setting')
     weight 10
   end

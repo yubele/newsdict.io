@@ -40,6 +40,11 @@ en:
       "configs/view":
         key: key
         description: description
+      "configs/category":
+        key: Category Name
+      theme:
+        name: Name
+        description: Description
     models:
       "filters/content": Content filters
       user: Admin User
@@ -50,6 +55,7 @@ en:
       "configs/category": "Category Setting"
       "contents/web": "contents data"
       inquiry: Inquiry
+      theme: Theme
     errors:
       models:
         inquiry:

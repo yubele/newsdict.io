@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
       except  ['User', 'Configs::View', 'Contents::Web', 'Theme']
     end
     bulk_delete do
-      except ['Config', 'Configs::View']
+      except ['Config', 'Configs::View', 'Theme']
     end
     show
     edit
