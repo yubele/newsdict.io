@@ -1,0 +1,35 @@
+= newsdict.io
+
+image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
+image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
+image:https://img.shields.io/badge/rails-v6.0.2.2-orange[Rails]
+image:https://img.shields.io/badge/mongoid-7.1.0-yellow[Mongoid]
+image:https://img.shields.io/badge/rails_admin-2.0.1-yellow[RailsAdmin]
+image:https://img.shields.io/badge/yard-0.9.24-yellow[Yard]
+image:https://img.shields.io/badge/asciidoctor-2.0.10-yellow[AsciiDoctor]
+
+A Rails app that lists the articles that the account you follow has created. +
+In the future, we aim to be an OSS that can easily build a portal site.
+
+== Documentation
+
+|===
+| Documentation | https://doc.newsdict.io/
+| Yard | https://doc.newsdict.io/yard/
+|===
+ 
+== Quick Start
+
+=== 1. Install docker
+https://docs.docker.com/engine/install/ubuntu/
+
+=== 2. Install docker-compose
+https://docs.docker.com/compose/install/
+
+=== 3. .env
+1. copy `.env-example` file to `.env` file.
+
+=== 4. Start development server
+```
+$ docker/start
+```

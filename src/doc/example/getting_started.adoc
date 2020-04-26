@@ -17,7 +17,6 @@ package "development" {
 
         node "newsdict_mongo"
         node "newsdict_redis"
-    }
 
     storage current_directory
     newsdict_web --> current_directory

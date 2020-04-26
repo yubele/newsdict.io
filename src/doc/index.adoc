@@ -1,13 +1,5 @@
-:toc: left
+include::../../README.adoc[]
 
-= newsdict.io Documents
+= 目次
 
-Find valuable information
-
-== Overview
-link:/asciidoc/[Asciidoc index]
-
-== Source Document
-link:/yard/[Yard Index]
-
-== Source Graph
+link:ja/architecture.adoc[アーキテクチャ]

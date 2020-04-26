@@ -68,3 +68,7 @@ public/shared/sitemap*.xml.gz
 # App themes
 /app/themes/*
 !/app/themes/default
+
+# src/doc
+src/doc/**/*.png
+src/doc/**/*.png.cache
