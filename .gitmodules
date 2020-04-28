@@ -1,0 +1,3 @@
+[submodule "asciidoctor-skins"]
+	path = asciidoctor-skins
+	url = git@github.com:darshandsoni/asciidoctor-skins.git

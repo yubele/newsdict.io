@@ -2,12 +2,14 @@
   "name": "newsdict",
   "private": true,
   "scripts": {
-    "npm-check-updates": "npm-check-updates -u"
+    "npm-check-updates": "npm-check-updates -u",
+    "browser-sync": "browser-sync start --server doc --cwd doc --files '**/*' --logLevel debug"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@rails/webpacker": "^4.2.2",
     "axios": "^0.19.1",
+    "browser-sync": "^2.26.7",
     "bulma": "^0.8.2",
     "core-js": "^3.6.3",
     "dotenv": "^8.2.0",
