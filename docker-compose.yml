@@ -29,7 +29,7 @@ services:
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/web/startup.sh development"
     ports:
-      - 3000:80
+      - 3100:80
       - 3036:3036
     networks:
       - app-tier
@@ -76,7 +76,7 @@ services:
     volumes:
       - ./:/var/www/docker
     ports:
-      - 8080:3000
+      - 3000:3000
       - 3001:3001
     networks:
       - app-tier

@@ -1,7 +1,5 @@
 :toc: left
 
-
-
 include::../../../README.adoc[]
 
 link:/[Back To The Top]
