@@ -15,14 +15,14 @@ newsdict.ioはフォロワーがシェアしている記事などのウェブコ
 
 image::/img/newsdictio_image.png[width=80%, align="center"]
 
-=== Documents
-==== link:ja/getting_start[Getting Start]
-==== link:ja/overview[Overview]
-==== link:ja/setting[Setting]
-==== link:ja/worker[Worker]
-==== link:ja/theme[Theme]
-==== link:ja/api[Api]
-==== link:ja/document[Document]
-==== link:ja/admin[Admin]
-==== link:ja/debug[Debug]
-==== link:ja/programing_guide[Programing Guide]
+== Documents
+=== link:ja/getting_start/[Getting Start]
+=== link:ja/overview/[Overview]
+=== link:ja/setting/[Setting]
+=== link:ja/worker/[Worker]
+=== link:ja/theme/[Theme]
+=== link:ja/api/[Api]
+=== link:ja/document/[Document]
+=== link:ja/admin/[Admin]
+=== link:ja/debug/[Debug]
+=== link:ja/programing_guide/[Programing Guide]
