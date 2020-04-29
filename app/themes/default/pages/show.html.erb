@@ -1,0 +1,49 @@
+<section class="container swipeContainer">
+  <div class="columns">
+    <div class="column is-full">
+      <div class="box">
+        <% @contents.each do |content| %>
+          <% content = JSON.parse(content.to_json, object_class: OpenStruct) %>
+          <%= render partial: 'article', locals: {
+            image: {
+              style: "background-image: url(/img/#{content.id});"
+            },
+            content_url: "/content/#{content.id}",
+            source_url: "#{content.source.source_url}/#{content.source.name}",
+            content: content
+          } %>
+        <% end %>
+        <div id="more-contents">
+          <div v-for="(content,index) in contents" v-if="content">
+            <%
+            vue_for_content = {
+              "id" => "content.id",
+              "title" => "{{content.title}}",
+              "content" => "{{content.content}}",
+              "longer_tags" => "content.longer_tags",
+              "expanded_url" => "content.expanded_url",
+              "count_of_shared" => "{{content.count_of_shared}}",
+              "created_at" => "{{content.created_at}}",
+              "source" => {
+                "source_url" => "content.source.source_url",
+                "name" => "content.source.name",
+                "view_name" => "{{content.source.view_name}}"
+              }}
+            %>
+            <%= render partial: 'article', locals: {
+              vuejs_suffix: Newsdict::Application.config.vuejs_suffix,
+              image: {
+                bind: {
+                  style: "{ 'background-image': 'url(/img/' + content.id + ')' }"
+                }
+              },
+              content_url: "'/content/' + content.id + '/'",
+              source_url: "content.source.source_url + '/' + content.source.name",
+              content: JSON.parse(vue_for_content.to_json, object_class: OpenStruct)
+              } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,40 +1,62 @@
 ja:
-  mongoid:
-    attributes:
-      user:
-        username: ユーザ名
-        confirmation_sent_at: パスワード確認送信時刻
-        confirmation_token: パスワード確認用トークン
-        confirmed_at: パスワード確認時刻
-        created_at: 作成日
-        current_password: 現在のパスワード
-        current_sign_in_at: 現在のログイン時刻
-        current_sign_in_ip: 現在のログインIPアドレス
-        email: Eメール
-        encrypted_password: 暗号化パスワード
-        failed_attempts: 失敗したログイン試行回数
-        last_sign_in_at: 最終ログイン時刻
-        last_sign_in_ip: 最終ログインIPアドレス
-        locked_at: ロック時刻
-        password: パスワード
-        password_confirmation: パスワード（確認用）
-        remember_created_at: ログイン記憶時刻
-        remember_me: ログインを記憶する
-        reset_password_sent_at: パスワードリセット送信時刻
-        reset_password_token: パスワードリセット用トークン
-        sign_in_count: ログイン回数
-        unconfirmed_email: 未確認Eメール
-        unlock_token: ロック解除用トークン
-        updated_at: 更新日
-    models:
-      filter: フィルター
-      user: ユーザ
-    errors:
-      models:
-        user:
-          attributes:
-            email:
-              taken: が既に登録済みです
-            username:
-              taken: が既に登録済みです
+  official_site: オフィシャルサイト
+  inquiry: お問い合わせ
+  sidekiq: ジョブ管理
+  read_more: もっと見る（記事のサイトに飛びます）
+  be_shared_content_list: "%{name}がシェアした記事一覧"
+  count_of_shared: シェア重複数
+  shared_at: シェア日付
+  media: メディア
+  information: 情報
+  image: 画像
+  tag: タグ
+  shared_person: シェアした人
+  language_code: 言語
+  category: カテゴリー
+  content_description: コンテンツ概要
+  more_information: 詳細な情報を見る
+  content_title: "%{name}が共有した「%{title}」"
+  date:
+    abbr_day_names:
+    - 日
+    - 月
+    - 火
+    - 水
+    - 木
+    - 金
+    - 土
+    - 日
+    abbr_month_names:
+    - 1月
+    - 2月
+    - 3月
+    - 4月
+    - 5月
+    - 6月
+    - 7月
+    - 8月
+    - 9月
+    - 10月
+    - 11月
+    - 12月
+    day_names:
+    - 日曜日
+    - 月曜日
+    - 火曜日
+    - 水曜日
+    - 木曜日
+    - 金曜日
+    - 土曜日
+    formats:
+      default: "%Y/%m/%d"
+      long: "%Y年%m月%d日(%a)"
+      short: "%m/%d"
+  time:
+    am: 午前
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
+      short: "%y/%m/%d %H:%M"
+      only_date: "%Y年%m月%d日(%a)"
+    pm: 午後
   sitename: "newsdict"

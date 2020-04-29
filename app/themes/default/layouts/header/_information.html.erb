@@ -1,0 +1,13 @@
+<div id="information">
+  <div class="header">
+    <div class="order">
+      <% if params[:controller] == "pages" %>
+      <%= render partial: "layouts/header/order" %>
+      <% end %>
+    </div>
+    <dl class="links">
+      <dd><%= link_to t('official_site'), 'https://newsdict.io/', target: :_blank %></dd>
+      <dd><%= link_to t('inquiry'), inquiries_path %></dd>
+    </dl>
+  </div>
+</div>

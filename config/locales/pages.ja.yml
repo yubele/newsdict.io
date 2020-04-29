@@ -1,0 +1,4 @@
+ja:
+  pages:
+    paper:
+      weekly_title: "%{from_date}から%{to_date}までの記事"

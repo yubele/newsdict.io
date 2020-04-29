@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
   config.model "Configs::MecabDic" do
-    field :describe
+    field :description
     field :url, :string
     field :regex_for_ignore_line
     field :language_code

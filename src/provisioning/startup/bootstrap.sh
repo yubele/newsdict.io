@@ -46,6 +46,8 @@ if [ "$RAILS_ENV" = "development" ];then
 fi
 # In development, create marker after `bundler installed`.
 if [ "$RAILS_ENV" = "development" ] && [ "$APP_TYPE" = "web" ];then
-  touch installed.document.lock
+  touch installed.asciidoctor.lock
+  touch installed.browser-sync.lock
+  touch installed.guard.lock
   touch installed.worker.lock
 fi

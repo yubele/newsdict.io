@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= Configs::View[:head].html_safe if Configs::View[:head].is_a?(String) %>
+    <title>Not Found Page | <%= t('sitename') %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= Configs::View[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
+    <%= render partial: "layouts/header/navi" %>
+     <section class="hero is-fullheight">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <h3 class="title has-text-black">Page Not Found</h3>
+                    <hr class="login-hr">
+                    <p class="has-text-grey">
+                        <a href="/">Back To Top Page</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
+    <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

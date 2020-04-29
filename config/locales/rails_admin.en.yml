@@ -1,5 +1,10 @@
 en:
   admin:
+    navigation:
+      setting: Setting
+      global_setting: Global Setting
+      other_system_admin: Other System Admin
+      inquiries_management: Inquiries Management
     js:
       true: True
       false: False

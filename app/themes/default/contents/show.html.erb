@@ -1,0 +1,152 @@
+<div class="container">
+    <div class="columns">
+        <div class="column is-3 ">
+            <aside class="menu is-hidden-mobile">
+                <h2 class="menu-label">
+                    <%= t(:be_shared_content_list, name: @content.source.view_name) %>
+                </h2>
+                <ul class="menu-list">
+                    <% index = 50 %>
+                    <% skip = true %>
+                    <% Contents::Web.contents(name: @content.source.name).order_by(created_at: :desc).each_with_index do |content, index| %>
+                    <% if skip && content.id != @content.id
+                        next
+                    else
+                        skip = false
+                    end %>
+                    <% index = index - 1 %>
+                    <li><a href="/content/<%= content.id %>/" class="<%= current_page?("/content/#{content.id}/") ? "is-active": "" %>"><%= index %> <%= content.title.truncate(20) %></a></li>
+                    <% break if index == 0 %>
+                    <% end %>
+                </ul>
+            </aside>
+        </div>
+        <div class="column is-9">
+            <nav class="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+                    <li><a href="/">Top</a></li>
+                    <% if @content.source.category %>
+                    <li><a href="/category/<%= CGI::escape(@content.source.category) %>/"><%= @content.source.category %></a></li>
+                    <% end %>
+                    <li><a><%= @content.source.view_name %></a></li>
+                    <li class="is-active"><a href="#" aria-current="page"><%= @content.title.truncate(20) %></a></li>
+                </ul>
+            </nav>
+            <section class="hero is-info welcome is-small">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            <%= @content.title %>
+                        </h1>
+                    </div>
+                </div>
+            </section>
+            <section class="info-tiles">
+                <div class="tile is-ancestor has-text-centered">
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title"><%= l(@content.created_at, format: :short) %></p>
+                            <p class="subtitle"><%= t(:shared_at) %></p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title"><%= @content.source.media_name %></p>
+                            <p class="subtitle"><%= t(:media) %></p>
+                        </article>
+                    </div>
+                    <div class="tile is-parent">
+                        <article class="tile is-child box">
+                            <p class="title"><%= @content.count_of_shared %></p>
+                            <p class="subtitle"><%= t(:count_of_shared) %></p>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <div class="columns">
+                <div class="column is-6">
+                    <div class="card events-card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <%= t(:information) %>
+                            </p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </header>
+                        <div class="card-table">
+                            <div class="content">
+                                <table class="table is-fullwidth is-striped">
+                                    <tbody>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:shared_person) %></td>
+                                            <td><%= @content.source.view_name %></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:image) %></td>
+                                            <td><img src="/img/<%= @content.id %>"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%">URL</td>
+                                            <td><a rel="nofollow" href="<%= @content.expanded_url %>"><%= @content.expanded_url.truncate(40) %></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:shared_at) %></td>
+                                            <td><%= l(@content.created_at, format: :long) %></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:tag) %></td>
+                                            <td>
+                                                <div class="tags are-medium">
+                                                <% @content.tags.each do |tag| %>
+                                                <span class="tag is-normal"><%= tag %></span>
+                                                <% end %>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:language_code) %></td>
+                                            <td><%= @content.language_code %></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:category) %></td>
+                                            <td><%= @content.source.category %></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column is-6">
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <%= t(:content_description) %>
+                            </p>
+                            <a href="#" class="card-header-icon" aria-label="more options">
+                                <span class="icon">
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <%= @content.content.truncate(500) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

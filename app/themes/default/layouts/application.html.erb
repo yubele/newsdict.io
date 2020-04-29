@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= Configs::View[:head].html_safe if Configs::View[:head].is_a?(String) %>
+    <% if current_page?('/') %>
+      <title><%= t('sitename') %></title>
+    <% elsif params[:category] %>
+      <title><%= params[:category] %> | <%= t('sitename') %></title>
+    <% elsif @content %>
+      <title><%= t(:content_title, name: @content.source.name, title: @content.title) %> | <%= t('sitename') %></title>
+    <% elsif @title %>
+      <title><%= @title %> | <%= t('sitename') %></title>
+    <% end %>
+    <% if defined? @noindex && @noindex %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <% end %>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <%= Configs::View[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
+    <%= render partial: "layouts/header/navi" %>
+    <%= render partial: "layouts/header/information" %>
+    <%= yield %>
+    <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
+    <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+  </body>
+</html>

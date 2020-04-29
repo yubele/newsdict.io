@@ -1,0 +1,24 @@
+<div class="tabs is-fullwidth fixed-header">
+  <ul>
+    <li id="logo" class="is-family-sans-serif swipeTab <%= current_page?("/") ? "is-active": "" %>">
+      <a href="/">
+        <span><%= t('sitename') %></span>
+      </a>
+    </li>
+    <% Configs::Category.all.map {|category| category.key }.each do |key| %> 
+    <li class="swipeTab <%= current_page?("/category/#{CGI::escape(key)}/") ? "is-active": "" %>">
+      <a href="/category/<%= CGI::escape(key) %>/">
+        <span><%= key %></span>
+      </a>
+    </li>
+    <% end %>
+    <% if count_user < ENV['MAX_MEMBER_COUNT'].to_i %>
+    <li>
+      <%= link_to rails_admin_path, class: 'button' do %>
+        <span class="icon is-small"><i class="fa fa-cogs" aria-hidden="true"></i></span>
+        <span><%= t('Setting') %></span>
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</div>

@@ -12,8 +12,6 @@ services:
     container_name: newsdict-mongodb
     image: mongo
     restart: always
-    ports:
-      - ${LOCAL_MONGODB_PORT}:27017
     networks:
       - app-tier
     volumes:
@@ -31,7 +29,7 @@ services:
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/web/startup.sh development"
     ports:
-      - 3000:80
+      - 3100:80
       - 3036:3036
     networks:
       - app-tier
@@ -49,17 +47,36 @@ services:
     depends_on:
       - web
       - redis
-  document:
+  asciidoctor:
     tty: true
     stdin_open: true
-    container_name: newsdict-document
-    image: newsdictio
-    command: "bash src/provisioning/startup/document/startup.sh development"
+    container_name: newsdict-asciidoctor
+    image: newsdict/asciidoctor.live:v0.1.12
+    command: "bash src/provisioning/startup/asciidoctor/startup.sh"
+    volumes:
+      - ./:/var/www/docker
+    networks:
+      - app-tier
+  guard:
+    tty: true
+    stdin_open: true
+    container_name: newsdict-guard
+    image: newsdict/asciidoctor.live:v0.1.12
+    command: "bash src/provisioning/startup/guard/startup.sh"
+    volumes:
+      - ./:/var/www/docker
+    networks:
+      - app-tier
+  browser-sync:
+    tty: true
+    stdin_open: true
+    container_name: newsdict-browser-sync
+    image: newsdict/asciidoctor.live:v0.1.12
+    command: "bash src/provisioning/startup/browser-sync/startup.sh"
     volumes:
       - ./:/var/www/docker
     ports:
-      - 8080:8080
+      - 3000:3000
+      - 3001:3001
     networks:
       - app-tier
-    depends_on:
-      - web

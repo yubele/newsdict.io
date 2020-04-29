@@ -1,16 +1,61 @@
 en:
-  admin:
-    actions:
-      dashboard:
-        title: admin top
-        breadcrumb: admin
-    misc:
-      navigation: menu
-  mongoid:
-    attributes:
-      user:
-        username: "User Name"
-        email: "MailAddress"
-        password: "Password"
-        password_confirmation: "Password confirmation"
+  official_site: Official Site
+  inquiry: Inquiry
+  sidekiq: Sidekiq
+  read_more: Read More
+  be_shared_content_list: "List of contents %{name} shared."
+  count_of_shared: Count of shared
+  shared_at: shared date
+  media: Media
+  information: Information
+  image: Image
+  tag: Tags
+  shared_person: Person of shared
+  language_code: Language code
+  category: Category
+  content_description: Description
+  more_information: More detail
+  content_title: "%{name} shared `%{title}`"
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+      only_date: ! '%a, %d %b %Y'
+    pm: pm
   sitename: "newsdict"

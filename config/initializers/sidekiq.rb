@@ -6,4 +6,4 @@ end
 Sidekiq.configure_server do |config|
   config.redis = { url: "redis://#{redis['host']}", namespace: ENV['SIDEKIQ_NAMESPACE'] }
 end
-Sidekiq::Web.app_url = ENV['ADMIN_URL']
+Sidekiq::Web.app_url = '/admin'

@@ -9,8 +9,9 @@ class AdminAbility
       # super admin navigation
       RailsAdmin.config do |config|
         config.navigation_static_links = {
-            'Sidekiq' => "/sidekiq"
+            I18n.t('sidekiq') => "/sidekiq"
         }
+        config.navigation_static_label = I18n.t('admin.navigation.other_system_admin')
         config.model User do
           edit do
             field :is_manual_locked do

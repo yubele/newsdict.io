@@ -6,6 +6,12 @@ Rails.application.routes.draw do
   devise_for 'user', :controllers => {
     :registrations => 'admin/registrations'
   }
+  get "/category/:category/", to: "pages#show"
+  get "/content/:id/", to: "contents#show"
+  get "/paper/term/:from_date/:to_date/", to: "papers#term"
+  get "/paper/term/:date/", to: "papers#one_day"
+  get "/paper/:id/", to: "papers#show"
+  resource :inquiries, only: [:show, :create]
   get "/img/:id", to: "images#index"
   # Apis
   namespace :api do

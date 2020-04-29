@@ -1,0 +1,9 @@
+en:
+  inquiries:
+    show:
+      your_name: Your Name
+      your_mailaddress: Your Mailaddress
+      inquiry: Inquiry
+      submit: Submit
+    confirm:
+      thank_you_for_inquiry: Thank you for inquiry

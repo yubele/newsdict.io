@@ -16,22 +16,20 @@ jobs:
     - name: Install Docker Compose
       run: |
         set -x
-        curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+        curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
         chmod +x ~/docker-compose
         sudo mv ~/docker-compose /usr/local/bin/docker-compose
     - name: Set up .env
       run: |
-        cp .env-sample .env
+        cp .env-test .env
     - name: DockerCompose down
       run: |
         docker-compose down
     - name: build & rails test -v
       run: |
-        set -x
-        docker-compose build web
-        docker-compose up -d
-        docker/exec bash src/provisioning/startup/bootstrap.sh web
-        docker/exec bundle exec rails test -v
+        set -xe
+        docker/start -d
+        docker/rails test -v
     - name: DockerCompose down
       run: |
         docker-compose down

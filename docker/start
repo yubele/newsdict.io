@@ -3,9 +3,18 @@ set -e
 if [ -f tmp/pids/server.pid ];then
   sudo rm -f tmp/pids/server.pid
 fi
+NAME=web
+if [ -n "$2" ]; then
+  NAME=$2
+fi
 if [ "$1" = "rm" ];then
   shift
   docker-compose rm -f
 fi
 docker-compose stop
-docker-compose up $@
+if [ "$1" = "attach" ] || [ -z "$1" ]; then
+  docker-compose up -d
+  docker attach newsdict-$NAME
+else
+  docker-compose up $@
+fi

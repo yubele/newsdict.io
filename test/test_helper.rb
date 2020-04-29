@@ -5,7 +5,7 @@ require 'twitter_helper'
 Dir.glob(Rails.root.join('test/**/*_test.rb')).each { |file| require file}
 
 class ActiveSupport::TestCase
-  # Initialize db
+  # Initialize DB
   def setup
     DatabaseCleaner.clean
   end

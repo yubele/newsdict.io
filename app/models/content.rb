@@ -1,7 +1,8 @@
 class Content < ApplicationRecord
   include Mongoid::Document
-  include Mongoid::Timestamps
   include ContentConcern
+  has_one :source
+  has_one :user
   field :title, type: String
   field :site_name, type: String
   field :content, type: String
@@ -15,6 +16,7 @@ class Content < ApplicationRecord
   field :count_of_shared, type: Integer
   # unique id of source
   field :unique_id, type: String
+  include Mongoid::Timestamps
   belongs_to :source, optional: true
   belongs_to :user, optional: true
   validates_uniqueness_of :unique_id, :allow_nil => true
@@ -25,8 +27,15 @@ class Content < ApplicationRecord
   }
   # Get the records
   # @param order default :desc
-  def self.contents(order: :desc)
-    self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
+  # @param category default: nil
+  def self.contents(order: :desc, category: nil, name: nil)
+    if name
+      self.in(source_id: Sources::TwitterAccount.find_by(name: name))
+    elsif category
+      self.in(source_id: Sources::TwitterAccount.where(category: category).map {|u| u.id })
+    else
+      self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
+    end
   end
   # Sort the content by sort_type
   # @param [String] sort_type
@@ -42,7 +51,7 @@ class Content < ApplicationRecord
     if ::Filters::Content.exists?
       self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
     else
-      self
+      self.all
     end
   end
 end

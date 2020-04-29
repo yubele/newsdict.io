@@ -6,9 +6,10 @@ module Api
     # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
-    def contents(limit: 25, skip:0, sort: Content::SORT_TYPE[:updated_at])
+    # @param [String] category 
+    def contents(limit: 25, skip:0, sort: Content::SORT_TYPE[:updated_at], category: nil)
       Contents::Web
-        .contents
+        .contents(category: category)
         .sortable(sort)
         .exclude_domain
         .limit(limit)
@@ -31,12 +32,12 @@ module Api
           }).merge({
             "longer_tags" => tag_element(c.longer_tags)
           }).merge({
-            "source" => c.source.attributes.select { |k,v|
-              k.include?("name")
-            }.merge({
+            "source" => {
+              "name" => c.source.name,
+              "view_name" => c.source.view_name,
               "source_url" => c.source.source_url
-            })
-        })}
+          }})
+        }
     end
   end
 end

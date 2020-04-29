@@ -9,6 +9,7 @@ class UpdateMecabDicJob < ApplicationJob
     # Create dic-index from csv
     CSV.open("/tmp/#{mecab_dic.key}.csv", 'w') do |csv|
       open("/tmp/#{mecab_dic.key}").each_with_index do |keyword, index|
+        keyword.chomp!
         next if index == 0 && mecab_dic.is_header
         next if keyword =~ /#{mecab_dic.regex_for_ignore_line}/
   			if keyword.length > 3
