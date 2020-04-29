@@ -6,5 +6,5 @@ else
 fi
 bundle exec asciidoctor --safe-mode unsafe \
     -r asciidoctor-diagram \
-    -a stylesheet=../../asciidoctor-skins/css/clean.css \
+    -a stylesheet=/var/www/docker/asciidoctor-skins/css/clean.css \
     -a lang=ja -b html5 -d book  $1 -o $output

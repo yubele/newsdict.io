@@ -2,11 +2,11 @@
 
 image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
 image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
+image:https://img.shields.io/github/v/release/newsdict/asciidoctor.live[asciiDoctor.live]
 image:https://img.shields.io/badge/rails-v6.0.2.2-orange[Rails]
 image:https://img.shields.io/badge/mongoid-7.1.0-yellow[Mongoid]
 image:https://img.shields.io/badge/rails_admin-2.0.1-yellow[RailsAdmin]
 image:https://img.shields.io/badge/yard-0.9.24-yellow[Yard]
-image:https://img.shields.io/badge/asciidoctor-2.0.10-yellow[AsciiDoctor]
 
 A Rails app that lists the articles that the account you follow has created. +
 In the future, we aim to be an OSS that can easily build a portal site.
@@ -18,7 +18,7 @@ In the future, we aim to be an OSS that can easily build a portal site.
 | Yard | https://doc.newsdict.io/yard/
 |===
  
-== Quick Start
+== Getting Start
 
 === 1. Install docker
 https://docs.docker.com/engine/install/ubuntu/
@@ -33,3 +33,17 @@ https://docs.docker.com/compose/install/
 ```
 $ docker/start
 ```
+
+## Contributing
+
+- Fork the repository and link:https://doc.newsdict.io/getting_start/[run the examples from source]
+- Find an issue to work on and submit a pull request
+- Could not find an issue? Look for bugs, typos, and missing features.
+
+## Documentation
+
+https://doc.newsdict.io/
+
+## License
+
+image:https://img.shields.io/github/license/newsdict/newsdict.io[License]

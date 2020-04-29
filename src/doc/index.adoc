@@ -1,5 +1,28 @@
-include::../../README.adoc[]
+:toc: left
 
-= 目次
+== newsdict.io : Correct the conntents from Internet.
 
-link:ja/architecture.adoc[アーキテクチャ]
+image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
+image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
+image:https://img.shields.io/github/v/release/newsdict/asciidoctor.live[asciiDoctor.live]
+image:https://img.shields.io/badge/rails-v6.0.2.2-orange[Rails]
+image:https://img.shields.io/badge/mongoid-7.1.0-yellow[Mongoid]
+image:https://img.shields.io/badge/rails_admin-2.0.1-yellow[RailsAdmin]
+image:https://img.shields.io/badge/yard-0.9.24-yellow[Yard]
+
+newsdict.ioはフォロワーがシェアしている記事などのウェブコンテンツを
+クローリングしフィードとして閲覧できるようにします。Railsで作ってあるため拡張が容易です。
+
+image::/img/newsdictio_image.png[width=80%, align="center"]
+
+=== Documents
+==== link:ja/getting_start[Getting Start]
+==== link:ja/overview[Overview]
+==== link:ja/setting[Setting]
+==== link:ja/worker[Worker]
+==== link:ja/theme[Theme]
+==== link:ja/api[Api]
+==== link:ja/document[Document]
+==== link:ja/admin[Admin]
+==== link:ja/debug[Debug]
+==== link:ja/programing_guide[Programing Guide]

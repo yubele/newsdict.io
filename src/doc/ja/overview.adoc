@@ -1,0 +1,67 @@
+= 構成
+:toc: left
+
+=== Description
+newsdict.ioは、docker上で構築されdocker-composeを使うとすぐに動作させることが可能です。
+newsdict.ioはRailsアプリでsidekiqを使いクローリングなどを行っています。ドキュメントはasciidoctorを
+使用しており、link:https://asciidoctor.live[acsiidoctor.live]によって構成されています。 +
+使用しているパッケージは以下の通りです。
+|===
+| category | name | Place of use
+| infra | docker | プラットフォーム
+| infra | docker-compose | 開発環境立ち上げに使用
+| infra | mongodb | Rails用DB
+| infra | redis | sidekiq用data store
+| app | rails |  フレームワーク
+| app | rails_admin | 管理画面
+| frontend | vuejs | オートロード部分など
+| frontend | webpacker | js, cssの管理
+| worker | mecab | newsのTaggingに使用
+| worker | sidekiq | newsのクローリングに使用
+| document | asciidoctor | newsdict.ioのドキュメント
+| document | guard | ドキュメント変更時のasciidoctor反映に使用
+| document | browser-sync | 反映されたasciidoctorのブラウザ更新に使用
+| document | yard | railsのドキュメント作成用
+|===
+
+== Infrastructure
+`docker/start`コマンドですべてが立ち上がります。
+立ち上がった後アクセス可能なサービスは以下の通りです
+|===
+| Rails app | newsdict.io本体 | http://localhost:3000
+| Rails_Admin | 管理画面 | http://localhost:3000/admin
+| Sidekiq Web | Swidekiq 管理画面 | http://localhost:3000/sidekiq
+| asciidoctor | ドキュメント | http://localhost:8080
+| browsersync UI | ドキュメント管理画面 | http://localhost:3001
+|===
+
+[plantuml, diagram-classes, png]
+....
+actor User
+package "docker-compose" {
+    node documentor {
+        component asciidoctor
+        component gurad
+        component "browser-sync" as browsersync
+    }
+    node web {
+        component "Rails app"
+        component "Rails_Admin"
+        component "Sidekiq Web"
+    }
+    database mongodb
+    node worker {
+        component "Sidekiq worker"
+    }
+    database redis
+    
+    web ..> mongodb
+    web ..> redis
+    worker ..> redis
+}
+User --> web
+User --> documentor
+....
+
+
+link:/[Back To The Top]
