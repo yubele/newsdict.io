@@ -13,3 +13,5 @@ end
 unless Theme.find_by(is_active: true)
   Theme.find_by(name: 'default').update(is_active: true)
 end
+theme = Theme.find_by(is_active: true)
+ActionController::Base.append_view_path "app/themes/#{theme.name}"

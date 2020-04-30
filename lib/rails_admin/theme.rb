@@ -10,12 +10,18 @@ RailsAdmin.config do |config|
       field :description do
         filterable true
       end
+      field :is_active do
+        filterable true
+      end
     end
     edit do
       field :name do
         visible true
       end
       field :description do
+        filterable true
+      end
+      field :is_active do
         filterable true
       end
     end
