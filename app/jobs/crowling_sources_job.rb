@@ -1,4 +1,4 @@
-class FetchSourcesJob < ApplicationJob
+class CrowlingSourcesJob < ApplicationJob
   queue_as :default
   # Fetch the web pages by url
   # @param [Source] object

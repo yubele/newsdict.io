@@ -1,4 +1,7 @@
 :schedule:
+  urls_job:
+    enabled: false
+    class: UrlsJob
   twitter_account_job:
     enabled: true
     cron: '0 */3 * * *'
