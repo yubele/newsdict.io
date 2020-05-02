@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FetchSourcesJobTest < ActiveJob::TestCase
+class CrowlingSourcesJobTest < ActiveJob::TestCase
   test "Run jobs via twitter account" do
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})
 
@@ -9,7 +9,7 @@ class FetchSourcesJobTest < ActiveJob::TestCase
     twitter_account.urls.each do |url|
       set_webmock(url)
       # Save Contents::Web's documents.
-      FetchSourcesJob.perform_later(url)
+      CrowlingSourcesJob.perform_later(url)
     end
     assert_enqueued_jobs twitter_account.urls.count
   end
@@ -22,23 +22,23 @@ class FetchSourcesJobTest < ActiveJob::TestCase
       set_webmock(url)
     end
 
-    # Equeued `FetchSourcesJob`
+    # Equeued `CrowlingSourcesJob`
     twitter_account.user_timeline.each do |tweet|
       tweet.to_h[:entities][:urls].each do |url|
         unless Contents::Web.where(unique_id: tweet.id).exists?
-          FetchSourcesJob.perform_now(twitter_account, url[:expanded_url], unique_id: tweet.id)
+          CrowlingSourcesJob.perform_now(twitter_account, url[:expanded_url], unique_id: tweet.id)
         end
       end
     end
     count = Contents::Web.all.count
 
-    # Equeued `FetchSourcesJob` uniqueress
+    # Equeued `CrowlingSourcesJob` uniqueress
     twitter_account.user_timeline.each do |tweet|
       tweet.to_h[:entities][:urls].each_with_index do |url, index|
         generated_url = "#{url[:expanded_url]}#{tweet.id}#{index}"
         set_webmock(generated_url)
         unless Contents::Web.where(unique_id: tweet.id).exists?
-          FetchSourcesJob.perform_now(twitter_account, generated_url, unique_id: tweet.id)
+          CrowlingSourcesJob.perform_now(twitter_account, generated_url, unique_id: tweet.id)
         end
       end
     end

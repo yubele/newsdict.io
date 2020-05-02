@@ -3,8 +3,7 @@ module SourceUrlConcern
 
   # Get external urls
   def urls
-    # @todo: implements
-    ["https://newsdict.io", "https://newsdict.blog"]
+    ::Nokogiri::HTML(Mechanize.new.get(url).body).xpath('//a').map {|a| a.attribute('href').value }.uniq
   end
   
   class_methods do

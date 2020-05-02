@@ -52,7 +52,7 @@ services:
     stdin_open: true
     container_name: newsdict-asciidoctor
     image: newsdict/asciidoctor.live:v0.1.12
-    command: "bash src/provisioning/startup/asciidoctor/startup.sh"
+    command: "bash src/provisioning/startup/asciidoctor/startup.sh development"
     volumes:
       - ./:/var/www/docker
     networks:
@@ -62,7 +62,7 @@ services:
     stdin_open: true
     container_name: newsdict-guard
     image: newsdict/asciidoctor.live:v0.1.12
-    command: "bash src/provisioning/startup/guard/startup.sh"
+    command: "bash src/provisioning/startup/guard/startup.sh development"
     volumes:
       - ./:/var/www/docker
     networks:
@@ -72,7 +72,7 @@ services:
     stdin_open: true
     container_name: newsdict-browser-sync
     image: newsdict/asciidoctor.live:v0.1.12
-    command: "bash src/provisioning/startup/browser-sync/startup.sh"
+    command: "bash src/provisioning/startup/browser-sync/startup.sh development"
     volumes:
       - ./:/var/www/docker
     ports:
