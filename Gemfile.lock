@@ -12,7 +12,7 @@ GIT
     final_redirect_url (0.1.1)
 
 GIT
-  remote: https://github.com/yubele/vue-rails-form-builder.git
+  remote: https://github.com/yubele/vue-rails-form-builder
   revision: 537c991b4cca979024f7030237e84eb32325cf69
   specs:
     vue-rails-form-builder (0.8.2)

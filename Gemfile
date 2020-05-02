@@ -16,7 +16,7 @@ gem 'bulma-rails', '0.8.0'
 # Font-Awesome SASS (https://github.com/FortAwesome/font-awesome-sass)
 gem 'font-awesome-sass', '5.12.0'
 # A custom Rails form builder for Vue.js (https://github.com/kuroda/vue-rails-form-builder)
-gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-builder.git'
+gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-builder'
 
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
