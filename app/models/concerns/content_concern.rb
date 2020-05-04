@@ -11,6 +11,7 @@ module ContentConcern
         :site_name => web_stat[:site_name],
         :content => web_stat[:content],
         :expanded_url => web_stat[:url],
+        :http_status => web_stat[:http_status],
         :language_code => web_stat[:language_code],
         :tags => web_stat[:tags],
         :source_id => object.id,

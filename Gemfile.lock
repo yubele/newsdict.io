@@ -446,7 +446,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    web_stat (0.2.9)
+    web_stat (0.2.10)
       bundler (>= 2.0.2)
       cld (>= 0.8.0)
       mechanize (>= 2.7)
@@ -540,7 +540,7 @@ DEPENDENCIES
   uglifier (= 4.2.0)
   vue-rails-form-builder!
   web-console (= 4.0.1)
-  web_stat (= 0.2.9)
+  web_stat (= 0.2.10)
   webdrivers (= 4.2.0)
   webmock (= 3.8.3)
   webpacker (= 4.2.2)
