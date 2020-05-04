@@ -1,6 +1,6 @@
 on:
   check_run:
-    types: [createdcompleted]
+    types: [created, completed]
 name: Slack Notification
 jobs:
   slackNotification:
