@@ -9,7 +9,6 @@
               style: "background-image: url(/img/#{content.id});"
             },
             content_url: "/content/#{content.id}",
-            source_url: "#{content.source.source_url}/#{content.source.name}",
             content: content
           } %>
         <% end %>
@@ -38,7 +37,6 @@
                 }
               },
               content_url: "'/content/' + content.id + '/'",
-              source_url: "content.source.source_url + '/' + content.source.name",
               content: JSON.parse(vue_for_content.to_json, object_class: OpenStruct)
               } %>
           </div>

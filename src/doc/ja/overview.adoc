@@ -1,5 +1,8 @@
-= 構成
 :toc: left
+
+include::google_translate.adoc[]
+
+= 構成
 
 === Description
 newsdict.ioは、docker上で構築されdocker-composeを使うとすぐに動作させることが可能です。

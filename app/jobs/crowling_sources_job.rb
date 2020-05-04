@@ -1,4 +1,4 @@
-class FetchSourcesJob < ApplicationJob
+class CrowlingSourcesJob < ApplicationJob
   queue_as :default
   # Fetch the web pages by url
   # @param [Source] object
@@ -15,6 +15,6 @@ class FetchSourcesJob < ApplicationJob
     attrs = Contents::Web.set_attributes_by_web_stat(object, web_stat)
     # Record unique ID to prevent duplicate registration
     attrs[:unique_id] = unique_id
-    Contents::Web.save_form_job(web_stat, attrs)
+    Contents::Web.save_form_job(attrs)
   end
 end

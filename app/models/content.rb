@@ -25,33 +25,17 @@ class Content < ApplicationRecord
     :updated => [:updated_at, :desc],
     :count => [:count_of_shared, :desc]
   }
-  # Get the records
-  # @param order default :desc
-  # @param category default: nil
-  def self.contents(order: :desc, category: nil, name: nil)
-    if name
-      self.in(source_id: Sources::TwitterAccount.find_by(name: name))
-    elsif category
-      self.in(source_id: Sources::TwitterAccount.where(category: category).map {|u| u.id })
-    else
-      self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
-    end
+  # Get tags longer than a certain number of characters
+  # @param [Integer] number tag length
+  def longer_tags(number = 3)
+    tags.map {|tag| tag if tag.length >= number }.compact.reject(&:empty?)
   end
-  # Sort the content by sort_type
-  # @param [String] sort_type
-  def self.sortable(sort_type)
-    if sort_type && SORT_TYPE.key?(sort_type.to_sym)
-      self.order_by((SORT_TYPE[sort_type.to_sym]))
-    else
-      self.order_by((SORT_TYPE[:newest]))
-    end
-  end
-  # Exclude domain
-  def self.exclude_domain
-    if ::Filters::Content.exists?
-      self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
-    else
-      self.all
+  # If it is true, instance is uniq contents.
+  #  Perfect matching `extended_url` or Perfect matching `title`
+  # @return [Content] exists content
+  def unique?
+    if content = Content.where(title: self.title).first || content = Content.where(expanded_url: self.expanded_url).first
+      return content
     end
   end
 end

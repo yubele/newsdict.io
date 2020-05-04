@@ -75,7 +75,8 @@ ja:
     models:
       "filters/content": コンテンツのフィルター
       user: 管理ユーザ
-      source: 記事元
+      source: ソース
+      "sources/url": "Webサイト"
       "sources/twitter_account": "ツイッターアカウント"
       "configs/mecab_dic": 形態要素解析
       "configs/view": HTML設定

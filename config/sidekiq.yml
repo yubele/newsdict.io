@@ -1,13 +1,17 @@
 :schedule:
+  urls_job:
+    enabled: false
+    cron: '0 */3 * * *'
+    class: UrlsJob
   twitter_account_job:
-    enabled: true
+    enabled: false
     cron: '0 */3 * * *'
     class: TwitterAccountsJob
   update_mecab_dic_job:
-    enabled: true
+    enabled: false
     cron: '0 0 * * * *'
     class: UpdateMecabDicsJob
   sitemap_job:
-    enabled: true
+    enabled: false
     cron: '0 0 0 * * *'
     class: SitemapsJob

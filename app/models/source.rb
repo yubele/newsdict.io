@@ -10,6 +10,7 @@ class Source < ApplicationRecord
   field :category, type: String
   # Last crawling datetime
   field :fetch_at, type: DateTime
+  validates :alias, length: { maximum: 20 } 
   include Mongoid::Timestamps
   def category_enum
     Configs::Category.all.map {|c| c.key }

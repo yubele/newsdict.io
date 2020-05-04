@@ -48,8 +48,9 @@ en:
     models:
       "filters/content": Content filters
       user: Admin User
-      source: "source"
-      "sources:twitter_account": twitter account
+      source: "Source"
+      "sources/url": "Web Sites"
+      "sources:twitter_account": Twitter account
       "config/mecab_dic": "Morphological element analysis Setting"
       "config/view": "HTML Setting"
       "configs/category": "Category Setting"

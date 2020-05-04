@@ -16,7 +16,7 @@
         </button>
       <% end %>
       <p class="is-pulled-right media-source-name">
-        <%= vue_content_tag :a, "#{vuejs_suffix}href" => source_url, rel: :nofollow, target: :_blank do %>
+        <%= vue_content_tag :a, "#{vuejs_suffix}href" => content.source.source_url, rel: :nofollow, target: :_blank do %>
           <%= t('Shared By') %>&nbsp;
           <strong><%= content.source.view_name %>(<%= content.count_of_shared %>)</strong>
           &nbsp;/&nbsp;

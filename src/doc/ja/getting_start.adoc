@@ -1,5 +1,7 @@
 :toc: left
 
+include::google_translate.adoc[]
+
 include::../../../README.adoc[]
 
 link:/[Back To The Top]
