@@ -26,7 +26,7 @@ gem 'sidekiq-scheduler', '3.0.1'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace', '1.7.0'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '0.2.9'
+gem 'web_stat', '0.2.10'
 # use web_stat
 # Get a final redirect url for a given url. (https://github.com/indyarocks/final_redirect_url)
 gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
