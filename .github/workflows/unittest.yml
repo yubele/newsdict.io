@@ -27,29 +27,25 @@ jobs:
       run: |
         set -xe
         docker/rails test -v
-    - name: Slack Notification
+    - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
+      if: ${{ success() }}
       env:
         SLACK_CHANNEL: actions
         SLACK_COLOR: '#cdcdd1'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Passed unittest :rocket:'
+        SLACK_MESSAGE: 'Passed unittest :100:'
         SLACK_TITLE: Passed UnitTest
         SLACK_USERNAME: Github Actions
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-
-  slackNotification:
-    name: Slack Notification
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: Slack Notification
+    - name: NG Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
+      if: ${{ failure() }}
       env:
         SLACK_CHANNEL: actions
-        SLACK_COLOR: '#3278bd'
+        SLACK_COLOR: '#ed0707'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
-        SLACK_MESSAGE: 'Start unittest :100:'
-        SLACK_TITLE: UnitTest
+        SLACK_MESSAGE: 'NG unittest :ng:'
+        SLACK_TITLE: NG UnitTest
         SLACK_USERNAME: Github Actions
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
