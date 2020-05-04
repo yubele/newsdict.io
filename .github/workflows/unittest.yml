@@ -5,31 +5,37 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Install Docker Compose
       run: |
-        set -x
+        set -xe
         curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
         chmod +x ~/docker-compose
         sudo mv ~/docker-compose /usr/local/bin/docker-compose
     - name: Set up .env
       run: |
         cp .env-test .env
-    - name: DockerCompose down
-      run: |
-        docker-compose down
-    - name: build & rails test -v
+    - name: build
       run: |
         set -xe
-        docker/start -d
-        docker/rails test -v
-    - name: DockerCompose down
+        docker/start --build
+    - name: rails test -v
       run: |
-        docker-compose down
+        set -xe
+        docker/rails test -v
+  slackNotification:
+    name: Slack Notification
+    runs-on: ubuntu-latest
+    steps:
+      - uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # optional
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+        if: always() # Pick up events even if the job fails or is canceled.
