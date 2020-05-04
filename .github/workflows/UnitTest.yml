@@ -3,6 +3,8 @@ name: UnitTest
 on:
   push:
     branches: [ master ]
+  pull_request:
+    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,7 +29,7 @@ jobs:
         docker/rails test -v
     - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
-      if: ${{ success() }}
+      if: ${{ env.SLACK_WEBHOOK != null && success() }}
       env:
         SLACK_CHANNEL: actions
         SLACK_COLOR: '#0000f2'
@@ -38,7 +40,7 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
     - name: NG Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
-      if: ${{ failure() }}
+      if: ${{ env.SLACK_WEBHOOK != null && failure() }}
       env:
         SLACK_CHANNEL: actions
         SLACK_COLOR: '#ed0707'
