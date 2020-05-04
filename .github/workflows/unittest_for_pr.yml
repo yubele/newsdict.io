@@ -1,0 +1,27 @@
+name: UnitTest
+
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install Docker Compose
+      run: |
+        set -xe
+        curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+        chmod +x ~/docker-compose
+        sudo mv ~/docker-compose /usr/local/bin/docker-compose
+    - name: Set up .env
+      run: |
+        cp .env-test .env
+    - name: build
+      run: |
+        set -xe
+        docker/start --build -d
+    - name: rails test -v
+      run: |
+        set -xe
+        docker/rails test -v

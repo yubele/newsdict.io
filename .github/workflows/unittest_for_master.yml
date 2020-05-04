@@ -3,8 +3,6 @@ name: UnitTest
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -32,7 +30,7 @@ jobs:
       if: ${{ success() }}
       env:
         SLACK_CHANNEL: actions
-        SLACK_COLOR: '#cdcdd1'
+        SLACK_COLOR: '#0000f2'
         SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Passed unittest :100:'
         SLACK_TITLE: Passed UnitTest

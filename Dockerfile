@@ -21,7 +21,7 @@ RUN . /etc/profile.d/rvm.sh && \
   bundle config --global without 'development test' && \
   bundle config --global system true && \
   bundle config --global path vendor/bundle && \
-  bundle install --quiet && \
+  bundle install && \
   bundle config --global frozen true
 
 # If you are running the development environment, the pid file will remain, so delete the pid file
