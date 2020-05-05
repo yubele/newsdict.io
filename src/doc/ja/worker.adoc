@@ -2,6 +2,19 @@
 
 = Worker
 
-Work In Progress
+newsdict.ioではActionJob(sidekiq)を使用しています。 +
+ジョブはデフォルトオフにしているので、必要に応じて管理画面から有効化してください。
+
+ジョブの一覧は以下です。
+|===
+|名前|インターバル|クラス|ファイル
+|sitemap_job|0 0 0 * * *|SitemapsJob|app/jobs/sitemap_job.rb
+|twitter_account_job|0 */3 * * *|TwitterAccountsJob|app/jobs/twitter_account_job.rb
+|update_mecab_dic_job|0 0 * * * *|UpdateMecabDicsJob|app/jobs/user_mecab_dics_job.rb
+|urls_job|0 */3 * * *|UrlsJob|app/jobs/urls_job.rb	
+|===
+
+また、管理画面のURLは管理画面からジョブ管理で見ることが可能です。 +
+管理画面のURLは/sidekiqですが、管理画面にログインせずに直接見ることはできません。
 
 link:/[Back To The Top]
