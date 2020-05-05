@@ -54,10 +54,10 @@ module ContentConcern
     # Sort the content by sort_type
     # @param [String] sort_type
     def sortable(sort_type)
-      if sort_type && SORT_TYPE.key?(sort_type.to_sym)
-        self.order_by((SORT_TYPE[sort_type.to_sym]))
+      if sort_type && Content::SORT_TYPE.key?(sort_type.to_sym)
+        self.order_by((Content::SORT_TYPE[sort_type.to_sym]))
       else
-        self.order_by((SORT_TYPE[:newest]))
+        self.order_by((Content::SORT_TYPE[:newest]))
       end
     end
     # Exclude domain

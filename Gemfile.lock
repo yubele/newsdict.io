@@ -526,6 +526,7 @@ DEPENDENCIES
   rails_admin (= 2.0.1)
   rb-inotify
   redis-namespace (= 1.7.0)
+  sassc (= 2.3.0)
   sassc-rails (= 2.1.2)
   selenium-webdriver (= 3.142.7)
   sidekiq (= 6.0.5)
