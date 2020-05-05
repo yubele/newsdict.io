@@ -41,14 +41,14 @@ module ContentConcern
     end
     # Get the records
     # @param order default :desc
-    # @param category default: nil
-    def contents(order: :desc, category: nil, name: nil)
+    # @param category_id default: nil
+    def contents(order: :desc, category_id: nil, name: nil)
       if name
-        self.in(source_id: Sources::TwitterAccount.find_by(name: name))
-      elsif category
-        self.in(source_id: Sources::TwitterAccount.where(category: category).map {|u| u.id })
+        self.in(source_id: Source.find_by(name: name))
+      elsif category_id
+        self.in(source_id: Source.where(category_id: category_id).map {|u| u.id })
       else
-        self.in(source_id: Sources::TwitterAccount.all.map {|u| u.id })
+        self.in(source_id: Source.all.map {|u| u.id })
       end
     end
     # Sort the content by sort_type

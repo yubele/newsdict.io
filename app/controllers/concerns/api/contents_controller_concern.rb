@@ -9,7 +9,7 @@ module Api
     # @param [String] category 
     def contents(limit: 25, skip:0, sort: Content::SORT_TYPE[:updated_at], category: nil)
       Contents::Web
-        .contents(category: category)
+        .contents(category_id: Configs::Category.find_by(key: category).id)
         .sortable(sort)
         .exclude_domain
         .limit(limit)
