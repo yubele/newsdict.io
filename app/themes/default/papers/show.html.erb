@@ -34,7 +34,7 @@
                     <p><%= @contents[index].content.truncate(100) %></p>
                 </div>
                 <footer>
-                    <%= link_to "/content/#{@contents[index].id}" do %>
+                    <%= link_to content_path(@contents[index].id) do %>
                         <span class="button is-link">
                             <%= t(:more_information) %>
                         </span>

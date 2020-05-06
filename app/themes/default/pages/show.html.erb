@@ -8,7 +8,7 @@
             image: {
               style: "background-image: url(/img/#{content.id});"
             },
-            content_url: "/content/#{content.id}",
+            content_url: content_path(content.id),
             content: content
           } %>
         <% end %>
@@ -36,7 +36,7 @@
                   style: "{ 'background-image': 'url(/img/' + content.id + ')' }"
                 }
               },
-              content_url: "'/content/' + content.id + '/'",
+              content_url: "'/contents/' + content.id + '/'",
               content: JSON.parse(vue_for_content.to_json, object_class: OpenStruct)
               } %>
           </div>
