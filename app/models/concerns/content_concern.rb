@@ -44,11 +44,16 @@ module ContentConcern
     # @param category_id default: nil
     def contents(order: :desc, category_id: nil, name: nil)
       if name
-        self.in(source_id: Source.find_by(name: name))
+        collection = self.in(source_id: Source.find_by(name: name))
       elsif category_id
-        self.in(source_id: Source.where(category_id: category_id).map {|u| u.id })
+        collection = self.in(source_id: Source.where(category_id: category_id).map {|u| u.id })
       else
-        self.in(source_id: Source.all.map {|u| u.id })
+        collection = self.in(source_id: Source.all.map {|u| u.id })
+      end
+      if ::Filters::Content.exists?
+        collection.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_url }.join('|')})/)
+      else
+        collection.all
       end
     end
     # Sort the content by sort_type
@@ -58,14 +63,6 @@ module ContentConcern
         self.order_by((Content::SORT_TYPE[sort_type.to_sym]))
       else
         self.order_by((Content::SORT_TYPE[:newest]))
-      end
-    end
-    # Exclude domain
-    def exclude_domain
-      if ::Filters::Content.exists?
-        self.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_domain }.join('|')})/)
-      else
-        self.all
       end
     end
   end

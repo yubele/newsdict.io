@@ -12,7 +12,6 @@ module Api
       Contents::Web
         .contents(category_id: category_id)
         .sortable(sort)
-        .exclude_domain
         .limit(limit)
         .skip(skip)
         .map { |c|
