@@ -7,7 +7,7 @@ function setSwipe(elem) {
     var startY;
     var moveX;
     var moveY;
-    var dist = 40;
+    var dist = 80;
     var pos = 1;
     t.addEventListener('touchstart', function(e) {
         //e.preventDefault();
