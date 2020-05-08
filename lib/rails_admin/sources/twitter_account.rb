@@ -8,11 +8,10 @@ RailsAdmin.config do |config|
     field :alias do
       visible true
     end
-    # description of twitter account
     field :description do
-      visible true
+      visible false
     end
-    field :category do
+    field :category_id do
       visible true
     end
     # login user id

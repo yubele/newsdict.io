@@ -8,10 +8,10 @@ module Api
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
     # @param [String] category 
     def contents(limit: 25, skip:0, sort: Content::SORT_TYPE[:updated_at], category: nil)
+      category_id = Configs::Category.find_by(key: category).id if category
       Contents::Web
-        .contents(category: category)
+        .contents(category_id: category_id)
         .sortable(sort)
-        .exclude_domain
         .limit(limit)
         .skip(skip)
         .map { |c|

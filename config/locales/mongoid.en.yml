@@ -28,7 +28,7 @@ en:
         updated_at: updated date
         is_manual_locked: block to login
       "filters/content":
-        exclude_domain: Ignore domain name
+        exclude_url: Ignore url path
       "sources/twitter_account":
         name: Screen Name
         description: Description

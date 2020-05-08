@@ -39,4 +39,16 @@ class Content < ApplicationRecord
       return content
     end
   end
+  # Deduce page num from a model given a scope
+  # ref: https://github.com/kaminari/kaminari/issues/205
+  # @params [Array] options
+  # @return [Integer] page number
+  def page_num(options = {})
+    column = options[:by] || :id
+    order  = options[:order] || :asc
+    per    = options[:per] || self.class.default_per_page
+  
+    operator = (order == :asc ? "<=" : ">=")
+    (self.class.where("#{column} #{operator} ?" => read_attribute(column)).order("#{column} #{order}").count.to_f / per).ceil
+  end
 end

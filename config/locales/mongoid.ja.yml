@@ -30,7 +30,7 @@ ja:
         created_at: 作成日時
         updated_at: 更新日時
       "filters/content":
-        exclude_domain: "除外するドメイン名"
+        exclude_url: "除外するURL"
         created_at: 作成日時
         updated_at: 更新日時
       "sources/twitter_account":

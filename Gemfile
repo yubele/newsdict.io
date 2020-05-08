@@ -82,6 +82,8 @@ gem 'rails', '6.0.2.2'
 gem 'puma', '4.3.3'
 # Ruby FFI (https://github.com/ffi/ffi/wiki)
 gem 'ffi', '1.12.2'
+# Use libsass with Ruby! (https://github.com/sass/sassc-ruby)
+gem 'sassc', '2.3.0'
 # Integrate SassC-Ruby into Rails. (https://github.com/sass/sassc-rails)
 gem 'sassc-rails', '2.1.2'
 # Use Uglifier as compressor for JavaScript assets
@@ -100,9 +102,6 @@ gem 'jbuilder', '2.10.0'
 # Reduces boot times through caching; required in config/boot.rb
 # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
 gem 'bootsnap', require: false
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-# Rails application preloader (https://github.com/rails/spring)
-gem 'spring', '2.1.0'
 # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
 gem 'spring-watcher-listen', '2.0.1'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -134,6 +133,9 @@ group :development, :test do
 end
 
 group :development do
+  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  # Rails application preloader (https://github.com/rails/spring)
+  gem 'spring', '2.1.0'
   # Add comments to your Gemfile with each dependency's description. (https://github.com/ivantsepp/annotate_gem)
   gem 'annotate_gem', '0.0.14'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -182,7 +184,6 @@ group :test do
   gem 'webmock', '3.8.3'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker', '2.10.2'
-  # Strategies for cleaning databases.  Can be used to ensure a clean state for testing. (http://github.com/DatabaseCleaner/database_cleaner)
   # Strategies for cleaning databases. Can be used to ensure a clean slate for testing. (https://github.com/DatabaseCleaner/database_cleaner)
   gem 'database_cleaner', '1.8.3'
 end

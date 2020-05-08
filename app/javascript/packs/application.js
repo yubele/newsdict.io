@@ -14,6 +14,7 @@ import '../imports/fontawesome.js'
 import '../imports/dropdown.js'
 import '../imports/autoscroll.js'
 import '../imports/swipe.js'
+import '../imports/fixed_header.js'
 // ref. https://stackoverflow.com/questions/45758837/script5009-urlsearchparams-is-undefined-in-ie-11
 (function (w) {
     w.URLSearchParams = w.URLSearchParams || function (searchString) {

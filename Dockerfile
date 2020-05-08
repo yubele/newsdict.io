@@ -20,9 +20,16 @@ RUN echo "gem: --no-rdoc --no-ri" > ~/.gemrc
 RUN . /etc/profile.d/rvm.sh && \
   bundle config --global without 'development test' && \
   bundle config --global system true && \
-  bundle config --global path vendor/bundle && \
-  bundle install && \
-  bundle config --global frozen true
+  bundle config --global frozen true && \
+  bundle config --global jobs 10 && \
+  bundle config --global build.nokogiri --use-system-libraries && \
+  bundle install
+
+# Recreate bins. It only run on web server and production.
+RUN . /etc/profile.d/rvm.sh && \
+    . $HOME/.nvm/nvm.sh && \
+    rm -rf /var/www/docker/bin && \
+    bundle exec rake app:update:bin
 
 # If you are running the development environment, the pid file will remain, so delete the pid file
 RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \

@@ -12,13 +12,6 @@ class AdminAbility
             I18n.t('sidekiq') => "/sidekiq"
         }
         config.navigation_static_label = I18n.t('admin.navigation.other_system_admin')
-        config.model User do
-          edit do
-            field :is_manual_locked do
-              visible true
-            end
-          end
-        end
       end
     else
       # user role

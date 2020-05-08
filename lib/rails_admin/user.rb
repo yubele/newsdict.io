@@ -13,6 +13,9 @@ RailsAdmin.config do |config|
       field :username do
         visible true
       end
+      field :is_manual_locked do
+        visible true
+      end
     end
   end
 end

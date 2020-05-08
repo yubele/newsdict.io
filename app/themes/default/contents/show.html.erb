@@ -6,17 +6,10 @@
                     <%= t(:be_shared_content_list, name: @content.source.view_name) %>
                 </h2>
                 <ul class="menu-list">
-                    <% index = 50 %>
-                    <% skip = true %>
-                    <% Contents::Web.contents(name: @content.source.name).order_by(created_at: :desc).each_with_index do |content, index| %>
-                    <% if skip && content.id != @content.id
-                        next
-                    else
-                        skip = false
-                    end %>
-                    <% index = index - 1 %>
-                    <li><a href="/content/<%= content.id %>/" class="<%= current_page?("/content/#{content.id}/") ? "is-active": "" %>"><%= index %> <%= content.title.truncate(20) %></a></li>
-                    <% break if index == 0 %>
+                    <% @contents.each_with_index do |content, index| %>
+                    <li>
+                        <%= link_to content.title.truncate(20), content_path(content.id), { class: (current_page?(content_path(content.id)) ? "is-active": "") }%>
+                    </li>
                     <% end %>
                 </ul>
             </aside>
@@ -25,8 +18,8 @@
             <nav class="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                     <li><a href="/">Top</a></li>
-                    <% if @content.source.category %>
-                    <li><a href="/category/<%= CGI::escape(@content.source.category) %>/"><%= @content.source.category %></a></li>
+                    <% if @content.source.category_id %>
+                    <li><a href="/category/<%= CGI::escape(@content.source.category_id) %>/"><%= Configs::Category.find_by(id: @content.source.category_id).key %></a></li>
                     <% end %>
                     <li><a><%= @content.source.view_name %></a></li>
                     <li class="is-active"><a href="#" aria-current="page"><%= @content.title.truncate(20) %></a></li>
@@ -46,7 +39,7 @@
                     <div class="tile is-parent">
                         <article class="tile is-child box">
                             <p class="title"><%= l(@content.created_at, format: :short) %></p>
-                            <p class="subtitle"><%= t(:shared_at) %></p>
+                            <p class="subtitle"><%= t(:created_at) %></p>
                         </article>
                     </div>
                     <div class="tile is-parent">
@@ -82,18 +75,18 @@
                                     <tbody>
                                         <tr>
                                             <td width="5%"><i class="fa fa-bell-o"></i></td>
-                                            <td width="20%"><%= t(:shared_person) %></td>
-                                            <td><%= @content.source.view_name %></td>
-                                        </tr>
-                                        <tr>
-                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
                                             <td width="20%"><%= t(:image) %></td>
                                             <td><img src="/img/<%= @content.id %>"></td>
                                         </tr>
                                         <tr>
                                             <td width="5%"><i class="fa fa-bell-o"></i></td>
+                                            <td width="20%"><%= t(:source) %></td>
+                                            <td><%= link_to @content.source.source_url, @content.source.source_url, ref: :nofollow, target: :_blank %></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="5%"><i class="fa fa-bell-o"></i></td>
                                             <td width="20%">URL</td>
-                                            <td><a rel="nofollow" href="<%= @content.expanded_url %>"><%= @content.expanded_url.truncate(40) %></a></td>
+                                            <td><%= link_to  @content.expanded_url.truncate(40), @content.expanded_url, ref: :nofollow, target: :_blank %></td>
                                         </tr>
                                         <tr>
                                             <td width="5%"><i class="fa fa-bell-o"></i></td>
@@ -119,7 +112,7 @@
                                         <tr>
                                             <td width="5%"><i class="fa fa-bell-o"></i></td>
                                             <td width="20%"><%= t(:category) %></td>
-                                            <td><%= @content.source.category %></td>
+                                            <td><%= Configs::Category.find_by(id: @content.source.category_id).key %></td>
                                         </tr>
                                     </tbody>
                                 </table>

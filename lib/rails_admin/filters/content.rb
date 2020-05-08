@@ -6,8 +6,6 @@ RailsAdmin.config do |config|
     field :id do
       visible false
     end
-    field :exclude_domain do
-      visible true
-    end
+    field :exclude_url
   end
 end

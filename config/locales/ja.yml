@@ -16,6 +16,8 @@ ja:
   content_description: コンテンツ概要
   more_information: 詳細な情報を見る
   content_title: "%{name}が共有した「%{title}」"
+  created_at: 登録日
+  updated_at: 更新日
   date:
     abbr_day_names:
     - 日

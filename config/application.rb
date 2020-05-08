@@ -55,5 +55,7 @@ module Newsdict
     config.paper_item_limit = 16
     # Paper column number
     config.paper_column_number = 4
+    # Enforce trailing slash in Rails Routing
+    config.action_controller.default_url_options = { :trailing_slash => true }
   end
 end

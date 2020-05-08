@@ -8,7 +8,7 @@ SitemapGenerator::Sitemap.create do
     add "/category/#{CGI::escape(config.key)}/", priority: 0.8, changefreq: 'hourly'
   end
   Content.all.each do |content|
-    add "/content/#{content.id}/", priority: 0.5, changefreq: 'monthly'
+    add "/contents/#{content.id}/", priority: 0.5, changefreq: 'monthly'
   end
   
   # Put links creation logic here.

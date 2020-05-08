@@ -16,6 +16,8 @@ en:
   content_description: Description
   more_information: More detail
   content_title: "%{name} shared `%{title}`"
+  created_at: Created At
+  updated_at: Updated At
   date:
     abbr_day_names:
     - Sun

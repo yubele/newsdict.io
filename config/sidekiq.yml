@@ -2,11 +2,11 @@
   urls_job:
     enabled: false
     cron: '0 */3 * * *'
-    class: UrlsJob
+    class: Crowling::UrlsJob
   twitter_account_job:
     enabled: false
     cron: '0 */3 * * *'
-    class: TwitterAccountsJob
+    class: Crowling::TwitterAccountsJob
   update_mecab_dic_job:
     enabled: false
     cron: '0 0 * * * *'
