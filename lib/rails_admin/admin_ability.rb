@@ -14,9 +14,15 @@ class AdminAbility
         config.navigation_static_label = I18n.t('admin.navigation.other_system_admin')
       end
     else
+      RailsAdmin.config do |config|
+        config.navigation_static_links = {}
+        config.navigation_static_label = nil
+      end
       # user role
       can :create, Sources::TwitterAccount, user_id: user.id
       can :manage, Sources::TwitterAccount, user_id: user.id
+      can :create, Sources::Url, user_id: user.id
+      can :manage, Sources::Url, user_id: user.id
       can :update, User, id: user.id
     end
   end

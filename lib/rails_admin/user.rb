@@ -1,4 +1,5 @@
 RailsAdmin.config do |config|
+  config.label_methods << :username
   config.model User do
     list do
       filters [:username, :email]
