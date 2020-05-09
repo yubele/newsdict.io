@@ -20,7 +20,9 @@
           <%= t('Shared By') %>&nbsp;
           <strong><%= content.source.view_name %>(<%= content.count_of_shared %>)</strong>
           &nbsp;/&nbsp;
-          <%= vue_content_tag :small, content.created_at %>
+          <%= t(:created_at) %>: <%= vue_content_tag :small, content.created_at %>
+          &nbsp;/&nbsp;
+          <%= t(:updated_at) %>: <%= vue_content_tag :small, content.updated_at %>
         <% end %>
       </p>
     </div>

@@ -18,6 +18,9 @@ ja:
   content_title: "%{name}が共有した「%{title}」"
   created_at: 登録日
   updated_at: 更新日
+  sort_by_created_at: 登録日順
+  sort_by_updated_at: 更新日順
+  sort_by_shared_count: シェア回数順
   date:
     abbr_day_names:
     - 日

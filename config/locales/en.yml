@@ -18,6 +18,9 @@ en:
   content_title: "%{name} shared `%{title}`"
   created_at: Created At
   updated_at: Updated At
+  sort_by_created_at: Sort by created_at
+  sort_by_updated_at: Sort by updated_at
+  sort_by_shared_count: Sort by count
   date:
     abbr_day_names:
     - Sun
