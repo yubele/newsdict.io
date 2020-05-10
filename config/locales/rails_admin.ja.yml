@@ -1,5 +1,9 @@
 ja:
   admin:
+    edit_web_sections:
+      edit:
+        description: 左の画面よりウォッチしたい部分を選択してクリックしてください。リセットボタンで再選択可能です
+        links: 選択された部分のリンク
     navigation:
       sources: ソース元
       setting: 設定

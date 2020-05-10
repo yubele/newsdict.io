@@ -1,5 +1,5 @@
 module Crowling
-  class UrlsJob < BaseJob
+  class WebUrlsJob < BaseJob
     queue_as :default
   
     # Fetch the web each twitter accounts

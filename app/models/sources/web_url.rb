@@ -1,6 +1,5 @@
-# Deprecated class
 module Sources
-  class Url < ::Source
+  class WebUrl < ::Source
     include ::SourceUrlConcern
     field :source_url, type: String
     validates :name, :category_id, presence: true

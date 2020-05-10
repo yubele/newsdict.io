@@ -1,7 +1,6 @@
 RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
-  config.model "Sources::Url" do
-    # screen name
+  config.model "Sources::WebSection" do
     field :name do
       visible true
     end
@@ -20,6 +19,13 @@ RailsAdmin.config do |config|
     end
     field :category_id do
       visible true
+    end
+    edit do
+      field :name do
+        render do
+          bindings[:view].render :partial => "my_awesome_partial", :locals => {:field => self, :form => bindings[:form]}
+        end
+      end
     end
   end
 end

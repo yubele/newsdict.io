@@ -1,8 +1,8 @@
 :schedule:
-  urls_job:
+  web_urls_job:
     enabled: false
     cron: '0 */3 * * *'
-    class: Crowling::UrlsJob
+    class: Crowling::WebUrlsJob
   twitter_account_job:
     enabled: false
     cron: '0 */3 * * *'

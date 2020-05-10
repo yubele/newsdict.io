@@ -76,8 +76,9 @@ ja:
       "filters/content": コンテンツのフィルター
       user: 管理ユーザ
       source: ソース
-      "sources/url": "Webサイト"
-      "sources/twitter_account": "ツイッターアカウント"
+      "sources/web_section": Web部分検知
+      "sources/web_url": Webサイト
+      "sources/twitter_account": ツイッターアカウント
       "configs/mecab_dic": 形態要素解析
       "configs/view": HTML設定
       "configs/category": カテゴリー設定

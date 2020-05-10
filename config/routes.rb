@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   # For health-check
   get 'active', to: proc { [200, Hash.new, Array.new] }
+  get "/admin/edit_web_sections/:id/", to: "admin/edit_web_sections#show"
+  get "/admin/edit_web_sections/:id/edit", to: "admin/edit_web_sections#edit"
+  
   mount Sidekiq::Web => "/sidekiq", constraints: SuperAdminConstraint.new, as: 'sidekiq_web'
   mount RailsAdmin::Engine => "/admin", as: 'rails_admin'
   devise_for 'user', :controllers => {
