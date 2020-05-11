@@ -1,3 +1,4 @@
+import Axios from 'axios/dist/axios.js'
 let focusLock = false
 function clearIframeLinks(iframe) {
     // A Tag Links
@@ -47,6 +48,14 @@ function bindIframeClick(iframe) {
         const clickEventElement = iframe.contentWindow.document.elementFromPoint(clickEvent.clientX, clickEvent.clientY)
         if (clickEventElement) {
             focusLock = true
+            Axios.get("<%= show_link_web_sections_path %>",{
+              params: {
+                skip: 1 * 25,
+                limit: 25
+            }})
+            .then(response => {
+              console.log(getXpath(clickEventElement))
+            })
         }
         
         iframe.dispatchEvent(clickEvent)
@@ -56,6 +65,30 @@ function bindIframeReset(iframe) {
     document.getElementById('web-section-reset').addEventListener('click', function() {
         focusLock = false
     })
+}
+// refs https://qiita.com/narikei/items/fb62b543ca386fcee211
+function getXpath(element) {
+  if(element && element.parentNode) {
+    var xpath = getXpath(element.parentNode) + '/' + element.tagName;
+    var s = [];
+    for(var i = 0; i < element.parentNode.childNodes.length; i++) {
+      var e = element.parentNode.childNodes[i];
+      if(e.tagName == element.tagName) {
+        s.push(e);
+      }
+    }
+    if(1 < s.length) {
+      for(var i = 0; i < s.length; i++) {
+        if(s[i] === element) {
+          xpath += '[' + (i+1) + ']';
+          break;
+        }
+      }
+    }
+    return xpath.toLowerCase();
+  } else {
+    return '';
+  }
 }
 if (document.getElementById('web-section-iframe')) {
     document.getElementById('web-section-iframe').onload = function() {

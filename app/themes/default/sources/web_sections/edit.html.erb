@@ -5,7 +5,7 @@
     </div>
 </header>
 <main id="web-section-main">
-    <iframe id="web-section-iframe" src="/admin/edit_web_sections/<%= params[:id]%>/"></iframe>
+    <iframe id="web-section-iframe" src="<%= web_section_path(@id) %>"></iframe>
     <div><%= t('.description') %>
     <hr/>
     <caption><%= t('.links') %></caption>

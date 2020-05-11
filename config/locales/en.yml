@@ -23,6 +23,7 @@ en:
   sort_by_shared_count: Sort by count
   save: Save
   reset: Reset
+  edit: Edit
   date:
     abbr_day_names:
     - Sun
