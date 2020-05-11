@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     scope module: :sources do
       resources :web_sections, only: [:show, :edit] do
         collection do
-          get :show_link, params: [:id, :xpath]
+          post :show_links
         end
       end
     end

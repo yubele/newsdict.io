@@ -48,13 +48,19 @@ function bindIframeClick(iframe) {
         const clickEventElement = iframe.contentWindow.document.elementFromPoint(clickEvent.clientX, clickEvent.clientY)
         if (clickEventElement) {
             focusLock = true
-            Axios.get("<%= show_link_web_sections_path %>",{
-              params: {
-                skip: 1 * 25,
-                limit: 25
-            }})
+            const parser = document.createElement('a')
+            parser.href =  iframe.src
+            Axios.post("/admin/web_sections/show_links",{
+                id: parser.pathname.split('/')[3],
+                xpath: getXpath(clickEventElement)
+            })
             .then(response => {
-              console.log(getXpath(clickEventElement))
+                const max_length = 50
+                Array.prototype.forEach.call(response.data, function(link) {
+                    const node = document.createElement("li")
+                    node.appendChild(document.createTextNode(link.length > max_length ? (link).slice(0, max_length)+"…" : link))
+                    document.getElementById("show_links").appendChild(node); 
+                })
             })
         }
         

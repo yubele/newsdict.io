@@ -12,7 +12,18 @@ RailsAdmin.config do |config|
     end
     field :name
     field :category_id
+    field :xpath
     field :source_url
+    show do
+      field :xpath do
+        visible true
+      end
+    end
+    edit do
+      field :xpath do
+        visible false
+      end
+    end
     list do
       field :source_url do
         pretty_value do

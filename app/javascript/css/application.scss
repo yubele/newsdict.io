@@ -173,13 +173,14 @@ div.header > dl.links > dd {
   margin: 0;
   width: 70%;
 }
-#web-section-main div {
+#web-section-main > div {
   justify-content: flex-end;
   padding: 10px;
   text-size: 115%;
+  width: 30%;
 }
 
-#web-section-main div ul {
+#web-section-main > div > ul {
   list-style: inside;
   margin: 10px;
 }

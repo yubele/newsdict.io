@@ -6,17 +6,11 @@
 </header>
 <main id="web-section-main">
     <iframe id="web-section-iframe" src="<%= web_section_path(@id) %>"></iframe>
-    <div><%= t('.description') %>
-    <hr/>
-    <caption><%= t('.links') %></caption>
-    <ul>
-        <li>aaaa</li>
-        <li>aaaa</li>
-        <li>aaaa</li>
-        <li>aaaa</li>
-        <li>aaaa</li>
-        <li>aaaa</li>
-        <li>aaaa</li>
-    </ul>
-    
+    <div>
+        <%= t('.description') %>
+        <hr/>
+        <caption><%= t('.links') %></caption>
+        <ul id="show_links">
+        </ul>
+    </div>
 </main>
