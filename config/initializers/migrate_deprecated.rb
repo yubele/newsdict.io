@@ -2,11 +2,15 @@ if Sources::Url.exists?
     # Sources::Url -> Sources::WebUrl
     Sources::Url.all.each do |url|
         migrated = url.attributes
-        migrated.delete("_id")
+        old_id = migrated.delete("_id")
         migrated.delete("_type")
         migrated.delete("category")
         migrated.delete("url")
-        Sources::WebUrl.new(migrated).save
+        web_url = Sources::WebUrl.new(migrated)
+        web_url.save
+        if web = Contents::Web.where(source_id: old_id)
+            web.update(source_id: web_url.id)
+        end
     end
     Sources::Url.delete_all
 end
