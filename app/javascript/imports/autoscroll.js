@@ -21,11 +21,14 @@ if (document.querySelector('#more-contents')) {
             /* global URLSearchParams */
             const urlParams = new URLSearchParams(window.location.search);
             this.is_scroll = true
+            const parser = document.createElement('a')
+            parser.href = window.location
             Axios.get("/api/v1/contents.json",{
               params: {
                 skip: this.current_page * 25,
                 limit: 25,
-                sort: urlParams.get('sort')
+                sort: urlParams.get('sort'),
+                category: decodeURIComponent(parser.pathname.split('/')[2])
             }})
             .then(response => {
               this.contents = this.contents.concat(response.data)
