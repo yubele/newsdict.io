@@ -154,15 +154,26 @@ div.header > dl.links > dd {
   z-index:999;
 }
 #web-section-header {
-  height: 65px;
+  height: 80px;
   padding: 0;
   margin: 0;
   border-bottom: 3px double #888;
+  display: flex;
 }
-#web-section-header .buttons {
+#web-section-header > form {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+}
+#web-section-header > form > .buttons {
+  width: 100%;
   justify-content: flex-end;
   align-items: center;
   margin: 10px;
+}
+#web-section-header > form > .buttons > div {
+  align-items: center;
+  margin: 0 20px 0 0;
 }
 #web-section-main {
   display: flex;

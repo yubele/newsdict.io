@@ -1,6 +1,6 @@
 module Sources
   class WebSection < ::Source
-    include ::SourceUrlConcern
+    include ::SourceWebSectionConcern
     field :source_url, type: String
     field :xpath, type: String
     validates :name, :category_id, presence: true

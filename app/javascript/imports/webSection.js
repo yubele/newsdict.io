@@ -46,13 +46,18 @@ function bindIframeClick(iframe) {
         clickEvent.clientY = event.clientY + clRect.top
         
         const clickEventElement = iframe.contentWindow.document.elementFromPoint(clickEvent.clientX, clickEvent.clientY)
-        if (clickEventElement) {
+        if (clickEventElement && focusLock == false) {
             focusLock = true
             const parser = document.createElement('a')
             parser.href =  iframe.src
+            const xpath = getXpath(clickEventElement)
+            document.getElementById('id').value = parser.pathname.split('/')[3]
+            document.getElementById('source-url').value = iframe.src
+            document.getElementById('xpath').value = xpath
+            
             Axios.post("/admin/web_sections/show_links",{
                 id: parser.pathname.split('/')[3],
-                xpath: getXpath(clickEventElement)
+                xpath: xpath
             })
             .then(response => {
                 const max_length = 50
@@ -70,6 +75,7 @@ function bindIframeClick(iframe) {
 function bindIframeReset(iframe) {
     document.getElementById('web-section-reset').addEventListener('click', function() {
         focusLock = false
+        document.getElementById("show_links").innerHTML = ""
     })
 }
 // refs https://qiita.com/narikei/items/fb62b543ca386fcee211

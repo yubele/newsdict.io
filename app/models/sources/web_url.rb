@@ -1,6 +1,6 @@
 module Sources
   class WebUrl < ::Source
-    include ::SourceUrlConcern
+    include ::SourceWebUrlConcern
     field :source_url, type: String
     validates :name, :category_id, presence: true
     validates :source_url, presence: true, format: { with: URI.regexp }, length: { maximum: 2000 }

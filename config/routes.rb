@@ -3,9 +3,13 @@ Rails.application.routes.draw do
   get 'active', to: proc { [200, Hash.new, Array.new] }
   scope :admin do
     scope module: :sources do
-      resources :web_sections, only: [:show, :edit] do
+      resources :web_sections, only: [:show] do
         collection do
           post :show_links
+        end
+        member do
+          post :edit
+          get :html
         end
       end
     end
