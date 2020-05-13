@@ -1,4 +1,4 @@
-module SourceWebSectionConcern
+module SourceWebSiteConcern
   extend ActiveSupport::Concern
 
   # Get external urls

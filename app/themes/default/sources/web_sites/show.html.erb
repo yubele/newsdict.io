@@ -1,5 +1,5 @@
-<header id="web-section-header">
-    <%= form_for(@web_section, url: edit_web_section_path(@id), method: :post) do |f| %>
+<header id="web-site-header">
+    <%= form_for(@web_site, url: edit_web_site_path(@id), method: :post) do |f| %>
         <div class="buttons">
             <div class="field is-horizontal">
                 <div class="field-body">
@@ -29,12 +29,12 @@
                 </div>
             </div>
             <button class="button is-link is-large" type="submit"><%= t(:save) %></button>
-            <button id="web-section-reset" type="reset" class="button is-medium"><%= t(:reset) %></button>
+            <button id="web-site-reset" type="reset" class="button is-medium"><%= t(:reset) %></button>
         </div>
     <% end %>
 </header>
-<main id="web-section-main">
-    <iframe id="web-section-iframe" src="<%= html_web_section_path(@id) %>"></iframe>
+<main id="web-site-main">
+    <iframe id="web-site-iframe" src="<%= html_web_site_path(@id) %>"></iframe>
     <div>
         <%= t('.description') %>
         <hr/>

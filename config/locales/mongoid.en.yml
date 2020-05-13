@@ -49,8 +49,7 @@ en:
       "filters/content": Content filters
       user: Admin User
       source: "Source"
-      "sources/web_section": Web Section
-      "sources/web_url": Web Url
+      "sources/web_site": WebSite
       "sources/twitter_account": Twitter account
       "config/mecab_dic": "Morphological element analysis Setting"
       "config/view": "HTML Setting"

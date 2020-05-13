@@ -177,7 +177,6 @@ group :test do
   gem 'capybara', '3.31.0'
   # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
   gem 'selenium-webdriver', '3.142.7'
-  # Deprecated in favor of the 'webdrivers' gem. (https://github.com/flavorjones/chromedriver-helper)
   # Easy download and use of browser drivers. (https://github.com/titusfortner/webdrivers)
   gem 'webdrivers', '4.2.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)

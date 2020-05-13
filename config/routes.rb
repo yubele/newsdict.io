@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'active', to: proc { [200, Hash.new, Array.new] }
   scope :admin do
     scope module: :sources do
-      resources :web_sections, only: [:show] do
+      resources :web_sites, only: [:show] do
         collection do
           post :show_links
         end

@@ -153,45 +153,45 @@ div.header > dl.links > dd {
   background: #fff;
   z-index:999;
 }
-#web-section-header {
+#web-site-header {
   height: 80px;
   padding: 0;
   margin: 0;
   border-bottom: 3px double #888;
   display: flex;
 }
-#web-section-header > form {
+#web-site-header > form {
   justify-content: flex-end;
   display: flex;
   width: 100%;
 }
-#web-section-header > form > .buttons {
+#web-site-header > form > .buttons {
   width: 100%;
   justify-content: flex-end;
   align-items: center;
   margin: 10px;
 }
-#web-section-header > form > .buttons > div {
+#web-site-header > form > .buttons > div {
   align-items: center;
   margin: 0 20px 0 0;
 }
-#web-section-main {
+#web-site-main {
   display: flex;
   height: calc(100% - 60px);
 }
-#web-section-iframe {
+#web-site-iframe {
   padding: 0;
   margin: 0;
   width: 70%;
 }
-#web-section-main > div {
+#web-site-main > div {
   justify-content: flex-end;
   padding: 10px;
   text-size: 115%;
   width: 30%;
 }
 
-#web-section-main > div > ul {
+#web-site-main > div > ul {
   list-style: inside;
   margin: 10px;
 }

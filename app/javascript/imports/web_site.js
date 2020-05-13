@@ -11,7 +11,7 @@ function bindIframeMouseMove(iframe) {
     var linkElement = document.createElement('link')
     linkElement.setAttribute('rel', 'stylesheet')
     linkElement.setAttribute('type', 'text/css')
-    linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-section-focus {border: 3px solid #f00}"))
+    linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-site-focus {border: 3px solid #f00}"))
     iframe.contentWindow.document.head.appendChild(linkElement)
     iframe.contentWindow.addEventListener('mousemove', function(event) {
         var clRect = iframe.getBoundingClientRect()
@@ -21,12 +21,12 @@ function bindIframeMouseMove(iframe) {
         evt.clientY = event.clientY + clRect.top
         
         const element = iframe.contentWindow.document.elementFromPoint(evt.clientX, evt.clientY)
-        if (element && focusLock == false) {
-            var els = iframe.contentWindow.document.getElementsByClassName('web-section-focus')
+        if (element.getElementsByTagName("a").length && focusLock == false) {
+            var els = iframe.contentWindow.document.getElementsByClassName('web-site-focus')
             Array.prototype.forEach.call(els, function(el) {
-                el.classList.remove('web-section-focus')
+                el.classList.remove('web-site-focus')
             })
-            element.classList.add('web-section-focus')
+            element.classList.add('web-site-focus')
         }
         
         iframe.dispatchEvent(evt)
@@ -36,7 +36,7 @@ function bindIframeClick(iframe) {
     var linkElement = document.createElement('link')
     linkElement.setAttribute('rel', 'stylesheet')
     linkElement.setAttribute('type', 'text/css')
-    linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-section-focus {border: 3px solid #f00}"))
+    linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-site-focus {border: 3px solid #f00}"))
     iframe.contentWindow.document.head.appendChild(linkElement)
     iframe.contentWindow.addEventListener('click', function(event) {
         var clRect = iframe.getBoundingClientRect()
@@ -46,7 +46,7 @@ function bindIframeClick(iframe) {
         clickEvent.clientY = event.clientY + clRect.top
         
         const clickEventElement = iframe.contentWindow.document.elementFromPoint(clickEvent.clientX, clickEvent.clientY)
-        if (clickEventElement && focusLock == false) {
+        if (clickEventElement.getElementsByTagName("a").length && focusLock == false) {
             focusLock = true
             const parser = document.createElement('a')
             parser.href =  iframe.src
@@ -55,7 +55,7 @@ function bindIframeClick(iframe) {
             document.getElementById('source-url').value = iframe.src
             document.getElementById('xpath').value = xpath
             
-            Axios.post("/admin/web_sections/show_links",{
+            Axios.post("/admin/web_sites/show_links",{
                 id: parser.pathname.split('/')[3],
                 xpath: xpath
             })
@@ -73,7 +73,7 @@ function bindIframeClick(iframe) {
     })
 }
 function bindIframeReset(iframe) {
-    document.getElementById('web-section-reset').addEventListener('click', function() {
+    document.getElementById('web-site-reset').addEventListener('click', function() {
         focusLock = false
         document.getElementById("show_links").innerHTML = ""
     })
@@ -102,13 +102,13 @@ function getXpath(element) {
     return '';
   }
 }
-if (document.getElementById('web-section-iframe')) {
-    document.getElementById('web-section-iframe').onload = function() {
+if (document.getElementById('web-site-iframe')) {
+    document.getElementById('web-site-iframe').onload = function() {
         (function(){
-            clearIframeLinks(document.getElementById('web-section-iframe'))
-            bindIframeMouseMove(document.getElementById('web-section-iframe'))
-            bindIframeClick(document.getElementById('web-section-iframe'))
-            bindIframeReset(document.getElementById('web-section-iframe'))
+            clearIframeLinks(document.getElementById('web-site-iframe'))
+            bindIframeMouseMove(document.getElementById('web-site-iframe'))
+            bindIframeClick(document.getElementById('web-site-iframe'))
+            bindIframeReset(document.getElementById('web-site-iframe'))
         })(window)
     }
 }
