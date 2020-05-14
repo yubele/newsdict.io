@@ -22,7 +22,8 @@ jobs:
     - name: build
       run: |
         set -xe
-        docker/start web mongodb redis --build -d
+        docker-compose build --no-cache
+        docker/start -d web mongodb redis
     - name: rails test -v
       run: |
         set -xe
@@ -48,4 +49,4 @@ jobs:
         SLACK_MESSAGE: 'NG unittest :ng:'
         SLACK_TITLE: NG UnitTest
         SLACK_USERNAME: Github Actions
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} 
