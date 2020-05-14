@@ -34,6 +34,8 @@ gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
 gem 'mini_magick', '4.10.1'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
 gem 'nokogiri', '1.10.9'
+# The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
+gem 'selenium-webdriver', '3.142.7'
 
 ##
 # Social Api Gems
@@ -175,8 +177,6 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
   gem 'capybara', '3.31.0'
-  # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
-  gem 'selenium-webdriver', '3.142.7'
   # Easy download and use of browser drivers. (https://github.com/titusfortner/webdrivers)
   gem 'webdrivers', '4.2.0'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)

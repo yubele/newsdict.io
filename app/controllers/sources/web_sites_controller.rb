@@ -4,10 +4,13 @@ class Sources::WebSitesController < ActionController::Base
   skip_before_action :verify_authenticity_token
   
   # Select section of html
+  # @param [String] id
   def show(id)
     @id = params[:id]
     @web_site = Sources::WebSite.find_by(id: id)
   end
+  # Save xpath
+  # @param [String] id
   def edit(id)
     @web_site = Sources::WebSite.find_by(id: params[:id])
     @web_site.xpath = params[:xpath]
@@ -15,6 +18,7 @@ class Sources::WebSitesController < ActionController::Base
     redirect_to web_site_path
   end
   # Show html
+  # @param [String] id
   def html(id)
     @web_site = Sources::WebSite.find_by(id: id)
     agent = Mechanize.new { |_agent| _agent.user_agent = WebStat::Configure.get["user_agent"] }
@@ -43,8 +47,7 @@ class Sources::WebSitesController < ActionController::Base
   # show links
   def show_links(id:, xpath:)
     @web_site = Sources::WebSite.find_by(id: id)
-    agent = Mechanize.new { |_agent| _agent.user_agent = WebStat::Configure.get["user_agent"] }
-    doc = ::Nokogiri::HTML(agent.get(@web_site.source_url).body)
+    doc = ::Nokogiri::HTML(WebDriverHelper.get_source(@web_site.source_url))
     render json: doc.xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }.uniq
   end
 end
