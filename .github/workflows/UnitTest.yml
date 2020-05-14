@@ -22,7 +22,7 @@ jobs:
     - name: build
       run: |
         set -xe
-        docker/start --build -d
+        docker/start web mongodb redis --build -d
     - name: rails test -v
       run: |
         set -xe
