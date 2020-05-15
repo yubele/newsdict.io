@@ -9,6 +9,14 @@
 const images = require.context('../images/', true)
 import Vue from 'vue'
 import Axios from 'axios/dist/axios.js'
+Axios.interceptors.request.use((config) => {
+  if(['post', 'put', 'patch', 'delete'].includes(config.method)) {
+    config.headers['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').content;
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
 import '../css/application.scss'
 import '../imports/fontawesome.js'
 import '../imports/dropdown.js'

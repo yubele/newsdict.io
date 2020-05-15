@@ -13,7 +13,9 @@ class Sources::WebSitesController < ActionController::Base
     web_site = params[:sources_web_site].permit(:id, :name, :source_url, :xpath)
     @web_site = Sources::WebSite.find_by(id: params[:id])
     @web_site.update_attributes(web_site)
-    redirect_to '/admin/sources~web_site/'
+    unless request.patch?
+      redirect_to '/admin/sources~web_site/'
+    end
   end
   # Show html
   # @param [String] id
