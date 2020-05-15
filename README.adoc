@@ -1,10 +1,7 @@
-= newsdict.io
-
 image:https://raw.githubusercontent.com/newsdict/newsdict.io/master/logo.png[]
 
 image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
 image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
-image:https://img.shields.io/github/v/release/newsdict/asciidoctor.live[asciiDoctor.live]
 image:https://img.shields.io/badge/rails-v6.0.2.2-orange[Rails]
 image:https://img.shields.io/badge/mongoid-7.1.0-yellow[Mongoid]
 image:https://img.shields.io/badge/rails_admin-2.0.1-yellow[RailsAdmin]
