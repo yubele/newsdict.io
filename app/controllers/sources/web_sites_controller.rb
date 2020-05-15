@@ -1,21 +1,19 @@
 class Sources::WebSitesController < ActionController::Base
   layout "devise"
-  # @todo: remove
-  skip_before_action :verify_authenticity_token
   
   # Select section of html
   # @param [String] id
-  def show(id)
+  def edit(id)
     @id = params[:id]
     @web_site = Sources::WebSite.find_by(id: id)
   end
   # Save xpath
   # @param [String] id
-  def edit(id)
+  def update(id)
+    web_site = params[:sources_web_site].permit(:id, :name, :source_url, :xpath)
     @web_site = Sources::WebSite.find_by(id: params[:id])
-    @web_site.xpath = params[:xpath]
-    @web_site.save
-    redirect_to web_site_path
+    @web_site.update_attributes(web_site)
+    redirect_to '/admin/sources~web_site/'
   end
   # Show html
   # @param [String] id
@@ -43,11 +41,5 @@ class Sources::WebSitesController < ActionController::Base
     end
     @html = doc.at('html')
     render layout: nil
-  end
-  # show links
-  def show_links(id:, xpath:)
-    @web_site = Sources::WebSite.find_by(id: id)
-    doc = ::Nokogiri::HTML(WebDriverHelper.get_source(@web_site.source_url))
-    render json: doc.xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }.uniq
   end
 end

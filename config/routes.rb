@@ -1,16 +1,10 @@
 Rails.application.routes.draw do
   # For health-check
   get 'active', to: proc { [200, Hash.new, Array.new] }
-  scope :admin do
-    scope module: :sources do
-      resources :web_sites, only: [:show] do
-        collection do
-          post :show_links
-        end
-        member do
-          post :edit
-          get :html
-        end
+  scope module: :sources do
+    resources :web_sites, path: '/admin/sources~web_site',only: [:edit, :update] do
+      member do
+        get :html
       end
     end
   end

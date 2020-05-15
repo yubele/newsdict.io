@@ -1,4 +1,3 @@
-import Axios from 'axios/dist/axios.js'
 let focusLock = false
 function clearIframeLinks(iframe) {
     // A Tag Links
@@ -21,7 +20,7 @@ function bindIframeMouseMove(iframe) {
         evt.clientY = event.clientY + clRect.top
         
         const element = iframe.contentWindow.document.elementFromPoint(evt.clientX, evt.clientY)
-        if (element.getElementsByTagName("a").length && focusLock == false) {
+        if (element.getElementsByTagName("a") && focusLock == false) {
             var els = iframe.contentWindow.document.getElementsByClassName('web-site-focus')
             Array.prototype.forEach.call(els, function(el) {
                 el.classList.remove('web-site-focus')
@@ -46,36 +45,28 @@ function bindIframeClick(iframe) {
         clickEvent.clientY = event.clientY + clRect.top
         
         const clickEventElement = iframe.contentWindow.document.elementFromPoint(clickEvent.clientX, clickEvent.clientY)
-        if (clickEventElement.getElementsByTagName("a").length && focusLock == false) {
+        if (clickEventElement.getElementsByTagName("a") && focusLock == false) {
             focusLock = true
             const parser = document.createElement('a')
             parser.href =  iframe.src
             const xpath = getXpath(clickEventElement)
-            document.getElementById('id').value = parser.pathname.split('/')[3]
-            document.getElementById('source-url').value = iframe.src
-            document.getElementById('xpath').value = xpath
-            
-            Axios.post("/admin/web_sites/show_links",{
-                id: parser.pathname.split('/')[3],
-                xpath: xpath
-            })
-            .then(response => {
-                const max_length = 50
-                Array.prototype.forEach.call(response.data, function(link) {
-                    const node = document.createElement("li")
-                    node.appendChild(document.createTextNode(link.length > max_length ? (link).slice(0, max_length)+"…" : link))
-                    document.getElementById("show_links").appendChild(node); 
-                })
-            })
+            document.getElementById('sources_web_site_id').value = parser.pathname.split('/')[3]
+            document.getElementById('sources_web_site_xpath').value = xpath
         }
         
         iframe.dispatchEvent(clickEvent)
     })
 }
 function bindIframeReset(iframe) {
-    document.getElementById('web-site-reset').addEventListener('click', function() {
+    document.getElementById('web-site-reset').addEventListener('click', function(event) {
         focusLock = false
-        document.getElementById("show_links").innerHTML = ""
+        document.getElementById("sources_web_site_xpath").value = ""
+        event.preventDefault();
+    })
+}
+function bindChangeSourceUrl(iframe) {
+    document.getElementById('sources_web_site_source_url').addEventListener('focusout', function() {
+        iframe.src = '/admin/web_sites/' + document.getElementById('sources_web_site_id').value + '/html/'
     })
 }
 // refs https://qiita.com/narikei/items/fb62b543ca386fcee211
@@ -86,7 +77,7 @@ function getXpath(element) {
     for(var i = 0; i < element.parentNode.childNodes.length; i++) {
       var e = element.parentNode.childNodes[i];
       if(e.tagName == element.tagName) {
-        s.push(e);
+        s.push(e)
       }
     }
     if(1 < s.length) {
@@ -103,6 +94,9 @@ function getXpath(element) {
   }
 }
 if (document.getElementById('web-site-iframe')) {
+    (function(w){
+        bindChangeSourceUrl(document.getElementById('web-site-iframe'))
+    })(window)
     document.getElementById('web-site-iframe').onload = function() {
         (function(){
             clearIframeLinks(document.getElementById('web-site-iframe'))

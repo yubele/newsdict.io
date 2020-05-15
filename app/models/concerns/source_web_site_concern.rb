@@ -10,8 +10,7 @@ module SourceWebSiteConcern
       fqdn = "#{uri.scheme}://#{uri.host}:#{uri.port}"
     end
     hrefs = Array.new
-    agent = Mechanize.new { |_agent| _agent.user_agent = WebStat::Configure.get["user_agent"] }
-    ::Nokogiri::HTML(agent.get(source_url).body)
+    ::Nokogiri::HTML(WebDriverHelper.get_source(source_url))
     .xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }
     .uniq.each do |href|
       if href.match(Regexp.new("^/"))
