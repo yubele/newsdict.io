@@ -2,6 +2,13 @@
 
 = Debug
 
+== byebug-pry
+
+=== web
+
+ $ docker/start attach web
+ 
+ 
 Work In Progress
 
 link:/[Back To The Top]

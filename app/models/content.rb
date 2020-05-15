@@ -22,9 +22,9 @@ class Content < ApplicationRecord
   belongs_to :user, optional: true
   validates_uniqueness_of :unique_id, :allow_nil => true
   SORT_TYPE = {
-    :newest => [:created_at, :desc],
-    :updated => [:updated_at, :desc],
-    :count => [:count_of_shared, :desc]
+    :created_at => {created_at: :desc},
+    :updated_at => {updated_at: :desc},
+    :count_of_shared => {count_of_shared: :desc}
   }
   # Get tags longer than a certain number of characters
   # @param [Integer] number tag length

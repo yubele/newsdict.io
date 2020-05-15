@@ -5,9 +5,9 @@ class ContentsController < ApplicationController
   def show(id)
     @content = Content.find_by(id: id)
     @contents = Contents::Web.contents(name: @content.source.name)
-      .order_by(created_at: :desc)
+      .sortable
       .page(@content.page_num({
-        by: :created_at,
+        by: :updated_at,
         order: :desc}))
   end
 end

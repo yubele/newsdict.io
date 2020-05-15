@@ -12,7 +12,6 @@ done
 bundle config --global --delete without
 bundle config --global --delete frozen
 bundle config --global system true
-bundle config set path 'vendor/bundle'
 bundle config --global with 'development document test'
 bundle install
 # In development, create marker after `bundler installed`.

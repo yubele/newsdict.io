@@ -5,6 +5,7 @@
 $fa-font-path: "~font-awesome/fonts";
 
 html, body {
+  height:100%;
   font-family: 'Open Sans', serif;
   font-size: 14px;
   font-weight: 300;
@@ -151,4 +152,38 @@ div.header > dl.links > dd {
   width: 100%;
   background: #fff;
   z-index:999;
+}
+#web-site-header {
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  border-bottom: 3px double #888;
+  display: flex;
+}
+#web-site-header > form {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+}
+#web-site-header > form > .buttons {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+}
+#web-site-header > form > .buttons > div {
+  align-items: center;
+  margin: 0 20px 0 0;
+}
+#web-site-main {
+  display: flex;
+  height: calc(100% - 60px);
+}
+#web-site-iframe {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+#sources_web_site_source_url {
+  width: 20em;
 }

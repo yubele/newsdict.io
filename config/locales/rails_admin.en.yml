@@ -1,8 +1,11 @@
 en:
   admin:
     navigation:
+      sources: Sources
       setting: Setting
-      global_setting: Global Setting
+      portal_setting: Portal View Setting
+      crawling_setting: Crawling Setting
+      admin_setting: Admin Setting
       other_system_admin: Other System Admin
       inquiries_management: Inquiries Management
     js:

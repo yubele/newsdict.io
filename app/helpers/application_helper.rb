@@ -18,4 +18,23 @@ module ApplicationHelper
   def in_time_zone(datetime)
     Time.at(datetime).in_time_zone
   end
+  # Create full url from relative path on url.
+  def create_full_url(url, relative_path)
+    uri = URI.parse(url)
+    if [80, 443].include?(uri.port)
+      fqdn = "#{uri.scheme}://#{uri.host}"
+    else
+      fqdn = "#{uri.scheme}://#{uri.host}:#{uri.port}"
+    end
+    if relative_path.match(Regexp.new("^//")) || relative_path.match(Regexp.new("^http"))
+      relative_path
+    elsif relative_path.match(Regexp.new("^/"))
+      "#{fqdn}#{relative_path}"
+    elsif relative_path.match(Regexp.new("^\."))
+      "#{fqdn}/#{relative_path}"
+    else
+      "#{fqdn}#{uri.path}/#{relative_path}"
+    end
+  end
+  module_function :create_full_url
 end

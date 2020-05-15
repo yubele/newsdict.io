@@ -57,13 +57,12 @@ module ContentConcern
       end
     end
     # Sort the content by sort_type
-    # @param [String] sort_type
-    def sortable(sort_type)
-      if sort_type && Content::SORT_TYPE.key?(sort_type.to_sym)
-        self.order_by((Content::SORT_TYPE[sort_type.to_sym]))
-      else
-        self.order_by((Content::SORT_TYPE[:newest]))
+    # @param [String|Symbol] sort_type
+    def sortable(sort_type=:updated_at)
+      if Content::SORT_TYPE.key?(sort_type.to_sym)
+        sort_type_sym = sort_type.to_sym
       end
+      order_by(*Content::SORT_TYPE[sort_type_sym])
     end
   end
 end

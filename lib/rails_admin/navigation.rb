@@ -1,43 +1,45 @@
 RailsAdmin.config do |config|
-  config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper]
+  config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper,
+    # Deprecated class
+    "Sources::WebUrl", "Sources::WebSection", "Sources::Url"]
   config.model "Sources::TwitterAccount" do
-    navigation_label I18n.t('admin.navigation.setting')
+    navigation_label I18n.t('admin.navigation.sources')
     weight 1
   end
-  config.model "Sources::Url" do
-    navigation_label I18n.t('admin.navigation.setting')
+  config.model "Sources::WebSite" do
+    navigation_label I18n.t('admin.navigation.sources')
     weight 2
   end
   config.model "Inquiry" do
     navigation_label I18n.t('admin.navigation.inquiries_management')
-    weight 5
-  end
-  config.model "User" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 10
+    weight 3
   end
   config.model "Theme" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 15
-  end
-  config.model "Configs::MecabDic" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 20
+    navigation_label I18n.t('admin.navigation.portal_setting')
+    weight 4
   end
   config.model "Configs::View" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 25
-  end
-  config.model "Configs::Category" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 30
+    navigation_label I18n.t('admin.navigation.portal_setting')
+    weight 5
   end
   config.model "Contents::Web" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 35
+    navigation_label I18n.t('admin.navigation.crawling_setting')
+    weight 6
+  end
+  config.model "Configs::Category" do
+    navigation_label I18n.t('admin.navigation.crawling_setting')
+    weight 7
   end
   config.model "Filters::Content" do
-    navigation_label I18n.t('admin.navigation.global_setting')
-    weight 35
+    navigation_label I18n.t('admin.navigation.crawling_setting')
+    weight 8
+  end
+  config.model "Configs::MecabDic" do
+    navigation_label I18n.t('admin.navigation.crawling_setting')
+    weight 9
+  end
+  config.model "User" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 10
   end
 end

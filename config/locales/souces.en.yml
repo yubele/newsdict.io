@@ -1,0 +1,6 @@
+en:
+  sources:
+    web_sections:
+      edit:
+        description: Select the part you want to watch from the screen on the left and click. Can be reselected with the reset button
+        links: Links of selectable area

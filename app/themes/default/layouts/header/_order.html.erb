@@ -2,10 +2,12 @@
   <div class="dropdown-trigger">
     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
       <span>
-        <% if params[:sort] == 'count' %>
+        <% if params[:sort] == 'sort_by_shared_count' %>
           <%= t('sort_by_shared_count') %>
+        <% elsif params[:sort] == 'created_at' %>
+          <%= t('sort_by_created_at') %>
         <% else %>
-          <%= t('sort_by_newest') %>
+          <%= t('sort_by_updated_at') %>
         <% end %>
       </span>
       <span class="icon is-small">
@@ -15,10 +17,13 @@
   </div>
   <div class="dropdown-menu" id="dropdown-menu" role="menu">
     <div class="dropdown-content">
-      <a href="?sort=newest" class="dropdown-item <% if params["sort"] == "newest" %>is-active<% end %>">
-        <%= t('sort_by_newest') %>
+      <a href="?sort=created_at" class="dropdown-item <% if params["sort"] == "created_at" %>is-active<% end %>">
+        <%= t('sort_by_created_at') %>
       </a>
-      <a href="?sort=count" class="dropdown-item <% if params["sort"] == "count" %>is-active<% end %>">
+      <a href="?sort=updated_at" class="dropdown-item <% if params["sort"] == "updated_at" %>is-active<% end %>">
+        <%= t('sort_by_updated_at') %>
+      </a>
+      <a href="?sort=count" class="dropdown-item <% if params["sort"] == "sort_by_shared_count" %>is-active<% end %>">
         <%= t('sort_by_shared_count') %>
       </a>
     </div>

@@ -1,0 +1,59 @@
+<header id="web-site-header">
+    <%= form_for(@web_site, url: edit_web_site_path(@id), method: :post) do |f| %>
+        <%= csrf_meta_tags %>
+        <div class="buttons">
+            <div class="field is-horizontal">
+                <div class="field-body">
+                    <%= f.text_field(:id, disabled: true, placeholder: :URL, hidden: true) %>
+                    <div class="field-label is-normal">
+                        <label class="label"><%= t('.name') %></label>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <div class="select">
+                                <%= f.text_field :name, class: :input %>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="field-label is-normal">
+                        <label class="label"><%= t('.category_id') %></label>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <div class="select">
+                                <%= f.select :category_id, Configs::Category.all.map { |c| [c.key, c.id] } %>
+                            </div>
+                        </p>
+                    </div>
+                    <div class="field-label is-normal">
+                        <label class="label"><%= t('.source_url') %></label>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left">
+                            <%= f.text_field(:source_url, placeholder: :URL, class: :input) %>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-link"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field-label is-normal">
+                        <label class="label"><%= t('.xpath') %></label>
+                    </div>
+                    <div class="field">
+                        <p class="control is-expanded has-icons-left has-icons-right">
+                            <%= f.text_field(:xpath, placeholder: :xpath, class: :input) %>
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-file-code"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <button class="button is-link is-large" type="submit"><%= t(:save) %></button>
+            <button id="web-site-reset" class="button is-medium"><%= t(:reset) %></button>
+        </div>
+    <% end %>
+</header>
+<main id="web-site-main">
+    <iframe id="web-site-iframe" src="<%= html_web_site_path(@id) %>"></iframe>
+</main>
