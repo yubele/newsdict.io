@@ -12,6 +12,9 @@
       <title><%= @title %> | <%= t('sitename') %></title>
     <% end %>
     <% if defined? @noindex && @noindex %>
+    <% if @have_rss %>
+      <link rel="alternate" type="application/rss+xml" href="<%= request.path %>/rss/?<%= request.query_string %>">
+    <% end %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <% end %>
     <%= csrf_meta_tags %>
