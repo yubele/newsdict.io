@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   # For health-check
   get 'active', to: proc { [200, Hash.new, Array.new] }
+  # Admin routes
   scope module: :sources do
     resources :web_sites, path: '/admin/sources~web_site',only: [:edit, :update] do
       member do
@@ -13,7 +14,10 @@ Rails.application.routes.draw do
   devise_for 'user', :controllers => {
     :registrations => 'admin/registrations'
   }
+  # Feed routes
+  get "/rss", to: "pages/rss#show"
   get "/category/:category/", to: "pages#show"
+  get "/category/:category/rss", to: "pages/rss#show"
   resources :contents, only: :show
   get "/paper/term/:from_date/:to_date/", to: "papers#term"
   get "/paper/term/:date/", to: "papers#one_day"
