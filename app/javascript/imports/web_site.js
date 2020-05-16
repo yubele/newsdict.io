@@ -1,4 +1,5 @@
 let focusLock = false
+import Axios from 'axios/dist/axios.js'
 function clearIframeLinks(iframe) {
     // A Tag Links
     const hrefs = iframe.contentWindow.document.getElementsByTagName('a')
@@ -7,11 +8,6 @@ function clearIframeLinks(iframe) {
     })
 }
 function bindIframeMouseMove(iframe) {
-    var linkElement = document.createElement('link')
-    linkElement.setAttribute('rel', 'stylesheet')
-    linkElement.setAttribute('type', 'text/css')
-    linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-site-focus {border: 3px solid #f00}"))
-    iframe.contentWindow.document.head.appendChild(linkElement)
     iframe.contentWindow.addEventListener('mousemove', function(event) {
         var clRect = iframe.getBoundingClientRect()
         /* global CustomEvent */
@@ -20,7 +16,7 @@ function bindIframeMouseMove(iframe) {
         evt.clientY = event.clientY + clRect.top
         
         const element = iframe.contentWindow.document.elementFromPoint(evt.clientX, evt.clientY)
-        if (element.getElementsByTagName("a") && focusLock == false) {
+        if (element.getElementsByTagName("a").length > 0 && focusLock == false) {
             var els = iframe.contentWindow.document.getElementsByClassName('web-site-focus')
             Array.prototype.forEach.call(els, function(el) {
                 el.classList.remove('web-site-focus')
@@ -32,11 +28,6 @@ function bindIframeMouseMove(iframe) {
     })
 }
 function bindIframeClick(iframe) {
-    var linkElement = document.createElement('link')
-    linkElement.setAttribute('rel', 'stylesheet')
-    linkElement.setAttribute('type', 'text/css')
-    linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-site-focus {border: 3px solid #f00}"))
-    iframe.contentWindow.document.head.appendChild(linkElement)
     iframe.contentWindow.addEventListener('click', function(event) {
         var clRect = iframe.getBoundingClientRect()
         /* global CustomEvent */
@@ -45,7 +36,7 @@ function bindIframeClick(iframe) {
         clickEvent.clientY = event.clientY + clRect.top
         
         const clickEventElement = iframe.contentWindow.document.elementFromPoint(clickEvent.clientX, clickEvent.clientY)
-        if (clickEventElement.getElementsByTagName("a") && focusLock == false) {
+        if (clickEventElement.getElementsByTagName("a").length > 0 && focusLock == false) {
             focusLock = true
             const parser = document.createElement('a')
             parser.href =  iframe.src
@@ -61,21 +52,35 @@ function bindIframeReset(iframe) {
     document.getElementById('web-site-reset').addEventListener('click', function(event) {
         focusLock = false
         document.getElementById("sources_web_site_xpath").value = ""
-        event.preventDefault();
+        event.preventDefault()
     })
 }
 function bindChangeSourceUrl(iframe) {
     document.getElementById('sources_web_site_source_url').addEventListener('focusout', function() {
-        iframe.src = '/admin/web_sites/' + document.getElementById('sources_web_site_id').value + '/html/'
+        document.getElementById('loader-background').style.display = 'block';
+        document.getElementById("sources_web_site_xpath").value = ""
+        Axios.patch('/admin/sources~web_site/' + document.getElementById('sources_web_site_id').value + '/',{
+            '_method': 'put',
+            'authenticity_token': document.getElementsByName('authenticity_token')[0].value,
+            'sources_web_site': {
+                'name': document.getElementById('sources_web_site_name').value,
+                'category_id': document.getElementById('sources_web_site_category_id').value,
+                'source_url': document.getElementById('sources_web_site_source_url').value,
+                'xpath': document.getElementById('sources_web_site_xpath').value
+            }
+        })
+        .then(response => {
+            iframe.contentWindow.location.reload()
+        })
     })
 }
 // refs https://qiita.com/narikei/items/fb62b543ca386fcee211
 function getXpath(element) {
   if(element && element.parentNode) {
-    var xpath = getXpath(element.parentNode) + '/' + element.tagName;
-    var s = [];
+    var xpath = getXpath(element.parentNode) + '/' + element.tagName
+    var s = []
     for(var i = 0; i < element.parentNode.childNodes.length; i++) {
-      var e = element.parentNode.childNodes[i];
+      var e = element.parentNode.childNodes[i]
       if(e.tagName == element.tagName) {
         s.push(e)
       }
@@ -83,14 +88,14 @@ function getXpath(element) {
     if(1 < s.length) {
       for(var i = 0; i < s.length; i++) {
         if(s[i] === element) {
-          xpath += '[' + (i+1) + ']';
-          break;
+          xpath += '[' + (i+1) + ']'
+          break
         }
       }
     }
-    return xpath.toLowerCase();
+    return xpath.toLowerCase()
   } else {
-    return '';
+    return ''
   }
 }
 if (document.getElementById('web-site-iframe')) {
@@ -98,11 +103,16 @@ if (document.getElementById('web-site-iframe')) {
         bindChangeSourceUrl(document.getElementById('web-site-iframe'))
     })(window)
     document.getElementById('web-site-iframe').onload = function() {
-        (function(){
-            clearIframeLinks(document.getElementById('web-site-iframe'))
-            bindIframeMouseMove(document.getElementById('web-site-iframe'))
-            bindIframeClick(document.getElementById('web-site-iframe'))
-            bindIframeReset(document.getElementById('web-site-iframe'))
-        })(window)
+        const iframe = document.getElementById('web-site-iframe')
+        const linkElement = document.createElement('link')
+        linkElement.setAttribute('rel', 'stylesheet')
+        linkElement.setAttribute('type', 'text/css')
+        linkElement.setAttribute('href', 'data:text/css,' + encodeURIComponent(".web-site-focus {background-color:rgb(255, 0, 0, 0.2);}"))
+        iframe.contentWindow.document.head.appendChild(linkElement)
+        clearIframeLinks(iframe)
+        bindIframeMouseMove(iframe)
+        bindIframeClick(iframe)
+        bindIframeReset(iframe)
+        document.getElementById('loader-background').style.display = 'none';
     }
 }

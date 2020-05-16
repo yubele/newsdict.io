@@ -1,5 +1,11 @@
+<div id="loader-background" class="loader-background">
+    <div class="loader-box">
+        <div class="loader"></div>
+        <div class="loader-txt">Loading...</div>
+    </div>
+</div>
 <header id="web-site-header">
-    <%= form_for(@web_site, url: edit_web_site_path(@id), method: :post) do |f| %>
+    <%= form_for(@web_site, url: edit_web_site_path(@id), method: :put) do |f| %>
         <%= csrf_meta_tags %>
         <div class="buttons">
             <div class="field is-horizontal">
