@@ -19,7 +19,11 @@
                 <ul>
                     <li><a href="/">Top</a></li>
                     <% if @content.source.category_id %>
-                    <li><a href="/category/<%= CGI::escape(@content.source.category_id) %>/"><%= Configs::Category.find_by(id: @content.source.category_id).key %></a></li>
+                    <li>
+                        <%= link_to category_path(category: Configs::Category.find_by(id: @content.source.category_id).key) do %>
+                            <%= Configs::Category.find_by(id: @content.source.category_id).key %>
+                        <% end %>
+                    </li>
                     <% end %>
                     <li><a><%= @content.source.view_name %></a></li>
                     <li class="is-active"><a href="#" aria-current="page"><%= @content.title.truncate(20) %></a></li>

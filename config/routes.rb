@@ -1,34 +1,37 @@
 Rails.application.routes.draw do
   # For health-check
-  get 'active', to: proc { [200, Hash.new, Array.new] }
+  get "active", to: proc { [200, Hash.new, Array.new] }
   # Admin routes
   scope module: :sources do
-    resources :web_sites, path: '/admin/sources~web_site',only: [:edit, :update] do
+    resources :web_sites, path: "/admin/sources~web_site",only: [:edit, :update] do
       member do
         get :html
       end
     end
   end
-  mount Sidekiq::Web => "/sidekiq", constraints: SuperAdminConstraint.new, as: 'sidekiq_web'
-  mount RailsAdmin::Engine => "/admin", as: 'rails_admin'
-  devise_for 'user', :controllers => {
-    :registrations => 'admin/registrations'
+  mount Sidekiq::Web => "/sidekiq", constraints: SuperAdminConstraint.new, as: "sidekiq_web"
+  mount RailsAdmin::Engine => "/admin", as: "rails_admin"
+  devise_for "user", :controllers => {
+    :registrations => "admin/registrations"
   }
   # Feed routes
-  get "/rss", to: "pages/rss#show"
-  get "/category/:category/", to: "pages#show"
-  get "/category/:category/rss", to: "pages/rss#show"
+  resource :rss, path: "/rss/", controller: "pages/rss", action: :show, only: [:show] do
+    collection do
+      get "/category/:category/", as: :category
+    end
+  end
+  resource :pages, path: "/category/:category/", controller: "pages", action: :show, only: [:show], as: :category
   resources :contents, only: :show
-  get "/paper/term/:from_date/:to_date/", to: "papers#term"
-  get "/paper/term/:date/", to: "papers#one_day"
-  get "/paper/:id/", to: "papers#show"
+  get "/paper/term/:from_date/:to_date/", to: "papers#term", as: :paper_term
+  get "/paper/term/:date/", to: "papers#one_day", as: :paper_oneday
+  get "/paper/:id/", to: "papers#show", as: :paper
   resource :inquiries, only: [:show, :create]
-  get "/img/:id", to: "images#index"
+  get "/img/:id", to: "images#index", as: :img
   # Apis
   namespace :api do
     namespace :v1 do
       resource :contents, only: [:show]
     end
   end
-  root to: 'pages#show'
+  root to: "pages#show"
 end
