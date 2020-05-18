@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
   config.label_methods << :key
   config.model "Configs::Tokens::Twitter" do
-    fields :key, :consumer_key, :consumer_secret, :access_token, :access_secret, :is_default
+    fields :key, :is_default, :consumer_key, :consumer_secret, :access_token, :access_secret
   end
 end

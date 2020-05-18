@@ -14,4 +14,14 @@ end_body: 'Insert this code immediately end the closing <body> tag'}.each do |ke
     p "Insert #{key}."
   end
 end
+# Default User
+unless User.where(email: ENV['ADMIN_USER_EMAIL']).exists?
+  user = User.new
+  user.email = ENV['ADMIN_USER_EMAIL']
+  user.username = "admin"
+  user.password = ENV['ADMIN_DEFALT_PASSWORD']
+  user.password_confirmation = ENV['ADMIN_DEFALT_PASSWORD']
+  user.confirmed_at = Time.now
+  user.save!
+end
 p "End of db:seed"

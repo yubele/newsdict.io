@@ -1,10 +1,9 @@
 module Configs::Tokens
-  class Slack < ::Config
+  class Slack < Configs::Token
     field :channel, type: String
     field :title, type: String
     field :text, type: String
     field :token, type: String
-    field :is_default, type: Boolean
     validates :channel, length: {minimum: 1, maximum: 255}
     validates :title, length: {minimum: 1, maximum: 255}
     validates :text, presence: true

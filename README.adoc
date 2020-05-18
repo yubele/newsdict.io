@@ -31,7 +31,12 @@ $ git submodule update --init --recursive
 
 === 4. .env
 1. copy `.env-example` file to `.env` file.
-
+2. Edit `ADMIN_USER_EMAIL` and `ADMIN_DEFALT_PASSWORD`
+ - `ADMIN_USER_EMAIL`
+  Initial superuser name
+ - `ADMIN_DEFALT_PASSWORD`
+  Initial superuser password
+  
 === 5. Start development server
 ```
 $ docker/start
