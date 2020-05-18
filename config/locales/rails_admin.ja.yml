@@ -3,7 +3,7 @@ ja:
     navigation:
       sources: ソース元
       setting: 設定
-      portal_setting: ポータル面設定
+      portal_setting: ポータル画面設定
       crawling_setting: クローリング設定
       admin_setting: 管理画面設定
       other_system_admin: その他の管理画面
