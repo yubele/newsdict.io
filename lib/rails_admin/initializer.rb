@@ -9,15 +9,15 @@ RailsAdmin.config do |config|
     dashboard
     index
     new do
-      except  ['User', 'Configs::View', 'Contents::Web', 'Theme']
+      except  ['User', 'Configs::View', 'Contents::Web', 'Configs::Theme', 'Configs::Schedule']
     end
     bulk_delete do
-      except ['Config', 'Configs::View', 'Theme']
+      except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Schedule']
     end
     show
     edit
     delete do
-      except ['Config', 'Configs::View', 'Theme']
+      except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Schedule']
     end
     show_in_app
   end

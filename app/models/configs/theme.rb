@@ -1,7 +1,5 @@
-# Deprcated
-class Theme < ApplicationRecord
+class Configs::Theme < Config
   include ThemeConcern
-  include Mongoid::Document
   before_save :prepare_save
   field :name, type: String
   field :description, type: String

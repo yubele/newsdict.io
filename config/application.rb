@@ -31,7 +31,8 @@ module Newsdict
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     # Recursively including all model subdirectories
-    config.autoload_paths += Dir[Rails.root.join('app', 'models', '*', '**')]
+    config.autoload_paths += Dir[Rails.root.join('lib', 'rails_admin', '**/*.rb')]
+    #config.autoload_paths += Dir.glob(Rails.root.join('app', 'models', '*', '**.rb'))
     # Active Job
     config.active_job.queue_adapter = :sidekiq
     # Web site's prefix used by Source

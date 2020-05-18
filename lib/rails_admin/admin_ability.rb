@@ -6,8 +6,6 @@ class AdminAbility
     can :read, :dashboard
     if user.super_admin?
       can :manage, :all
-      # Deprecated class
-      can :manage, Sources::Url, hidden: true
       # super admin navigation
       RailsAdmin.config do |config|
         config.navigation_static_links = {

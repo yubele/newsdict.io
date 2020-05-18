@@ -1,10 +1,10 @@
 RailsAdmin.config do |config|
-  config.model Theme do
+  config.model "Configs::Theme" do
     list do
       field :id do
         visible false
       end
-      field :name do
+      field :key do
         visible true
       end
       field :description do
@@ -15,7 +15,7 @@ RailsAdmin.config do |config|
       end
     end
     edit do
-      field :name do
+      field :key do
         visible true
       end
       field :description do

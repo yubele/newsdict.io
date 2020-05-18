@@ -30,7 +30,7 @@ ja:
         created_at: 作成日時
         updated_at: 更新日時
       "filters/content":
-        exclude_url: "除外するURL"
+        exclude_url: 除外するURL
         created_at: 作成日時
         updated_at: 更新日時
       "sources/twitter_account":
@@ -54,6 +54,50 @@ ja:
         updated_at: 更新日時
       "configs/category":
         key: カテゴリー名
+      "configs/theme":
+        key: 名前
+        description: 概要
+        is_active: 現在のテーマ
+      "configs/schedule":
+        key: 名前
+        description: 概要
+        notify_at: 通知日時
+        enable: 有効可否
+      "configs/tokens/chatwork":
+        key: 名前
+        description: 概要
+        token: Token
+        room_id: Room ID
+        text: テキスト
+        is_default: デフォルトで使用する
+      "configs/tokens/slack":
+        key: 名前
+        description: 概要
+        token: Token
+        title: タイトル
+        text: テキスト
+        channel: Channel
+        is_default: デフォルトで使用する
+      "configs/tokens/smtp":
+        key: 名前
+        description: 概要
+        host: メールサーバ
+        port: ポート
+        domain: ドメイン
+        username: ユーザ名
+        password: パスワード
+        authentication: 認証方式
+        enable_starttls_auto: STARTTLSの有効化
+        sender: 送信元メールアドレス
+        is_default: デフォルトで使用する
+      "configs/tokens/twitter":
+        key: 名前
+        description: 概要
+        consumer_key: Consumer Key
+        consumer_secret: Consumer Secret
+        access_token: Access Token
+        access_secret: Access Secret
+        is_default: デフォルトで使用する
       content:
         type: 記事タイプ
         title: タイトル
@@ -69,9 +113,6 @@ ja:
         unique_id: 識別番号
         created_at: 作成日時
         updated_at: 更新日時
-      theme:
-        name: 名前
-        description: 概要
     models:
       "filters/content": コンテンツのフィルター
       user: 管理ユーザ
@@ -81,9 +122,14 @@ ja:
       "configs/mecab_dic": 形態要素解析
       "configs/view": HTML設定
       "configs/category": カテゴリー設定
+      "configs/theme": テーマ
+      "configs/schedule": 実行時刻設定
+      "configs/tokens/chatwork": チャットワーク設定
+      "configs/tokens/slack": Slack設定
+      "configs/tokens/smtp": SMTP設定(メール送信設定)
+      "configs/tokens/twitter": Twitter設定
       "contents/web": 記事情報
       inquiry: 問い合わせ
-      theme: テーマ
     errors:
       models:
         inquiry:
