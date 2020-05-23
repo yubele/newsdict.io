@@ -12,5 +12,5 @@ do
     cp $i $(echo $i | sed "s#src/##")
 done    
 # Generate yard
-bash src/provisioning/startup/guard/yard.sh
+bash src/provisioning/startup/guard/yard.sh $1
 /usr/sbin/nginx -c /etc/nginx/nginx.conf -g 'daemon off;'

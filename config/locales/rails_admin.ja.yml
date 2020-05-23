@@ -8,8 +8,7 @@ ja:
       admin_setting: 管理画面設定
       other_system_admin: その他の管理画面
       inquiries_management: 問い合わせ管理
-      worker_setting: ワーカー設定
-      api_setting: API設定
+      notify_setting: 通知設定
     js:
       true: True
       false: False

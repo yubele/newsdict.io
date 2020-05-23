@@ -39,23 +39,23 @@ RailsAdmin.config do |config|
     weight 9
   end
   config.model "Configs::Schedule" do
-    navigation_label I18n.t('admin.navigation.worker_setting')
+    navigation_label I18n.t('admin.navigation.notify_setting')
     weight 10
   end
   config.model "Configs::Tokens::Chatwork" do
-    navigation_label I18n.t('admin.navigation.api_setting')
+    navigation_label I18n.t('admin.navigation.notify_setting')
     weight 11
   end
   config.model "Configs::Tokens::Slack" do
-    navigation_label I18n.t('admin.navigation.api_setting')
+    navigation_label I18n.t('admin.navigation.notify_setting')
     weight 12
   end
   config.model "Configs::Tokens::Smtp" do
-    navigation_label I18n.t('admin.navigation.api_setting')
+    navigation_label I18n.t('admin.navigation.admin_setting')
     weight 13
   end
   config.model "Configs::Tokens::Twitter" do
-    navigation_label I18n.t('admin.navigation.api_setting')
+    navigation_label I18n.t('admin.navigation.admin_setting')
     weight 14
   end
   config.model "User" do

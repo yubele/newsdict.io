@@ -85,7 +85,7 @@ gem 'slack-api', '1.6.1'
 # system gems
 ##
 # Full-stack web application framework. (https://rubyonrails.org)
-gem 'rails', '6.0.2.2'
+gem 'rails', '6.0.3.1'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '4.3.3'

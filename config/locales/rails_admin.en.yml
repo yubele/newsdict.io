@@ -8,8 +8,7 @@ en:
       admin_setting: Admin Setting
       other_system_admin: Other System Admin
       inquiries_management: Inquiries Management
-      worker_setting: Worker Setting
-      api_setting: Api Setting
+      notify_setting: Notify Setting
     js:
       true: True
       false: False

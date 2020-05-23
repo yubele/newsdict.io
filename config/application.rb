@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 
 module Newsdict
   class Application < Rails::Application
-    config.time_zone = 'Tokyo'
+    config.time_zone = ENV["TIMEZONE"]
     # White list, this app use those.
     config.i18n.available_locales = [:ja, :en]
     # Set locale

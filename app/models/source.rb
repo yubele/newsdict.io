@@ -13,9 +13,7 @@ class Source < ApplicationRecord
   validates :alias, length: { maximum: 20 } 
   include Mongoid::Timestamps
   def category_id_enum
-    hash = Hash.new
-    Configs::Category.all.map {|c| hash[c.key] = c.id }
-    hash
+    Configs::Category.all.map {|c| [c.key, c.id] }.to_h
   end
   def view_name
     if self.alias

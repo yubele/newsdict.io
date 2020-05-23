@@ -62,21 +62,26 @@ en:
         key: Name
         description: Description
         notify_at: Notify At
-        enable: Enable
+        is_active: Active
+        hour: Hour
+        min: Minute
+        wday: Week of day
       "configs/tokens/chatwork":
         key: Name
         description: Description
         token: Token
         room_id: Room ID
-        text: Notify Text
+        text: Notify Message
+        notify_target_category_id: Category of Notify
+        configs_schedule_id: Execute time
       "configs/tokens/slack":
         key: Name
         description: Description
         token: Token
         title: Notify Title
-        text: Notify Text
+        text: Notify Message
         channel: Channel
-        is_default: Default
+        configs_schedule_id: Execute time
       "configs/tokens/smtp":
         key: Name
         description: Description
@@ -130,27 +135,11 @@ en:
       "configs/tokens/twitter": Twitter Settings
       inquiry: Inquiry
     errors:
-      models:
-        inquiry:
-          attributes:
-            name:
-              too_short: Too Short
-              blank: Blank
-            mailaddress:
-              too_short: Too Short
-              blank: Blank
-              invalid: Invalid
-            inquiry:
-              too_short: Too Short
-              blank: Blank
-        user:
-          attributes:
-            email:
-              taken: is already registered
-            username:
-              too_short: is too short
-              taken: is already registered
       messages:
+        taken: is already registered
+        too_short: Too Short
+        blank: Blank
+        wrong_length: "is the wrong length (should be %{count} characters)"
         blank_in_locale:
           "can't be blank in %{location}"
         message_title: "message"

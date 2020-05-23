@@ -62,22 +62,26 @@ ja:
         key: 名前
         description: 概要
         notify_at: 通知日時
-        enable: 有効可否
+        is_active: 有効
+        hour: 時
+        min: 分
+        wday: 曜日
       "configs/tokens/chatwork":
         key: 名前
         description: 概要
         token: Token
         room_id: Room ID
-        text: テキスト
-        is_default: デフォルトで使用する
+        text: メッセージ
+        notify_target_category_id: 通知する対象カテゴリ
+        configs_schedule_id: 実行時刻
       "configs/tokens/slack":
         key: 名前
         description: 概要
         token: Token
         title: タイトル
-        text: テキスト
+        text: メッセージ
         channel: Channel
-        is_default: デフォルトで使用する
+        configs_schedule_id: 実行時刻
       "configs/tokens/smtp":
         key: 名前
         description: 概要
@@ -124,34 +128,17 @@ ja:
       "configs/category": カテゴリー設定
       "configs/theme": テーマ
       "configs/schedule": 実行時刻設定
-      "configs/tokens/chatwork": チャットワーク設定
+      "configs/tokens/chatwork": Chatwork設定
       "configs/tokens/slack": Slack設定
       "configs/tokens/smtp": SMTP設定(メール送信設定)
       "configs/tokens/twitter": Twitter設定
       "contents/web": 記事情報
       inquiry: 問い合わせ
     errors:
-      models:
-        inquiry:
-          attributes:
-            name:
-              too_short: 文字が短すぎます
-              blank: 文字を入力してください
-            mailaddress:
-              too_short: 文字が短すぎます
-              blank: 文字を入力してください
-              invalid: メールアドレスを入力してください
-            inquiry:
-              too_short: 文字が短すぎます
-              blank: 文字を入力してください
-        user:
-          attributes:
-            email:
-              taken: が既に登録済みです
-            username:
-              too_short: が短すぎます
-              taken: が既に登録済みです
       messages:
+        taken: is already registered
+        too_short: Too Short
+        wrong_length: "is the wrong length (should be %{count} characters)"
         blank_in_locale:
           "can't be blank in %{location}"
         message_title: "message"
