@@ -4,16 +4,12 @@ class Notify::SlacksJob < ApplicationJob
     Configs::Tokens::Slack.all.each do |slack|
       schedule = slack.configs_schedule
       if schedule.is_active && schedule.runnable_time?
-        gt = schedule.last_schedule_at.to_s
+        gt = "2020/05/20 00:00:00"
+        #gt = schedule.last_schedule_at.to_s
         lte = Time.now.to_s
-        contents = Contents::Web.contents(category_id: chatwork.notify_target_category_id).sortable.term(gt, lte)
+        contents = Contents::Web.contents(category_id: slack.notify_target_category_id).sortable.term(gt, lte)
         if contents.exists?
-          text = ""
-          contents.each do |content|
-            text << "#{content.title}\n"
-            text << "  #{content.expanded_url}\n\n"
-          end
-          chatwork.send_message(text)
+          slack.send_message(contents)
         end
       end
     end

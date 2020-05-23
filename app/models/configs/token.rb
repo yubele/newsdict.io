@@ -6,13 +6,16 @@ class Configs::Token < Config
   end
   field :is_default, type: Boolean, default: false
   # Create message
-  def create_message(feeds)
+  # @param [Contents::Web] contents
+  # @return [String] body
+  def create_message(contents)
     body = <<EOS
 #{text}
 ----
 EOS
-    feeds.each do |feed|
-      body << "#{feed}\n"
+    contents.each do |content|
+      body << "#{content.title}\n"
+      body << "   #{content.expanded_url}\n"
     end
     body.chomp
   end

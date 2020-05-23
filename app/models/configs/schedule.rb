@@ -9,6 +9,7 @@ module Configs
     validates :min, inclusion: -1..59, presence: true
     validates :wday, inclusion: -1..6, presence: true
     has_one :configs_tokens_chatwork, class_name: "Configs::Tokens::Chatwork", autosave: false
+    has_one :configs_tokens_slack, class_name: "Configs::Tokens::Slack", autosave: false
     EVERY = -1
     # RailsAdmin Enum
     def hour_enum

@@ -19,3 +19,7 @@
     enabled: true
     cron: '0 * * * * *'
     class: Notify::ChatworksJob
+  notify_slacks_job:
+    enabled: true
+    cron: '0 * * * * *'
+    class: Notify::SlacksJob

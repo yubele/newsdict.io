@@ -16,5 +16,13 @@ module Configs::Tokens
     def client
       ChatWork::Client.new(api_key: token)
     end
+    # Send the messages of contents to chatwork
+    # @param [Contents::Web] contents
+    # @return [void]
+    def send_message(contents)
+      client.create_message(
+        room_id: room_id,
+        body: create_message(contents))
+    end
   end
 end

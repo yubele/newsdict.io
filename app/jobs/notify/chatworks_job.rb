@@ -8,12 +8,7 @@ class Notify::ChatworksJob < ApplicationJob
         lte = Time.now.to_s
         contents = Contents::Web.contents(category_id: chatwork.notify_target_category_id).sortable.term(gt, lte)
         if contents.exists?
-          text = Array.new
-          contents.each do |content|
-            text.push("- #{content.title}")
-            text.push("+-- #{content.expanded_url}")
-          end
-          chatwork.client.create_message(room_id: chatwork.room_id, body: chatwork.create_message(text))
+          chatwork.send_message(contents)
         end
       end
     end
