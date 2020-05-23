@@ -543,7 +543,7 @@ DEPENDENCIES
   sidekiq (= 6.0.5)
   sidekiq-scheduler (= 3.0.1)
   sitemap_generator (= 6.1.0)
-  slack-notifier
+  slack-notifier (= 2.3.2)
   spring (= 2.1.0)
   spring-watcher-listen (= 2.0.1)
   thwait (= 0.1.0)

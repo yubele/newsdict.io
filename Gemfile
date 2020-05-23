@@ -78,7 +78,8 @@ gem 'mongoid_search', '0.3.6'
 ##
 # Ruby bindings of ChatWork API (https://github.com/asonas/chatwork-ruby)
 gem 'chatwork', '0.12.2'
-gem "slack-notifier"
+# A slim ruby wrapper for posting to slack webhooks (http://github.com/stevenosloan/slack-notifier)
+gem "slack-notifier", '2.3.2'
 
 ##
 # system gems
