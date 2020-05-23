@@ -34,13 +34,13 @@ module Configs
     # Get a time of last schedule. (Not real execute time)
     # @return EtOrbi::EoTime
     def last_schedule_at
-      job = Rufus::Scheduler.parse("#{everymin? ? "*" : min} #{everyhour? ? "*" : hour} * * #{everwday? ? "*" : wday}") do ;end
+      job = Rufus::Scheduler.parse("#{everymin? ? "*" : min} #{everyhour? ? "*" : hour} * * #{everywday? ? "*" : wday}") do ;end
       job.previous_time
     end
     # Get a time of next schedule. (Not real execute time)
     # @return EtOrbi::EoTime 次回の実行時刻
     def next_schedule_at
-      job = Rufus::Scheduler.parse("#{everymin? ? "*" : min} #{everyhour? ? "*" : hour} * * #{everwday? ? "*" : wday}") do ;end
+      job = Rufus::Scheduler.parse("#{everymin? ? "*" : min} #{everyhour? ? "*" : hour} * * #{everywday? ? "*" : wday}") do ;end
       job.next_time
     end
     # Output string of time
