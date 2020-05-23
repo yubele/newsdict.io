@@ -5,4 +5,15 @@ class Configs::Token < Config
     end
   end
   field :is_default, type: Boolean, default: false
+  # Create message
+  def create_message(feeds)
+    body = <<EOS
+#{text}
+----
+EOS
+    feeds.each do |feed|
+      body << "#{feed}\n"
+    end
+    body.chomp
+  end
 end

@@ -22,24 +22,24 @@ module Configs
     def wday_enum
       I18n.t("date.abbr_day_names").map.with_index {|n, index| [n, index]}.push([I18n.t(:everyday), -1]).to_h
     end
-    # 現在の時刻がhour, min, wdayに該当するか判別する
-    # @return Boolean 実行時間に該当すれば true
+    # Check to match schedule. 
+    # @return Boolean
     def runnable_time?
       now = Time.zone.now
       if runnable_hour?(now) && runnable_min?(now) && runnable_wday?(now)
         return true
       end
     end
-    # 前回の実行時刻を取得（実際に実行された時間ではない）
-    # @return EtOrbi::EoTime 前回の実行時刻
+    # Get a time of last schedule. (Not real execute time)
+    # @return EtOrbi::EoTime
     def last_schedule_at
-      job = Rufus::Scheduler.parse("#{min? ? min : "*"} #{hour? ? hour : "*"} * * #{wday? ? wday : "*"}") do ;end
+      job = Rufus::Scheduler.parse("#{everymin? ? "*" : min} #{everhour? ? "*" : hour} * * #{everwday? ? "*" : wday}") do ;end
       job.previous_time
     end
-    # 次回の実行時刻を取得（実際に実行された時間ではない）
+    # Get a time of next schedule. (Not real execute time)
     # @return EtOrbi::EoTime 次回の実行時刻
     def next_schedule_at
-      job = Rufus::Scheduler.parse("#{min? ? min : "*"} #{hour? ? hour : "*"} * * #{wday? ? wday : "*"}") do ;end
+      job = Rufus::Scheduler.parse("#{everymin? ? "*" : min} #{everhour? ? "*" : hour} * * #{everwday? ? "*" : wday}") do ;end
       job.next_time
     end
     # Output string of time
@@ -48,56 +48,41 @@ module Configs
     end
     
     private
-    # 現在の時間がhourに該当するか判別する
-    # @return Boolean 実行時間に該当すれば true
+    # Check to match hour.
+    # @return Boolean
     def runnable_hour?(now)
       if hour == now.hour || hour == Configs::Schedule::EVERY
         return true
       end
     end
-    # 現在の分がminに該当するか判別する
-    # @return Boolean 実行時間に該当すれば true
+    # Check to match min.
+    # @return Boolean
     def runnable_min?(now)
       if min == now.min || min == Configs::Schedule::EVERY
         return true
       end
     end
-    # 現在の曜日がwdayに該当するか判別する
-    # @return Boolean 実行時間に該当すれば true
+    #Check to match wday.
+    # @return Boolean
     def runnable_wday?(now)
       if wday == now.wday || wday == Configs::Schedule::EVERY
         return true
       end
     end
-    # 毎分の設定か判別する
+    # Check to every min.
     # @return Boolean
     def everymin?
       min == Configs::Schedule::EVERY
     end
-    # 毎時の設定か判別する
+    # Check to every hour.
     # @return Boolean
     def everyhour?
       hour == Configs::Schedule::EVERY
     end
-    # 毎週の設定か判別する
+    # Check to every wday.
     # @return Boolean
     def everywday?
       wday == Configs::Schedule::EVERY
-    end
-    # 分の設定がされているか判別する
-    # @return Boolean
-    def min?
-      min > Configs::Schedule::EVERY
-    end
-    # 時の設定がされているか判別する
-    # @return Boolean
-    def hour?
-      hour > Configs::Schedule::EVERY
-    end
-    # 週の設定がされているか判別する
-    # @return Boolean
-    def wday?
-      wday > Configs::Schedule::EVERY
     end
   end
 end

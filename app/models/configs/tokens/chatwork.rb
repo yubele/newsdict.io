@@ -16,17 +16,5 @@ module Configs::Tokens
     def client
       ChatWork::Client.new(api_key: token)
     end
-    def send_message(feeds=[])
-      body = text
-      body << "\n"
-      body << "---------\n"
-      body << "\n"
-      unless feeds.empty?
-        feeds.each do |feed|
-          body << feed
-        end
-      end
-      client.create_message(room_id: room_id, body: body)
-    end
   end
 end

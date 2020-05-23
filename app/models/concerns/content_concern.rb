@@ -67,9 +67,9 @@ module ContentConcern
       end
       order_by(*Content::SORT_TYPE[sort_type_sym])
     end
-    # 指定された期間のデータを取得する
-    # @params [String] 開始日時(開始日時事態は含まない)
-    # @params [String] 終了日時
+    # Get the data of between gt and lte
+    # @params [String] gt 
+    # @params [String] lte
     # @return [Contents::Web] 
     def term(gt, lte, key = :updated_at)
       gt(key => gt).lte(key => lte)

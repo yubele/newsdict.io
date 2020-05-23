@@ -3,19 +3,19 @@
     enabled: false
     cron: '0 0 */3 * * *'
     class: Crowling::WebSitesJob
-  twitter_account_job:
+  twitter_accounts_job:
     enabled: false
     cron: '0 0 */3 * * *'
     class: Crowling::TwitterAccountsJob
-  update_mecab_dic_job:
+  update_mecab_dics_job:
     enabled: false
     cron: '0 0 0 * * *'
     class: UpdateMecabDicsJob
-  sitemap_job:
+  sitemaps_job:
     enabled: false
     cron: '0 0 */3 * * *'
     class: SitemapsJob
-  hook_job:
+  notify_chatworks_job:
     enabled: true
     cron: '0 * * * * *'
-    class: HooksJob
+    class: Notify::ChatworksJob

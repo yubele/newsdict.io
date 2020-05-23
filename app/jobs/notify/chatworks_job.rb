@@ -1,4 +1,4 @@
-class HooksJob < ApplicationJob
+class Notify::ChatworksJob < ApplicationJob
   queue_as :default
   def perform
     Configs::Tokens::Chatwork.all.each do |chatwork|
@@ -8,12 +8,12 @@ class HooksJob < ApplicationJob
         lte = Time.now.to_s
         contents = Contents::Web.contents(category_id: chatwork.notify_target_category_id).sortable.term(gt, lte)
         if contents.exists?
-          text = ""
+          text = Array.new
           contents.each do |content|
-            text << "#{content.title}\n"
-            text << "  #{content.expanded_url}\n\n"
+            text.push("- #{content.title}")
+            text.push("+-- #{content.expanded_url}")
           end
-          chatwork.send_message(text)
+          chatwork.client.create_message(room_id: chatwork.room_id, body: chatwork.create_message(text))
         end
       end
     end
