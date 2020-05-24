@@ -25,6 +25,9 @@ en:
   save: Save
   reset: Reset
   edit: Edit
+  everyday: everyday
+  everyhour: every hour
+  everymin: every minute
   date:
     abbr_day_names:
     - Sun
@@ -69,6 +72,8 @@ en:
     pm: pm
   sitename: "newsdict"
   datetime:
+    hour: "%{hour} hour"
+    min: "%{min} minute"
     distance_in_words:
       about_x_hours:
         one: about 1 hour

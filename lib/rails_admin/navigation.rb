@@ -1,7 +1,7 @@
 RailsAdmin.config do |config|
   config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper,
     # Deprecated class
-    "Sources::WebUrl", "Sources::WebSection", "Sources::Url"]
+    "Sources::WebUrl", "Sources::WebSection", "Sources::Url", "Theme", "Configs::Token"]
   config.model "Sources::TwitterAccount" do
     navigation_label I18n.t('admin.navigation.sources')
     weight 1
@@ -14,7 +14,7 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.inquiries_management')
     weight 3
   end
-  config.model "Theme" do
+  config.model "Configs::Theme" do
     navigation_label I18n.t('admin.navigation.portal_setting')
     weight 4
   end
@@ -38,8 +38,28 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.crawling_setting')
     weight 9
   end
+  config.model "Configs::Schedule" do
+    navigation_label I18n.t('admin.navigation.notify_setting')
+    weight 10
+  end
+  config.model "Configs::Tokens::Chatwork" do
+    navigation_label I18n.t('admin.navigation.notify_setting')
+    weight 11
+  end
+  config.model "Configs::Tokens::Slack" do
+    navigation_label I18n.t('admin.navigation.notify_setting')
+    weight 12
+  end
+  config.model "Configs::Tokens::Smtp" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 13
+  end
+  config.model "Configs::Tokens::Twitter" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 14
+  end
   config.model "User" do
     navigation_label I18n.t('admin.navigation.admin_setting')
-    weight 10
+    weight 15
   end
 end

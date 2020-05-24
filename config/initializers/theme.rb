@@ -1,17 +1,26 @@
-directory_names = Dir.glob("#{Rails.root}/app/themes/*/").map {|dir| dir.gsub("#{Rails.root}/app/themes/", "").gsub("/", "") }
-themes = Theme.all.map {|theme| theme.name }
-(directory_names | themes).each do |name|
-  unless themes.include?(name)
-    Theme.create!(
-      name: name
+# Deprecated theme
+if Theme.exists? && Configs::Theme.empty?
+  theme = Theme.find_by(is_active: true)
+  Configs::Theme.create!(
+    key: theme.name
+  )
+  Theme.delete_all
+end
+directory_keys = Dir.glob("#{Rails.root}/app/themes/*/").map {|dir| dir.gsub("#{Rails.root}/app/themes/", "").gsub("/", "") }
+themes = Configs::Theme.all.map {|theme| theme.key }
+(directory_keys | themes).each do |key|
+  unless themes.include?(key)
+    Configs::Theme.create!(
+      key: key
     )
   end
-  if themes.include?(name) && !directory_names.include?(name)
-    Theme.where(name: name).delete
+  if themes.include?(key) && !directory_keys.include?(key)
+    Configs::Theme.where(key: key).delete
+    
   end
 end
-unless Theme.find_by(is_active: true)
-  Theme.find_by(name: 'default').update(is_active: true)
+unless Configs::Theme.find_by(is_active: true)
+  Configs::Theme.find_by(key: 'default').update(is_active: true)
 end
-theme = Theme.find_by(is_active: true)
-ActionController::Base.prepend_view_path  "app/themes/#{theme.name}"
+theme = Configs::Theme.find_by(is_active: true)
+ActionController::Base.prepend_view_path  "app/themes/#{theme.key}"

@@ -23,7 +23,7 @@ RailsAdmin.config do |config|
       end
       # View email of user
       pretty_value do
-        User.find(bindings[:object].user_id).email
+        User.find(bindings[:object].user_id).email if User.find(bindings[:object].user_id)
       end
     end
     edit do

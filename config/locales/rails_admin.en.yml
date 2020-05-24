@@ -8,6 +8,7 @@ en:
       admin_setting: Admin Setting
       other_system_admin: Other System Admin
       inquiries_management: Inquiries Management
+      notify_setting: Notify Setting
     js:
       true: True
       false: False

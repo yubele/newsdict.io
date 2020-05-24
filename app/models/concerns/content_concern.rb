@@ -28,6 +28,7 @@ module ContentConcern
   
     # Save a content from job
     # @param [Hash] attrs
+    # @return [void] 
     def save_form_job(attrs)
       content = Contents::Web.new(attrs)
       # Check duplicated news
@@ -42,6 +43,7 @@ module ContentConcern
     # Get the records
     # @param order default :desc
     # @param category_id default: nil
+    # @return [Contents::Web] 
     def contents(order: :desc, category_id: nil, name: nil)
       if name
         collection = self.in(source_id: Source.find_by(name: name))
@@ -58,11 +60,19 @@ module ContentConcern
     end
     # Sort the content by sort_type
     # @param [String|Symbol] sort_type
+    # @return [Contents::Web] 
     def sortable(sort_type=:updated_at)
       if Content::SORT_TYPE.key?(sort_type.to_sym)
         sort_type_sym = sort_type.to_sym
       end
       order_by(*Content::SORT_TYPE[sort_type_sym])
+    end
+    # Get the data of between gt and lte
+    # @params [String] gt 
+    # @params [String] lte
+    # @return [Contents::Web] 
+    def term(gt, lte, key = :updated_at)
+      gt(key => gt).lte(key => lte)
     end
   end
 end

@@ -25,6 +25,9 @@ ja:
   save: 保存
   reset: リセット
   edit: 編集
+  everyday: 毎日
+  everyhour: 毎時
+  everymin: 毎分
   date:
     abbr_day_names:
     - 日
@@ -34,7 +37,6 @@ ja:
     - 木
     - 金
     - 土
-    - 日
     abbr_month_names:
     - 1月
     - 2月
@@ -70,6 +72,8 @@ ja:
     pm: 午後
   sitename: "newsdict"
   datetime:
+    hour: "%{hour}時"
+    min: "%{min}分"
     distance_in_words:
       half_a_minute: "30秒前後"
       less_than_x_seconds:

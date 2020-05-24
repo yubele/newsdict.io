@@ -1,9 +1,7 @@
 class Config < ApplicationRecord
   include Mongoid::Document
-  validates :key, presence: true, uniqueness: true
+  validates :key, presence: true, uniqueness: true, length: {minimum: 2, maximum: 255}
   field :key, type: String
-  field :description, type: String
-  field :value, type: String
   include Mongoid::Timestamps
   # Get config
   def self.[](key)

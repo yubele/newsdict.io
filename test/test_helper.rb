@@ -8,6 +8,7 @@ class ActiveSupport::TestCase
   # Initialize DB
   def setup
     DatabaseCleaner.clean
+    FactoryBot.create("Configs::Tokens::Twitter")
   end
   # Set a webmock for web_mock/web_stat/blog.html
   # @param [String] url

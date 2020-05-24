@@ -1,17 +1,25 @@
 :schedule:
   web_sites_job:
     enabled: false
-    cron: '0 */3 * * *'
+    cron: '0 0 */3 * * *'
     class: Crowling::WebSitesJob
-  twitter_account_job:
+  twitter_accounts_job:
     enabled: false
-    cron: '0 */3 * * *'
+    cron: '0 0 */3 * * *'
     class: Crowling::TwitterAccountsJob
-  update_mecab_dic_job:
-    enabled: false
-    cron: '0 0 * * * *'
-    class: UpdateMecabDicsJob
-  sitemap_job:
+  update_mecab_dics_job:
     enabled: false
     cron: '0 0 0 * * *'
+    class: UpdateMecabDicsJob
+  sitemaps_job:
+    enabled: false
+    cron: '0 0 */3 * * *'
     class: SitemapsJob
+  notify_chatworks_job:
+    enabled: true
+    cron: '0 * * * * *'
+    class: Notify::ChatworksJob
+  notify_slacks_job:
+    enabled: true
+    cron: '0 * * * * *'
+    class: Notify::SlacksJob

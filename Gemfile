@@ -74,11 +74,18 @@ gem 'mongoid-grid_fs', '2.4.0'
 gem 'mongoid_search', '0.3.6'
 
 ##
+# Notify
+##
+# Ruby bindings of ChatWork API (https://github.com/asonas/chatwork-ruby)
+gem 'chatwork', '0.12.2'
+# A slim ruby wrapper for posting to slack webhooks (http://github.com/stevenosloan/slack-notifier)
+gem "slack-notifier", '2.3.2'
+
+##
 # system gems
 ##
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 # Full-stack web application framework. (https://rubyonrails.org)
-gem 'rails', '6.0.2.2'
+gem 'rails', '6.0.3.1'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
 gem 'puma', '4.3.3'

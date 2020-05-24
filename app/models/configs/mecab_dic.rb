@@ -4,6 +4,7 @@ module Configs
     validates :url, length: {minimum: 4, maximum: 256}, presence: true, uniqueness: true
     validates :regex_for_ignore_line, length: {maximum: 128}, presence: true
     validates :language_code, length: {minimum: 2, maximum: 2}, presence:true, uniqueness: true
+    field :description, type: String
     # Url of keyword list
     field :url, type: String
     # Regex for ignore line

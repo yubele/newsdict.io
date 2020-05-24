@@ -27,24 +27,96 @@ en:
         unlock_token: unlock token
         updated_at: updated date
         is_manual_locked: block to login
+        created_at: created_at
+        updated_at: updated_at
       "filters/content":
         exclude_url: Ignore url path
+        created_at: created_at
+        updated_at: updated_at
       "sources/twitter_account":
         name: Screen Name
         description: Description
+        created_at: created_at
+        updated_at: updated_at
       "configs/mecab_dic":
         description: Description
         regex_for_ignore_line: Ignore word for line. (Word or Regexp)
         language_code: Language code
         is_header: is header
+        created_at: created_at
+        updated_at: updated_at
       "configs/view":
         key: key
         description: description
+        created_at: created_at
+        updated_at: updated_at
       "configs/category":
         key: Category Name
-      theme:
-        name: Name
+        created_at: created_at
+        updated_at: updated_at
+      "configs/theme":
+        key: Name
         description: Description
+        is_active: Active Theme
+      "configs/schedule":
+        key: Name
+        description: Description
+        notify_at: Notify At
+        is_active: Active
+        hour: Hour
+        min: Minute
+        wday: Week of day
+      "configs/tokens/chatwork":
+        key: Name
+        description: Description
+        token: Token
+        room_id: Room ID
+        text: Notify Message
+        notify_target_category_id: Category of Notify
+        configs_schedule_id: Execute time
+      "configs/tokens/slack":
+        key: Name
+        description: Description
+        token: Token
+        title: Notify Title
+        text: Notify Message
+        channel: Channel
+        configs_schedule_id: Execute time
+      "configs/tokens/smtp":
+        key: Name
+        description: Description
+        host: Mail Server
+        port: Port
+        domain: Domain
+        username: Username
+        password: Password
+        authentication: Mailer Authentication
+        enable_starttls_auto: Enable Starttls Auto
+        sender: Sernder Mailaddress
+        is_default: Default
+      "configs/tokens/twitter":
+        key: Name
+        description: Description
+        consumer_key: Consumer Key
+        consumer_secret: Consumer Secret
+        access_token: Access Token
+        access_secret: Access Secret
+        is_default: Default
+      content:
+        type: Content Type
+        title: title
+        site_name: Site Name
+        content: Main content
+        expanded_url: Url
+        image_blob: Image data
+        tags: Tags
+        language_code: Language code
+        source_id: Source id
+        user_id: User id
+        count_of_shared: Count of shared
+        unique_id: Unique id
+        created_at: created_at
+        updated_at: updated_at
     models:
       "filters/content": Content filters
       user: Admin User
@@ -53,32 +125,21 @@ en:
       "sources/twitter_account": Twitter account
       "config/mecab_dic": "Morphological element analysis Setting"
       "config/view": "HTML Setting"
+      "configs/theme": Theme
       "configs/category": "Category Setting"
+      "configs/schedule": Exec Schedule
       "contents/web": "contents data"
+      "configs/tokens/chatwork": Chatwork Settings
+      "configs/tokens/slack": Slack Settings
+      "configs/tokens/Smtp": Smtp Settings
+      "configs/tokens/twitter": Twitter Settings
       inquiry: Inquiry
-      theme: Theme
     errors:
-      models:
-        inquiry:
-          attributes:
-            name:
-              too_short: Too Short
-              blank: Blank
-            mailaddress:
-              too_short: Too Short
-              blank: Blank
-              invalid: Invalid
-            inquiry:
-              too_short: Too Short
-              blank: Blank
-        user:
-          attributes:
-            email:
-              taken: is already registered
-            username:
-              too_short: is too short
-              taken: is already registered
       messages:
+        taken: is already registered
+        too_short: Too Short
+        blank: Blank
+        wrong_length: "is the wrong length (should be %{count} characters)"
         blank_in_locale:
           "can't be blank in %{location}"
         message_title: "message"

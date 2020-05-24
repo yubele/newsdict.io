@@ -23,7 +23,7 @@ Bundler.require(*Rails.groups)
 
 module Newsdict
   class Application < Rails::Application
-    config.time_zone = 'Tokyo'
+    config.time_zone = ENV["TIMEZONE"]
     # White list, this app use those.
     config.i18n.available_locales = [:ja, :en]
     # Set locale
@@ -31,7 +31,8 @@ module Newsdict
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     # Recursively including all model subdirectories
-    config.autoload_paths += Dir[Rails.root.join('app', 'models', '*', '**')]
+    config.autoload_paths += Dir[Rails.root.join('lib', 'rails_admin', '**/*.rb')]
+    #config.autoload_paths += Dir.glob(Rails.root.join('app', 'models', '*', '**.rb'))
     # Active Job
     config.active_job.queue_adapter = :sidekiq
     # Web site's prefix used by Source

@@ -2,7 +2,6 @@ RailsAdmin.config do |config|
   config.label_methods << :username
   config.model User do
     list do
-      filters [:username, :email]
       field :username
       field :email
       field :sign_in_count

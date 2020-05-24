@@ -1,6 +1,6 @@
 #!/bin/bash
 # Delete lock file if previous lock file remains
-if [ -f installed.$APP_TYPE.lock ];then
+if [ -f installed.$APP_TYPE.lock ] && [ $APP_TYPE != "yard" ];then
   rm installed.$APP_TYPE.lock
 fi
 # Wait `bundle-installed` on web.
