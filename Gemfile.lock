@@ -532,7 +532,7 @@ DEPENDENCIES
   nokogiri (= 1.10.9)
   pry (= 0.12.2)
   pry-byebug (= 3.8.0)
-  puma
+  puma (= 4.3.5)
   rails (= 6.0.3.1)
   rails_admin (= 2.0.1)
   rb-inotify
