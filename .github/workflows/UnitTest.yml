@@ -18,7 +18,6 @@ jobs:
         SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_CHANNEL: actions
         SLACK_USERNAME: Github Actions
-        SLACK_TITLE: newsdict.io unit-test
         
     - name: Install Docker Compose
       run: |
