@@ -10,43 +10,47 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    
+    - name: set environment variables
+      uses: allenevans/set-env@v1.0.0
+      with:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        SLACK_ICON: https://github.com/rtCamp.png?size=48
+        SLACK_CHANNEL: actions
+        SLACK_USERNAME: Github Actions
+        
     - name: Install Docker Compose
       run: |
         set -xe
         curl -L https://github.com/docker/compose/releases/download/1.25.4/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
         chmod +x ~/docker-compose
         sudo mv ~/docker-compose /usr/local/bin/docker-compose
+        
     - name: Set up .env
       run: |
         cp .env-test .env
+        
     - name: build
       run: |
         set -xe
         docker-compose build --no-cache
         docker/start -d web mongodb redis
+        
     - name: rails test -v
       run: |
         set -xe
         docker/rails test -v
+        
     - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
       if: ${{ env.SLACK_WEBHOOK != null && success() }}
       env:
-        SLACK_CHANNEL: actions
         SLACK_COLOR: '#0000f2'
-        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'Passed unittest :100:'
-        SLACK_TITLE: Passed UnitTest
-        SLACK_USERNAME: Github Actions
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        
     - name: NG Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
       if: ${{ env.SLACK_WEBHOOK != null && failure() }}
       env:
-        SLACK_CHANNEL: actions
         SLACK_COLOR: '#ed0707'
-        SLACK_ICON: https://github.com/rtCamp.png?size=48
         SLACK_MESSAGE: 'NG unittest :ng:'
-        SLACK_TITLE: NG UnitTest
-        SLACK_USERNAME: Github Actions
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }} 
