@@ -88,7 +88,7 @@ gem "slack-notifier", '2.3.2'
 gem 'rails', '6.0.3.1'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-gem 'puma', '4.3.3'
+gem 'puma', '4.3.5'
 # Ruby FFI (https://github.com/ffi/ffi/wiki)
 gem 'ffi', '1.12.2'
 # Use libsass with Ruby! (https://github.com/sass/sassc-ruby)

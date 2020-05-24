@@ -20,10 +20,10 @@ RUN echo "gem: --no-rdoc --no-ri" > ~/.gemrc
 RUN . /etc/profile.d/rvm.sh && \
   bundle config --global without 'development test' && \
   bundle config --global system true && \
-  bundle config --global frozen true && \
   bundle config --global jobs 10 && \
   bundle config --global build.nokogiri --use-system-libraries && \
-  bundle install
+  bundle install&& \
+  bundle config --global frozen true
 
 # Recreate bins. It only run on web server and production.
 RUN . /etc/profile.d/rvm.sh && \
