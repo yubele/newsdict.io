@@ -1,5 +1,5 @@
 class SitemapsJob < ApplicationJob
-  queue_as :default
+  queue_as :sitemaps
   # Genetate sitemaps.
   def perform
     Newsdict::Application.load_tasks

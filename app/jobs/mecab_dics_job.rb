@@ -1,5 +1,5 @@
-class UpdateMecabDicsJob < ApplicationJob
-  queue_as :default
+class MecabDicsJob < ApplicationJob
+  queue_as :mecab_dics
 
   # Update mecab dic
   def perform
