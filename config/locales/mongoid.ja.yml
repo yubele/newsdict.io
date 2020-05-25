@@ -66,6 +66,9 @@ ja:
         hour: 時
         min: 分
         wday: 曜日
+      "configs/global":
+        key: 項目名
+        value: 設定値
       "configs/tokens/chatwork":
         key: 名前
         description: 概要
@@ -128,6 +131,7 @@ ja:
       "configs/category": カテゴリー設定
       "configs/theme": テーマ
       "configs/schedule": 実行時刻設定
+      "configs/global": 共通設定
       "configs/tokens/chatwork": Chatwork設定
       "configs/tokens/slack": Slack設定
       "configs/tokens/smtp": SMTP設定(メール送信設定)

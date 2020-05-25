@@ -21,6 +21,7 @@
         </div>
         <p class="help is-danger"><%= @resource.errors.messages[:inquiry].join(",") %></p>
     </div>
+    <%= recaptcha_tags %>
     <div class="field">
         <div class="control">
           <%= f.submit t('.submit'), class: :button %>
@@ -28,3 +29,9 @@
     </div>
 </div>
 <% end %>
+<script src="https://www.google.com/recaptcha/api.js"></script>
+<script>
+    function onSubmit(token) {
+        document.getElementById("demo-form").submit();
+    }
+</script>

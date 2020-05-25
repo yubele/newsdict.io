@@ -24,4 +24,13 @@ unless User.where(email: ENV['ADMIN_USER_EMAIL']).exists?
   user.confirmed_at = Time.now
   user.save!
 end
+# Global Config
+Configs::Global::KEYS.each do |key,value|
+  unless Configs::Global.find_by(key: value)
+    Configs::Global.new({
+      key: key,
+      value: value
+    }).save
+  end
+end
 p "End of db:seed"
