@@ -15,12 +15,12 @@ Rails.application.routes.draw do
     :registrations => "admin/registrations"
   }
   # Feed routes
-  resource :rss, path: "/rss/", controller: "pages/rss", action: :show, only: [:show] do
+  resource :rss, path: "/rss/", controller: "timelines/rss", action: :show, only: [:show] do
     collection do
       get "/category/:category/", as: :category
     end
   end
-  resource :pages, path: "/category/:category/", controller: "pages", action: :show, only: [:show], as: :category
+  resource :timelines, path: "/category/:category/", controller: "timelines", action: :show, only: [:show], as: :category
   resources :contents, only: :show
   get "/paper/term/:from_date/:to_date/", to: "papers#term", as: :paper_term
   get "/paper/term/:date/", to: "papers#one_day", as: :paper_oneday
@@ -33,5 +33,5 @@ Rails.application.routes.draw do
       resource :contents, only: [:show]
     end
   end
-  root to: "pages#show"
+  root to: "timelines#show"
 end
