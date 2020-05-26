@@ -1,6 +1,6 @@
-module Crowling
-  class Crowling::TwitterAccountsJob < BaseJob
-    queue_as :default
+module Crawler
+  class TwitterAccountsJob < ::CrawlersJob
+    queue_as :crowling
   
     # Fetch the web each twitter accounts
     def perform
@@ -8,7 +8,7 @@ module Crowling
         twitter_account.user_timeline.each do |tweet|
           tweet.to_h[:entities][:urls].each do |url|
             unless Contents::Web.where(unique_id: tweet.id).exists?
-              BaseJob.perform_later(twitter_account, url[:expanded_url], unique_id: tweet.id)
+              ::CrawlersJob.perform_later(twitter_account, url[:expanded_url], unique_id: tweet.id)
             end
           end
         end

@@ -66,6 +66,9 @@ en:
         hour: Hour
         min: Minute
         wday: Week of day
+      "configs/global":
+        key: Name
+        value: Value
       "configs/tokens/chatwork":
         key: Name
         description: Description
@@ -128,6 +131,7 @@ en:
       "configs/theme": Theme
       "configs/category": "Category Setting"
       "configs/schedule": Exec Schedule
+      "configs/global": Global Settings
       "contents/web": "contents data"
       "configs/tokens/chatwork": Chatwork Settings
       "configs/tokens/slack": Slack Settings

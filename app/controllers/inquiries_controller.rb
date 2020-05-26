@@ -7,7 +7,7 @@ class InquiriesController < ApplicationController
   def create
     @noindex = true
     @resource = Inquiry.new(params.require(:inquiry).permit(:name, :mailaddress, :inquiry))
-    if !session[:inquiry_authenticity_token].include?(params[:authenticity_token]) && @resource.save
+    if  verify_recaptcha(model: @resource) && @resource.save
       # Double posting measures
       session[:inquiry_authenticity_token] = Array.new unless session.key?(:inquiry_authenticity_token)
       session[:inquiry_authenticity_token].push(params[:authenticity_token])

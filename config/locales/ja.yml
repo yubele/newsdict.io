@@ -109,3 +109,7 @@ ja:
       over_x_years:
         one:   "1年以上"
         other: "%{count}年以上"
+  recaptcha:
+    errors:
+      verification_failed: 'reCAPTCHA was incorrect, please try again.'
+      recaptcha_unreachable: 'reCAPTCHA verification server error, please try again.'

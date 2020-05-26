@@ -17,6 +17,8 @@ module SourceWebSiteConcern
         hrefs << "#{fqdn}#{href}"
       elsif href.match(Regexp.new("^\."))
         hrefs << "#{fqdn}/#{href}"
+      elsif href.match(Regexp.new("^http"))
+        hrefs << href
       else
         hrefs << "#{fqdn}#{uri.path}/#{href}"
       end

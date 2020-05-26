@@ -58,8 +58,12 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 14
   end
-  config.model "User" do
+  config.model "Configs::Global" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 15
+  end
+  config.model "User" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 16
   end
 end

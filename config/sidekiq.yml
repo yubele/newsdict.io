@@ -2,15 +2,15 @@
   web_sites_job:
     enabled: false
     cron: '0 0 */3 * * *'
-    class: Crowling::WebSitesJob
+    class: Crawler::WebSitesJob
   twitter_accounts_job:
     enabled: false
     cron: '0 0 */3 * * *'
-    class: Crowling::TwitterAccountsJob
-  update_mecab_dics_job:
+    class: Crawler::TwitterAccountsJob
+  mecab_dics_job:
     enabled: false
     cron: '0 0 0 * * *'
-    class: UpdateMecabDicsJob
+    class: MecabDicsJob
   sitemaps_job:
     enabled: false
     cron: '0 0 */3 * * *'

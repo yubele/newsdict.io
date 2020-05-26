@@ -1,19 +1,21 @@
 class ApplicationController < ActionController::Base
-  before_action :set_action_mailer, :set_host
+  before_action :set_recaptcha, :set_action_mailer, :set_host
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
   # Set domain for devise mail
+  # @return [void]
   def set_host
     Rails.application.routes.default_url_options[:host] = request.host_with_port
   end
-
   # Required username at sign up / sign in
+  # @return [void]
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
   end
-  
+  # Setup action mailer
+  # @return [void]
   def set_action_mailer
     default_mailer_setting = Configs::Tokens::Smtp.find_by(is_default: true)
     if default_mailer_setting
@@ -27,6 +29,16 @@ class ApplicationController < ActionController::Base
           authentication: default_mailer_setting.authentication,
           enable_starttls_auto: default_mailer_setting.enable_starttls_auto
       }
+    end
+  end
+  # Setup recaptcha.
+  # @return [void]
+  def set_recaptcha
+    recaptcha_site_key = Configs::Global.find_by(key: Configs::Global::KEYS[:recaptcha_site_key]).value
+    recaptcha_secret_key = Configs::Global.find_by(key: Configs::Global::KEYS[:recaptcha_secret_key]).value
+    Recaptcha.configure do |config|
+      config.site_key  = recaptcha_site_key
+      config.secret_key = recaptcha_secret_key
     end
   end
 end
