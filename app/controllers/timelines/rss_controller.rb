@@ -1,5 +1,5 @@
-module Pages
-  class RssController < PagesController
+module Timelines
+  class RssController < TimelinesController
     layout false
     # Feed the data of `Contents`
     def show
