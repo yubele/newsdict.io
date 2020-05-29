@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
 networks:
   app-tier:
     driver: bridge
@@ -25,12 +25,27 @@ services:
       dockerfile: Dockerfile
     image: newsdictio
     volumes:
-      - ./:/var/www/docker
+      - ./:/var/www/docker:cached
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/web/startup.sh development"
     ports:
       - 3100:80
-      - 3036:3036
+    networks:
+      - app-tier
+  webpack-dev-server:
+    tty: true
+    stdin_open: true
+    container_name: webpack-dev-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: newsdictio
+    volumes:
+      - ./:/var/www/docker:cached
+    working_dir: /var/www/docker
+    command: "bash src/provisioning/startup/webpack-dev-server/startup.sh development"
+    ports:
+      - 3035:3035
     networks:
       - app-tier
   worker:
@@ -41,7 +56,7 @@ services:
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/worker/startup.sh development"
     volumes:
-      - ./:/var/www/docker
+      - ./:/var/www/docker:cached
     networks:
       - app-tier
     depends_on:
@@ -53,7 +68,7 @@ services:
     image: newsdict/asciidoctor.live:v0.1.12
     command: "bash src/provisioning/startup/asciidoctor/startup.sh development"
     volumes:
-      - ./:/var/www/docker
+      - ./:/var/www/docker:cached
     networks:
       - app-tier
     depends_on:
@@ -65,7 +80,7 @@ services:
     image: newsdict/asciidoctor.live:v0.1.12
     command: "bash src/provisioning/startup/guard/startup.sh development"
     volumes:
-      - ./:/var/www/docker
+      - ./:/var/www/docker:cached
     networks:
       - app-tier
     depends_on:
@@ -77,7 +92,7 @@ services:
     image: newsdict/asciidoctor.live:v0.1.12
     command: "bash src/provisioning/startup/browser-sync/startup.sh development"
     volumes:
-      - ./:/var/www/docker
+      - ./:/var/www/docker:cached
     ports:
       - 3000:3000
       - 3001:3001

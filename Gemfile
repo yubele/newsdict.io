@@ -17,7 +17,8 @@ gem 'bulma-rails', '0.8.0'
 gem 'font-awesome-sass', '5.12.0'
 # A custom Rails form builder for Vue.js (https://github.com/kuroda/vue-rails-form-builder)
 gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-builder'
-gem "recaptcha"
+# Helpers for the reCAPTCHA API (http://github.com/ambethia/recaptcha)
+gem "recaptcha", '5.5.0'
 
 # Active Job
 # Simple, efficient background processing for Ruby (http://sidekiq.org)

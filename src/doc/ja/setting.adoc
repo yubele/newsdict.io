@@ -38,7 +38,7 @@ include::google_translate.adoc[]
 === webpack-dev-server
 開発環境で使用するwebpackerドメイン名を設定します。
 
- WEBPACK_DEV_SERVER_PUBLIC=1.2.3.4:3036
+ WEBPACK_DEV_SERVER_PUBLIC=1.2.3.4
 
 === Logging to STDOUT
 開発環境でログを出力したくない場合は以下をコメントアウトしてください

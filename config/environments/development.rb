@@ -60,7 +60,7 @@ Rails.application.configure do
   
   # webpacker domain
   if ENV['WEBPACK_DEV_SERVER_PUBLIC'].present?
-    config.action_controller.asset_host = ENV['WEBPACK_DEV_SERVER_PUBLIC']
+    config.action_controller.asset_host = "#{ENV['WEBPACK_DEV_SERVER_PUBLIC']}:3035"
   end
   
   # To allow requests to puma, add the following to your environment configuration
