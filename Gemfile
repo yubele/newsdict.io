@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '2.7.1'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 

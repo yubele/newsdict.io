@@ -77,3 +77,9 @@ link:ja/debug/[Debug]
 newsdict.ioの開発ガイドです。
 
 -> link:ja/programing_guide/[Programing Guide]
+
+=== Yard Documents
+
+newsdict.ioのYardDocです。
+
+-> link:https://doc.newsdict.io[YardDoc]
