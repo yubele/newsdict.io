@@ -41,6 +41,7 @@ RUN rm -rf public/packs/* public/assets/*
 
 CMD ["bash", "/startup/web/startup.sh", "production"]
 
-# Port 80: Application (nginx + puma)
+# Port 3000: puma
+# Port 80: document server
 # Port 3035: webpack-dev-server
-EXPOSE 80 3035
+EXPOSE 80 8080 3035

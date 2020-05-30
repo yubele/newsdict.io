@@ -29,7 +29,7 @@ services:
     working_dir: /var/www/docker
     command: "bash src/provisioning/startup/web/startup.sh development"
     ports:
-      - 3100:80
+      - 3100:3000
     networks:
       - app-tier
   webpack-dev-server:
@@ -69,6 +69,8 @@ services:
     command: "bash src/provisioning/startup/asciidoctor/startup.sh development"
     volumes:
       - ./:/var/www/docker:cached
+    ports:
+      - 8080:80
     networks:
       - app-tier
     depends_on:
