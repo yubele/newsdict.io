@@ -56,6 +56,7 @@ module ContentConcern
       else
         collection = self.in(source_id: Source.all.map {|u| u.id })
       end
+      collection = collection.where(http_status: "200")
       if ::Filters::Content.exists?
         collection.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_url }.join('|')})/)
       else
