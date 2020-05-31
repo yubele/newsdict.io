@@ -1,7 +1,5 @@
 module Crawler
   class TwitterAccountsJob < ::CrawlersJob
-    queue_as :crowling
-  
     # Fetch the web each twitter accounts
     def perform
       Sources::TwitterAccount.all.each do |twitter_account|

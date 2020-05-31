@@ -1,5 +1,5 @@
 class Notify::ChatworksJob < ApplicationJob
-  queue_as :default
+  queue_as :notify
   def perform
     Configs::Tokens::Chatwork.all.each do |chatwork|
       schedule = chatwork.configs_schedule

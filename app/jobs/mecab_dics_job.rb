@@ -1,6 +1,5 @@
 class MecabDicsJob < ApplicationJob
   queue_as :mecab_dics
-
   # Update mecab dic
   def perform
     # Each Configs::MecabDic

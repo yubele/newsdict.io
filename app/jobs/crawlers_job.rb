@@ -1,5 +1,5 @@
 class CrawlersJob < ApplicationJob
-  queue_as :crowling
+  queue_as :crawler
   # Fetch the web pages by url
   # @param [Source] object
   # @param [String] url
