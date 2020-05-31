@@ -143,6 +143,9 @@ GEM
       dotenv (= 2.7.5)
       railties (>= 3.2, < 6.1)
     e2mmap (0.1.0)
+    easy_translate (0.5.1)
+      thread
+      thread_safe
     equalizer (0.0.11)
     erubi (1.9.0)
     et-orbi (1.2.4)
@@ -420,6 +423,7 @@ GEM
       sprockets (>= 3.0.0)
     temple (0.8.2)
     thor (0.20.3)
+    thread (0.2.2)
     thread_safe (0.3.6)
     thwait (0.1.0)
     tilt (2.0.10)
@@ -508,6 +512,7 @@ DEPENDENCIES
   devise-i18n-views
   dotenv-rails
   e2mmap
+  easy_translate
   factory_bot_rails
   faker
   ffi

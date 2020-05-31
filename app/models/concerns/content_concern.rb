@@ -17,6 +17,10 @@ module ContentConcern
         :source_id => object.id,
         :user_id => object.user_id
       }
+      # Translate
+      if attrs[:language_code] != ENV["default_locale"]
+        attrs[:title] = EasyTranslate.translate(attr[:title], :to => ENV["default_locale"])
+      end
       # image
       unless web_stat[:eyecatch_image_path].nil?
         image = MiniMagick::Image.read(File.read(web_stat[:eyecatch_image_path]))

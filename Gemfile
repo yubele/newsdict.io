@@ -38,6 +38,8 @@ gem 'mini_magick'
 gem 'nokogiri'
 # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
 gem 'selenium-webdriver'
+# Google Translate API Wrapper for Ruby (https://github.com/seejohnrun/easy_translate)
+gem 'easy_translate'
 
 ##
 # Social Api Gems
@@ -117,6 +119,7 @@ gem 'bootsnap', require: false
 gem 'spring-watcher-listen'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # Timezone Data for TZInfo (http://tzinfo.github.io)
+# Timezone Data for TZInfo (https://tzinfo.github.io)
 gem 'tzinfo-data'
 # Minimal embedded v8 for Ruby (https://github.com/discourse/mini_racer)
 gem 'mini_racer'
@@ -177,6 +180,7 @@ group :document do
   gem 'rb-inotify', :require => false
   # Downgrade 0.12.2. because `bundle/ruby/2.7.0/gems/guard-2.16.1/lib/guard/jobs/pry_wrapper.rb:131:in `_setup': undefined method `file=' for #<Pry::History:0x000055bbc76c16b8>`
   # An IRB alternative and runtime developer console (http://pryrepl.org)
+  # A runtime developer console and IRB alternative with powerful introspection capabilities. (http://pry.github.io)
   gem 'pry'
 end
 

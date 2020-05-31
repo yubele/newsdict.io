@@ -21,6 +21,8 @@ class Content < ApplicationRecord
   belongs_to :source, optional: true
   belongs_to :user, optional: true
   validates_uniqueness_of :unique_id, :allow_nil => true
+  validates :language_code, length: {minimum: 2, maximum: 2}
+  validates :unique_id, length: {maximum: 255}
   SORT_TYPE = {
     :created_at => {created_at: :desc},
     :updated_at => {updated_at: :desc},

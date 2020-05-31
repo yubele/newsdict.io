@@ -25,11 +25,11 @@ unless User.where(email: ENV['ADMIN_USER_EMAIL']).exists?
   user.save!
 end
 # Global Config
-Configs::Global::KEYS.each do |key,value|
-  unless Configs::Global.find_by(key: value)
+Configs::Global::KEYS.each do |key|
+  unless Configs::Global.find_by(key: key)
     Configs::Global.new({
       key: key,
-      value: value
+      value: ""
     }).save
   end
 end
