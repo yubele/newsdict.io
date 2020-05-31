@@ -34,8 +34,8 @@ newsdict.ioはRailsアプリでsidekiqを使いクローリングなどを行っ
 | Rails app | newsdict.io本体 | http://localhost:3100
 | Rails_Admin | 管理画面 | http://localhost:3100/admin
 | Sidekiq Web | Swidekiq 管理画面 | http://localhost:3100/sidekiq
-| asciidoctor | ドキュメント(リアルタイム反映) | http://localhost:3000
-| asciidoctor | ドキュメント(nginx経由) | http://localhost:8080
+| asciidoctor | ドキュメント(開発用 - リアルタイム反映) | http://localhost:3000
+| asciidoctor | ドキュメント(本番用 - nginx経由) | http://localhost:8080
 | browsersync UI | ドキュメント管理画面 | http://localhost:3001
 |===
 
