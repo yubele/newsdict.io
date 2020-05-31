@@ -1,5 +1,4 @@
 class Notify::SlacksJob < ApplicationJob
-  queue_as :notify
   def perform
     Configs::Tokens::Slack.all.each do |slack|
       schedule = slack.configs_schedule
