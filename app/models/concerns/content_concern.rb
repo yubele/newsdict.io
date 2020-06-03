@@ -11,12 +11,16 @@ module ContentConcern
         :site_name => web_stat[:site_name],
         :content => web_stat[:content],
         :expanded_url => web_stat[:url],
-        :http_status => web_stat[:http_status],
+        :http_status => web_stat[:status],
         :language_code => web_stat[:language_code],
         :tags => web_stat[:tags],
         :source_id => object.id,
         :user_id => object.user_id
       }
+      # Translate
+      if attrs[:language_code] != ENV["default_locale"]
+        attrs[:title] = EasyTranslate.translate(attr[:title], :to => ENV["default_locale"])
+      end
       # image
       unless web_stat[:eyecatch_image_path].nil?
         image = MiniMagick::Image.read(File.read(web_stat[:eyecatch_image_path]))
@@ -25,7 +29,6 @@ module ContentConcern
       end
       attrs
     end
-  
     # Save a content from job
     # @param [Hash] attrs
     # @return [void] 
@@ -52,6 +55,7 @@ module ContentConcern
       else
         collection = self.in(source_id: Source.all.map {|u| u.id })
       end
+      collection = collection.where(http_status: "200")
       if ::Filters::Content.exists?
         collection.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_url }.join('|')})/)
       else

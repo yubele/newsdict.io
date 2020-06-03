@@ -5,7 +5,7 @@ const merge = require('webpack-merge')
 
 module.exports = merge(environment.toWebpackConfig(), {
     devServer: {
-        public: process.env.WEBPACK_DEV_SERVER_PUBLIC
+        public: process.env.WEBPACK_DEV_SERVER_PUBLIC + ":3035"
     },
     resolve: {
         alias: {

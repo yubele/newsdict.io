@@ -14,11 +14,6 @@ bundle config --global --delete frozen
 bundle config --global system true
 bundle config --global with 'development document test'
 bundle install
-# In development, create marker after `bundler installed`.
-touch installed.asciidoctor.lock
-touch installed.browser-sync.lock
-touch installed.guard.lock
-touch installed.worker.lock
 # Only run web, because these should not overlap.
 if [ "$APP_TYPE" = "web" ];then
   # Recreate bins. It only run on web server and production.
@@ -26,6 +21,10 @@ if [ "$APP_TYPE" = "web" ];then
   bundle exec rake app:update:bin
   bundle exec rails webpacker:binstubs
   bundle exec spring binstub --all
-  # Start webpack-dev-server
-  bin/webpack-dev-server &
+  # In development, create marker after `bundler installed`.
+  touch installed.asciidoctor.lock
+  touch installed.browser-sync.lock
+  touch installed.guard.lock
+  touch installed.worker.lock
+  touch installed.webpack-dev-server.lock
 fi

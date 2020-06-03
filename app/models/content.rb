@@ -21,6 +21,8 @@ class Content < ApplicationRecord
   belongs_to :source, optional: true
   belongs_to :user, optional: true
   validates_uniqueness_of :unique_id, :allow_nil => true
+  validates :language_code, length: {minimum: 2, maximum: 2}
+  validates :unique_id, length: {maximum: 255}
   SORT_TYPE = {
     :created_at => {created_at: :desc},
     :updated_at => {updated_at: :desc},
@@ -35,9 +37,7 @@ class Content < ApplicationRecord
   #  Perfect matching `extended_url` or Perfect matching `title`
   # @return [Content] exists content
   def unique?
-    if content = Content.where(title: self.title).first || content = Content.where(expanded_url: self.expanded_url).first
-      return content
-    end
+    Content.where(title: self.title).first || Content.where(expanded_url: self.expanded_url).first
   end
   # Deduce page num from a model given a scope
   # ref: https://github.com/kaminari/kaminari/issues/205

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_recaptcha, :set_action_mailer, :set_host
+  before_action :set_recaptcha, :set_action_mailer, :set_google_apis, :set_host
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -34,11 +34,16 @@ class ApplicationController < ActionController::Base
   # Setup recaptcha.
   # @return [void]
   def set_recaptcha
-    recaptcha_site_key = Configs::Global.find_by(key: Configs::Global::KEYS[:recaptcha_site_key]).value
-    recaptcha_secret_key = Configs::Global.find_by(key: Configs::Global::KEYS[:recaptcha_secret_key]).value
+    recaptcha_site_key = Configs::Global.find_by(key: :recaptcha_site_key).value
+    recaptcha_secret_key = Configs::Global.find_by(key: :recaptcha_secret_key).value
     Recaptcha.configure do |config|
       config.site_key  = recaptcha_site_key
       config.secret_key = recaptcha_secret_key
     end
+  end
+  # Setup google apis
+  # @return [void]
+  def set_google_apis
+    EasyTranslate.api_key = Configs::Global.find_by(key: :google_translate_api).value
   end
 end

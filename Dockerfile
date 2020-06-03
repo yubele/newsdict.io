@@ -1,5 +1,5 @@
 # Define base image, you can use --build-arg
-ARG base_image="newsdict/rails:ubuntu20.10_nvmv0.35.2_nodev13.9.0_rubyv2.7.0_sasscv2.3.0_ffiv1.12.2_chromedriver"
+ARG base_image="newsdict/rails:ubuntu20.10_nvmv0.35.2_nodev14.3.0_rubyv2.7.1_sasscv2.3.0_ffiv1.12.2_chromedriver"
 FROM $base_image
 
 # Set locale
@@ -41,6 +41,7 @@ RUN rm -rf public/packs/* public/assets/*
 
 CMD ["bash", "/startup/web/startup.sh", "production"]
 
-# Port 80: Application (nginx + puma)
-# Port 3036: webpack-dev-server
-EXPOSE 80 3036
+# Port 3000: puma
+# Port 80: document server
+# Port 3035: webpack-dev-server
+EXPOSE 80 8080 3035

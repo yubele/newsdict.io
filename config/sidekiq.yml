@@ -3,23 +3,34 @@
     enabled: false
     cron: '0 0 */3 * * *'
     class: Crawler::WebSitesJob
+    queue: crawler
   twitter_accounts_job:
     enabled: false
     cron: '0 0 */3 * * *'
     class: Crawler::TwitterAccountsJob
+    queue: crawler
   mecab_dics_job:
     enabled: false
     cron: '0 0 0 * * *'
     class: MecabDicsJob
+    queue: mecab_dics
   sitemaps_job:
     enabled: false
     cron: '0 0 */3 * * *'
     class: SitemapsJob
+    queue: sitemaps
   notify_chatworks_job:
     enabled: true
     cron: '0 * * * * *'
     class: Notify::ChatworksJob
+    queue: notify
   notify_slacks_job:
     enabled: true
     cron: '0 * * * * *'
     class: Notify::SlacksJob
+    queue: notify
+:queues:
+  - crawler
+  - notify
+  - mecab_dics
+  - sitemaps
