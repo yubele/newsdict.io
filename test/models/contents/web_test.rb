@@ -21,6 +21,7 @@ class Contents::WebTest < ActiveSupport::TestCase
     count_of_shared = 5
     urls = Array.new
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})
+    twitter_account.save
     # user_timeline mock
     stub_get('/1.1/statuses/user_timeline.json').with(query: {screen_name: :yubele}).to_return(body: fixture('web_mock/twitter/statuses.json'), headers: {content_type: 'application/json; charset=utf-8'})
     count_of_shared.times do |index|

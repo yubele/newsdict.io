@@ -37,9 +37,7 @@ class Content < ApplicationRecord
   #  Perfect matching `extended_url` or Perfect matching `title`
   # @return [Content] exists content
   def unique?
-    if content = Content.where(title: self.title).first || content = Content.where(expanded_url: self.expanded_url).first
-      return content
-    end
+    Content.where(title: self.title).first || Content.where(expanded_url: self.expanded_url).first
   end
   # Deduce page num from a model given a scope
   # ref: https://github.com/kaminari/kaminari/issues/205

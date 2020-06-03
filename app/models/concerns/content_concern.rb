@@ -29,7 +29,6 @@ module ContentConcern
       end
       attrs
     end
-  
     # Save a content from job
     # @param [Hash] attrs
     # @return [void] 
