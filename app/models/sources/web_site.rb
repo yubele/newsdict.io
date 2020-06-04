@@ -3,7 +3,7 @@ module Sources
     field :source_url, type: String
     field :xpath, type: String, default: ""
     validates :name, :category_id, presence: true
-    validates :source_url, presence: true, format: { with: URI.regexp }, length: { maximum: 2000 }
+    validates :source_url, presence: true, format: { with: URI.regexp }, length: { maximum: 255 }
     # Get media name
     # @return [String] media_name
     def media_name
