@@ -14,7 +14,9 @@ RailsAdmin.config do |config|
     bulk_delete do
       except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global']
     end
-    show
+    show do
+      except ['Configs::Tokens::Twitter']
+    end
     edit
     delete do
       except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global']
