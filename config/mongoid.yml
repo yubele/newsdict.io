@@ -2,7 +2,7 @@ development:
   # Configure available database clients. (required)
   clients:
     default:
-      database: newsdict_development
+      database: <%= ENV['NAMESPACE'] %>_development
       hosts:
         - mongodb:27017
   options: &options
@@ -11,7 +11,7 @@ development:
 test:
   clients:
     default:
-      database: newsdict_test
+      database: <%= ENV['NAMESPACE'] %>_test
       hosts:
         - mongodb:27017
   options:
@@ -19,7 +19,7 @@ test:
 document:
   clients:
     default:
-      database: newsdict_document
+      database: <%= ENV['NAMESPACE'] %>_document
       hosts:
         - mongodb:27017
   options:
@@ -27,7 +27,7 @@ document:
 production:
   clients:
     default:
-      database: newsdict_production
+      database: <%= ENV['NAMESPACE'] %>_production
       hosts:
         - <%= ENV['MONGODB_HOST'] %>
   options:
