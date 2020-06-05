@@ -9,14 +9,15 @@ function clearIframeLinks(iframe) {
 }
 function bindIframeMouseMove(iframe) {
     iframe.contentWindow.addEventListener('mousemove', function(event) {
-        var clRect = iframe.getBoundingClientRect()
+        const headerHeight = 80
+        const clRect = iframe.getBoundingClientRect()
         /* global CustomEvent */
-        var evt = new CustomEvent('mousemove', { bubbles: true, cancelable: false })
+        let evt = new CustomEvent('mousemove', { bubbles: true, cancelable: false })
         evt.clientX = event.clientX + clRect.left
-        evt.clientY = event.clientY + clRect.top
+        evt.clientY = event.clientY + clRect.top - headerHeight
         
         const element = iframe.contentWindow.document.elementFromPoint(evt.clientX, evt.clientY)
-        if (element.getElementsByTagName("a").length > 0 && focusLock == false) {
+        if (focusLock == false) {
             var els = iframe.contentWindow.document.getElementsByClassName('web-site-focus')
             Array.prototype.forEach.call(els, function(el) {
                 el.classList.remove('web-site-focus')
@@ -29,9 +30,9 @@ function bindIframeMouseMove(iframe) {
 }
 function bindIframeClick(iframe) {
     iframe.contentWindow.addEventListener('click', function(event) {
-        var clRect = iframe.getBoundingClientRect()
+        const clRect = iframe.getBoundingClientRect()
         /* global CustomEvent */
-        const clickEvent = new CustomEvent('click', { bubbles: true, cancelable: false })
+        let clickEvent = new CustomEvent('click', { bubbles: true, cancelable: false })
         clickEvent.clientX = event.clientX + clRect.left
         clickEvent.clientY = event.clientY + clRect.top
         
