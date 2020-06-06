@@ -8,4 +8,5 @@ yarn install --check-files
 bundle exec bin/rails webpacker:compile
 bundle exec bin/rails assets:precompile
 bundle exec bin/rails db:seed
+bin/webpack-dev-server &
 RAILS_LOG_TO_STDOUT=true bundle exec bin/rails server
