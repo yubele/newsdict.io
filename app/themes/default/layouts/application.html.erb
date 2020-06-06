@@ -28,5 +28,15 @@
     <%= yield %>
     <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+    
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>newsdict</strong> by <%= link_to 'Yusuke Abe', 'https://newsdict.io/', target: :_blank %>. The source code is licensed
+          <%= link_to 'MIT', 'http://opensource.org/licenses/mit-license.php' %>. You can contact from <%= link_to 'this form', inquiries_path %>.
+        </p>
+      </div>
+    </footer>
+  </div>
   </body>
 </html>
