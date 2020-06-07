@@ -30,21 +30,6 @@ services:
     command: "bash src/provisioning/startup/web/startup.sh development"
     ports:
       - 3100:3000
-    networks:
-      - app-tier
-  webpack-dev-server:
-    tty: true
-    stdin_open: true
-    container_name: webpack-dev-server
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: newsdictio
-    volumes:
-      - ./:/var/www/docker:cached
-    working_dir: /var/www/docker
-    command: "bash src/provisioning/startup/webpack-dev-server/startup.sh development"
-    ports:
       - 3035:3035
     networks:
       - app-tier

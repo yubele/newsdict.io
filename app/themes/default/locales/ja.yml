@@ -1,11 +1,9 @@
 ja:
   top_page: トップページ
-  official_site: オフィシャルサイト
   inquiry: お問い合わせ
   sidekiq: ジョブ管理
   read_more: もっと見る（記事のサイトに飛びます）
   be_shared_content_list: "%{name}がシェアした記事一覧"
-  count_of_shared: シェア重複数
   shared_at: シェア日付
   media: メディア
   information: 情報
@@ -21,7 +19,8 @@ ja:
   updated_at: 更新日
   sort_by_created_at: 登録日順
   sort_by_updated_at: 更新日順
-  sort_by_shared_count: シェア回数順
+  sort_by_shared_count: シェア重複数
+  count_of_shared: シェア重複数
   save: 保存
   reset: リセット
   edit: 編集

@@ -1,11 +1,9 @@
 en:
   top_page: Top page
-  official_site: Official Site
   inquiry: Inquiry
   sidekiq: Sidekiq
   read_more: Read More
   be_shared_content_list: "List of contents %{name} shared."
-  count_of_shared: Count of shared
   shared_at: shared date
   media: Media
   information: Information
@@ -21,7 +19,8 @@ en:
   updated_at: Updated At
   sort_by_created_at: Sort by created_at
   sort_by_updated_at: Sort by updated_at
-  sort_by_shared_count: Sort by count
+  sort_by_shared_count: Count of shared
+  count_of_shared: Count of shared
   save: Save
   reset: Reset
   edit: Edit

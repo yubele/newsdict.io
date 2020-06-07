@@ -4,4 +4,8 @@
 
 Work In Progress
 
+== I18n
+I18nは、テーマごとに設定可能です。
+パスはapp/themes/{テーマ名}/localesです。
+
 link:/[Back To The Top]

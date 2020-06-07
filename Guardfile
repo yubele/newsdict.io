@@ -14,7 +14,7 @@ guard :shell do
     `bash src/provisioning/startup/guard/yard.sh development`
   end
   # RailsAdmin refresh view and assets
-  watch(%r{^app/assets/.+\.(scss|js|css|sass)$}) do |m|
+  watch(%r{^app/(themes/.+/|)assets/.+\.(scss|js|css|sass)$}) do |m|
     `bash src/provisioning/startup/guard/precompile.sh`
   end
 end

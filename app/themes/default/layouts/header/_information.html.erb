@@ -1,13 +1,10 @@
 <div id="information">
   <div class="header">
+    <h1><%= @category_name %></h1>
     <div class="order">
       <% if params[:controller] == "timelines" %>
       <%= render partial: "layouts/header/order" %>
       <% end %>
     </div>
-    <dl class="links">
-      <dd><%= link_to t('official_site'), 'https://newsdict.io/', target: :_blank %></dd>
-      <dd><%= link_to t('inquiry'), inquiries_path %></dd>
-    </dl>
   </div>
 </div>

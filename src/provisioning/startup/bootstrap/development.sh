@@ -26,5 +26,4 @@ if [ "$APP_TYPE" = "web" ];then
   touch installed.browser-sync.lock
   touch installed.guard.lock
   touch installed.worker.lock
-  touch installed.webpack-dev-server.lock
 fi
