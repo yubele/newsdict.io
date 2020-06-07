@@ -2,14 +2,15 @@ module Api
   module ContentsControllerConcern
     include ApplicationHelper
     extend ActiveSupport::Concern
-    # /api/v*/contents
+    # Use api and timeline_controller
     # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
     # @param [String] category 
+    # @rerurn [JSON]
     def contents(limit: 25, skip:0, sort: :updated_at, category: nil)
-      category_id = Configs::Category.find_by(key: category).id if category
-      JSON.parse(Contents::Web
+      category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
+      Contents::Web
         .contents(category_id: category_id)
         .sortable(sort)
         .limit(limit)
@@ -25,6 +26,7 @@ module Api
             k.include?("updated_at")
           }.merge({
             "created_at" => in_time_zone(c.created_at),
+            "updated_at" => in_time_zone(c.updated_at),
             "content" => c.content.truncate(100),
             "id" => c.id.to_s,
             "longer_tags" => tag_element(c.longer_tags),
@@ -37,7 +39,7 @@ module Api
               "username" => c.user ? c.user.username : ""
             }
           })
-        }.to_json, object_class: OpenStruct)
+        }.to_json
     end
   end
 end
