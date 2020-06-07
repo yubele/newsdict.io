@@ -17,7 +17,6 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
       end
     end
     count = Contents::Web.all.count
-
     # Equeued `Crawler::BaseJob` uniqueress
     twitter_account.user_timeline.each do |tweet|
       tweet.to_h[:entities][:urls].each_with_index do |url, index|

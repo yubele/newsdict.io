@@ -43,7 +43,7 @@ module Sources
     # @param [Hash] Contents::Web attributes
     # @return [Boolean]]
     def update?(content, attrs)
-      content.unique_id != attrs[:unique_id]
+      content.unique_id != attrs[:unique_id].to_s
     end
   end
 end

@@ -33,12 +33,6 @@ class Content < ApplicationRecord
   def longer_tags(number = 3)
     tags.map {|tag| tag if tag.length >= number }.compact.reject(&:empty?)
   end
-  # If it is true, instance is uniq contents.
-  #  Perfect matching `extended_url` or Perfect matching `title`
-  # @return [Content] exists content
-  def unique?
-    Content.where(title: self.title).first || Content.where(expanded_url: self.expanded_url).first
-  end
   # Deduce page num from a model given a scope
   # ref: https://github.com/kaminari/kaminari/issues/205
   # @params [Array] options
