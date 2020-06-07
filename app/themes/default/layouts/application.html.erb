@@ -27,9 +27,6 @@
     <%= render partial: "layouts/header/navi" %>
     <%= render partial: "layouts/header/information" %>
     <%= yield %>
-    <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
-    <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
-    
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
@@ -38,6 +35,8 @@
         </p>
       </div>
     </footer>
-  </div>
+    <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  'custom', 'data-turbolinks-track': 'reload' %>
+    <%= Configs::View[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
   </body>
 </html>
