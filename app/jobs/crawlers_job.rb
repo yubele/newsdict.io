@@ -15,13 +15,6 @@ class CrawlersJob < ApplicationJob
     attrs = Contents::Web.set_attributes_by_web_stat(object, web_stat)
     # Record unique ID to prevent duplicate registration
     attrs[:unique_id] = unique_id
-    if unique_id.nil?
-      content = nil
-    else
-      content = Contents::Web.find_by(unique_id: unique_id)
-    end
-    if content.nil? || content.source.update?(content, attrs)
-      Contents::Web.save_form_job(attrs)
-    end
+    Contents::Web.save_form_job(attrs)
   end
 end

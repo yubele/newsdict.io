@@ -33,12 +33,13 @@ module ContentConcern
     # @param [Hash] attrs
     # @return [void] 
     def save_form_job(attrs)
-      content = Contents::Web.new(attrs)
-      # Check duplicated news
-      if content = (content.unique? || content)
-        content.update_attributes(attrs)
-        content.inc(count_of_shared: 1)
+      already_content = Contents::Web.unique?(url: attrs[:exclude_url], title: attrs[:title])
+      # Check duplicated contents
+      if already_content && already_content.source.update?(already_content, attrs)
+        already_content.update_attributes(attrs)
+        already_content.inc(count_of_shared: 1)
       else
+        content = Contents::Web.new(attrs)
         content.count_of_shared = 1
         content.save
       end
@@ -77,6 +78,14 @@ module ContentConcern
     # @return [Contents::Web] 
     def term(gt, lte, key = :updated_at)
       gt(key => gt).lte(key => lte)
+    end
+    # If it is true, instance is uniq contents.
+    #  Perfect matching `extended_url` or Perfect matching `title`
+    # @param [String] url
+    # @param [String] title
+    # @return [Content] exists content
+    def unique?(url: nil, title: nil)
+      where(expanded_url: url).first || where(title: title).first
     end
   end
 end
