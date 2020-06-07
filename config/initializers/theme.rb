@@ -25,3 +25,5 @@ end
 theme = Configs::Theme.find_by(is_active: true)
 ActionController::Base.prepend_view_path  "app/themes/#{theme.key}"
 I18n.load_path = Dir[Rails.root.join('app', 'themes', theme.key, 'locales', '*.{rb,yml}')]
+Rails.application.config.assets.paths << Rails.root.join('app', 'themes', theme.key, 'assets', 'javascripts')
+Rails.application.config.assets.paths << Rails.root.join('app', 'themes', theme.key, 'assets', 'stylesheets')

@@ -20,6 +20,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag  'custom', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
     <%= Configs::View[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
