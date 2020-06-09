@@ -36,7 +36,7 @@ module ContentConcern
         already_content.inc(count_of_shared: 1)
       else
         # Translate
-        if attrs[:language_code] != ENV["default_locale"]
+        if attrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
           attrs[:title] = EasyTranslate.translate(attrs[:title], :to => ENV["default_locale"])
         end
         content = Contents::Web.new(attrs)
