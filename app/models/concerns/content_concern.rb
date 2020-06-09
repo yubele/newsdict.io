@@ -17,10 +17,6 @@ module ContentConcern
         :source_id => object.id,
         :user_id => object.user_id
       }
-      # Translate
-      if attrs[:language_code] != ENV["default_locale"]
-        attrs[:title] = EasyTranslate.translate(attr[:title], :to => ENV["default_locale"])
-      end
       # image
       unless web_stat[:eyecatch_image_path].nil?
         image = MiniMagick::Image.read(File.read(web_stat[:eyecatch_image_path]))
@@ -39,6 +35,10 @@ module ContentConcern
         already_content.update_attributes(attrs)
         already_content.inc(count_of_shared: 1)
       else
+        # Translate
+        if attrs[:language_code] != ENV["default_locale"]
+          attrs[:title] = EasyTranslate.translate(attrs[:title], :to => ENV["default_locale"])
+        end
         content = Contents::Web.new(attrs)
         content.count_of_shared = 1
         content.save
