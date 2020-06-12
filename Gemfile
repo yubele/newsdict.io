@@ -29,9 +29,6 @@ gem 'sidekiq-scheduler'
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat'
-# use web_stat
-# Get a final redirect url for a given url. (https://github.com/indyarocks/final_redirect_url)
-gem "final_redirect_url", :git => 'https://github.com/yubele/final_redirect_url'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
@@ -188,8 +185,6 @@ group :test do
   # Adds support for Capybara system testing and selenium driver
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
   gem 'capybara'
-  # Easy download and use of browser drivers. (https://github.com/titusfortner/webdrivers)
-  gem 'webdrivers'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)
   gem 'webmock'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
