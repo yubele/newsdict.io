@@ -35,8 +35,15 @@ $ git submodule update --init --recursive
   Initial superuser password
   
 === 5. Start development server
+
+==== Foreground
 ```
 $ docker/start
+```
+
+==== Daemonize
+```
+$ docker/start -d
 ```
 
 ## Contributing

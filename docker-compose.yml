@@ -46,6 +46,17 @@ services:
       - app-tier
     depends_on:
       - web
+  bundle:
+    tty: true
+    stdin_open: true
+    container_name: bundle
+    image: newsdictio
+    volumes:
+      - ./:/var/www/docker:cached
+    working_dir: /var/www/docker
+    command: "bash src/provisioning/startup/bundle/startup.sh development"
+    networks:
+      - app-tier
   asciidoctor:
     tty: true
     stdin_open: true
