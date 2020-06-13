@@ -19,9 +19,16 @@ module ContentConcern
       }
       # image
       unless web_stat[:eyecatch_image_path].nil?
-        image = MiniMagick::Image.read(File.read(web_stat[:eyecatch_image_path]))
-        image.resize "128x"
-        attrs[:image_blob] = BSON::Binary.new(image.to_blob)
+        blob = File.read(web_stat[:eyecatch_image_path])
+        begin
+          # Binary
+          image = MiniMagick::Image.read(blob)
+          image.resize "128x"
+          attrs[:image_blob] = BSON::Binary.new(image.to_blob)
+        rescue
+          # Svg
+          attrs[:image_svg] = blob
+        end
       end
       attrs
     end
