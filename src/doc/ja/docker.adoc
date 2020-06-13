@@ -1,0 +1,15 @@
+:toc: left
+
+include::google_translate.adoc[]
+
+=== 前提
+developmentサーバを起動した状態で行ってください。 +
+起動方法はReadme.adocに記載してあります。
+
+== gemのバージョンアップ方法
+
+```
+$ docker/bundle update [gem名]
+```
+
+link:/[Back To The Top]
