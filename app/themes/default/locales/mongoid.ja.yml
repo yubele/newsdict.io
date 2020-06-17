@@ -29,7 +29,12 @@ ja:
         is_manual_locked: ログインの停止
         created_at: 作成日時
         updated_at: 更新日時
-      "filters/content":
+      "filters/ignore_crawl_content":
+        exclude_url: クロール対象外にするURL
+        message: エラーメッセージ
+        created_at: 作成日時
+        updated_at: 更新日時
+      "filters/hidden_content":
         exclude_url: 除外するURL
         created_at: 作成日時
         updated_at: 更新日時
@@ -121,7 +126,8 @@ ja:
         created_at: 作成日時
         updated_at: 更新日時
     models:
-      "filters/content": コンテンツのフィルター
+      "filters/hidden_content": 非表示にするコンテンツ
+      "filters/ignore_crawl_content": クロール時に除外するコンテンツ
       user: 管理ユーザ
       source: ソース
       "sources/web_site": Webサイト

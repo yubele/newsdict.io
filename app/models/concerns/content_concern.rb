@@ -19,9 +19,16 @@ module ContentConcern
       }
       # image
       unless web_stat[:eyecatch_image_path].nil?
-        image = MiniMagick::Image.read(File.read(web_stat[:eyecatch_image_path]))
-        image.resize "128x"
-        attrs[:image_blob] = BSON::Binary.new(image.to_blob)
+        blob = File.read(web_stat[:eyecatch_image_path])
+        begin
+          # Binary
+          image = MiniMagick::Image.read(blob)
+          image.resize "128x"
+          attrs[:image_blob] = BSON::Binary.new(image.to_blob)
+        rescue
+          # Svg
+          attrs[:image_svg] = blob
+        end
       end
       attrs
     end
@@ -57,8 +64,8 @@ module ContentConcern
         collection = self.in(source_id: Source.all.map {|u| u.id })
       end
       collection = collection.where(http_status: "200")
-      if ::Filters::Content.exists?
-        collection.not(expanded_url: /(#{::Filters::Content.all.map {|c| c.exclude_url }.join('|')})/)
+      if ::Filters::HiddenContent.exists?
+        collection.not(expanded_url: /(#{::Filters::HiddenContent.all.map {|c| c.exclude_url }.join('|')})/)
       else
         collection.all
       end

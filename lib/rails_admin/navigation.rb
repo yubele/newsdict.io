@@ -30,40 +30,44 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.crawling_setting')
     weight 7
   end
-  config.model "Filters::Content" do
+  config.model "Filters::IgnoreCrawlContent" do
     navigation_label I18n.t('admin.navigation.crawling_setting')
     weight 8
   end
-  config.model "Configs::MecabDic" do
+  config.model "Filters::HiddenContent" do
     navigation_label I18n.t('admin.navigation.crawling_setting')
     weight 9
   end
-  config.model "Configs::Schedule" do
-    navigation_label I18n.t('admin.navigation.notify_setting')
+  config.model "Configs::MecabDic" do
+    navigation_label I18n.t('admin.navigation.crawling_setting')
     weight 10
   end
-  config.model "Configs::Tokens::Chatwork" do
+  config.model "Configs::Schedule" do
     navigation_label I18n.t('admin.navigation.notify_setting')
     weight 11
   end
-  config.model "Configs::Tokens::Slack" do
+  config.model "Configs::Tokens::Chatwork" do
     navigation_label I18n.t('admin.navigation.notify_setting')
     weight 12
   end
-  config.model "Configs::Tokens::Smtp" do
-    navigation_label I18n.t('admin.navigation.admin_setting')
+  config.model "Configs::Tokens::Slack" do
+    navigation_label I18n.t('admin.navigation.notify_setting')
     weight 13
   end
-  config.model "Configs::Tokens::Twitter" do
+  config.model "Configs::Tokens::Smtp" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 14
   end
-  config.model "Configs::Global" do
+  config.model "Configs::Tokens::Twitter" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 15
   end
-  config.model "User" do
+  config.model "Configs::Global" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 16
+  end
+  config.model "User" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 17
   end
 end

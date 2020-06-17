@@ -5,6 +5,7 @@ class CrawlersJob < ApplicationJob
   # @param [String] url
   # @param [Mixed] unique_id
   def perform(object, url, unique_id: nil)
+    return nil if ::Filters::IgnoreCrawlContent.where(exclude_url: url).exists?
     userdics = Hash.new
     Configs::MecabDic.each do |dic|
       userdics[dic.language_code] = Array.new unless userdics.include?(dic.language_code)
@@ -18,5 +19,12 @@ class CrawlersJob < ApplicationJob
     # Record unique ID to prevent duplicate registration
     attrs[:unique_id] = unique_id
     Contents::Web.save_form_job(attrs)
+  rescue Mechanize::RobotsDisallowedError,
+          Mechanize::ResponseCodeError,
+          Selenium::WebDriver::Error::UnknownError => e
+    ignore = ::Filters::IgnoreCrawlContent.new
+    ignore.exclude_url = url
+    ignore.message = e
+    ignore.save
   end
 end

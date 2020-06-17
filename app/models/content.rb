@@ -9,6 +9,7 @@ class Content < ApplicationRecord
   field :expanded_url, type: String
   # image blob (because active-storage is not support mongoid.)
   field :image_blob, type: BSON::Binary
+  field :image_svg, type: String
   field :tags, type: Array
   field :http_status, type: Integer
   field :language_code, type: String

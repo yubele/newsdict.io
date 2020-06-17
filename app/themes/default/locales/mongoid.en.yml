@@ -29,7 +29,12 @@ en:
         is_manual_locked: block to login
         created_at: created_at
         updated_at: updated_at
-      "filters/content":
+      "filters/ignore_crawl_content":
+        exclude_url: URLs to exclude from crawling
+        message: Error message
+        created_at: created_at
+        updated_at: updated_at
+      "filters/hidden_content":
         exclude_url: Ignore url path
         created_at: created_at
         updated_at: updated_at
@@ -121,7 +126,8 @@ en:
         created_at: created_at
         updated_at: updated_at
     models:
-      "filters/content": Content filters
+      "filters/hidden_content": Content to hide
+      "filters/ignore_crawl_content": Content to exclude when crawling
       user: Admin User
       source: "Source"
       "sources/web_site": WebSite
