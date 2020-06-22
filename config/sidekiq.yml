@@ -29,6 +29,7 @@
     cron: '0 * * * * *'
     class: Notify::SlacksJob
     queue: notifies
+:concurrency: 1
 :queues:
   - crawlers
   - notifies

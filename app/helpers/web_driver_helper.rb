@@ -20,6 +20,9 @@ module WebDriverHelper
     source = driver.page_source
     driver.quit
     source
+  rescue => e
+    driver.quit
+    raise e
   end
   module_function :get_source
 end
