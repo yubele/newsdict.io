@@ -20,8 +20,7 @@ class CrawlersJob < ApplicationJob
     attrs[:unique_id] = unique_id
     Contents::Web.save_form_job(attrs)
   rescue Mechanize::RobotsDisallowedError,
-          Mechanize::ResponseCodeError,
-          Selenium::WebDriver::Error::UnknownError => e
+          Mechanize::ResponseCodeError => e
     ignore = ::Filters::IgnoreCrawlContent.new
     ignore.exclude_url = url
     ignore.message = e

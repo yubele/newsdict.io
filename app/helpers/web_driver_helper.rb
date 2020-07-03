@@ -8,9 +8,7 @@ module WebDriverHelper
     options = Selenium::WebDriver::Chrome::Options.new(args: [
       'headless',
       'no-sandbox',
-      'disable-gpu',
-      'start-maximized',
-      'window-size=1920,1080'
+      'disable-gpu'
       ])
     driver = Selenium::WebDriver.for(:chrome, options: options)
     driver.manage.timeouts.implicit_wait = 10
@@ -22,6 +20,9 @@ module WebDriverHelper
     source = driver.page_source
     driver.quit
     source
+  rescue => e
+    driver.quit
+    raise e
   end
   module_function :get_source
 end
