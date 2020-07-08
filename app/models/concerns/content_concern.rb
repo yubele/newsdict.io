@@ -65,7 +65,9 @@ module ContentConcern
       end
       collection = collection.where(http_status: "200")
       if ::Filters::HiddenContent.exists?
-        collection.not(expanded_url: /(#{::Filters::HiddenContent.all.map {|c| c.exclude_url }.join('|')})/)
+        collection
+          .not(expanded_url: /(#{::Filters::HiddenContent.all.map {|c| c.exclude_url }.join('|')})/)
+          .not(expanded_title: /(#{::Filters::HiddenContent.all.map {|c| c.exclude_title }.join('|')})/)
       else
         collection.all
       end

@@ -35,7 +35,8 @@ en:
         created_at: created_at
         updated_at: updated_at
       "filters/hidden_content":
-        exclude_url: Ignore url path
+        exclude_title0: title
+        exclude_url: url
         created_at: created_at
         updated_at: updated_at
       "sources/twitter_account":
