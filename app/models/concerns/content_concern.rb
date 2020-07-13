@@ -88,7 +88,7 @@ module ContentConcern
     def term(gt, lte, key = :updated_at)
       gt(key => gt).lte(key => lte)
     end
-    # If it is true, instance is uniq contents.
+    # If it return a content, instance is uniq contents.
     #  Perfect matching `extended_url` or Perfect matching `title`
     # @param [String] url
     # @param [String] title
