@@ -73,10 +73,10 @@ module ContentConcern
       end
     end
     # Sort the content by sort_type
-    # @param [String|Symbol] sort_type
+    # @param [Symbol] sort_type
     # @return [Contents::Web] 
     def sortable(sort_type=:updated_at)
-      if Content::SORT_TYPE.key?(sort_type.to_sym)
+      if Content::SORT_TYPE.key?(sort_type)
         sort_type_sym = sort_type.to_sym
       end
       order_by(*Content::SORT_TYPE[sort_type_sym])
