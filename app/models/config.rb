@@ -3,18 +3,18 @@ class Config < ApplicationRecord
   validates :key, presence: true, uniqueness: true, length: {minimum: 2, maximum: 255}
   field :key, type: String
   include Mongoid::Timestamps
-  # Get config
-  def self.[](key)
-    if item = find_by(key: key)
-      item.value
+  class << self
+    # Get config value
+    # @param [String] key
+    # @return [Config]
+    def [](key)
+      find_by(key: key).to_s
     end
-  end
-  # Check Exists
-  def self.has_key?(key)
-    if find_by(key: key)
-      true
-    else
-      false
+    # Check Exists
+    # @param [String] key
+    # @return [Boolean]
+    def has_key?(key)
+      where(key: key).exists?
     end
   end
 end
