@@ -9,6 +9,7 @@ class Configs::Theme < Config
     if is_active == false && Configs::Theme.activated_theme.nil?
       self.class.where(key: Configs::Theme::DEFAULT_THEME_NAME).update(is_active: true)
     end
+    system("bin/rails restart")
   end
   field :description, type: String
   field :is_active, type: Boolean, default: false
