@@ -1,17 +1,1 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <%= Config[:head].html_safe if Configs::View[:head].is_a?(String) %>
-    <title>Newsdict Admin </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-  <body>
-    <%= Config[:after_body].html_safe if Configs::View[:after_body].is_a?(String) %>
-    <%= yield %>
-    <%= Config[:end_body].html_safe if Configs::View[:end_body].is_a?(String) %>
-    <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
-  </body>
-</html>
+<%= render partial: "layouts/application" %>
