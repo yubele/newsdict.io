@@ -25,7 +25,7 @@ module Sources
           hrefs << "#{uri.scheme}:#{href}"
         elsif href.match(::Regexp.new("^/"))
           hrefs << "#{fqdn}#{href}"
-        elsif href.match(::Regexp.new("^\."))
+        elsif href.match(::Regexp.new("^\\."))
           hrefs << "#{fqdn}/#{href}"
         else
           hrefs << href
