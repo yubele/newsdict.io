@@ -6,9 +6,9 @@ include::google_translate.adoc[]
 
 === Description
 newsdict.ioは、docker上で構築されdocker-composeを使うとすぐに動作させることが可能です。
-newsdict.ioはRailsアプリでsidekiqを使いクローリングなどを行っています。ドキュメントはasciidoctorを
+newsdict.ioはRailsアプリでsidekiqで構成されています。ドキュメントはasciidoctorを
 使用しており、link:https://asciidoctor.live[acsiidoctor.live]によって構成されています。 +
-使用しているパッケージは以下の通りです。
+その他、使用しているパッケージは以下の通りです。
 |===
 | category | name | Place of use
 | infra | docker | プラットフォーム
