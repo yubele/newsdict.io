@@ -169,6 +169,8 @@ group :document do
   gem 'asciidoctor'
   # An extension for asciidoctor that adds support for UML diagram generation using PlantUML (https://github.com/asciidoctor/asciidoctor-diagram)
   gem 'asciidoctor-diagram'
+  # A reveal.js converter for Asciidoctor. Write your slides in AsciiDoc! (https://github.com/asciidoctor/asciidoctor-reveal.js)
+  gem 'asciidoctor-revealjs'
   # Guard keeps an eye on your file modifications (http://guardgem.org)
   gem 'guard'
   # Guard gem for running shell commands (http://github.com/hawx/guard-shell)
