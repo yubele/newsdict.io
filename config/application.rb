@@ -58,5 +58,9 @@ module Newsdict
     config.paper_column_number = 4
     # Enforce trailing slash in Rails Routing
     config.action_controller.default_url_options = { :trailing_slash => true }
+    # default theme
+    config.assets.paths = [
+      Rails.root.join('app', 'themes', 'default', 'assets', 'javascripts'),
+      Rails.root.join('app', 'themes', 'default', 'assets', 'stylesheets')]
   end
 end
