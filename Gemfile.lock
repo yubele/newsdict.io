@@ -78,6 +78,10 @@ GEM
     asciidoctor (2.0.10)
     asciidoctor-diagram (2.0.2)
       asciidoctor (>= 1.5.7, < 3.x)
+    asciidoctor-revealjs (4.0.1)
+      asciidoctor (>= 2.0.0, < 3.0.0)
+      concurrent-ruby (~> 1.0)
+      thread_safe (~> 0.3.5)
     bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.4.6)
@@ -500,6 +504,7 @@ DEPENDENCIES
   annotate_gem
   asciidoctor
   asciidoctor-diagram
+  asciidoctor-revealjs
   bootsnap
   bulma-rails
   bundler-audit

@@ -1,17 +1,23 @@
-# Get already activated theme.
-activated_theme = Configs::Theme.activated_theme
-# Flush the theme names.
-Configs::Theme.delete_all
-# Import the theme names.
-Configs::Theme.directory_names.each do |key|
-  if (activated_theme.nil? && key == Configs::Theme::DEFAULT_THEME_NAME) ||
-    (activated_theme && key == activated_theme.key)
-    is_active = true
-  else
-    is_active = false
+redis = YAML.load(ERB.new(File.read("#{Rails.root}/config/redis.yml")).result)[Rails.env]
+redis = Redis.new(url: "redis://#{redis['host']}", namespace: ENV['NAMESPACE'])
+if redis.get('config/initializers/theme::lock').nil?
+  redis.set('config/initializers/theme::lock', true)
+  # Delete the theme not exists at directory.
+  Configs::Theme.all.each do |theme|
+    unless Dir.exists?(Rails.root.join('app', 'themes', theme.key))
+      theme.destroy
+    end
   end
-  Configs::Theme.create!(
-    key: key,
-    is_active: is_active)
+  # Import the theme names.
+  Configs::Theme.directory_names.each do |key|
+    if Configs::Theme.exists(key: key).empty?
+      Configs::Theme.create!(key: key)
+    end
+  end
+  # Check active default theme, if Configs::Theme have not `is_active=true`;
+  if Configs::Theme.exists(is_active: true).empty?
+    Configs::Theme.where(key: Configs::Theme::DEFAULT_THEME_NAME).update(is_active: true)
+  end
+  Configs::Theme.apply
+  redis.del('config/initializers/theme::lock')
 end
-Configs::Theme.apply

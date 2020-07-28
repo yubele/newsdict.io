@@ -1,6 +1,9 @@
 #!/bin/bash
 . $(dirname $BASH_SOURCE)/../bootstrap.sh asciidoctor $1
 cd /var/www/docker
+# Compile revealjs docs
+bash src/provisioning/startup/asciidoctor/revealjs.sh README.adoc
+bash src/provisioning/startup/asciidoctor/revealjs.sh presentation.ja.adoc
 # Compile docs
 for i in $(find src/doc -name '*\.adoc')
 do
