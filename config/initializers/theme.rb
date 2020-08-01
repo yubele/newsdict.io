@@ -18,6 +18,6 @@ if redis.get('config/initializers/theme::lock').nil?
   if Configs::Theme.exists(is_active: true).empty?
     Configs::Theme.where(key: Configs::Theme::DEFAULT_THEME_NAME).update(is_active: true)
   end
+  Configs::Theme.apply
   redis.del('config/initializers/theme::lock')
 end
-Configs::Theme.apply
