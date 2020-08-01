@@ -41,6 +41,7 @@ newsdict.ioはRailsアプリでsidekiqで構成されています。ドキュメ
 
 [plantuml, diagram-classes, png]
 ....
+skinparam monochrome reverse
 actor User
 package "docker-compose" {
     node documentor {
