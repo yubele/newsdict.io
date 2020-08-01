@@ -1,4 +1,7 @@
 #!/bin/bash
+current_path=$(readlink -f $(dirname $BASH_SOURCE)/../../../../)
+. ./.env
+
 if [ "$(echo $2 | grep -e "index$" 2>&1 >/dev/null; echo $?)" = "0" ]; then
     output=$2.html
 else
@@ -6,5 +9,5 @@ else
 fi
 bundle exec asciidoctor --safe-mode unsafe \
     -r asciidoctor-diagram \
-    -a stylesheet=/var/www/docker/asciidoctor-skins/css/clean.css \
+    -a stylesheet=/var/www/docker/asciidoctor-skins/css/$asciidoctor_theme.css \
     -a lang=ja -b html5 -d book  $1 -o $output

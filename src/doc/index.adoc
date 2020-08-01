@@ -7,85 +7,23 @@ include::ja/google_translate.adoc[]
 [caption="Correct the conntents from Internet."]
 image:https://raw.githubusercontent.com/newsdict/newsdict.io/master/logo.png[]
 
-image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
-image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
-image:https://img.shields.io/badge/rails-v6.0.2.2-orange[Rails]
-image:https://img.shields.io/badge/mongoid-7.1.0-yellow[Mongoid]
-image:https://img.shields.io/badge/rails_admin-2.0.1-yellow[RailsAdmin]
-image:https://img.shields.io/badge/yard-0.9.24-yellow[Yard]
+include::../../README.adoc[lines=2..6]
 
 newsdict.ioはフォロワーがシェアしている記事などのウェブコンテンツを
 クローリングしフィードとして閲覧できるようにします。Railsで作ってあるため拡張が容易です。
 
 == Documents
-=== Getting Start
-
-簡単に起動できる方法を紹介します。
-
--> link:ja/getting_start/[Getting Start]
-
-=== Overview
-
-アプリの構成を紹介しています。
-
--> link:ja/overview/[Overview]
-
-=== Docker
-
-Docker上のシステムの宗田方法を紹介しています。
-
--> link:ja/docker[Docker]
-
-=== Setting
-
-動作に必要な設定方法を紹介しています。
-
--> link:ja/setting/[Setting]
-
-=== Worker
-
-定期的なジョブを実行するワーカーについて紹介しています。
-
--> link:ja/worker/[Worker]
-
-=== Theme
-
-アプリで使用するテーマについて紹介します。
-
--> link:ja/theme/[Theme]
-
-=== API
-
-APIについて紹介します。
-
--> link:ja/api/[Api]
-
-=== Document
-
-newsdict.ioのドキュメントシステムについて紹介します。
-
--> link:ja/document/[Document]
-
-=== Admin
-
-管理画面について紹介します。
-
--> link:ja/admin/[Admin]
-
-=== Debug
-
-newsdict.ioを使って開発する上でのデバッグ方法について紹介します。
-
-link:ja/debug/[Debug]
-
-=== Programing Guide
-
-newsdict.ioの開発ガイドです。
-
--> link:ja/programing_guide/[Programing Guide]
-
-=== Yard Documents
-
-newsdict.ioのYardDocです。
-
--> link:https://doc.newsdict.io[YardDoc]
+|===
+| link:ja/getting_start/[Getting Start] | 簡単に起動できる方法を紹介します。
+| link:ja/overview/[Overview] | アプリの構成を紹介しています。
+| link:ja/docker[Docker] | Docker上のシステムの宗田方法を紹介しています。
+| link:ja/setting/[Setting] | 動作に必要な設定方法を紹介しています。
+| link:ja/worker/[Worker] | 定期的なジョブを実行するワーカーについて紹介しています。
+| link:ja/theme/[Theme] | アプリで使用するテーマについて紹介します。
+| link:ja/api/[Api] | APIについて紹介します。
+| link:ja/document/[Document] | newsdict.ioのドキュメントシステムについて紹介します。
+| link:ja/admin/[Admin] | 管理画面について紹介します。
+| link:ja/debug/[Debug] | newsdict.ioを使って開発する上でのデバッグ方法について紹介します。
+| link:ja/programing_guide/[Programing Guide] | newsdict.ioの開発ガイドです。
+| link:https://doc.newsdict.io[YardDoc] | newsdict.ioのYardDocです。
+|===
