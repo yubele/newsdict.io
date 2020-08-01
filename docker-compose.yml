@@ -15,7 +15,7 @@ services:
     networks:
       - app-tier
     volumes:
-      - ./tmp/data:/data
+      - ~/mongodb:/data/db
   web:
     tty: true
     stdin_open: true
