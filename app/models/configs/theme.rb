@@ -17,7 +17,7 @@ class Configs::Theme < Config
     # Get already activated theme.
     # @return [Configs::theme] activated theme.
     def activated_theme
-      find_by(is_active: true)
+      find_by(is_active: true) || Configs::Theme.new({key: Configs::Theme::DEFAULT_THEME_NAME, is_active: true})
     end
     # Apply theme
     # @return [Configs::Theme] Applied theme.
