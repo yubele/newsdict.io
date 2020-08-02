@@ -25,5 +25,6 @@ class AdminAbility
       can :manage, Sources::WebSite, user_id: user.id
       can :update, User, id: user.id
     end
+    cannot :destroy, User, id: user.id
   end
 end
