@@ -1,0 +1,29 @@
+#!/usr/bin/env bash 
+#
+# Runnable ubuntu os.
+#
+
+# Output the headers.echo ""
+echo "### Startup Command Status"
+echo -n "Status  "
+echo -n "Local Port"
+docker-compose ps | head -n 1
+echo -n "--------------------"
+docker-compose ps | head -n 2 | tail -n 1
+
+# Output the status.
+localports=$(docker-compose ps | grep -oE '0.0.0.0:[0-9]+')
+for localport in $localports; do
+    if [ $(curl -LI $localport -o /dev/null -w '%{http_code}' -s) = "200" ];then
+        echo -n "    OK  "
+    else
+        echo -n "    --  "
+    fi
+    echo -n "$localport  "
+    docker-compose ps | grep $localport
+done
+
+# Docker-compose status
+echo ""
+echo "### DockerCompose Status"
+docker-compose ps
