@@ -3,6 +3,12 @@
 # Runnable ubuntu os.
 #
 
+# Docker-compose status
+echo ""
+echo "### DockerCompose Status"
+docker-compose ps
+echo ""
+
 # Output the headers.echo ""
 echo "### Startup Command Status"
 echo -n "Status  "
@@ -22,8 +28,3 @@ for localport in $localports; do
     echo -n "$localport  "
     docker-compose ps | grep $localport
 done
-
-# Docker-compose status
-echo ""
-echo "### DockerCompose Status"
-docker-compose ps

@@ -26,5 +26,6 @@ class AdminAbility
       can :update, User, id: user.id
     end
     cannot :destroy, User, id: user.id
+    cannot :bulk_delete, User, id: user.id
   end
 end
