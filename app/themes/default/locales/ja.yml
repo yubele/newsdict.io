@@ -1,4 +1,5 @@
 ja:
+  request_removing: 削除リクエスト
   top_page: トップページ
   inquiry: お問い合わせ
   sidekiq: ジョブ管理
