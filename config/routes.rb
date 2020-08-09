@@ -25,7 +25,11 @@ Rails.application.routes.draw do
   get "/paper/term/:from_date/:to_date/", to: "papers#term", as: :paper_term
   get "/paper/term/:date/", to: "papers#one_day", as: :paper_oneday
   get "/paper/:id/", to: "papers#show", as: :paper
-  resource :inquiries, only: [:show, :create]
+  resource :inquiries, only: [:show, :create] do
+    collection do
+      post :request_removing
+    end
+  end
   get "/img/:id", to: "images#index", as: :img
   # Apis
   namespace :api do

@@ -147,6 +147,7 @@ en:
       inquiry: Inquiry
     errors:
       messages:
+        invalid: invalid
         taken: is already registered
         too_short: Too Short
         blank: Blank

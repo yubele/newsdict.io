@@ -1,5 +1,6 @@
 <%= form_for(@resource, url: inquiries_path) do |f| %>
 <div class="container">
+    <h1 class="title is-1"><%= I18n.t('inquiry') %></h1>
     <div class="field">
         <label class="label"><%= t('.your_name') %></label>
         <div class="control">
@@ -14,6 +15,15 @@
         </div>
         <p class="help is-danger"><%= @resource.errors.messages[:mailaddress].join(",") %></p>
     </div>
+    <% if params.include?(:url) %>
+    <div class="field">
+        <label class="label"><%= t('.url') %></label>
+        <div class="control">
+            <%= f.text_field :url, value: params[:url],class: :input, autofocus: false, placeholder: t('.url'), readonly: true %>
+        </div>
+        <p class="help is-danger"><%= @resource.errors.messages[:inquiry].join(",") %></p>
+    </div>
+    <% end %>
     <div class="field">
         <label class="label"><%= t('.inquiry') %></label>
         <div class="control">
@@ -29,9 +39,3 @@
     </div>
 </div>
 <% end %>
-<script src="https://www.google.com/recaptcha/api.js"></script>
-<script>
-    function onSubmit(token) {
-        document.getElementById("demo-form").submit();
-    }
-</script>
