@@ -3,6 +3,7 @@ en:
     show:
       your_name: Your Name
       your_mailaddress: Your Mailaddress
+      url: URL
       inquiry: Inquiry
       submit: Submit
     confirm:

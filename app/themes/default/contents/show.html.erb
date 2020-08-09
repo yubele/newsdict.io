@@ -61,6 +61,15 @@
                 </div>
             </section>
             <div class="columns">
+                <div class="column is-12 has-text-right-tablet">
+                    <%= form_tag request_removing_inquiries_path, method: 'post' do %>
+                    <%= hidden_field_tag :id, @content.id %>
+                    <%= recaptcha_v3 action: 'request_removing', site_key: Configs::Global.find_by(key: :recaptcha_v3_site_key).value %>
+                    <%= submit_tag  t('request_removing'), class: "button" %>
+                    <% end %>
+                </div>
+            </div>
+            <div class="columns">
                 <div class="column is-6">
                     <div class="card events-card">
                         <header class="card-header">

@@ -34,11 +34,9 @@ class ApplicationController < ActionController::Base
   # Setup recaptcha.
   # @return [void]
   def set_recaptcha
-    recaptcha_site_key = Configs::Global.find_by(key: :recaptcha_site_key).value
-    recaptcha_secret_key = Configs::Global.find_by(key: :recaptcha_secret_key).value
     Recaptcha.configure do |config|
-      config.site_key  = recaptcha_site_key
-      config.secret_key = recaptcha_secret_key
+      config.site_key  = Configs::Global.find_by(key: :recaptcha_v2_site_key).value
+      config.secret_key = Configs::Global.find_by(key: :recaptcha_v2_secret_key).value
     end
   end
 end

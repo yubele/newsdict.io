@@ -110,13 +110,13 @@ class Content < ApplicationRecord
         collection = self.in(source_id: Source.all.map {|u| u.id })
       end
       collection = collection.where(http_status: "200")
-      if ::Filters::HiddenContent.exists?
-        collection
-          .not(expanded_url: /(#{::Filters::HiddenContent.all.map {|c| c.exclude_url }.join('|')})/)
-          .not(expanded_title: /(#{::Filters::HiddenContent.all.map {|c| c.exclude_title }.join('|')})/)
-      else
-        collection.all
+      unless ::Filters::HiddenContent.regexp(:exclude_url).blank?
+        collection = collection.not(expanded_url: ::Filters::HiddenContent.regexp(:exclude_url))
       end
+      unless ::Filters::HiddenContent.regexp(:exclude_title).blank?
+        collection = collection.not(title: ::Filters::HiddenContent.regexp(:exclude_title))
+      end
+      collection
     end
     # Sort the content by sort_type
     # @param [Symbol] sort_type

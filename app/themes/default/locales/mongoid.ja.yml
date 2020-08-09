@@ -147,8 +147,10 @@ ja:
       inquiry: 問い合わせ
     errors:
       messages:
-        taken: is already registered
-        too_short: Too Short
+        invalid: 正しい文字を入れてください
+        taken: すでに登録されています
+        too_short: 短すぎます
+        blank: 空白です
         wrong_length: "is the wrong length (should be %{count} characters)"
         blank_in_locale:
           "can't be blank in %{location}"
