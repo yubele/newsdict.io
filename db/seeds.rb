@@ -2,14 +2,12 @@ p "Start db:seed"
 # Default config
 Configs::View::KEYS.each do |key, value|
   if Configs::View.has_key?(key)
-    p "already exits #{key}"
   else
     Configs::View.create!(
       key: key,
       description: value,
       value: String.new
     )
-    p "Insert #{key}."
   end
 end
 # Default User
@@ -25,10 +23,18 @@ end
 # Global Config
 Configs::Global::KEYS.each do |key|
   unless Configs::Global.find_by(key: key)
-    Configs::Global.new({
+    Configs::Global.create(
       key: key,
       value: ""
-    }).save
+    )
+  end
+end
+# Hook Config
+Configs::Hook::KEYS.each do |key|
+  unless Configs::Hook.find_by(key: key)
+    Configs::Hook.create(
+      key: key
+    )
   end
 end
 p "End of db:seed"

@@ -10,6 +10,7 @@ module Configs::Tokens
     validates :token, length: {minimum: 30, maximum: 255}, presence: true
     validates :notify_target_category_id, presence: true
     belongs_to :configs_schedule, class_name: "Configs::Schedule"
+    has_many :hooks, class_name: "Configs::Hooks", autosave: false
     def notify_target_category_id_enum
       Configs::Category.all.map {|c| [c.key, c.id] }.to_h
     end

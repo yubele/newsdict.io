@@ -139,6 +139,7 @@ ja:
       "configs/theme": テーマ
       "configs/schedule": 実行時刻設定
       "configs/global": 共通設定
+      "configs/hook": タイミング設定
       "configs/tokens/chatwork": Chatwork設定
       "configs/tokens/slack": Slack設定
       "configs/tokens/smtp": SMTP設定(メール送信設定)
