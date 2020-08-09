@@ -10,7 +10,7 @@ module Filters
       # @return [nil|Regexp]
       def regexp(column_name)
         Regexp.new("(" << ::Filters::HiddenContent.not(column_name => nil).not(column_name => "").map { |filter|
-            Regexp.escape(filter.send(column_name))
+            "^#{Regexp.escape(filter.send(column_name))}$"
           }.join('|') << ")") if ::Filters::HiddenContent.not(column_name => nil).not(column_name => "").present?
       end
     end

@@ -3,7 +3,8 @@ class ContentsController < ApplicationController
   # Show content
   # @params [BSON::ObjectId]
   def show(id)
-    @content = Content.find_by(id: id)
+    @content = Content.contents.find_by(id: id)
+    raise ActionController::RoutingError.new('Not Found') if @content.nil?
     @contents = Contents::Web.contents(name: @content.source.name)
       .sortable
       .page(@content.page_num({
