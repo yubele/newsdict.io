@@ -4,12 +4,11 @@ module Configs
     field :hour, type: Integer
     field :min, type: Integer
     field :wday, type: Integer
-    field :is_active, type: Boolean
+    field :category_id, type: BSON::ObjectId
     validates :hour, inclusion: -1..23, presence: true
     validates :min, inclusion: -1..59, presence: true
     validates :wday, inclusion: -1..6, presence: true
-    has_one :configs_tokens_chatwork, class_name: "Configs::Tokens::Chatwork", autosave: false
-    has_one :configs_tokens_slack, class_name: "Configs::Tokens::Slack", autosave: false
+    belongs_to :category, class_name: "Configs::Category"
     EVERY = -1
     # RailsAdmin Enum
     def hour_enum
@@ -22,6 +21,9 @@ module Configs
     # RailsAdmin Enum
     def wday_enum
       I18n.t("date.abbr_day_names").map.with_index {|n, index| [n, index]}.push([I18n.t(:everyday), -1]).to_h
+    end
+    def category_id_enum
+      Configs::Category.all.map {|c| [c.key, c.id] }.to_h
     end
     # Check to match schedule. 
     # @return Boolean

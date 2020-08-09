@@ -1,6 +1,6 @@
 RailsAdmin.config do |config|
   config.model "Configs::Schedule" do
-    fields :key, :description, :hour, :min, :wday, :is_active
+    fields :key, :description, :hour, :min, :wday, :category
     list do
       field :wday do
         pretty_value do

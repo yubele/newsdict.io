@@ -2,7 +2,8 @@ module Configs
   class Hook < Config
     KEYS = [
       :requested_removing,
-      :receive_form
+      :receive_form,
+      :schedule
     ]
     field :notify_chatwork_id, type: BSON::ObjectId
     field :notify_slack_id, type: BSON::ObjectId
