@@ -37,5 +37,8 @@ Rails.application.routes.draw do
       resource :contents, only: [:show]
     end
   end
+  authenticated :user do
+    root :to => "dashboards#show", :as => "user_authenticated_root"
+  end
   root to: "timelines#show"
 end
