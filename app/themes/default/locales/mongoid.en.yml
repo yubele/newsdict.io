@@ -139,6 +139,7 @@ en:
       "configs/category": "Category Setting"
       "configs/schedule": Exec Schedule
       "configs/global": Global Settings
+      "configs/hook": Hook of Notify Settings
       "contents/web": "contents data"
       "configs/tokens/chatwork": Chatwork Settings
       "configs/tokens/slack": Slack Settings

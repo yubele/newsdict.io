@@ -9,17 +9,17 @@ RailsAdmin.config do |config|
     dashboard
     index
     new do
-      except  ['User', 'Configs::View', 'Contents::Web', 'Configs::Theme', 'Configs::Global']
+      except  ['User', 'Configs::View', 'Contents::Web', 'Configs::Theme', 'Configs::Global', 'Configs::Hook']
     end
     bulk_delete do
-      except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global']
+      except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global', 'Configs::Hook']
     end
     show do
       except ['Configs::Tokens::Twitter']
     end
     edit
     delete do
-      except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global']
+      except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global', 'Configs::Hook']
     end
     show_in_app
   end

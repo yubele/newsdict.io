@@ -19,15 +19,10 @@
     cron: '0 0 */3 * * *'
     class: SitemapsJob
     queue: sitemaps
-  notify_chatworks_job:
+  notifies_job:
     enabled: true
     cron: '0 * * * * *'
-    class: Notify::ChatworksJob
-    queue: notifies
-  notify_slacks_job:
-    enabled: true
-    cron: '0 * * * * *'
-    class: Notify::SlacksJob
+    class: NotifiesJob
     queue: notifies
   themes_job:
     enabled: true

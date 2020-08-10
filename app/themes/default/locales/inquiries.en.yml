@@ -6,5 +6,11 @@ en:
       url: URL
       inquiry: Inquiry
       submit: Submit
+    create:
+      your_name: Your Name
+      your_mailaddress: Your Mailaddress
+      url: URL
+      inquiry: Inquiry
+      submit: Submit
     confirm:
       thank_you_for_inquiry: Thank you for inquiry

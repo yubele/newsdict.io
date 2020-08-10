@@ -54,20 +54,24 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.notify_setting')
     weight 13
   end
-  config.model "Configs::Tokens::Smtp" do
+  config.model "Configs::Hook" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 14
   end
-  config.model "Configs::Tokens::Twitter" do
+  config.model "Configs::Tokens::Smtp" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 15
   end
-  config.model "Configs::Global" do
+  config.model "Configs::Tokens::Twitter" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 16
   end
-  config.model "User" do
+  config.model "Configs::Global" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 17
+  end
+  config.model "User" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 18
   end
 end

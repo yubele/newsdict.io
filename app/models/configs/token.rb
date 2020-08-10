@@ -13,9 +13,13 @@ class Configs::Token < Config
 #{text}
 ----
 EOS
-    contents.each do |content|
-      body << "#{content.title}\n"
-      body << "   #{content.expanded_url}\n"
+    if contents.is_a?(String)
+      body << contents
+    else
+      contents.each do |content|
+        body << "#{content.title}\n"
+        body << "   #{content.expanded_url}\n"
+      end
     end
     body.chomp
   end

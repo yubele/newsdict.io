@@ -6,5 +6,11 @@ ja:
       url: URL
       inquiry: お問い合わせ内容
       submit: 送信
+    create:
+      your_name: お名前
+      your_mailaddress: メールアドレス
+      url: URL
+      inquiry: お問い合わせ内容
+      submit: 送信
     confirm:
       thank_you_for_inquiry: お問い合わせありがとうございました
