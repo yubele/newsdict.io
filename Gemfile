@@ -191,6 +191,6 @@ group :test do
   gem 'webmock'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker'
-  # Strategies for cleaning databases. Can be used to ensure a clean slate for testing. (https://github.com/DatabaseCleaner/database_cleaner)
-  gem 'database_cleaner'
+  gem 'database_cleaner-mongoid'
+  gem 'database_cleaner-redis'
 end

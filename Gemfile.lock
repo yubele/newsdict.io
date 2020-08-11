@@ -127,6 +127,16 @@ GEM
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
     database_cleaner (1.8.5)
+    database_cleaner-mongo (1.8.1)
+      database_cleaner (~> 1.8.0)
+      mongo
+    database_cleaner-mongoid (1.8.1)
+      database_cleaner (~> 1.8.0)
+      database_cleaner-mongo (~> 1.8.0)
+      mongoid
+    database_cleaner-redis (1.8.0)
+      database_cleaner (~> 1.8.0)
+      redis
     devise (4.7.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -514,7 +524,8 @@ DEPENDENCIES
   capybara
   chatwork
   coffee-rails
-  database_cleaner
+  database_cleaner-mongoid
+  database_cleaner-redis
   devise
   devise-i18n
   devise-i18n-views
