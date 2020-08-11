@@ -34,13 +34,13 @@ class Friendship < ApplicationRecord
     end
     # Returns an array of `Friendship` as seen from the `user`
     # @param [User] user
-    # @return [Array] Array of `Frindshop`
+    # @return [Array] Array of `Frindship`
     def from_user(user)
       Friendship.where(user_id: user.id)
     end
     # Returns an array of `Friendship` as seen from the `friend_user`
     # @param [User] friend_user
-    # @return [Array] Array of `Frindshop`
+    # @return [Array] Array of `Frindship`
     def from_friend_user(friend_user)
       Friendship.where(friend_user_id: friend_user.id)
     end

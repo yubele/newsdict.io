@@ -6,13 +6,12 @@ class FriendshipTest < ActiveSupport::TestCase
     super
     @me = FactoryBot.create(:user)
     @user1 = FactoryBot.create(:user)
-    @user2 = FactoryBot.create(:user)
-    @user3 = FactoryBot.create(:user)
-    @user4 = FactoryBot.create(:user)
     login_as(@me, scope: :user)
   end
   test "Request friendship" do
-    assert Friendship.request(friend_user: @user1, user: @me)
+    friend = Friendship.request(friend_user: @user1, user: @me)
+    assert_equal friend.friend_user_id, @user1.id
+    assert_equal friend.user_id, @me.id
     assert_nil Friendship.request(friend_user: @user1, user: @me)
   end
   test "Check default status" do
