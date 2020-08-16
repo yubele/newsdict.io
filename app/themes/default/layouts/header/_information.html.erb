@@ -1,6 +1,8 @@
 <div id="information">
   <div class="header">
+    <% if @category_name %>
     <h1><%= @category_name %></h1>
+    <% end %>
     <div class="order">
       <% if params[:controller] == "timelines" %>
       <%= render partial: "layouts/header/order" %>

@@ -1,1 +1,38 @@
-dashbaords
+<section class="container">
+    <form class="field mx-5">
+        <input class="input is-rounded" type="text" placeholder="<%= t(".search") %>">
+    </form>
+    <div class="paper columns features">
+        <% @column_number.times.each do |column_num| %>
+        <div class="row is-3">
+        <% (column_num+1).step(@per_page, @column_number) do |index| %>
+            <% break unless @contents[index] %>
+            <div class="column paper card is-shady">
+                <div class="columns is-mobile">
+                    <div class="column is-1">
+                        <figure class="image is-32x32">
+                            <img class="is-rounded" src="https://bulma.io/images/placeholders/32x32.png">
+                        </figure>
+                    </div>
+                    <div class="column has-text-weight-bold">
+                        <div class="mt-2">
+                            <%= @contents[index].source.alias %>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-head"  style="background-image: url(/img/<%= @contents[index].id %>)">
+                    <div class="card-title">
+                        <%= link_to @contents[index].expanded_url ,target: :_blank, ref: :nofollow do %>
+                        <h4><%= @contents[index].title %></h4>
+                        <% end %>
+                    </div>
+                </div>
+                <footer>
+                    <%= tag_element(@contents[index].longer_tags).html_safe %>
+                </footer>
+            </div>
+        <% end %>
+        </div>
+        <% end %>
+    </div>
+</section>
