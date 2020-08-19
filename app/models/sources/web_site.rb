@@ -36,10 +36,14 @@ module Sources
     # Check if it is updated.
     # This is written here because it must be determined for each Source model.
     # @param [Contents::Web] content
-    # @param [Hash] Contents::Web attributes 
+    # @param [Hash] Contents::Web attributes
     # @return [Boolean]
     def update?(content, attrs)
       content.content != attrs[:content]
+    end
+    # Return icon image.
+    # @return [BSON::Binary] image
+    def icon
     end
   end
 end
