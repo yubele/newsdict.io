@@ -21,7 +21,7 @@ module WebDriverHelper
     driver.quit
     source
   rescue => e
-    driver.quit
+    driver.quit if driver.class == Selenium::WebDriver
     raise e
   end
   module_function :get_source

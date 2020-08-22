@@ -30,7 +30,7 @@ module ApplicationHelper
       relative_path
     elsif relative_path.match(Regexp.new("^/"))
       "#{fqdn}#{relative_path}"
-    elsif relative_path.match(Regexp.new("^\."))
+    elsif relative_path.match(Regexp.new("^\\."))
       "#{fqdn}/#{relative_path}"
     else
       "#{fqdn}#{uri.path}/#{relative_path}"

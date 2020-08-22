@@ -32,13 +32,7 @@ module Sources
     def icon
       unless icon_blob
         user = Newsdict::Application.config.twitter_client.user(self.name)
-        profile_image_url_https = user.profile_image_url_https.to_s
-        tmp_file = "/tmp/#{Digest::SHA1.hexdigest(profile_image_url_https)}"
-        agent = Mechanize.new { |_agent| _agent.user_agent = WebStat::Configure.get["user_agent"] }
-        agent.get(profile_image_url_https).save_as(tmp_file)
-        self.icon_blob = BSON::Binary.new(File.read(tmp_file))
-        self.save
-        File.unlink(tmp_file)
+        self.save_icon_blob_from_url(user.profile_image_url_https)
       end
       self.icon_blob
     end

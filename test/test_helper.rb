@@ -4,6 +4,22 @@ require 'rails/test_help'
 require 'twitter_helper'
 Dir.glob(Rails.root.join('test/**/*_test.rb')).each { |file| require file}
 
+# Overwride.
+module WebDriverHelper
+  # Get source
+  # @param [String] url
+  # @param [Integer] delay
+  def get_source(url, delay=nil)
+    agent = Mechanize.new { |_agent| _agent.user_agent = WebStat::Configure.get["user_agent"] }
+    sleep delay unless delay.nil?
+    agent.get(url).body
+  rescue => e
+    driver.quit if driver.class == Selenium::WebDriver
+    raise e
+  end
+  module_function :get_source
+end
+
 class ActiveSupport::TestCase
   # Initialize DB
   def setup
