@@ -14,4 +14,9 @@ class DashboardsController < ApplicationController
     @paper.title = I18n.t('paper.one_day.title', date: I18n.l(time, format: :only_date))
     render :show
   end
+  # Search content
+  # @param [String] keyword
+  def search(keyword)
+
+  end
 end

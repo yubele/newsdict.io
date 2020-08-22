@@ -41,11 +41,11 @@ class Content < ApplicationRecord
     column = options[:by] || :id
     order  = options[:order] || :asc
     per    = options[:per] || self.class.default_per_page
-  
+
     operator = (order == :asc ? "<=" : ">=")
     (self.class.where("#{column} #{operator} ?" => read_attribute(column)).order("#{column} #{order}").count.to_f / per).ceil
   end
-  
+
   class << self
     # Set attributes by `WebStat` gems
     # @param [Source] object
@@ -80,7 +80,7 @@ class Content < ApplicationRecord
     end
     # Save a content from job
     # @param [Hash] attrs
-    # @return [void] 
+    # @return [void]
     def save_form_job(attrs)
       already_content = Contents::Web.unique?(url: attrs[:exclude_url], title: attrs[:title])
       # Check duplicated contents
@@ -98,9 +98,10 @@ class Content < ApplicationRecord
       end
     end
     # Get the records
-    # @param order default :desc
-    # @param category_id default: nil
-    # @return [Contents::Web] 
+    # @param [Symbol] order default :desc
+    # @param [BSON::ObjectId] category_id default: nil
+    # @param [String] name of Source
+    # @return [Contents::Web]
     def contents(order: :desc, category_id: nil, name: nil)
       if name
         collection = self.in(source_id: Source.find_by(name: name))
@@ -120,7 +121,7 @@ class Content < ApplicationRecord
     end
     # Sort the content by sort_type
     # @param [Symbol] sort_type
-    # @return [Contents::Web] 
+    # @return [Contents::Web]
     def sortable(sort_type=:updated_at)
       if Content::SORT_TYPE.key?(sort_type)
         sort_type_sym = sort_type.to_sym
@@ -128,9 +129,9 @@ class Content < ApplicationRecord
       order_by(*Content::SORT_TYPE[sort_type_sym])
     end
     # Get the data of between gt and lte
-    # @params [String] gt 
+    # @params [String] gt
     # @params [String] lte
-    # @return [Contents::Web] 
+    # @return [Contents::Web]
     def term(gt, lte, key = :updated_at)
       gt(key => gt).lte(key => lte)
     end
@@ -141,6 +142,26 @@ class Content < ApplicationRecord
     # @return [Content] exists content
     def unique?(url: nil, title: nil)
       where(expanded_url: url).first || where(title: title).first
+    end
+    # Search content by title
+    # @param [String] keyword
+    # @return [Contents::Web]
+    def search_by_title(keyword)
+      self.where(title: /#{keyword}/)
+    end
+    # Search content by tag
+    # @param [String] keyword
+    # @return [Contents::Web]
+    def search_by_tag(keyword)
+      self.where(tags: /#{keyword}/)
+    end
+    # Search content by category_name
+    # @param [String] keyword
+    # @return [Contents::Web]
+    def search_by_category_name(keyword)
+      category_ids = Configs::Category.where(key: /#{keyword}/).map(&:id)
+      source_ids = Source.in(category_id: category_ids).map(&:id)
+      self.in(source_id: source_ids)
     end
   end
 end
