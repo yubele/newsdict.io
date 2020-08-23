@@ -1,7 +1,7 @@
 <section class="container">
-    <form class="field mx-5">
-        <input class="input is-rounded" type="text" placeholder="<%= t(".search") %>">
-    </form>
+    <%= form_with(url: dashboards_search_path, method: :get, class: "field mx-5") do |f| %>
+        <%= f.text_field :keyword, value: params[:keyword], placeholder: t(".search"), class: "input is-rounded" %>
+    <% end %>
     <div class="paper columns features">
         <% @column_number.times.each do |column_num| %>
         <div class="row is-3">
