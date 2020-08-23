@@ -45,8 +45,8 @@ module Newsdict
       Devise::SessionsController.layout "devise"
       Devise::RegistrationsController.layout proc{ |controller| user_signed_in? ? "application" : "devise" }
       Devise::ConfirmationsController.layout "devise"
-      Devise::UnlocksController.layout "devise"            
-      Devise::PasswordsController.layout "devise"        
+      Devise::UnlocksController.layout "devise"
+      Devise::PasswordsController.layout "devise"
     end
     # XML Sitemaps
     config.gem 'sitemap_generator'
@@ -62,5 +62,7 @@ module Newsdict
     config.assets.paths = [
       Rails.root.join('app', 'themes', 'default', 'assets', 'javascripts'),
       Rails.root.join('app', 'themes', 'default', 'assets', 'stylesheets')]
+    # mongoid logger
+    config.mongoid.logger = Logger.new(Rails.root.join('log', 'mongoid.log'))
   end
 end

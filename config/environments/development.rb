@@ -50,14 +50,14 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  
-  # Logging to STDOUT 
+
+  # Logging to STDOUT
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
-  
+
   # webpacker domain
   if ENV['WEBPACK_DEV_SERVER_PUBLIC'].present?
     config.action_controller.asset_host = Proc.new do |source|
@@ -68,7 +68,10 @@ Rails.application.configure do
       end
     end
   end
-  
+
   # To allow requests to puma, add the following to your environment configuration
   config.hosts << "puma"
+
+  # mongoid log level
+  config.mongoid.logger.level = Logger::DEBUG
 end
