@@ -101,7 +101,7 @@ class Content < ApplicationRecord
     # @param [Symbol] order default :desc
     # @param [BSON::ObjectId] category_id default: nil
     # @param [String] name of Source
-    # @return [Contents::Web]
+    # @return [Content]
     def contents(order: :desc, category_id: nil, name: nil)
       if name
         collection = self.in(source_id: Source.find_by(name: name))
@@ -121,7 +121,7 @@ class Content < ApplicationRecord
     end
     # Sort the content by sort_type
     # @param [Symbol] sort_type
-    # @return [Contents::Web]
+    # @return [Content]
     def sortable(sort_type=:updated_at)
       if Content::SORT_TYPE.key?(sort_type)
         sort_type_sym = sort_type.to_sym
@@ -131,7 +131,7 @@ class Content < ApplicationRecord
     # Get the data of between gt and lte
     # @params [String] gt
     # @params [String] lte
-    # @return [Contents::Web]
+    # @return [Contents]
     def term(gt, lte, key = :updated_at)
       gt(key => gt).lte(key => lte)
     end
@@ -145,23 +145,32 @@ class Content < ApplicationRecord
     end
     # Search content by title
     # @param [String] keyword
-    # @return [Contents::Web]
+    # @return [Content]
     def search_by_title(keyword)
-      self.where(title: /#{keyword}/)
+      self.or(title: /#{keyword}/)
     end
     # Search content by tag
     # @param [String] keyword
-    # @return [Contents::Web]
+    # @return [Content]
     def search_by_tag(keyword)
-      self.where(tags: /#{keyword}/)
+      self.or(tags: /#{keyword}/)
     end
     # Search content by category_name
     # @param [String] keyword
-    # @return [Contents::Web]
+    # @return [Content]
     def search_by_category_name(keyword)
       category_ids = Configs::Category.where(key: /#{keyword}/).map(&:id)
       source_ids = Source.in(category_id: category_ids).map(&:id)
-      self.in(source_id: source_ids)
+      self.or(:source_id.in => source_ids)
+    end
+    # Search content by mixed
+    # @param [String] keyword
+    # @return [Content]
+    def search_by_mixed(keyword)
+      self.any_of(
+        self.search_by_title(keyword),
+        self.search_by_tag(keyword),
+        self.search_by_category_name(keyword))
     end
   end
 end
