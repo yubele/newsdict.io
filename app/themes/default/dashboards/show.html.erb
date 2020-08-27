@@ -3,9 +3,10 @@
         <%= f.text_field :keyword, value: params[:keyword], placeholder: t(".search"), class: "input is-rounded" %>
     <% end %>
     <div class="paper columns features">
-        <% @column_number.times.each do |column_num| %>
+        <% Newsdict::Application.config.paper_column_number.times.each do |column_num| %>
         <div class="row is-3">
-        <% (column_num+1).step(@per_page, @column_number) do |index| %>
+        <% (column_num+1).step(Newsdict::Application.config.paper_item_limit,
+        Newsdict::Application.config.paper_column_number) do |index| %>
             <% break unless @contents[index] %>
             <div class="column paper card is-shady">
                 <div class="columns is-mobile">
