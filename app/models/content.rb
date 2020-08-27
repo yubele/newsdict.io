@@ -147,13 +147,13 @@ class Content < ApplicationRecord
     # @param [String] keyword
     # @return [Content]
     def search_by_title(keyword)
-      self.or(title: /#{keyword}/)
+      self.where(title: /#{keyword}/)
     end
     # Search content by tag
     # @param [String] keyword
     # @return [Content]
     def search_by_tag(keyword)
-      self.or(tags: /#{keyword}/)
+      self.where(:tags => keyword)
     end
     # Search content by category_name
     # @param [String] keyword
@@ -161,7 +161,7 @@ class Content < ApplicationRecord
     def search_by_category_name(keyword)
       category_ids = Configs::Category.where(key: /#{keyword}/).map(&:id)
       source_ids = Source.in(category_id: category_ids).map(&:id)
-      self.or(:source_id.in => source_ids)
+      self.where(:source_id.in => source_ids)
     end
     # Search content by mixed
     # @param [String] keyword

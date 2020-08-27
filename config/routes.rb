@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   end
   authenticated :user do
     get "/search/", to: "dashboards#search", as: :dashboards_search
+    get "/tag/", to: "dashboards#tag", as: :dashboards_tag
     root :to => "dashboards#show", :as => "user_authenticated_root"
   end
   root to: "timelines#show"

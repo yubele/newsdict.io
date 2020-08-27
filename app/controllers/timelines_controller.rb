@@ -7,7 +7,7 @@ class TimelinesController < ApplicationController
       @category_name = params[:category]
     else
       @rss_path = rss_path
-      @category_name = I18n.t(:top_page) 
+      @category_name = I18n.t(:top_page)
     end
     @contents = JSON.parse(contents(**params.permit([:sort, :category]).to_hash.symbolize_keys), object_class: OpenStruct)
   end
