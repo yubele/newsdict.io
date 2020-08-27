@@ -8,8 +8,7 @@ class DashboardsController < ApplicationController
   # Search content
   # @param [String] keyword
   def search(keyword)
-    @contents = Contents::Web.contents.search_by_mixed(keyword).page(params[:page])
-    @paper.title = I18n.t('paper.one_day.title', date: I18n.l(time, format: :only_date))
+    @contents = Contents::Web.search_by_tag(keyword).contents.page(params[:page])
     render :show
   end
 end
