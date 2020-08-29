@@ -1,21 +1,24 @@
 # newsdict.io
 
-## 散らばった更新情報を一つのサイトで！
+## 仕組み
 
-### twitterアカウントがシェアした記事を収集
+### 記事を集める
 
-### Webサイトの特定部分をウォッチ
+- twitter, urlにリンクされている記事をクローリング
+- 記事内容をタギング
 
-### フィルタリング機能
+### コミュニケーションをとる
 
-### オートタギング機能
+- 好きなときに最新記事をチェック
+- 記事をシェアする
+- シェアした人をフォローする
 
-## 更新情報を好きな時間に通知
+## 技術
 
-chatwork, slack の両方もしくはどちらかで通知が可能です。
+### OSS
+- Rails, Sidekiq
+- MongoDB
+- Asciidoctor, Yard
+- Docker
 
-## 自由なカスタマイズ
-
-### 自由なテーマ
-
-### HTMLへのscriptの埋め込み
+TIP: https://doc.newsdict.io/ja/overview/[Overview in document, window=_blank]
