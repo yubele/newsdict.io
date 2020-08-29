@@ -8,10 +8,11 @@ module ApplicationHelper
   # @param [Integer] limit Limit of count
   def tag_element(tags, limit=5)
     element = String.new
+    element << "<div class='tags'>"
     tags.first(5).each do |tag|
       element << "<span class='tag is-dark'>#{tag}</span>"
     end
-    element
+    element << "</div>"
   end
   # View date
   # @param [Datetime] datetime
