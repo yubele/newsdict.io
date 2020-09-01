@@ -71,3 +71,6 @@ public/shared/sitemap*.xml.gz
 # src/doc
 src/doc/**/*.png
 src/doc/**/*.png.cache
+
+# certs for development
+/config/certs/*

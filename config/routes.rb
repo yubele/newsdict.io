@@ -12,7 +12,8 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq", constraints: SuperAdminConstraint.new, as: "sidekiq_web"
   mount RailsAdmin::Engine => "/admin", as: "rails_admin"
   devise_for "user", :controllers => {
-    :registrations => "admin/registrations"
+    registrations: 'admin/registrations',
+    omniauth_callbacks: 'admin/omniauth_callbacks'
   }
   # Feed routes
   resource :rss, path: "/rss/", controller: "timelines/rss", action: :show, only: [:show] do

@@ -72,6 +72,11 @@ Rails.application.configure do
   # To allow requests to puma, add the following to your environment configuration
   config.hosts << "puma"
 
+  # To allow requests to 'local domain'. It need to use oauth.
+  config.hosts << ENV['LOCAL_DOMAIN']
+
   # mongoid log level
-  config.mongoid.logger.level = Logger::DEBUG
+  config.mongoid.logger.level = Logger::INFO
+
+  config.force_ssl = true
 end

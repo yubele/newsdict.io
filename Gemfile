@@ -6,6 +6,12 @@ ruby '2.7.1'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 ##
+# social login
+##
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+##
 # SEO
 # Easily generate XML Sitemaps (http://github.com/kjvarga/sitemap_generator)
 gem 'sitemap_generator'
