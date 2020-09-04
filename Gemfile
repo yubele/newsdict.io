@@ -10,6 +10,8 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 ##
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
 
 ##
 # SEO
