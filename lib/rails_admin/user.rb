@@ -2,6 +2,9 @@ RailsAdmin.config do |config|
   config.label_methods << :username
   config.model User do
     list do
+      field :provider do
+        formatted_value{ bindings[:object].provider if bindings[:object].respond_to?(:provider) }
+      end
       fields :username, :email, :sign_in_count, :is_manual_locked, :last_sign_in_at, :last_sign_in_ip
     end
     edit do

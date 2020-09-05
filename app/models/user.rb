@@ -37,15 +37,10 @@ class User < ApplicationRecord
   field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   field :locked_at,       type: Time
 
-  # OmniAuth
-  field :provider, type: String
-  field :uid, type: String
-  field :image, type: String
-  field :token, type: String
-  include Mongoid::Timestamps
-
   # manually lock
   field :is_manual_locked, type: Boolean
+
+  include Mongoid::Timestamps
 
   def super_admin?
     true if send(:email) == ENV['ADMIN_USER_EMAIL']
@@ -65,21 +60,5 @@ class User < ApplicationRecord
   # Check manually lock
   def account_active?
     send(:is_manual_locked).nil? || send(:is_manual_locked) == false
-  end
-
-  class << self
-    # Omniauth
-    def from_omniauth(auth)
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-        user.username = auth.info.name   # assuming the user model has a name
-        user.image = auth.info.image # assuming the user model has an image
-        user.token = auth.credentials.token if auth.credentials.token # for google auth
-        # If you are using confirmable and the provider(s) you use validate emails,
-        # uncomment the line below to skip the confirmation emails.
-        # user.skip_confirmation!
-      end
-    end
   end
 end
