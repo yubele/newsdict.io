@@ -15,3 +15,12 @@
     </ul>
   </article>
 <% end %>
+<% if flash %>
+  <article class="message is-info">
+    <ul class="message-body">
+    <% flash.each do |key, msg| %>
+      <li><%= msg.html_safe %></li>
+    <% end %>
+    </ul>
+  </article>
+<% end %>

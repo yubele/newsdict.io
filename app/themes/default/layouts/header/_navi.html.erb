@@ -2,10 +2,16 @@
   <ul>
     <li id="logo" class="is-family-sans-serif swipeTab <%= current_page?("/") ? "is-active": "" %>">
       <a href="/">
-        <span><%= t('sitename') %></span>
+        <span>
+          <% if @category_name %>
+          <%= content_tag(:div, t('sitename'), class: "ml-2") %>
+          <% else %>
+          <%= content_tag(:h1, t('sitename'), class: "ml-2") %>
+          <% end %>
+        </span>
       </a>
     </li>
-    <% Configs::Category.all.map {|category| category.key }.each do |key| %> 
+    <% Configs::Category.all.map {|category| category.key }.each do |key| %>
     <li class="swipeTab <%= current_page?("/category/#{CGI::escape(key)}/") ? "is-active": "" %>">
       <a href="/category/<%= CGI::escape(key) %>/">
         <span><%= key %></span>

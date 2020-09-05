@@ -141,8 +141,10 @@ div.header > div.order {
 }
 .paper.card > footer {
   display: inline-flex;
-  justify-content:center;
-  width: 100%;
+  margin: 15px;
+}
+.paper.card > footer > span {
+  margin: 5px 5px 0 5px;
 }
 .fixed-header {
   margin: 0;
@@ -263,4 +265,10 @@ div.header > div.order {
   background-color: #000;
   position: fixed;
   opacity: 0.9;
+}
+/** header **/
+.swipeTab.is-active {
+  background-color: #cdcdcd;
+  font-weight: bold;
+  color: #111;
 }

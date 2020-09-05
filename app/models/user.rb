@@ -4,7 +4,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable, :trackable, :lockable
+         :recoverable, :rememberable, :validatable, :confirmable, :trackable, :lockable, :omniauthable
   validates :username, length: {minimum: 4, maximum: 30}, presence: true, uniqueness: true
 
   ## Database authenticatable
@@ -36,10 +36,11 @@ class User < ApplicationRecord
   field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   field :locked_at,       type: Time
-  include Mongoid::Timestamps
-  
+
   # manually lock
   field :is_manual_locked, type: Boolean
+
+  include Mongoid::Timestamps
 
   def super_admin?
     true if send(:email) == ENV['ADMIN_USER_EMAIL']

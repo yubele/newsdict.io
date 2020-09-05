@@ -6,6 +6,14 @@ ruby '2.7.1'
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
 ##
+# social login
+##
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+
+##
 # SEO
 # Easily generate XML Sitemaps (http://github.com/kjvarga/sitemap_generator)
 gem 'sitemap_generator'
@@ -191,6 +199,6 @@ group :test do
   gem 'webmock'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker'
-  # Strategies for cleaning databases. Can be used to ensure a clean slate for testing. (https://github.com/DatabaseCleaner/database_cleaner)
-  gem 'database_cleaner'
+  gem 'database_cleaner-mongoid'
+  gem 'database_cleaner-redis'
 end

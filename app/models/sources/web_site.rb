@@ -11,35 +11,31 @@ module Sources
     end
     # Get external urls
     def urls
-      uri = URI.parse(source_url)
-      if [80, 443].include?(uri.port)
-        fqdn = "#{uri.scheme}://#{uri.host}"
-      else
-        fqdn = "#{uri.scheme}://#{uri.host}:#{uri.port}"
-      end
       hrefs = Array.new
       ::Nokogiri::HTML(WebDriverHelper.get_source(source_url))
       .xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }
       .uniq.each do |href|
-        if href.match(::Regexp.new("^//"))
-          hrefs << "#{uri.scheme}:#{href}"
-        elsif href.match(::Regexp.new("^/"))
-          hrefs << "#{fqdn}#{href}"
-        elsif href.match(::Regexp.new("^\\."))
-          hrefs << "#{fqdn}/#{href}"
-        else
-          hrefs << href
-        end
+        hrefs << ApplicationHelper.create_full_url(source_url, href)
       end
       hrefs
     end
     # Check if it is updated.
     # This is written here because it must be determined for each Source model.
     # @param [Contents::Web] content
-    # @param [Hash] Contents::Web attributes 
+    # @param [Hash] Contents::Web attributes
     # @return [Boolean]
     def update?(content, attrs)
       content.content != attrs[:content]
+    end
+    # Return icon image.
+    # @return [BSON::Binary] image
+    def icon
+      unless icon_blob
+        path = ::Nokogiri::HTML(WebDriverHelper.get_source(source_url)).xpath('//link[@rel="shortcut icon"]/@href').first.value
+        url = ApplicationHelper.create_full_url(source_url, path)
+        self.save_icon_blob_from_url(url)
+      end
+      self.icon_blob
     end
   end
 end

@@ -6,11 +6,16 @@ module Api
     # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
-    # @param [String] category 
+    # @param [String] category
+    # @param [String] tag sarch by tag
     # @rerurn [JSON]
-    def contents(limit: 25, skip:0, sort: :updated_at, category: nil)
+    def contents(limit: 25, skip:0, sort: :updated_at, category: nil, tag: nil)
       category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
-      Contents::Web
+      content = Contents::Web
+      if tag
+        content = Contents::Web.search_by_tag(tag)
+      end
+      content
         .contents(category_id: category_id)
         .sortable(sort)
         .limit(limit)

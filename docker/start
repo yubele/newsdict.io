@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -e
+. .env
 if [ -f tmp/pids/server.pid ];then
   sudo rm -f tmp/pids/server.pid
 fi
@@ -10,7 +11,11 @@ fi
 docker-compose stop
 if [ "$1" = "attach" ]; then
   docker-compose up -d
-  docker attach $2
+  app_name=$2
+  if [[ ! "$app_name" =~ ^$NAMESPACE ]]; then
+    app_name="${NAMESPACE}_${app_name}"
+  fi
+  docker attach $app_name
 else
   docker-compose up $@
 fi

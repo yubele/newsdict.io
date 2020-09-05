@@ -8,10 +8,11 @@ module ApplicationHelper
   # @param [Integer] limit Limit of count
   def tag_element(tags, limit=5)
     element = String.new
+    element << "<div class='tags'>"
     tags.first(5).each do |tag|
       element << "<span class='tag is-dark'>#{tag}</span>"
     end
-    element
+    element << "</div>"
   end
   # View date
   # @param [Datetime] datetime
@@ -30,7 +31,7 @@ module ApplicationHelper
       relative_path
     elsif relative_path.match(Regexp.new("^/"))
       "#{fqdn}#{relative_path}"
-    elsif relative_path.match(Regexp.new("^\."))
+    elsif relative_path.match(Regexp.new("^\\."))
       "#{fqdn}/#{relative_path}"
     else
       "#{fqdn}#{uri.path}/#{relative_path}"

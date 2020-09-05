@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory "Sources::TwitterAccount" do
-    name { "newsdict" }
-    description { "dummy description" }
+    name { Faker::Alphanumeric.alphanumeric(number: 10, min_alpha: 3) }
+    description { Faker::Lorem.sentence }
   end
 end
