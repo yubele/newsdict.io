@@ -2,7 +2,6 @@ class Sources::TwitterAccount < ::Source
   after_initialize :set_twitter_client
   # Name is twitter's screen_name
   validates :name, uniqueness: true, format: { with: /\A[a-zA-Z0-9_]{1,15}\z/, message: 'twitter\'s screen_name only' }
-  has_one :category, class_name: "Configs::Category"
   # Get Twitter Account URL
   # @return [String] twitter url
   def source_url

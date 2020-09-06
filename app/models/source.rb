@@ -13,7 +13,7 @@ class Source < ApplicationRecord
   field :icon_blob, type: BSON::Binary
   validates :alias, length: { maximum: 20 }
   include Mongoid::Timestamps
-  belongs_to :category, class_name: "Configs::Category", optional: true
+  has_one :category, class_name: "Configs::Category"
   has_many :content, dependent: :destroy
   def category_id_enum
     Configs::Category.all.map {|c| [c.key, c.id] }.to_h
