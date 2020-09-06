@@ -2,7 +2,7 @@ class DashboardsController < ApplicationController
   include Api::ContentsControllerConcern
   # Dashboard of authorized user.
   def show
-    @contents = Contents::Web.contents.sortable(params[:sort]).page(params[:page])
+    @contents = JSON.parse(contents(**params.permit([:sort, :category, :tag]).to_hash.symbolize_keys), object_class: OpenStruct)
     render :show
   end
   # Search content
