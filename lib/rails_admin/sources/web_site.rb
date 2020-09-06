@@ -5,7 +5,14 @@ RailsAdmin.config do |config|
       fields :alias, :description, :user_id do
         visible false
       end
-      fields :name, :category_id
+      field :name
+      # refs. https://github.com/sferik/rails_admin/wiki/Enumeration#using-the-configuration-approach
+      # legacy style because mongoid-enum do not maintend long time.
+      field :category_id, :enum do
+        enum do
+          Configs::Category.all.map {|c| [c.key, c.id] }.to_h
+        end
+      end
       field :xpath do read_only true end
       field :source_url
     end

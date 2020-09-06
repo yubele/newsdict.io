@@ -13,11 +13,10 @@ class Source < ApplicationRecord
   field :icon_blob, type: BSON::Binary
   validates :alias, length: { maximum: 20 }
   include Mongoid::Timestamps
-  has_one :category, class_name: "Configs::Category"
+  belongs_to :category, class_name: "Configs::Category", required: false
   has_many :content, dependent: :destroy
-  def category_id_enum
-    Configs::Category.all.map {|c| [c.key, c.id] }.to_h
-  end
+  # Get name
+  # @return [String]
   def view_name
     if self.alias
       self.alias
@@ -25,7 +24,6 @@ class Source < ApplicationRecord
       self.name
     end
   end
-
   private
   def save_icon_blob_from_url(url)
     tmp_file = "/tmp/#{Digest::SHA1.hexdigest(url)}"
