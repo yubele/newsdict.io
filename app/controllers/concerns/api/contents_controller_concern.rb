@@ -36,6 +36,7 @@ module Api
             "id" => c.id.to_s,
             "longer_tags" => tag_element(c.longer_tags),
             "source" => {
+              "id" => c.source.id.to_s,
               "name" => c.source.name,
               "view_name" => c.source.view_name,
               "source_url" => c.source.source_url
