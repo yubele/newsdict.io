@@ -10,7 +10,7 @@ module ApplicationHelper
     element = String.new
     element << "<div class='tags'>"
     tags.first(5).each do |tag|
-      element << "<span class='tag is-dark'>#{tag}</span>"
+      element << "<a href='#{tag_path(tag)}' class='tag is-dark'>#{tag}</a>"
     end
     element << "</div>"
   end
