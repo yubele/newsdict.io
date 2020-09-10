@@ -32,7 +32,7 @@ module Sources
     def icon
       unless icon_blob
         html = WebDriverHelper.get_source(source_url)
-        if ::Nokogiri::HTML(html).xpath('//link[@ref="apple-touch-icon"]/@href')
+        if ::Nokogiri::HTML(html).xpath('//link[@ref="apple-touch-icon"]/@href').first
           path = ::Nokogiri::HTML(html).xpath('//link[@rel="apple-touch-icon"]/@href').first.value
         else
           path = ::Nokogiri::HTML(html).xpath('//link[@rel="shortcut icon"]/@href').first.value
