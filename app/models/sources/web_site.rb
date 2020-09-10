@@ -31,7 +31,12 @@ module Sources
     # @return [BSON::Binary] image
     def icon
       unless icon_blob
-        path = ::Nokogiri::HTML(WebDriverHelper.get_source(source_url)).xpath('//link[@rel="shortcut icon"]/@href').first.value
+        html = WebDriverHelper.get_source(source_url)
+        if ::Nokogiri::HTML(html).xpath('//link[@ref="apple-touch-icon"]/@href').first
+          path = ::Nokogiri::HTML(html).xpath('//link[@rel="apple-touch-icon"]/@href').first.value
+        else
+          path = ::Nokogiri::HTML(html).xpath('//link[@rel="shortcut icon"]/@href').first.value
+        end
         url = ApplicationHelper.create_full_url(source_url, path)
         self.save_icon_blob_from_url(url)
       end

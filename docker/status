@@ -1,4 +1,4 @@
-#!/usr/bin/env bash 
+#!/usr/bin/env bash
 #
 # Runnable ubuntu os.
 #
@@ -20,7 +20,7 @@ docker-compose ps | head -n 2 | tail -n 1
 # Output the status.
 localports=$(docker-compose ps | grep -oE '0.0.0.0:[0-9]+')
 for localport in $localports; do
-    if [ $(curl -LI $localport -o /dev/null -w '%{http_code}' -s) = "200" ];then
+    if [ $(curl -m 2 -LI $localport -o /dev/null -w '%{http_code}' -s) = "200" ];then
         echo -n "    OK  "
     else
         echo -n "    --  "

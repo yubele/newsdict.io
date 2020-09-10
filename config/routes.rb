@@ -34,6 +34,7 @@ Rails.application.routes.draw do
     end
   end
   get "/img/:id", to: "images#index", as: :img
+  get "/user_icon/:id", to: "images#user_icon", as: :user_icon
   # Apis
   namespace :api do
     namespace :v1 do

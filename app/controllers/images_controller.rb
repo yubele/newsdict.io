@@ -13,4 +13,14 @@ class ImagesController < ApplicationController
       render :status => 404
     end
   end
+  # View user's icon
+  # @params [BSON::ObjectId] id
+  def user_icon(id)
+    source = Source.find(id)
+    if source.icon
+      send_data source.icon_blob.data, :type => 'image', :disposition => 'inline'
+    else
+      render :status => 404
+    end
+  end
 end
