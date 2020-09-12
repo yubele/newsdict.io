@@ -29,11 +29,32 @@ class Configs::Theme < Config
         Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'stylesheets')]
       activated_theme
     end
+    # Tidy Configs::Theme
+    # @return [void]
+    def tidy
+      # Insert the theme directories to Configs::themes if ConfigsTheme has not it.
+      exist_dirnames.each do |exist_dirname|
+        unless where(key: exist_dirname).exists?
+          create(key: exist_dirname)
+        end
+      end
+      # Remove the Configs::themes records, if it does not exists at `app/themes/**`.
+      all.each do |theme|
+        unless File.exist?(Rails.root.join('app', 'themes', theme.key))
+          theme.delete
+        end
+      end
+      # Check active default theme, if Configs::Theme has not `is_active=true`;
+      unless where(is_active: true).exists?
+        where(key: Configs::Theme::DEFAULT_THEME_NAME).update(is_active: true)
+      end
+    end
+    private
     # Get the names of app/themes/{name}.
     # @return [Array] names
-    def directory_names
-      Dir.glob("#{Rails.root}/app/themes/*/").map { |path|
-        path.gsub("#{Rails.root}/app/themes/", "").gsub("/", "")
+    def exist_dirnames
+      Dir.glob(Rails.root.join('app', 'themes', '*')).map { |path|
+        path.gsub(Rails.root.join('app', 'themes').to_s, "").gsub("/", "")
       }
     end
   end
