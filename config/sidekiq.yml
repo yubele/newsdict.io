@@ -24,15 +24,9 @@
     cron: '0 * * * * *'
     class: NotifiesJob
     queue: notifies
-  themes_job:
-    enabled: true
-    cron: '0 * * * * *'
-    class: ThemesJob
-    queue: themes
 :concurrency: 1
 :queues:
   - crawlers
   - notifies
   - mecab_dics
   - sitemaps
-  - themes
