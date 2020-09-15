@@ -8,13 +8,9 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 ##
 # social login
 ##
-# A generalized Rack framework for multiple-provider authentication. (https://github.com/omniauth/omniauth)
 gem 'omniauth'
-# Facebook OAuth2 Strategy for OmniAuth (https://github.com/mkdynamic/omniauth-facebook)
 gem 'omniauth-facebook'
-# OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
 gem 'omniauth-twitter'
-# A Google OAuth2 strategy for OmniAuth 1.x (https://github.com/zquestz/omniauth-google-oauth2)
 gem 'omniauth-google-oauth2'
 
 ##
@@ -59,7 +55,7 @@ gem 'twitter'
 ##
 # User Manage
 ##
-# Flexible authentication solution for Rails with Warden (https://github.com/heartcombo/devise)
+# Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
 gem 'devise'
 # Simple authorization solution for Rails. (https://github.com/CanCanCommunity/cancancan)
 gem 'cancancan'
@@ -144,8 +140,6 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 # Controller action arguments parameterizer for Rails 4+ & Ruby 2.0+ (http://asakusa.rubyist.net/)
 gem 'action_args'
-# Redis for Ruby on Rails (http://redis-store.org/redis-rails)
-gem 'redis-rails'
 
 group :development, :test do
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
@@ -154,7 +148,6 @@ group :development, :test do
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug'
   # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer (https://github.com/thoughtbot/factory_bot_rails)
-  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails'
 end
 
@@ -206,8 +199,6 @@ group :test do
   gem 'webmock'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker'
-  # Strategies for cleaning databases using Mongoid. Can be used to ensure a clean state for testing. (https://github.com/DatabaseCleaner/database_cleaner-mongoid)
   gem 'database_cleaner-mongoid'
-  # Strategies for cleaning databases using Redis. Can be used to ensure a clean state for testing. (https://github.com/DatabaseCleaner/database_cleaner-redis)
   gem 'database_cleaner-redis'
 end
