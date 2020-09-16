@@ -205,6 +205,7 @@ GEM
     hashdiff (1.0.1)
     hashery (2.1.2)
     hashie (4.1.0)
+    hiredis (0.6.3)
     http (4.4.1)
       addressable (~> 2.3)
       http-cookie (~> 1.0)
@@ -566,6 +567,7 @@ DEPENDENCIES
   font-awesome-sass
   guard
   guard-shell
+  hiredis
   i18n-debug
   jbuilder
   kaminari-actionview
@@ -589,6 +591,7 @@ DEPENDENCIES
   rails_admin
   rb-inotify
   recaptcha
+  redis
   redis-namespace
   sassc
   sassc-rails

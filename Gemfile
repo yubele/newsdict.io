@@ -8,9 +8,13 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 ##
 # social login
 ##
+# A generalized Rack framework for multiple-provider authentication. (https://github.com/omniauth/omniauth)
 gem 'omniauth'
+# Facebook OAuth2 Strategy for OmniAuth (https://github.com/mkdynamic/omniauth-facebook)
 gem 'omniauth-facebook'
+# OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
 gem 'omniauth-twitter'
+# A Google OAuth2 strategy for OmniAuth 1.x (https://github.com/zquestz/omniauth-google-oauth2)
 gem 'omniauth-google-oauth2'
 
 ##
@@ -56,6 +60,7 @@ gem 'twitter'
 # User Manage
 ##
 # Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
+# Flexible authentication solution for Rails with Warden (https://github.com/heartcombo/devise)
 gem 'devise'
 # Simple authorization solution for Rails. (https://github.com/CanCanCommunity/cancancan)
 gem 'cancancan'
@@ -122,8 +127,6 @@ gem 'jbuilder'
 gem 'bootsnap', require: false
 # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
 gem 'spring-watcher-listen'
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-# Timezone Data for TZInfo (http://tzinfo.github.io)
 # Timezone Data for TZInfo (https://tzinfo.github.io)
 gem 'tzinfo-data'
 # Minimal embedded v8 for Ruby (https://github.com/discourse/mini_racer)
@@ -140,6 +143,10 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 # Controller action arguments parameterizer for Rails 4+ & Ruby 2.0+ (http://asakusa.rubyist.net/)
 gem 'action_args'
+# A Ruby client library for Redis (https://github.com/redis/redis-rb)
+gem 'redis'
+# Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O) (http://github.com/redis/hiredis-rb)
+gem 'hiredis'
 
 group :development, :test do
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
@@ -148,6 +155,7 @@ group :development, :test do
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug'
   # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer (https://github.com/thoughtbot/factory_bot_rails)
+  # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails'
 end
 
@@ -199,6 +207,8 @@ group :test do
   gem 'webmock'
   # Easily generate fake data (https://github.com/faker-ruby/faker)
   gem 'faker'
+  # Strategies for cleaning databases using Mongoid. Can be used to ensure a clean state for testing. (https://github.com/DatabaseCleaner/database_cleaner-mongoid)
   gem 'database_cleaner-mongoid'
+  # Strategies for cleaning databases using Redis. Can be used to ensure a clean state for testing. (https://github.com/DatabaseCleaner/database_cleaner-redis)
   gem 'database_cleaner-redis'
 end

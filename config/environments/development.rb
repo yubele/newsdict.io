@@ -16,17 +16,16 @@ Rails.application.configure do
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
-
-    config.cache_store = :memory_store
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
   else
     config.action_controller.perform_caching = false
-
-    config.cache_store = :null_store
   end
   config.public_file_server.enabled = true
+
+  config.cache_store = :redis_cache_store, { url: "redis://redis:6379/0/cache" }
+  config.session_store :cache_store, key: ENV['NAMESPACE']
 
   # Don't care if the mailer can't send.
   #config.action_mailer.raise_delivery_errors = false
