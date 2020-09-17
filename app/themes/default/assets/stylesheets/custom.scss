@@ -1,3 +1,270 @@
-.hogehoge {
-    display:none;
+$fa-font-path: "~font-awesome/fonts";
+
+html, body {
+  height:100%;
+  font-family: 'Open Sans', serif;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.hero {
+  &.is-success {
+    background: #F2F6FA;
+   }
+  .nav, &.is-success .nav {
+     -webkit-box-shadow: none;
+     box-shadow: none;
+   }
+}
+
+.avatar {
+  margin-top: -70px;
+  padding-bottom: 20px;
+  img {
+    padding: 5px;
+    background: #fff;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  }
+}
+
+input {
+  font-weight: 300;
+}
+
+p {
+  font-weight: 700;
+  &.subtitle {
+    padding-top: 1rem;
+  }
+}
+.media-source-name a {
+  color: #2E2F30;
+}
+.media-content h2 {
+  font-size: 130%;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #2E2F30;
+}
+.media-content .tags span {
+  letter-spacing: 3px;
+  font-weight:bold;
+}
+
+.content-image {
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+a:hover {
+  color: rgb(63, 0, 255);
+}
+
+#order-desktop {
+  padding: 0.5rem 1.5rem;
+}
+
+div.tabs > ul > li#logo {
+  font-size: 140%;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+div.tabs > ul > li#logo > a {
+  padding: 2px 0 3px;
+  border: 0;
+}
+h2.menu-label {
+  font-size: 1.25em;
+}
+.media-content > a > button {
+  margin: 20px 0;
+}
+.column {
+  margin:10px 10px 0 0 ;
+}
+#information {
+  padding: 50px 10px 0 0;
+}
+div.header {
+  margin: 0 10px;
+}
+div.header > h1 {
+  font-size: 25px;
+  display:flex;
+  justify-content: flex-start;
+  position: absolute;
+}
+div.header > div.order {
+  display:flex;
+  justify-content: flex-end;
+}
+
+@media only screen and (min-width: 768px) {
+  .paper > .row {
+    width: 25%;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .columns {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+.paper.card > .card-head {
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 50%;
+}
+.paper.card > .card-head > .card-title {
+  padding: 10px 0 10px 25px;
+  text-decoration: none;
+  word-wrap: break-word;
+  font-size: 115%;
+  font-weight: bold;
+  width: 46%;
+}
+.paper.card > .card-head > .card-title > a:link {
+  color: #000;
+}
+
+.paper.card > .card-head > .card-title > a:visit {
+  color: #666;
+}
+.paper.card > footer {
+  display: inline-flex;
+  margin: 15px;
+}
+.paper.card > footer > span {
+  margin: 5px 5px 0 5px;
+}
+.fixed-header {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 100%;
+  background: #fff;
+  z-index:999;
+}
+#web-site-header {
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  border-bottom: 3px double #888;
+  display: flex;
+}
+#web-site-header > form {
+  justify-content: flex-end;
+  display: flex;
+  width: 100%;
+}
+#web-site-header > form > .buttons {
+  width: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 10px;
+}
+#web-site-header > form > .buttons > div {
+  align-items: center;
+  margin: 0 20px 0 0;
+}
+#web-site-main {
+  display: flex;
+  height: calc(100% - 80px);
+}
+#web-site-iframe {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+#sources_web_site_source_url {
+  width: 20em;
+}
+// refs. https://projects.lukehaas.me/css-loaders/
+.loader,
+.loader:before,
+.loader:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+}
+.loader-box {
+  top: 50%;
+  left: 50%;
+  position:relative;
+}
+.loader-box > .loader-txt {
+  color: #fff;
+  font-weight: bold;
+  font-size: 130%;
+}
+.loader {
+  color: #fff;
+  text-indent: -9999em;
+  margin:30px;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+.loader-background {
+  width:100%;
+  margin-top:80px;
+  height: calc(100% - 80px);
+  z-index:999;
+  background-color: #000;
+  position: fixed;
+  opacity: 0.9;
+}
+/** header **/
+.swipeTab.is-active {
+  background-color: #cdcdcd;
+  font-weight: bold;
+  color: #111;
 }
