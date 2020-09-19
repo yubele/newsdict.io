@@ -28,7 +28,7 @@ gem 'bulma-rails'
 # Font-Awesome SASS (https://github.com/FortAwesome/font-awesome-sass)
 gem 'font-awesome-sass'
 # A custom Rails form builder for Vue.js (https://github.com/kuroda/vue-rails-form-builder)
-gem "vue-rails-form-builder", :git => 'https://github.com/yubele/vue-rails-form-builder'
+gem "vue-rails-form-builder"
 # Helpers for the reCAPTCHA API (http://github.com/ambethia/recaptcha)
 gem "recaptcha"
 
@@ -147,6 +147,7 @@ gem 'action_args'
 gem 'redis'
 # Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O) (http://github.com/redis/hiredis-rb)
 gem 'hiredis'
+gem 'sprockets-rails', git: 'https://github.com/yubele/sprockets-rails.git', branch: 'feature/support_any_manifest_location'
 
 group :development, :test do
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)

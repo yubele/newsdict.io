@@ -9,3 +9,5 @@
  */
 //= link custom.css
 //= link custom.js
+
+//= link_tree ../images
