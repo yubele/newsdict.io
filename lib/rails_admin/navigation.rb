@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
   config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper,
     # Deprecated class
     "Sources::WebUrl", "Sources::WebSection", "Sources::Url", "Theme", "Configs::Token",
-    "Users::Omniauth", "Users::Omniauths::Google", "Users::Omniauths::Facebook", "Users::Omniauths::Twitter"]
+    "Users::Omniauth", "Users::Omniauths::Google", "Users::Omniauths::Facebook", "Users::Omniauths::Twitter", "Batch", "Friendship", "Follower"]
   config.model "Sources::TwitterAccount" do
     navigation_label I18n.t('admin.navigation.sources')
     weight 1
