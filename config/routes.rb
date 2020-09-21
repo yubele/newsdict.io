@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   end
   resource :timelines, path: "/category/:category/", controller: "timelines", action: :show, only: [:show], as: :category
   resource :timelines, path: "/tag/:tag/", controller: "timelines", action: :show, only: [:show], as: :tag
+  resource :timelines, path: "/search/", controller: "timelines", action: :show, only: [:show], as: :search
   resources :contents, only: :show
   get "/paper/term/:from_date/:to_date/", to: "papers#term", as: :paper_term
   get "/paper/term/:date/", to: "papers#one_day", as: :paper_oneday
