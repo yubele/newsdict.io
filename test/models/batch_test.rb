@@ -8,7 +8,7 @@ class BatchTest < ActiveSupport::TestCase
     end
     ThreadsWait.all_waits(*threads)
     threads.each do |thread|
-      sleep(0.1)
+      sleep(0.0001)
       thread.join
     end
     assert_equal sum, 1

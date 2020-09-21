@@ -8,12 +8,15 @@ module Api
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
     # @param [String] category
     # @param [String] tag sarch by tag
+    # @param [String] search search word
     # @rerurn [JSON]
-    def contents(limit: 25, skip:0, sort: :updated_at, category: nil, tag: nil)
+    def contents(limit: 25, skip:0, sort: :updated_at, category: nil, tag: nil, search: nil)
       category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
       content = Contents::Web
       if tag
         content = Contents::Web.search_by_tag(tag)
+      elsif search
+        content = Contents::Web.search_by_mixed(search)
       end
       content
         .contents(category_id: category_id)
