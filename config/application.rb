@@ -64,5 +64,11 @@ module Newsdict
       Rails.root.join('app', 'themes', 'default', 'assets', 'stylesheets')]
     # mongoid logger
     config.mongoid.logger = Logger.new(Rails.root.join('log', 'mongoid.log'))
+    config.middleware.use ExceptionNotification::Rack,
+      email: {
+        email_prefix: '[PREFIX] ',
+        sender_address: %{"notifier" <#{ENV['SENDER_EMAIL']}>},
+        exception_recipients: %W{#{ENV['ADMIN_USER_EMAIL']}}
+      }
   end
 end

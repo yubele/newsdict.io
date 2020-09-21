@@ -38,6 +38,7 @@ gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
+# Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat'
@@ -85,6 +86,7 @@ gem 'mongoid'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs'
 # Search implementation for Mongoid ORM (http://www.papodenerd.net/mongoid-search-full-text-search-for-your-mongoid-models/)
+# Search implementation for Mongoid ORM (https://github.com/mongoid/mongoid_search)
 gem 'mongoid_search'
 
 ##
@@ -102,6 +104,7 @@ gem "slack-notifier"
 gem 'rails'
 # Use Puma as the app server
 # Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
+# Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (https://puma.io)
 gem 'puma'
 # Ruby FFI (https://github.com/ffi/ffi/wiki)
 gem 'ffi'
@@ -147,7 +150,10 @@ gem 'action_args'
 gem 'redis'
 # Ruby wrapper for hiredis (protocol serialization/deserialization and blocking I/O) (http://github.com/redis/hiredis-rb)
 gem 'hiredis'
+# Sprockets Rails integration (https://github.com/rails/sprockets-rails)
 gem 'sprockets-rails', git: 'https://github.com/yubele/sprockets-rails.git', branch: 'feature/support_any_manifest_location'
+# Exception notification for Rails apps (https://smartinez87.github.io/exception_notification/)
+gem 'exception_notification'
 
 group :development, :test do
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
