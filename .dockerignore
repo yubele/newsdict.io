@@ -1,6 +1,6 @@
-/vendor/bundle
 /tmp/
 /node_modules
 /.bundle
 /bin
 /.git
+/public/packs
