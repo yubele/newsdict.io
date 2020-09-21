@@ -34,6 +34,7 @@ module Api
             k.include?("updated_at")
           }.merge({
             "created_at" => in_time_zone(c.created_at),
+            "created_at_human_format" => c.created_at.to_s(:human),
             "updated_at" => in_time_zone(c.updated_at),
             "content" => c.content.truncate(100),
             "id" => c.id.to_s,
