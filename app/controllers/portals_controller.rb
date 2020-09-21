@@ -1,4 +1,4 @@
-class TimelinesController < ApplicationController
+class PortalsController < ApplicationController
   include Api::ContentsControllerConcern
   # List the data of `Contents`
   def show
