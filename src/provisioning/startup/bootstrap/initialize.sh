@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 # Require env
 . .env
 # Initialize nvm

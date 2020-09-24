@@ -81,3 +81,7 @@ src/doc/**/*.png.cache
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+# credentials
+/config/*.key
+/config/credentials

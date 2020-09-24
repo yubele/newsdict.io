@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :set_recaptcha, :set_action_mailer, :set_host
+  before_action :set_recaptcha, :set_action_mailer, :set_host, :hook_of_restart_all_server
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
@@ -37,6 +37,13 @@ class ApplicationController < ActionController::Base
     Recaptcha.configure do |config|
       config.site_key  = Configs::Global.find_by(key: :recaptcha_v2_site_key).value
       config.secret_key = Configs::Global.find_by(key: :recaptcha_v2_secret_key).value
+    end
+  end
+  # Hook of restart_all_server
+  # @return [Boolean]
+  def hook_of_restart_all_server
+    if Batch.hook_of_restart_all_server
+      redirect_to request.original_url
     end
   end
 end
