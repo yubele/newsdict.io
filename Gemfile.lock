@@ -78,7 +78,7 @@ GEM
     annotate_gem (0.0.14)
       bundler (>= 1.1)
     asciidoctor (2.0.10)
-    asciidoctor-diagram (2.0.3)
+    asciidoctor-diagram (2.0.4)
       asciidoctor (>= 1.5.7, < 3.x)
     asciidoctor-revealjs (4.0.1)
       asciidoctor (>= 2.0.0, < 3.0.0)

@@ -2,29 +2,31 @@
 #
 # Runnable ubuntu os.
 #
+DockerComposePS=$(docker-compose ps)
 
 # Docker-compose status
 echo ""
 echo "### DockerCompose Status"
-docker-compose ps
+echo "$DockerComposePS"
 echo ""
 
-# Output the headers.echo ""
+# Output the headers.
 echo "### Startup Command Status"
 echo -n "Status  "
 echo -n "Local Port"
-docker-compose ps | head -n 1
+echo "$DockerComposePS" | head -n 1
 echo -n "--------------------"
-docker-compose ps | head -n 2 | tail -n 1
+echo "$DockerComposePS" | head -n 2 | tail -n 1
 
 # Output the status.
-localports=$(docker-compose ps | grep -oE '0.0.0.0:[0-9]+')
+localports=$(echo "$DockerComposePS" | grep -oE '0.0.0.0:[0-9]+')
 for localport in $localports; do
-    if [ $(curl -m 2 -LI $localport -o /dev/null -w '%{http_code}' -s) = "200" ];then
+    port=$(echo $localport | sed 's/0.0.0.0://')
+    if [ $(netstat -an | grep ":$port" | grep LISTEN > /dev/null 2>1; echo $?) = "0" ];then
         echo -n "    OK  "
     else
         echo -n "    --  "
     fi
     echo -n "$localport  "
-    docker-compose ps | grep $localport
+    echo "$DockerComposePS" | grep $localport
 done
