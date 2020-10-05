@@ -19,13 +19,14 @@ echo -n "--------------------"
 echo "$DockerComposePS" | head -n 2 | tail -n 1
 
 # Output the status.
-localports=$(echo "$DockerComposePS" | grep -oE '0.0.0.0:[0-9]+')
+localports=$(echo "$DockerComposePS" | grep -oE '0.0.0.0:[0-9]+->[0-9]+')
 for localport in $localports; do
-    port=$(echo $localport | sed 's/0.0.0.0://')
-    if [ $(netstat -an | grep ":$port" | grep LISTEN > /dev/null 2>1; echo $?) = "0" ];then
-        echo -n "    OK  "
+    port=$(echo $localport | sed -e 's/0.0.0.0:[0-9]*->//')
+    container=$(echo "$DockerComposePS" | grep $localport | awk '{print $1}')
+    if [ $(docker exec $container ss -na | grep ":$port" | grep LISTEN > /dev/null 2>&1; echo $?) = "0" ];then
+        echo -n " OK  "
     else
-        echo -n "    --  "
+        echo -n " --  "
     fi
     echo -n "$localport  "
     echo "$DockerComposePS" | grep $localport
