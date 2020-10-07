@@ -30,7 +30,7 @@ class Batch < ApplicationRecord
       flag = find_by(name: :restart)
       if flag && (timestamp.nil? || (timestamp <= flag.updated_at.to_i))
         Rails.cache.write(cache_key, Time.zone.now.to_i, expires_in: 24.hours)
-        system(Rails.root.join("bin/rails", "restart"))
+        system("bin/rails restart")
         return true
       end
     end
