@@ -2,9 +2,6 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
   config.model "Sources::TwitterAccount" do
     base do
-      fields :description, :user_id do
-        visible false
-      end
       # screen name
       field :name
       field :alias
@@ -14,6 +11,9 @@ RailsAdmin.config do |config|
         enum do
           Configs::Category.all.map {|c| [c.key, c.id] }.to_h
         end
+      end
+      fields :description, :user_id do
+        visible false
       end
       # login user id
       field :user_id do
