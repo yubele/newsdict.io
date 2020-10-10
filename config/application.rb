@@ -65,6 +65,7 @@ module Newsdict
     # mongoid logger
     config.mongoid.logger = Logger.new(Rails.root.join('log', 'mongoid.log'))
     config.middleware.use ExceptionNotification::Rack,
+      ignore_exceptions: ["ImageNotFoundException"] + ExceptionNotifier.ignored_exceptions,
       email: {
         email_prefix: '[PREFIX] ',
         sender_address: %{"notifier" <#{ENV['SENDER_EMAIL']}>},
