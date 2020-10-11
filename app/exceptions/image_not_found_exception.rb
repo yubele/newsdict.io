@@ -1,0 +1,1 @@
+class ImageNotFoundException < Exception; end

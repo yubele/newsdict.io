@@ -74,3 +74,14 @@ src/doc/**/*.png.cache
 
 # certs for development
 /config/certs/*
+
+/public/packs
+/public/packs-test
+/node_modules
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
+
+# credentials
+/config/*.key
+/config/credentials
