@@ -10,7 +10,7 @@ module Api
     # @param [String] tag sarch by tag
     # @param [String] search search word
     # @rerurn [JSON]
-    def contents(limit: 25, skip:0, sort: :updated_at, category: nil, tag: nil, search: nil)
+    def contents(limit: 25, skip:0, sort: :created_at, category: nil, tag: nil, search: nil)
       category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
       content = Contents::Web
       if tag
