@@ -8,7 +8,8 @@ module Configs
     validates :hour, inclusion: -1..23, presence: true
     validates :min, inclusion: -1..59, presence: true
     validates :wday, inclusion: -1..6, presence: true
-    belongs_to :category, class_name: "Configs::Category"
+    belongs_to :category, class_name: "Configs::Category", required: false
+    has_many :posts, class_name: "Posts::Twitter"
     EVERY = -1
     # RailsAdmin Enum
     def hour_enum
@@ -25,7 +26,7 @@ module Configs
     def category_id_enum
       Configs::Category.all.map {|c| [c.key, c.id] }.to_h
     end
-    # Check to match schedule. 
+    # Check to match schedule.
     # @return Boolean
     def runnable_time?
       now = Time.zone.now
@@ -49,7 +50,7 @@ module Configs
     def to_s
       "#{everyhour? ? I18n.t(:everyhour) : format("%02d", hour)}:#{everymin? ? I18n.t(:everymin) : format("%02d", min)} (#{everywday? ? I18n.t(:everyway) : I18n.t('date.abbr_day_names')[wday]})"
     end
-    
+
     private
     # Check to match hour.
     # @return Boolean
