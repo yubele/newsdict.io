@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class Contents::WebTest < ActiveSupport::TestCase
+  # Initialize DB
+  def setup
+    super
+    FactoryBot.create("Configs::Tokens::Twitter")
+  end
   test "save_form_job" do
     urls = Array.new
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})
@@ -16,7 +21,7 @@ class Contents::WebTest < ActiveSupport::TestCase
     end
     assert_equal Contents::Web.where(expanded_url: urls.first).first.count_of_shared, 1
   end
-  
+
   test "Count of shared" do
     count_of_shared = 5
     urls = Array.new

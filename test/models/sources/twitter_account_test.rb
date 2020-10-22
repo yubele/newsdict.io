@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class Sources::TwitterAccountTest < ActiveSupport::TestCase
+  # Initialize DB
+  def setup
+    super
+    FactoryBot.build("Posts::Twitter")
+  end
   test "Get icon" do
     stub_request(:get, "https://api.twitter.com/1.1/users/show.json?screen_name=newsdict").to_return(body: fixture('web_mock/twitter/user.json'), headers: {content_type: 'application/json; charset=utf-8'})
     stub_request(:get, "https://pbs.twimg.com/profile_images/530654059917619200/36nO20Df_normal.jpeg").
