@@ -4,7 +4,7 @@ class Posts::Twitter < ::Post
   # Tweet
   # @return [Boolean]
   def post
-    #twitter_client.update()
+    twitter_client.update(bind_body)
   end
 
   private
@@ -12,7 +12,7 @@ class Posts::Twitter < ::Post
   # @private
   # @return [void]
   def twitter_client
-    default_twitter = twitte_token
+    default_twitter = twitter_token
     Twitter::REST::Client.new do |config|
       config.consumer_key        = default_twitter.consumer_key
       config.consumer_secret     = default_twitter.consumer_secret

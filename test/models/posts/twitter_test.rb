@@ -8,6 +8,6 @@ class Posts::TwitterTest < ActiveSupport::TestCase
     100.times.each do |index|
       FactoryBot.create("CollectTag")
     end
-    posts_twitter.bind_body
+    assert posts_twitter.bind_body.present?
   end
 end
