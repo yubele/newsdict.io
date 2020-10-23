@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
+  # Initialize DB
+  def setup
+    super
+    FactoryBot.create("Configs::Tokens::Twitter")
+  end
   test "Don't record duplicate unique news" do
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})
     twitter_account.save

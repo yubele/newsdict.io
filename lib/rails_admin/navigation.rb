@@ -2,7 +2,8 @@ RailsAdmin.config do |config|
   config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper,
     # Deprecated class
     "Sources::WebUrl", "Sources::WebSection", "Sources::Url", "Theme", "Configs::Token",
-    "Users::Omniauth", "Users::Omniauths::Google", "Users::Omniauths::Facebook", "Users::Omniauths::Twitter", "Batch", "Friendship", "Follower"]
+    "Users::Omniauth", "Users::Omniauths::Google", "Users::Omniauths::Facebook", "Users::Omniauths::Twitter",
+    "Post", "Batch", "Friendship", "Follower"]
   config.model "Sources::TwitterAccount" do
     navigation_label I18n.t('admin.navigation.sources')
     weight 1
@@ -43,36 +44,40 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.crawling_setting')
     weight 10
   end
-  config.model "Configs::Schedule" do
-    navigation_label I18n.t('admin.navigation.notify_setting')
+  config.model "Posts::Twitter" do
+    navigation_label I18n.t('admin.navigation.posts')
     weight 11
   end
-  config.model "Configs::Tokens::Chatwork" do
+  config.model "Configs::Schedule" do
     navigation_label I18n.t('admin.navigation.notify_setting')
     weight 12
   end
-  config.model "Configs::Tokens::Slack" do
+  config.model "Configs::Hook" do
     navigation_label I18n.t('admin.navigation.notify_setting')
     weight 13
   end
-  config.model "Configs::Hook" do
+  config.model "Configs::Tokens::Chatwork" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 14
   end
-  config.model "Configs::Tokens::Smtp" do
+  config.model "Configs::Tokens::Slack" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 15
   end
-  config.model "Configs::Tokens::Twitter" do
+  config.model "Configs::Tokens::Smtp" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 16
   end
-  config.model "Configs::Global" do
+  config.model "Configs::Tokens::Twitter" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 17
   end
-  config.model "User" do
+  config.model "Configs::Global" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 18
+  end
+  config.model "User" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 19
   end
 end

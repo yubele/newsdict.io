@@ -141,10 +141,11 @@ en:
       "configs/global": Global Settings
       "configs/hook": Hook of Notify Settings
       "contents/web": "contents data"
-      "configs/tokens/chatwork": Chatwork Settings
-      "configs/tokens/slack": Slack Settings
-      "configs/tokens/Smtp": Smtp Settings
-      "configs/tokens/twitter": Twitter Settings
+      "configs/tokens/chatwork": Chatwork API
+      "configs/tokens/slack": Slack API
+      "configs/tokens/smtp": SMTP Setting
+      "configs/tokens/twitter": Twitter API
+      "posts/twitter": Update Twitter
       inquiry: Inquiry
     errors:
       messages:

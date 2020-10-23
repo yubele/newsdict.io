@@ -1,4 +1,6 @@
 en:
   dashboards:
+    searchbox:
+      search: Search
     show:
       search: Search the news.

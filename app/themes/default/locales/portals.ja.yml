@@ -1,4 +1,6 @@
 ja:
   portals:
+    searchbox:
+      search: 検索
     paper:
       weekly_title: "%{from_date}から%{to_date}までの記事"
