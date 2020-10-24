@@ -32,7 +32,6 @@ jobs:
         set -xe
         docker-compose build --no-cache
         docker/start -d web mongodb redis
-        docker-compose attach newsdict_web
     - name: rails test -v
       run: |
         set -xe

@@ -1,4 +1,6 @@
 #!/bin/bash
+# Create cert
+ruby $(dirname $BASH_SOURCE)/create_cert.rb
 # Delete lock file if previous lock file remains
 if [ -f installed.$APP_TYPE.lock ] && [ $APP_TYPE != "yard" ];then
   rm installed.$APP_TYPE.lock
