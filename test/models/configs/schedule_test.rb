@@ -28,7 +28,12 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     content = FactoryBot.create("Configs::Schedule")
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
-    travel_time = Time.new(now.year, now.month, travel_day , content.hour, content.min, 0, Time.zone.formatted_offset)
+    if content.hour == 24 && 0 <= content.min
+      hour = content.hour - 1
+    else
+      hour = content.hour
+    end
+    travel_time = Time.new(now.year, now.month, travel_day , hour, content.min, 0, Time.zone.formatted_offset)
     Timecop.travel(travel_time)
     assert_equal Configs::Schedule.current.count, 1
   end
@@ -37,8 +42,13 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     content.min = Configs::Schedule::EVERY
     content.save
     now = Time.zone.now
+    if content.hour == 24 && 0 <= now.min
+      hour = content.hour - 1
+    else
+      hour = content.hour
+    end
     travel_day = now.day - now.wday + content.wday
-    travel_time = Time.new(now.year, now.month, travel_day , content.hour, now.min, 0, Time.zone.formatted_offset)
+    travel_time = Time.new(now.year, now.month, travel_day , hour, now.min, 0, Time.zone.formatted_offset)
     Timecop.travel(travel_time)
     assert_equal Configs::Schedule.current.count, 1
   end
@@ -47,8 +57,13 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     content.hour = Configs::Schedule::EVERY
     content.save
     now = Time.zone.now
+    if now.hour == 24 && 0 <= content.min
+      hour = now.hour - 1
+    else
+      hour = now.hour
+    end
     travel_day = now.day - now.wday + content.wday
-    travel_time = Time.new(now.year, now.month, travel_day , now.hour, content.min, 0, Time.zone.formatted_offset)
+    travel_time = Time.new(now.year, now.month, travel_day , hour, content.min, 0, Time.zone.formatted_offset)
     Timecop.travel(travel_time)
     assert_equal Configs::Schedule.current.count, 1
   end
@@ -57,7 +72,12 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     content.wday  = Configs::Schedule::EVERY
     content.save
     now = Time.zone.now
-    travel_time = Time.new(now.year, now.month, now.day, content.hour, content.min, 0, Time.zone.formatted_offset)
+    if content.hour == 24 && 0 <= content.min
+      hour = content.hour - 1
+    else
+      hour = content.hour
+    end
+    travel_time = Time.new(now.year, now.month, now.day, hour, content.min, 0, Time.zone.formatted_offset)
     Timecop.travel(travel_time)
     assert_equal Configs::Schedule.current.count, 1
   end
