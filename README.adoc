@@ -48,6 +48,12 @@ $ docker/start
 $ docker/start -d
 ``
 
+== Test
+
+``
+$ docker/rails test -v
+``
+
 == Story Point
 
 - 1 => Change the wording of view. / Change the wording of locale.
