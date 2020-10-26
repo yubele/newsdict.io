@@ -12,12 +12,11 @@ class Posts::Twitter < ::Post
   # @private
   # @return [void]
   def twitter_client
-    default_twitter = twitter_token
     Twitter::REST::Client.new do |config|
-      config.consumer_key        = default_twitter.consumer_key
-      config.consumer_secret     = default_twitter.consumer_secret
-      config.access_token        = default_twitter.access_token
-      config.access_token_secret = default_twitter.access_secret
+      config.consumer_key        = twitter_token.consumer_key
+      config.consumer_secret     = twitter_token.consumer_secret
+      config.access_token        = twitter_token.access_token
+      config.access_token_secret = twitter_token.access_secret
     end
   end
 end
