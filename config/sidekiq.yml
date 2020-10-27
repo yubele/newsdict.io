@@ -29,6 +29,11 @@
     cron: '0 */5 * * * *'
     class: Collects::CollectTagsJob
     queue: collects
+  schedules_job:
+    enabled: true
+    cron: '0 * * * * *'
+    class: SchedulesJob
+    queue: notifies
 :concurrency: 1
 :queues:
   - crawlers

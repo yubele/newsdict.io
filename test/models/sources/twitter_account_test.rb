@@ -4,7 +4,10 @@ class Sources::TwitterAccountTest < ActiveSupport::TestCase
   # Initialize DB
   def setup
     super
-    FactoryBot.build("Posts::Twitter")
+    config = FactoryBot.create("Configs::Tokens::Twitter")
+    twitter = FactoryBot.build("Posts::Twitter")
+    twitter.twitter_token_id = config.id
+    twitter.save
   end
   test "Get icon" do
     stub_request(:get, "https://api.twitter.com/1.1/users/show.json?screen_name=newsdict").to_return(body: fixture('web_mock/twitter/user.json'), headers: {content_type: 'application/json; charset=utf-8'})
