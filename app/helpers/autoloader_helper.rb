@@ -47,12 +47,8 @@ module AutoloaderHelper
   # @return [String] html of tag
   def vue_content_tag_for_autoloader(name, content, content_or_options_with_block = nil, options = nil, escape = true, &block)
     if content_or_options_with_block.instance_of?(String)
-      begin
-        content_or_options_with_block = eval(content_or_options_with_block)
-      rescue Exception
-        # nothing
-      end
       options["v-html"] = content_or_options_with_block
+      content_or_options_with_block = eval(content_or_options_with_block)
     end
     vue_content_tag(name, content_or_options_with_block, options, escape, &block)
   end

@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Axios from 'axios/dist/axios.js'
-if (document.querySelector('#more-contents')) {
+if (document.querySelector('#articles')) {
   var autoscroll = new Vue({
-    el: "#more-contents",
+    el: "#articles",
     data: {
       current_page: 1,
       next_page: 2,
