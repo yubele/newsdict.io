@@ -69,7 +69,7 @@ class Content < ApplicationRecord
         begin
           # Binary
           image = MiniMagick::Image.read(blob)
-          image.resize "128x"
+          image.resize "364x"
           attrs[:image_blob] = BSON::Binary.new(image.to_blob)
         rescue
           # Svg

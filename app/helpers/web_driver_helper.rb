@@ -1,5 +1,5 @@
 module WebDriverHelper
-  # Get source
+  # Get source of html
   # @param [String] url
   # @param [Integer] delay
   def get_source(url, delay=nil)
