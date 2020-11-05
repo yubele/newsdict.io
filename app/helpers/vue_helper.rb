@@ -1,4 +1,4 @@
-module AutoloaderHelper
+module VueHelper
   include Rails.application.routes.url_helpers
 
   # Convert content for vue
@@ -50,6 +50,18 @@ module AutoloaderHelper
       "'/user_icon/' + content.source.id + '/'"
     else
       user_icon_path(content.source.id)
+    end
+  end
+
+  # Return source path for vuejs
+  # @param [Boolean] is_vue Vue content
+  # @param [OpenStruct] content
+  # @return [String] converted content
+  def vue_source_path(is_vue, content)
+    if is_vue
+      "'/sources/' + content.source.id + '/'"
+    else
+      sources_path(content.source.id)
     end
   end
 end
