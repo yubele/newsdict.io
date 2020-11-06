@@ -85,3 +85,6 @@ yarn-debug.log*
 # credentials
 /config/*.key
 /config/credentials
+
+# sitemaps
+/public/shared/sitemap*

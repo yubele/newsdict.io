@@ -2,35 +2,19 @@
 SitemapGenerator::Sitemap.default_host = "https://newsdict.jp"
 SitemapGenerator::Sitemap.sitemaps_path = 'shared/'
 SitemapGenerator::Sitemap.create_index = true
+Rails.application.routes.default_url_options[:trailing_slash] = true
 SitemapGenerator::Sitemap.create do
   add '/', priority: 1.0, changefreq: 'always'
+  Source.all.each do |source|
+    add sources_path(source.id), priority: 0.8, changefreq: 'hourly'
+  end
   Configs::Category.all.each do |config|
-    add "/category/#{CGI::escape(config.key)}/", priority: 0.8, changefreq: 'hourly'
+    add category_path(config.key), priority: 0.7, changefreq: 'hourly'
+  end
+  CollectTag.all.each do |tag|
+    add tag_path(tag.name), priority: 0.7, changefreq: 'hourly'
   end
   Content.all.each do |content|
-    add "/contents/#{content.id}/", priority: 0.5, changefreq: 'monthly'
+    add content_path(content.id), priority: 0.5, changefreq: 'monthly'
   end
-  
-  # Put links creation logic here.
-  #
-  # The root path '/' and sitemap index file are added automatically for you.
-  # Links are added to the Sitemap in the order they are specified.
-  #
-  # Usage: add(path, options={})
-  #        (default options are used if you don't specify)
-  #
-  # Defaults: :priority => 0.5, :changefreq => 'weekly',
-  #           :lastmod => Time.now, :host => default_host
-  #
-  # Examples:
-  #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
-  #
-  # Add all articles:
-  #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
 end
