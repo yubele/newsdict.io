@@ -22,6 +22,7 @@ Rails.application.routes.draw do
       get "/tag/:keyword/", as: :tag
     end
   end
+  get "/sources/:id/", to: "portals/sources#show", as: :sources
   resources :contents, only: :show
   get "/paper/term/:from_date/:to_date/", to: "papers#term", as: :paper_term
   get "/paper/term/:date/", to: "papers#one_day", as: :paper_oneday

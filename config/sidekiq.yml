@@ -16,7 +16,7 @@
     queue: mecab_dics
   sitemaps_job:
     enabled: false
-    cron: '0 0 */3 * * *'
+    cron: '0 0 0 * * *'
     class: SitemapsJob
     queue: sitemaps
   notifies_job:

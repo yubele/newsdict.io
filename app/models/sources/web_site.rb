@@ -21,8 +21,8 @@ module Sources
     end
     # Check if it is updated.
     # This is written here because it must be determined for each Source model.
-    # @param [Contents::Web] content
-    # @param [Hash] Contents::Web attributes
+    # @param [Content] content
+    # @param [Hash] Content attributes
     # @return [Boolean]
     def update?(content, attrs)
       content.content != attrs[:content]

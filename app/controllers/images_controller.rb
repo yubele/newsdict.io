@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
   # index
   def index
-    content = Contents::Web.find(params[:id])
+    content = Content.find(params[:id])
     if content && content.image_blob
       send_data content.image_blob.data, :type => 'image', :disposition => 'inline'
     elsif content && content.image_svg

@@ -5,6 +5,7 @@ class Content < ApplicationRecord
   field :title, type: String
   field :site_name, type: String
   field :content, type: String
+  field :shared_text, type: String
   field :expanded_url, type: String
   # image blob (because active-storage is not support mongoid.)
   field :image_blob, type: BSON::Binary
@@ -15,7 +16,6 @@ class Content < ApplicationRecord
   field :source_id, type: BSON::ObjectId
   field :user_id, type: BSON::ObjectId
   field :count_of_shared, type: Integer
-  # unique id of source
   field :unique_id, type: String
   include Mongoid::Timestamps
   belongs_to :source, optional: true
@@ -82,7 +82,7 @@ class Content < ApplicationRecord
     # @param [Hash] attrs
     # @return [void]
     def save_form_job(attrs)
-      already_content = Contents::Web.unique?(url: attrs[:exclude_url], title: attrs[:title])
+      already_content = Content.unique?(url: attrs[:exclude_url], title: attrs[:title])
       # Check duplicated contents
       if already_content && already_content.source.update?(already_content, attrs)
         already_content.update_attributes(attrs)
@@ -92,7 +92,7 @@ class Content < ApplicationRecord
         if attrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
           attrs[:title] = EasyTranslate.translate(attrs[:title], :to => ENV["default_locale"])
         end
-        content = Contents::Web.new(attrs)
+        content = Content.new(attrs)
         content.count_of_shared = 1
         content.save
       end
