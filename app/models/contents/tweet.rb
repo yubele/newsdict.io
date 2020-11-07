@@ -1,4 +1,3 @@
-module Contents
-  class Tweet < ::Content
-  end
+class Contents::Tweet < ::Content
+
 end
