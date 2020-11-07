@@ -15,10 +15,15 @@ class CrawlersJob < ApplicationJob
       end
     end
     web_stat = WebStat.stat_by_url(url, userdics: userdics.map {|k,v| [k, v.join(",")]}.to_h )
-    attrs = Contents::Web.set_attributes_by_web_stat(object, web_stat)
+    case(object.class)
+    when Sources::TwitterAccount
+      attrs = Contents::Tweet.set_attributes_by_web_stat(object, web_stat)
+    when Sources::WebSite
+      attrs = Contents::Web.set_attributes_by_web_stat(object, web_stat)
+    end
     # Record unique ID to prevent duplicate registration
     attrs[:unique_id] = unique_id
-    Contents::Web.save_form_job(attrs)
+    Content.save_form_job(attrs)
   rescue Mechanize::RobotsDisallowedError,
           Mechanize::ResponseCodeError => e
     ignore = ::Filters::IgnoreCrawlContent.new

@@ -6,7 +6,7 @@ class Configs::Token < Config
   end
   field :is_default, type: Boolean, default: false
   # Create message
-  # @param [Contents::Web] contents
+  # @param [Content] contents
   # @return [String] body
   def create_message(contents)
     body = <<EOS

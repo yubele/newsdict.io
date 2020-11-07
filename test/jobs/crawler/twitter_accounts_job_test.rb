@@ -21,7 +21,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
         ::CrawlersJob.perform_now(twitter_account, url[:expanded_url], unique_id: tweet.id)
       end
     end
-    count = Contents::Web.all.count
+    count = Content.all.count
     # Equeued `Crawler::BaseJob` uniqueress
     twitter_account.user_timeline.each do |tweet|
       tweet.to_h[:entities][:urls].each_with_index do |url, index|
@@ -30,7 +30,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
         ::CrawlersJob.perform_now(twitter_account, generated_url, unique_id: tweet.id)
       end
     end
-    assert_equal count, Contents::Web.all.count
+    assert_equal count, Content.all.count
   end
   test "queued job" do
     user = FactoryBot.create(:user)

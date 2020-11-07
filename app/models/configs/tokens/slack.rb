@@ -16,7 +16,7 @@ module Configs::Tokens
       ::Slack::Notifier.new webhook, channel: channel, username: username
     end
     # Send the messages of contents to slack
-    # @param [Contents::Web] contents
+    # @param [Content] contents
     # @return [void]
     def send_message(contents)
       client.ping create_message(contents)

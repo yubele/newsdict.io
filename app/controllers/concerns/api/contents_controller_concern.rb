@@ -12,11 +12,11 @@ module Api
     # @rerurn [JSON]
     def contents(limit: 25, skip:0, sort: :created_at, category: nil, tag: nil, search: nil)
       category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
-      content = Contents::Web
+      content = Content
       if tag
-        content = Contents::Web.search_by_tag(tag)
+        content = Content.search_by_tag(tag)
       elsif search
-        content = Contents::Web.search_by_mixed(search)
+        content = Content.search_by_mixed(search)
       end
       content
         .contents(category_id: category_id)
