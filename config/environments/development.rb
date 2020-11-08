@@ -1,3 +1,6 @@
+# i18n-debug
+I18n::Debug.logger = Logger.new(Rails.root.join('log', 'i18n-debug.log'))
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
