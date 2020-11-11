@@ -19,4 +19,12 @@ class Sources::WebSiteTest < ActiveSupport::TestCase
     source.source_url = "https://newsdict.blog"
     assert_equal source.icon.class, BSON::Binary
   end
+
+  test "Get the Contents::WebSite" do
+    web_site = FactoryBot.create("Sources::WebSite")
+    stub(:none, web_site.source_url, 'web_mock/web_stat/blog.html')
+    web_site.contents.each do |content|
+      assert_equal content.class, Contents::Web
+    end
+  end
 end

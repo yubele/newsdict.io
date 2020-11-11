@@ -11,6 +11,7 @@ class Content < ApplicationRecord
   field :image_blob, type: BSON::Binary
   field :image_svg, type: String
   field :tags, type: Array
+  field :raw_data, type: String
   field :http_status, type: Integer
   field :language_code, type: String
   field :source_id, type: BSON::ObjectId
