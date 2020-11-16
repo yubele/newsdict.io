@@ -28,4 +28,12 @@ class Sources::TwitterAccountTest < ActiveSupport::TestCase
     source.name = "newsdict"
     assert_equal source.icon.class, BSON::Binary
   end
+
+  test "Get the Contents::Tweet" do
+    twitter_account = FactoryBot.create("Sources::TwitterAccount")
+    stub(:twitter, '/1.1/statuses/user_timeline.json', 'web_mock/twitter/statuses.json', {screen_name: twitter_account.name})
+    twitter_account.contents.each do |content|
+      assert_equal content.class, Contents::Tweet
+    end
+  end
 end

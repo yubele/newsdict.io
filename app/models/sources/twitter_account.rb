@@ -1,13 +1,19 @@
 class Sources::TwitterAccount < ::Source
+  using ::ContentConcern
   # Name is twitter's screen_name
   validates :name, uniqueness: true, format: { with: /\A[a-zA-Z0-9_]{1,15}\z/, message: 'twitter\'s screen_name only' }
+  # Get the tweets.
+  # @return `Contents::Tweet`s
+  def contents
+    twitter_client.user_timeline(name).map(&:to_content).flatten
+  end
   # Get Twitter Account URL
   # @return [String] twitter url
   def source_url
     "#{Newsdict::Application.config.web_site_prefix[self.class.name.demodulize.underscore.to_sym]}/#{name}"
   end
   # Get media name
-  # @return [String] media_name
+  # @return [String] media_nameq
   def media_name
     "Twitter"
   end

@@ -4,6 +4,7 @@ namespace :test do
     if args.to_a.count == 0
       Rails.application.eager_load!
       models = ApplicationRecord.descendants
+      p "[INFO] Generate All factory bot, if file not exists."
     else
       models = Array.new
       args.to_a.each do |name|
@@ -12,21 +13,28 @@ namespace :test do
         rescue NameError
           raise "not found model: #{name}"
         end
+        p "[INFO] Force generate factory bot. #{name}"
       end
     end
     models.each do |model|
       name = model.to_s
       filename = Rails.root.join('test', 'fixtures', 'factories', "#{name.underscore}.rb").to_s
-      next if File.exists?(filename)
+      next if File.exists?(filename) && args.to_a.count == 0
       FileUtils.mkdir_p(File.dirname(filename))
       file = File.open(filename, "w")
       file.puts "FactoryBot.define do\n"
       file.puts "  factory '#{name}' do\n"
       model.attribute_names.each do |attribute_name|
         type = model.fields[attribute_name].options[:type]
-        validator = model._validators[:key].find { |v| v.class == Mongoid::Validatable::LengthValidator } || OpenStruct.new({:options => {}})
-        is_present = model._validators[:key].find { |v| v.class == Mongoid::Validatable::PresenceValidator }
-        is_uniqueness = model._validators[:key].find { |v| v.class == Mongoid::Validatable::UniquenessValidator }
+        validator_length = model._validators[attribute_name.to_sym].find { |v| v.class == Mongoid::Validatable::LengthValidator }
+        validator_presence = model._validators[attribute_name.to_sym].find { |v| v.class == Mongoid::Validatable::PresenceValidator }
+        validator_uniqueness = model._validators[attribute_name.to_sym].find { |v| v.class == Mongoid::Validatable::UniquenessValidator }
+        minimum = validator_presence ? 1 : 0
+        maximum = 255
+        if validator_length
+          minimum = validator_length.options[:minimum] ? validator_length.options[:minimum] : minimum
+          maximum = validator_length.options[:maximum] ? validator_length.options[:maximum] : maximum
+        end
         case type.to_s
         when "BSON::ObjectId", "Object"
           value = "BSON::ObjectId.new"
@@ -35,15 +43,7 @@ namespace :test do
           when "_type"
             value = "\"#{name}\""
           else
-            if validator.options[:minimum]
-              minimum = validator.options[:minimum]
-            elsif is_present && validator.options[:minimum].nil?
-              minimum = 1
-            else
-              minimum = 0
-            end
-            maximum = validator.options[:maximum] ? validator.options[:maximum] : 255
-            if is_uniqueness
+            if validator_uniqueness
               # Not support length
               value = "Faker::Name.unique.name"
             else
@@ -55,14 +55,6 @@ namespace :test do
         when "Mongoid::Boolean"
           value = "[true, false].sample"
         when "Integer"
-          if validator.options[:minimum]
-            minimum = validator.options[:minimum]
-          elsif is_present && validator.options[:minimum].nil?
-            minimum = 1
-          else
-            minimum = 0
-          end
-          maximum = validator.options[:maximum] ? validator.options[:maximum] : 255
           value = "Faker::Number.between(from: #{minimum}, to: #{maximum})"
         when "BSON::Binary"
           value = "Faker::String.random"
@@ -76,8 +68,9 @@ namespace :test do
       end
       file.puts "  end\n"
       file.puts "end\n"
+      p "[INFO] Generated #{filename}."
     end
-  #rescue => e
-  #  p e.message
+  rescue => e
+    p e.message
   end
 end

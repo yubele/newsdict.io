@@ -3,38 +3,29 @@ include WebMock::API
 
 WebMock.enable!
 
-# Copy the modules from twitter gem
-
-def a_delete(path)
-  a_request(:delete, Twitter::REST::Request::BASE_URL + path)
+[:get, :post, :put, :delete].each do |type|
+  method_name = "stub_#{type}"
+  Object.send(:define_method, method_name) do |path|
+    stub_request(type, "#{Twitter::REST::Request::BASE_URL}#{path}")
+  end
 end
 
-def a_get(path)
-  a_request(:get, Twitter::REST::Request::BASE_URL + path)
+[:get, :post, :put, :delete].each do |type|
+  name = "standard_stub_#{type}"
+  Object.send(:define_method, name) do |path|
+    stub_request(type, path)
+  end
 end
 
-def a_post(path)
-  a_request(:post, Twitter::REST::Request::BASE_URL + path)
-end
-
-def a_put(path)
-  a_request(:put, Twitter::REST::Request::BASE_URL + path)
-end
-
-def stub_delete(path)
-  stub_request(:delete, Twitter::REST::Request::BASE_URL + path)
-end
-
-def stub_get(path)
-  stub_request(:get, Twitter::REST::Request::BASE_URL + path)
-end
-
-def stub_post(path)
-  stub_request(:post, Twitter::REST::Request::BASE_URL + path)
-end
-
-def stub_put(path)
-  stub_request(:put, Twitter::REST::Request::BASE_URL + path)
+def stub(type, api_uri, fixture_path, query = {}, query_type = :get)
+  if type == :twitter
+    method_name = "stub_#{query_type}"
+  else
+    method_name = "standard_stub_#{query_type}"
+  end
+  Object.send(method_name, api_uri)
+    .with(query: query)
+    .to_return(body: fixture(fixture_path), headers: {content_type: 'application/json; charset=utf-8'})
 end
 
 # Change path `fixtures` to `fixtures/web_mock/twitter`
