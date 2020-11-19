@@ -167,6 +167,10 @@ group :development, :test do
 end
 
 group :development do
+  # Better error page for Rails and other Rack apps (https://github.com/BetterErrors/better_errors)
+  gem 'better_errors'
+  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
+  gem 'binding_of_caller'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # Rails application preloader (https://github.com/rails/spring)
   gem 'spring'
