@@ -64,4 +64,16 @@ module VueHelper
       sources_path(content.source.id)
     end
   end
+
+  # Return image path of css style for vuejs
+  # @param [Boolean] is_vue Vue content
+  # @param [OpenStruct] content
+  # @return [String] converted content
+  def vue_backgrond_img_path(is_vue, content)
+    if is_vue
+      "'background-image: url(/img/' + content.id + '/)'"
+    else
+      "background-image: url(#{img_path(content.id)})"
+    end
+  end
 end
