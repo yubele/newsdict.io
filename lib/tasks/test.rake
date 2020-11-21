@@ -47,7 +47,7 @@ namespace :test do
               # Not support length
               value = "Faker::Name.unique.name"
             else
-              value = "Faker::String.random(length: [#{minimum}, #{maximum}])"
+              value = "Faker::App.name[#{minimum}..#{maximum}]"
             end
           end
         when "Time", "DateTime"
