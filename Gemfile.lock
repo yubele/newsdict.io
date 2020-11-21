@@ -85,7 +85,13 @@ GEM
       concurrent-ruby (~> 1.0)
       thread_safe (~> 0.3.5)
     bcrypt (3.1.16)
+    better_errors (2.9.1)
+      coderay (>= 1.0.0)
+      erubi (>= 1.0.0)
+      rack (>= 0.9.0)
     bindex (0.8.1)
+    binding_of_caller (0.8.0)
+      debug_inspector (>= 0.0.1)
     bootsnap (1.4.8)
       msgpack (~> 1.0)
     bson (4.10.0)
@@ -138,6 +144,7 @@ GEM
     database_cleaner-redis (1.8.0)
       database_cleaner (~> 1.8.0)
       redis
+    debug_inspector (0.0.3)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -276,7 +283,7 @@ GEM
     method_source (1.0.0)
     mime-types (3.3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2020.0512)
+    mime-types-data (3.2020.1104)
     mimemagic (0.3.5)
     mini_magick (4.10.1)
     mini_mime (1.0.2)
@@ -506,7 +513,7 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    web_stat (0.3.17)
+    web_stat (0.3.19)
       bundler (>= 2.0.2)
       cld (>= 0.8.0)
       mechanize (>= 2.7)
@@ -545,6 +552,8 @@ DEPENDENCIES
   asciidoctor
   asciidoctor-diagram
   asciidoctor-revealjs
+  better_errors
+  binding_of_caller
   bootsnap
   bulma-rails
   bundler-audit
