@@ -13,7 +13,7 @@ for i in $(find src/doc -regex ".*\.\(png\|jpeg\|jpg\|gif\)")
 do
     mkdir -p $(dirname $(echo $i | sed "s#src/##"))
     cp $i $(echo $i | sed "s#src/##")
-done    
+done
 # Generate yard
-bash src/provisioning/startup/guard/yard.sh $1
+bash src/provisioning/startup/guard/yard.sh $1 &
 /usr/sbin/nginx -c /etc/nginx/nginx.conf -g 'daemon off;'
