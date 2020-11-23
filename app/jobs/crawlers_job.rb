@@ -9,14 +9,13 @@ class CrawlersJob < ApplicationJob
     web_stat = WebStat.stat_by_url(url, userdics: Configs::MecabDic.userdics )
     case(object.class)
     when Sources::TwitterAccount
-      attrs = Contents::Tweet.set_attributes_by_web_stat(object, web_stat)
-      attrs[:unique_id] = unique_id
-      Contents::Tweet.save_form_job(attrs)
+      model = Contents::Tweet
     when Sources::WebSite
-      attrs = Contents::Web.set_attributes_by_web_stat(object, web_stat)
-      attrs[:unique_id] = unique_id
-      Contents::Web.save_form_job(attrs)
+      model = Contents::Web
     end
+    attrs = model.set_attributes_by_web_stat(object, web_stat)
+    attrs[:unique_id] = unique_id
+    model.save_form_job(attrs)
   rescue Mechanize::RobotsDisallowedError,
           Mechanize::ResponseCodeError => e
     ignore = ::Filters::IgnoreCrawlContent.new
