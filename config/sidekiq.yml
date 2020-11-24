@@ -27,7 +27,7 @@
   collect_tags_job:
     enabled: true
     cron: '0 */5 * * * *'
-    class: Collects::CollectTagsJob
+    class: CollectTagsJob
     queue: collects
   schedules_job:
     enabled: true
