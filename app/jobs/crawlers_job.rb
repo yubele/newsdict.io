@@ -5,7 +5,6 @@ class CrawlersJob < ApplicationJob
   # @param [String] url
   # @param [Mixed] unique_id
   def perform(object, url, unique_id: nil)
-    return nil if ::Filters::IgnoreCrawlContent.where(exclude_url: url).exists?
     web_stat = WebStat.stat_by_url(url, userdics: Configs::MecabDic.userdics )
     case(object.class)
     when Sources::TwitterAccount, Sources::Relations::TwitterAccount

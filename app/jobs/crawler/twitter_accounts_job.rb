@@ -6,7 +6,9 @@ module Crawler
         begin
           twitter_account.user_timeline.each do |tweet|
             tweet.to_h[:entities][:urls].each do |url|
-              ::CrawlersJob.perform_later(twitter_account, url[:expanded_url], unique_id: tweet.id)
+              unless ::Filters::IgnoreCrawlContent.where(exclude_url: url[:expanded_url]).exists?
+                ::CrawlersJob.perform_later(twitter_account, url[:expanded_url], unique_id: tweet.id)
+              end
             end
           end
         rescue Twitter::Error::NotFound
