@@ -34,6 +34,10 @@
     cron: '0 * * * * *'
     class: SchedulesJob
     queue: notifies
+  manual_save_relations_twitter_acccount:
+    enabled: false
+    class: Relations::TwitterAccountsJob
+    queue: relations
 :concurrency: 1
 :queues:
   - crawlers
@@ -41,3 +45,4 @@
   - mecab_dics
   - sitemaps
   - collects
+  - relations

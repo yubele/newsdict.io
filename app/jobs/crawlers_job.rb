@@ -8,7 +8,7 @@ class CrawlersJob < ApplicationJob
     return nil if ::Filters::IgnoreCrawlContent.where(exclude_url: url).exists?
     web_stat = WebStat.stat_by_url(url, userdics: Configs::MecabDic.userdics )
     case(object.class)
-    when Sources::TwitterAccount
+    when Sources::TwitterAccount, Sources::Relations::TwitterAccount
       model = Contents::Tweet
     when Sources::WebSite
       model = Contents::Web

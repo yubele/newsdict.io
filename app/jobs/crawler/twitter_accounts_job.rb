@@ -2,7 +2,7 @@ module Crawler
   class TwitterAccountsJob < ::CrawlersJob
     # Fetch the web each twitter accounts
     def perform
-      Sources::TwitterAccount.all.each do |twitter_account|
+      (Sources::TwitterAccount.all + Sources::Relations::TwitterAccount.all).each do |twitter_account|
         begin
           twitter_account.user_timeline.each do |tweet|
             tweet.to_h[:entities][:urls].each do |url|
