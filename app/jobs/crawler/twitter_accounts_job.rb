@@ -7,7 +7,7 @@ module Crawler
           twitter_account.user_timeline.each do |tweet|
             tweet.to_h[:entities][:urls].each do |url|
               unless ::Filters::IgnoreCrawlContent.where(exclude_url: url[:expanded_url]).exists?
-                ::CrawlersJob.perform_later(twitter_account, url[:expanded_url], unique_id: tweet.id)
+                ::CrawlersJob.perform_later(twitter_account, url: url[:expanded_url], unique_id: tweet.id, shared_text: tweet.text)
               end
             end
           end
