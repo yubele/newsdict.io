@@ -5,6 +5,10 @@ class ContentsController < ApplicationController
   def show(id)
     @content = Content.contents.find_by(id: id)
     raise ActionController::RoutingError.new('Not Found') if @content.nil?
+    @related_contents = Array.new
+    @content.tags.each do |tag|
+      @related_contents.concat(JSON.parse(contents(tag: tag), object_class: OpenStruct))
+    end
     @contents = Content.contents(name: @content.source.name)
       .sortable
       .page(@content.page_num({
