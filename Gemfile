@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.1'
+ruby '2.7.2'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -112,20 +112,16 @@ gem 'ffi'
 gem 'sassc'
 # Integrate SassC-Ruby into Rails. (https://github.com/sass/sassc-rails)
 gem 'sassc-rails'
-# Use Uglifier as compressor for JavaScript assets
 # Ruby wrapper for UglifyJS JavaScript compressor (http://github.com/lautis/uglifier)
 gem 'uglifier'
-# Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 # Use webpack to manage app-like JavaScript modules in Rails (https://github.com/rails/webpacker)
 gem 'webpacker'
-# Use CoffeeScript for .coffee assets and views
 # CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
 gem 'coffee-rails'
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
 gem 'turbolinks'
 # Create JSON structures via a Builder-style DSL (https://github.com/rails/jbuilder)
 gem 'jbuilder'
-# Reduces boot times through caching; required in config/boot.rb
 # Boot large ruby/rails apps faster (https://github.com/Shopify/bootsnap)
 gem 'bootsnap', require: false
 # Makes spring watch files using the listen gem. (https://github.com/jonleighton/spring-watcher-listen)
@@ -158,10 +154,8 @@ gem 'exception_notification'
 group :development, :test do
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
   gem 'pry-byebug'
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug'
-  # factory_bot_rails provides integration between factory_bot and rails 4.2 or newer (https://github.com/thoughtbot/factory_bot_rails)
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails'
 end
@@ -171,12 +165,10 @@ group :development do
   gem 'better_errors'
   # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
   gem 'binding_of_caller'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   # Rails application preloader (https://github.com/rails/spring)
   gem 'spring'
   # Add comments to your Gemfile with each dependency's description. (https://github.com/ivantsepp/annotate_gem)
   gem 'annotate_gem'
-  # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   # A debugging tool for your Ruby on Rails applications. (https://github.com/rails/web-console)
   gem 'web-console'
   # Listen to file modifications (https://github.com/guard/listen)
@@ -185,6 +177,10 @@ group :development do
   gem 'bundler-audit'
   # Ever wondered which translations are being looked up by Rails, a gem, or simply your app? Wonder no more! (https://github.com/fphilipe/i18n-debug)
   gem 'i18n-debug'
+  # Better error page for Rails and other Rack apps (https://github.com/BetterErrors/better_errors)
+  gem 'better_errors'
+  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
+  gem 'binding_of_caller'
 end
 
 group :document do
@@ -204,14 +200,11 @@ group :document do
   gem 'guard-shell'
   # A Ruby wrapper for Linux inotify, using FFI (https://github.com/guard/rb-inotify)
   gem 'rb-inotify', :require => false
-  # Downgrade 0.12.2. because `bundle/ruby/2.7.0/gems/guard-2.16.1/lib/guard/jobs/pry_wrapper.rb:131:in `_setup': undefined method `file=' for #<Pry::History:0x000055bbc76c16b8>`
-  # An IRB alternative and runtime developer console (http://pryrepl.org)
   # A runtime developer console and IRB alternative with powerful introspection capabilities. (http://pry.github.io)
   gem 'pry'
 end
 
 group :test do
-  # Adds support for Capybara system testing and selenium driver
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
   gem 'capybara'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)

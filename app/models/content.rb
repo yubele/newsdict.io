@@ -4,7 +4,9 @@ class Content < ApplicationRecord
   has_one :user
   field :title, type: String
   field :site_name, type: String
-  field :content, type: String
+  # deprecated
+  field :content, type: String, default: ""
+  field :content_text, type: String, default: ""
   field :shared_text, type: String
   field :expanded_url, type: String
   # image blob (because active-storage is not support mongoid.)
@@ -56,7 +58,7 @@ class Content < ApplicationRecord
       attrs = {
         :title => web_stat[:title],
         :site_name => web_stat[:site_name],
-        :content => web_stat[:content],
+        :content_text => web_stat[:content],
         :expanded_url => web_stat[:url],
         :http_status => web_stat[:status],
         :language_code => web_stat[:language_code],
@@ -91,7 +93,7 @@ class Content < ApplicationRecord
       else
         # Translate
         if attrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
-          attrs[:title] = EasyTranslate.translate(attrs[:title], :to => ENV["default_locale"])
+          attrs[:content_text] = EasyTranslate.translate(attrs[:content_text], :to => ENV["default_locale"])
         end
         content = Content.new(attrs)
         content.count_of_shared = 1

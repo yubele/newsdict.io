@@ -18,7 +18,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
     # Equeued `Crawler::BaseJob`
     twitter_account.user_timeline.each do |tweet|
       tweet.to_h[:entities][:urls].each do |url|
-        ::CrawlersJob.perform_now(twitter_account, url[:expanded_url], unique_id: tweet.id)
+        ::CrawlersJob.perform_now(twitter_account, url: url[:expanded_url], unique_id: tweet.id)
       end
     end
     count = Content.all.count
@@ -27,7 +27,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
       tweet.to_h[:entities][:urls].each_with_index do |url, index|
         generated_url = "#{url[:expanded_url]}#{tweet.id}#{index}"
         set_webmock(generated_url)
-        ::CrawlersJob.perform_now(twitter_account, generated_url, unique_id: tweet.id)
+        ::CrawlersJob.perform_now(twitter_account, url: generated_url, unique_id: tweet.id)
       end
     end
     assert_equal count, Content.all.count

@@ -1,8 +1,8 @@
-class Collects::CollectTagsJob < ApplicationJob
+class CollectTagsJob < ApplicationJob
   def perform
     Content.all.each do |content|
       content.tags.each do |name|
-        ::CollectsJob.perform_later(name)
+        CollectTag.add(name)
       end
     end
   end

@@ -36,4 +36,14 @@ class Sources::TwitterAccountTest < ActiveSupport::TestCase
       assert_equal content.class, Contents::Tweet
     end
   end
+
+  test "Get relation_accounts" do
+    twitter_account = FactoryBot.create("Sources::TwitterAccount")
+    stub(:twitter, '/1.1/friends/list.json', 'web_mock/twitter/friends.json', {cursor: -1, screen_name: twitter_account.name})
+    twitter_account.relation_accounts.each do |account|
+      assert_equal account.class, Sources::Relations::TwitterAccount
+    end
+    count = twitter_account.relation_accounts.count
+    assert_equal Sources::Relations::TwitterAccount.all.count, count
+  end
 end

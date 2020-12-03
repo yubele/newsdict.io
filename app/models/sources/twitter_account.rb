@@ -1,5 +1,6 @@
 class Sources::TwitterAccount < ::Source
   using ::ContentConcern
+  field :user_id, type: Integer
   # Name is twitter's screen_name
   validates :name, uniqueness: true, format: { with: /\A[a-zA-Z0-9_]{1,15}\z/, message: 'twitter\'s screen_name only' }
   # Get the tweets.
@@ -43,6 +44,25 @@ class Sources::TwitterAccount < ::Source
   #  API Reference. https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline
   def user_timeline
     twitter_client.user_timeline(self.name)
+  end
+  # Get friends.
+  # @return follow users.
+  def relation_accounts
+    twitter_client.friends(self.name).map do |friend|
+      parent_account = Sources::TwitterAccount.find_by(name: self.name)
+      account = Sources::Relations::TwitterAccount.find_or_create_by(
+        user_id: friend.id,
+        name: friend.screen_name
+        )
+      if account.update_attributes({
+        alias_name: friend.name,
+        description: friend.description,
+        category_id: parent_account.category_id,
+        source_id: parent_account.id
+        })
+        account
+      end
+    end
   end
 
   private
