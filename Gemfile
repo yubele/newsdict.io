@@ -178,10 +178,6 @@ group :development do
   gem 'bundler-audit'
   # Ever wondered which translations are being looked up by Rails, a gem, or simply your app? Wonder no more! (https://github.com/fphilipe/i18n-debug)
   gem 'i18n-debug'
-  # Better error page for Rails and other Rack apps (https://github.com/BetterErrors/better_errors)
-  gem 'better_errors'
-  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
-  gem 'binding_of_caller'
 end
 
 group :document do
