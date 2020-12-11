@@ -7,7 +7,7 @@ class Content < ApplicationRecord
   # deprecated
   field :content, type: String, default: ""
   field :content_text, type: String, default: ""
-  field :shared_text, type: String
+  field :shared_text, type: String, default: ""
   field :expanded_url, type: String
   # image blob (because active-storage is not support mongoid.)
   field :image_blob, type: BSON::Binary
