@@ -1,12 +1,5 @@
 $fa-font-path: "~font-awesome/fonts";
 
-html, body {
-  height:100%;
-  font-family: 'Open Sans', serif;
-  font-size: 14px;
-  font-weight: 300;
-}
-
 .hero {
   &.is-success {
     background: #F2F6FA;
@@ -84,7 +77,7 @@ h2.menu-label {
 .media-content > a > button {
   margin: 20px 0;
 }
-.column {
+.paper .column {
   margin:10px 10px 0 0 ;
 }
 #information {
@@ -267,4 +260,31 @@ div.header > div.order {
   background-color: #cdcdcd;
   font-weight: bold;
   color: #111;
+}
+.card-content-image {
+  background-repeat: no-repeat;
+  background-color: rgba(255,255,255,0.8);
+  background-blend-mode: lighten;
+  background-size: 100% auto;
+}
+.card-content :not(.tags) a:active, a:link, a:visited{
+  color: #000;
+}
+.card-image > .image > img {
+  max-height: 160px;
+  width: 100%;
+  margin: 0 0 0 auto;
+  object-fit:cover;
+	object-position:50% 00;
+}
+.c-card__source {
+  font-weight: normal;
+}
+.c-card__source a {
+  text-decoration: underline;
+}
+
+.media-content p {
+  width: 90%;
+  overflow-wrap: break-word;
 }

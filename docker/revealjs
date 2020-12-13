@@ -1,9 +1,0 @@
-#!/bin/bash
-
-if [ -z $1 ];then
-    echo "Must be filename"
-    echo " ex) docker/revealjs src/doc/exsample.adoc"
-    exit 1
-fi
-
-docker/exec bash src/provisioning/startup/asciidoctor/revealjs.sh $1

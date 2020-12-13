@@ -1,5 +1,5 @@
-class Api::V1::ContentsController < ApplicationController
-  include Api::ContentsControllerConcern
+class Api::V1::ThemesController < ApplicationController
+  include Api::ThemessControllerConcern
   # show
   #  /api/v1/contents.json?skip=[\d]+&limit=[\d]+&sort=(desc|asc)&category=xxx
   def show

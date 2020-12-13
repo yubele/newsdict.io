@@ -1,0 +1,4 @@
+// ui.js
+function hoge() {
+  
+}

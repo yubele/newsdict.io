@@ -7,7 +7,7 @@
 /**
  * Custom assets for theme.
  */
-//= link custom.css
-//= link custom.js
+//= link_directory ../javascripts .js
+//= link_directory ../stylesheets .css
 
 //= link_tree ../images
