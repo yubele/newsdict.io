@@ -24,9 +24,12 @@
   </head>
   <body>
     <%= Configs::View[:after_body].html_safe %>
+    <% if defined?(layout) && layout == :portal %>
     <%= render partial: "layouts/header/navi" %>
     <%= render partial: "layouts/header/information" %>
+    <% end %>
     <%= yield %>
+    <% if defined? portal %>
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
@@ -35,6 +38,7 @@
         </p>
       </div>
     </footer>
+    <% end %>
     <%= javascript_pack_tag  'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag  'custom', 'data-turbolinks-track': 'reload' %>
     <%= Configs::View[:end_body].html_safe %>

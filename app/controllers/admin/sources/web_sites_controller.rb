@@ -1,4 +1,4 @@
-class Sources::WebSitesController < ActionController::Base
+class Admin::Sources::WebSitesController < Admin::DeviseController
   layout "devise"
   
   # Select section of html

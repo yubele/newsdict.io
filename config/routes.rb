@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   # For health-check
   get "active", to: proc { [200, Hash.new, Array.new] }
   # Admin routes
-  scope module: :sources do
-    resources :web_sites, path: "/admin/sources~web_site",only: [:edit, :update] do
-      member do
-        get :html
+  devise_scope :user do
+    scope module: :admin do
+      scope module: :sources do
+        resources :web_sites, path: "/admin/sources~web_site",only: [:edit, :update] do
+          member do
+            get :html
+          end
+        end
       end
     end
   end
