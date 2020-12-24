@@ -56,12 +56,20 @@ $ docker/rails test -v
 
 == Story Point
 
+=== Rails
+
 - 1 => Change the wording of view. / Change the wording of locale.
 - 2 => Change variable name in method. / Fixed a few lines using the rails feature.
 - 3 => Modification using the function of the linked product. / Linking the method.
 - 5 => Implementation of confirmed functions on Qiita and stack overflow etc... .
 - 8 => Implementation of unique functions.
 - 13 => Combination of implementation of original function and implementation of function with implementation procedure.
+
+=== Infrastructure
+
+- 5 => Replacement of standalone system.
+- 8 => Medium-sized system replacement.
+- 13 => Extensive system replacement.
 
 ## Contributing
 
