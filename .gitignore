@@ -61,9 +61,6 @@ public/shared/sitemap*.xml.gz
 /shared/*
 !/shared/.keep
 
-# lock files of docker-compose
-/installed.*.lock
-
 # App themes
 /app/themes/*
 !/app/themes/default
