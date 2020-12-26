@@ -29,7 +29,7 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
     month = now.month
-    if now.end_of_month < travel_day
+    if now.end_of_month.day < travel_day
       month = now.next_month.month
       travel_day = travel_day - now.end_of_month.day
     end
@@ -44,7 +44,7 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
     month = now.month
-    if now.end_of_month < travel_day
+    if now.end_of_month.day < travel_day
       month = now.next_month.month
       travel_day = travel_day - now.end_of_month.day
     end
@@ -59,7 +59,7 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
     month = now.month
-    if now.end_of_month < travel_day
+    if now.end_of_month.day < travel_day
       month = now.next_month.month
       travel_day = travel_day - now.end_of_month.day
     end
