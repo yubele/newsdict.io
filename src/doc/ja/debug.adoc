@@ -11,4 +11,4 @@
  
 Work In Progress
 
-link:/[Back To The Top]
+= link:/[目次へ戻る]
