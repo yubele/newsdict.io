@@ -29,7 +29,7 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
     month = now.month
-    if now.end_of_month < travel_day
+    if now.end_of_month.day < travel_day
       month = now.next_month.month
       travel_day = travel_day - now.end_of_month.day
     end
@@ -44,7 +44,7 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
     month = now.month
-    if now.end_of_month < travel_day
+    if now.end_of_month.day < travel_day
       month = now.next_month.month
       travel_day = travel_day - now.end_of_month.day
     end
@@ -59,11 +59,11 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     now = Time.zone.now
     travel_day = now.day - now.wday + content.wday
     month = now.month
-    if now.end_of_month < travel_day
+    if now.end_of_month.day < travel_day
       month = now.next_month.month
       travel_day = travel_day - now.end_of_month.day
     end
-    travel_time = Time.new(now.year, month, travel_day , now.hour, content.min, 0, Time.zone.formatted_offset)
+    travel_time = Time.new(now.year, month, travel_day , (24==now.hour) ? 23 : now.hour, content.min, 0, Time.zone.formatted_offset)
     Timecop.travel(travel_time)
     assert_equal Configs::Schedule.current.count, 1
   end

@@ -1,10 +1,10 @@
 #!/bin/bash
 # Delete lock file if previous lock file remains
-if [ -f installed.$APP_TYPE.lock ] && [ $APP_TYPE != "yard" ];then
-  rm installed.$APP_TYPE.lock
+if [ -f tmp/locks/installed.$APP_TYPE.lock ] && [ $APP_TYPE != "yard" ];then
+  rm tmp/locks/installed.$APP_TYPE.lock
 fi
 # Wait `bundle-installed` on web.
-while [ "$APP_TYPE" != "web" ] && [ ! -f installed.$APP_TYPE.lock ]
+while [ "$APP_TYPE" != "web" ] && [ ! -f tmp/locks/installed.$APP_TYPE.lock ]
 do
   sleep 1
 done
@@ -18,11 +18,12 @@ bundle install
 if [ "$APP_TYPE" = "web" ];then
   . $(dirname $BASH_SOURCE)/production.sh
   # In development, create marker after `bundler installed`.
-  touch installed.asciidoctor.lock
-  touch installed.browser-sync.lock
-  touch installed.guard.lock
-  touch installed.worker.lock
-  touch installed.bundle.lock
+  mkdir -p tmp/locks
+  touch tmp/locks/installed.asciidoctor.lock
+  touch tmp/locks/installed.browser-sync.lock
+  touch tmp/locks/installed.guard.lock
+  touch tmp/locks/installed.worker.lock
+  touch tmp/locks/installed.bundle.lock
 fi
 bundle exec bin/rails tmp:clear
 # Create cert
