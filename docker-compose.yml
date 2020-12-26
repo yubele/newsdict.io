@@ -15,7 +15,7 @@ services:
     networks:
       - app-tier
     volumes:
-      - '~/mongodb:/data/db'
+      - mongo:/data/db
   web:
     tty: true
     stdin_open: true
@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile
     image: newsdictio
     volumes:
-      - './:/var/www/docker:cached'
+      - local:/var/www/docker:cached
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/web/startup.sh development
     ports:
@@ -41,7 +41,7 @@ services:
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/worker/startup.sh development
     volumes:
-      - './:/var/www/docker:cached'
+      - local:/var/www/docker:cached
     networks:
       - app-tier
     depends_on:
@@ -52,7 +52,7 @@ services:
     container_name: '${NAMESPACE}_bundle'
     image: newsdictio
     volumes:
-      - './:/var/www/docker:cached'
+      - local:/var/www/docker:cached
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/bundle/startup.sh development
     networks:
@@ -64,7 +64,7 @@ services:
     image: 'newsdict/asciidoctor.live:v0.1.20'
     command: bash src/provisioning/startup/asciidoctor/startup.sh development
     volumes:
-      - './:/var/www/docker:cached'
+      - local:/var/www/docker:cached
     ports:
       - '8080:80'
     networks:
@@ -78,7 +78,7 @@ services:
     image: 'newsdict/asciidoctor.live:v0.1.20'
     command: bash src/provisioning/startup/guard/startup.sh development
     volumes:
-      - './:/var/www/docker:cached'
+      - local:/var/www/docker:cached
     networks:
       - app-tier
     depends_on:
@@ -90,7 +90,7 @@ services:
     image: 'newsdict/asciidoctor.live:v0.1.20'
     command: bash src/provisioning/startup/browser-sync/startup.sh development
     volumes:
-      - './:/var/www/docker:cached'
+      - local:/var/www/docker:cached
     ports:
       - '3000:3000'
       - '3001:3001'
@@ -98,3 +98,10 @@ services:
       - app-tier
     depends_on:
       - web
+volumes:
+  mongo:
+  local:
+    driver_opts:
+      type: none
+      device: ./
+      o: bind
