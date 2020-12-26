@@ -2,7 +2,7 @@ class Configs::Theme < Config
   DEFAULT_THEME_NAME = 'default'
   before_save do
     if is_active == true
-      self.class.where(is_active: true).update(is_active: false)
+      self.class.not(id: id).git where(is_active: true).update(is_active: false)
     end
   end
   after_save do

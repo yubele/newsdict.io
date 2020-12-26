@@ -64,5 +64,7 @@ module Newsdict
       Rails.root.join('app', 'themes', 'default', 'assets', 'stylesheets')]
     # mongoid logger
     config.mongoid.logger = Logger.new(Rails.root.join('log', 'mongoid.log'))
+    # `@import` can require the paths. (sassc-rails)
+    config.sass.load_paths << Rails.root.join('node_modules')
   end
 end

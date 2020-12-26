@@ -10,6 +10,8 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 ##
 # A generalized Rack framework for multiple-provider authentication. (https://github.com/omniauth/omniauth)
 gem 'omniauth'
+# Provides CSRF protection on OmniAuth request endpoint on Rails application. (https://github.com/cookpad/omniauth-rails_csrf_protection)
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 # Facebook OAuth2 Strategy for OmniAuth (https://github.com/mkdynamic/omniauth-facebook)
 gem 'omniauth-facebook'
 # OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
@@ -177,10 +179,6 @@ group :development do
   gem 'bundler-audit'
   # Ever wondered which translations are being looked up by Rails, a gem, or simply your app? Wonder no more! (https://github.com/fphilipe/i18n-debug)
   gem 'i18n-debug'
-  # Better error page for Rails and other Rack apps (https://github.com/BetterErrors/better_errors)
-  gem 'better_errors'
-  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
-  gem 'binding_of_caller'
 end
 
 group :document do

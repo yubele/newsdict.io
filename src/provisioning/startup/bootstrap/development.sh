@@ -14,6 +14,7 @@ bundle config --global --delete frozen
 bundle config --global system true
 bundle config --global with 'development document test'
 bundle install
+bundle exec bin/rails tmp:clear
 # Only run web, because these should not overlap.
 if [ "$APP_TYPE" = "web" ];then
   . $(dirname $BASH_SOURCE)/production.sh

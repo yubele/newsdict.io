@@ -1,47 +1,47 @@
-version: "3.8"
+version: '3.8'
 networks:
   app-tier:
     driver: bridge
 services:
   redis:
-    container_name: ${NAMESPACE}_redis
-    image: 'redis'
+    container_name: '${NAMESPACE}_redis'
+    image: redis
     networks:
       - app-tier
   mongodb:
-    container_name: ${NAMESPACE}_mongodb
+    container_name: '${NAMESPACE}_mongodb'
     image: mongo
     restart: always
     networks:
       - app-tier
     volumes:
-      - ~/mongodb:/data/db
+      - '~/mongodb:/data/db'
   web:
     tty: true
     stdin_open: true
-    container_name: ${NAMESPACE}_web
+    container_name: '${NAMESPACE}_web'
     build:
       context: .
       dockerfile: Dockerfile
     image: newsdictio
     volumes:
-      - ./:/var/www/docker:cached
+      - './:/var/www/docker:cached'
     working_dir: /var/www/docker
-    command: "bash src/provisioning/startup/web/startup.sh development"
+    command: bash src/provisioning/startup/web/startup.sh development
     ports:
-      - 3100:3000
-      - 3035:3035
+      - '3100:3000'
+      - '3035:3035'
     networks:
       - app-tier
   worker:
     tty: true
     stdin_open: true
-    container_name: ${NAMESPACE}_worker
+    container_name: '${NAMESPACE}_worker'
     image: newsdictio
     working_dir: /var/www/docker
-    command: "bash src/provisioning/startup/worker/startup.sh development"
+    command: bash src/provisioning/startup/worker/startup.sh development
     volumes:
-      - ./:/var/www/docker:cached
+      - './:/var/www/docker:cached'
     networks:
       - app-tier
     depends_on:
@@ -49,24 +49,24 @@ services:
   bundle:
     tty: true
     stdin_open: true
-    container_name: ${NAMESPACE}_bundle
+    container_name: '${NAMESPACE}_bundle'
     image: newsdictio
     volumes:
-      - ./:/var/www/docker:cached
+      - './:/var/www/docker:cached'
     working_dir: /var/www/docker
-    command: "bash src/provisioning/startup/bundle/startup.sh development"
+    command: bash src/provisioning/startup/bundle/startup.sh development
     networks:
       - app-tier
   asciidoctor:
     tty: true
     stdin_open: true
-    container_name: ${NAMESPACE}_asciidoctor
-    image: newsdict/asciidoctor.live:v0.1.18
-    command: "bash src/provisioning/startup/asciidoctor/startup.sh development"
+    container_name: '${NAMESPACE}_asciidoctor'
+    image: 'newsdict/asciidoctor.live:v0.1.20'
+    command: bash src/provisioning/startup/asciidoctor/startup.sh development
     volumes:
-      - ./:/var/www/docker:cached
+      - './:/var/www/docker:cached'
     ports:
-      - 8080:80
+      - '8080:80'
     networks:
       - app-tier
     depends_on:
@@ -74,11 +74,11 @@ services:
   guard:
     tty: true
     stdin_open: true
-    container_name: ${NAMESPACE}_guard
-    image: newsdict/asciidoctor.live:v0.1.18
-    command: "bash src/provisioning/startup/guard/startup.sh development"
+    container_name: '${NAMESPACE}_guard'
+    image: 'newsdict/asciidoctor.live:v0.1.20'
+    command: bash src/provisioning/startup/guard/startup.sh development
     volumes:
-      - ./:/var/www/docker:cached
+      - './:/var/www/docker:cached'
     networks:
       - app-tier
     depends_on:
@@ -86,14 +86,14 @@ services:
   browser-sync:
     tty: true
     stdin_open: true
-    container_name: ${NAMESPACE}_browser-sync
-    image: newsdict/asciidoctor.live:v0.1.18
-    command: "bash src/provisioning/startup/browser-sync/startup.sh development"
+    container_name: '${NAMESPACE}_browser-sync'
+    image: 'newsdict/asciidoctor.live:v0.1.20'
+    command: bash src/provisioning/startup/browser-sync/startup.sh development
     volumes:
-      - ./:/var/www/docker:cached
+      - './:/var/www/docker:cached'
     ports:
-      - 3000:3000
-      - 3001:3001
+      - '3000:3000'
+      - '3001:3001'
     networks:
       - app-tier
     depends_on:
