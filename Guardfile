@@ -10,10 +10,6 @@ guard :shell do
   watch(%r{^(app|db)/.+\.rb$}) do |m|
     `bash src/provisioning/startup/guard/yard.sh development`
   end
-  # RailsAdmin refresh view and assets
-  watch(%r{^app/(themes/.+/|)assets/.+\.(scss|js|css|sass)$}) do |m|
-    `bash src/provisioning/startup/guard/precompile.sh`
-  end
   watch(%r{^README.adoc$}) do |m|
     `bash src/provisioning/startup/asciidoctor/update.sh src/doc/index.adoc doc/index`
     `bash src/provisioning/startup/asciidoctor/revealjs.sh README.adoc`

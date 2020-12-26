@@ -70,4 +70,4 @@ include::google_translate.adoc[]
  TWITTER_ACCESS_TOKEN=dummy
  TWITTER_ACCESS_SECRET=dummy
 
-link:/[Back To The Top]
+= link:/[目次へ戻る]
