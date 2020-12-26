@@ -12,4 +12,4 @@ developmentサーバを起動した状態で行ってください。 +
 $ docker/bundle update [gem名]
 ```
 
-link:/[Back To The Top]
+= link:/[目次へ戻る]

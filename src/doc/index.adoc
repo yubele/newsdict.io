@@ -21,9 +21,9 @@ newsdict.ioはフォロワーがシェアしている記事などのウェブコ
 | link:ja/worker/[Worker] | 定期的なジョブを実行するワーカーについて紹介しています。
 | link:ja/theme/[Theme] | アプリで使用するテーマについて紹介します。
 | link:ja/api/[Api] | APIについて紹介します。
-| link:ja/document/[Document] | newsdict.ioのドキュメントシステムについて紹介します。
+| link:ja/document/[Document] | About Documentation
 | link:ja/admin/[Admin] | 管理画面について紹介します。
-| link:ja/debug/[Debug] | newsdict.ioを使って開発する上でのデバッグ方法について紹介します。
-| link:ja/programing_guide/[Programing Guide] | newsdict.ioの開発ガイドです。
-| link:https://doc.newsdict.io[YardDoc] | newsdict.ioのYardDocです。
+| link:ja/debug/[Debug] | Programing Debug Guide
+| link:ja/programing_guide/[Programing Guide] | Prgraming Guide
+| link:yard[YardDoc] | YardDoc
 |===
