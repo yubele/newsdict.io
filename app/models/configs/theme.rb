@@ -2,13 +2,14 @@ class Configs::Theme < Config
   DEFAULT_THEME_NAME = 'default'
   before_save do
     if is_active == true
-      self.class.not(id: id).git where(is_active: true).update(is_active: false)
+      self.class.not(id: id).where(is_active: true).update(is_active: false)
     end
   end
   after_save do
     if is_active == false && Configs::Theme.activated_theme.nil?
       self.class.where(key: Configs::Theme::DEFAULT_THEME_NAME).update(is_active: true)
     end
+    Configs::Theme.tidy
     Batch.restart_all_server
   end
   field :description, type: String
@@ -44,6 +45,11 @@ class Configs::Theme < Config
       all.each do |theme|
         unless File.exist?(Rails.root.join('app', 'themes', theme.key))
           theme.delete
+        end
+        # Duplicate check
+        #  Because `uniquess` is not enabled in` initializer`.
+        if where(key: theme.key).count > 1
+          theme.deletegit 
         end
       end
       # Check active default theme, if Configs::Theme has not `is_active=true`;
