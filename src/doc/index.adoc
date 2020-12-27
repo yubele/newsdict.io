@@ -9,8 +9,7 @@ image:https://raw.githubusercontent.com/newsdict/newsdict.io/master/logo.png[]
 
 include::../../README.adoc[lines=2..6]
 
-newsdict.ioはフォロワーがシェアしている記事などのウェブコンテンツを
-クローリングしフィードとして閲覧できるようにします。Railsで作ってあるため拡張が容易です。
+newsdict.ioは、Publisherがシェアしているニュースを様々な形で表現できるニュースプラットフォームです。
 
 == Documents
 |===

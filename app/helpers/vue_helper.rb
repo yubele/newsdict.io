@@ -2,12 +2,12 @@ module VueHelper
   include Rails.application.routes.url_helpers
 
   # Convert content for vue
-  # @param [String] name String of element
-  # @param [OpenStruct] content
   # @param [Boolean] is_vue Vue contents
+  # @param [String] name String of element
+  # @param [OpenStruct] content (Need for `eval`)
   # @param [Boolean] is_bind When setting to bind attribute
   # @return [String] converted content
-  def vue_content(name, content, is_vue, is_bind = false)
+  def vue_content(is_vue, name, content, is_bind = false)
     if is_vue && is_bind
       name
     elsif is_vue

@@ -10,7 +10,7 @@ module Api
     # @param [String] tag sarch by tag
     # @param [String] search search word
     # @rerurn [JSON]
-    def contents(limit: 25, skip:0, sort: :created_at, category: nil, tag: nil, search: nil)
+    def contents(limit: Newsdict::Application.config.count_of_content_per_page, skip:0, sort: :created_at, category: nil, tag: nil, search: nil)
       category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
       content = Content
       if tag
@@ -36,8 +36,8 @@ module Api
             "created_at" => in_time_zone(c.created_at),
             "created_at_human_format" => c.created_at.to_s(:human),
             "updated_at" => in_time_zone(c.updated_at),
-            "content_text" => c.content_text.truncate(100),
-            "shared_text" => c.shared_text,
+            "content_text" => c.content_text.truncate(80),
+            "shared_text" => c.shared_text.truncate(50),
             "id" => c.id.to_s,
             "longer_tags" => tag_element(c.longer_tags),
             "source" => {
