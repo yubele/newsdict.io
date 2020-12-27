@@ -25,55 +25,53 @@ class Configs::ScheduleTest < ActiveSupport::TestCase
     end
   end
   test 'current' do
-    content = FactoryBot.create("Configs::Schedule")
-    now = Time.zone.now
-    travel_day = now.day - now.wday + content.wday
-    month = now.month
-    if now.end_of_month < travel_day
-      month = now.next_month.month
-      travel_day = travel_day - now.end_of_month.day
+    100.times do
+      Configs::Schedule.delete_all
+      content = FactoryBot.create("Configs::Schedule")
+      now = Time.zone.now
+      travel_day = now + (content.wday - now.wday).days
+      travel_time = Time.new(travel_day.year, travel_day.month, travel_day.day, content.hour, content.min, 0, Time.zone.formatted_offset)
+      Timecop.travel(travel_time)
+      raise if Configs::Schedule.current.count != 1
+      assert_equal Configs::Schedule.current.count, 1
     end
-    travel_time = Time.new(now.year, month, travel_day , content.hour, content.min, 0, Time.zone.formatted_offset)
-    Timecop.travel(travel_time)
-    assert_equal Configs::Schedule.current.count, 1
   end
   test 'current everymin' do
-    content = FactoryBot.build("Configs::Schedule")
-    content.min = Configs::Schedule::EVERY
-    content.save
-    now = Time.zone.now
-    travel_day = now.day - now.wday + content.wday
-    month = now.month
-    if now.end_of_month < travel_day
-      month = now.next_month.month
-      travel_day = travel_day - now.end_of_month.day
+    100.times do
+      Configs::Schedule.delete_all
+      content = FactoryBot.build("Configs::Schedule")
+      content.min = Configs::Schedule::EVERY
+      content.save
+      now = Time.zone.now
+      travel_day = now + (content.wday - now.wday).days
+      travel_time = Time.new(travel_day.year, travel_day.month, travel_day.day, content.hour, now.min, 0, Time.zone.formatted_offset)
+      Timecop.travel(travel_time)
+      assert_equal Configs::Schedule.current.count, 1
     end
-    travel_time = Time.new(now.year, month, travel_day , content.hour, now.min, 0, Time.zone.formatted_offset)
-    Timecop.travel(travel_time)
-    assert_equal Configs::Schedule.current.count, 1
   end
   test 'current everyhour' do
-    content = FactoryBot.build("Configs::Schedule")
-    content.hour = Configs::Schedule::EVERY
-    content.save
-    now = Time.zone.now
-    travel_day = now.day - now.wday + content.wday
-    month = now.month
-    if now.end_of_month < travel_day
-      month = now.next_month.month
-      travel_day = travel_day - now.end_of_month.day
+    100.times do
+      Configs::Schedule.delete_all
+      content = FactoryBot.build("Configs::Schedule")
+      content.hour = Configs::Schedule::EVERY
+      content.save
+      now = Time.zone.now
+      travel_day = now + (content.wday - now.wday).days
+      travel_time = Time.new(travel_day.year, travel_day.month, travel_day.day, (24==now.hour) ? 23 : now.hour, content.min, 0, Time.zone.formatted_offset)
+      Timecop.travel(travel_time)
+      assert_equal Configs::Schedule.current.count, 1
     end
-    travel_time = Time.new(now.year, month, travel_day , now.hour, content.min, 0, Time.zone.formatted_offset)
-    Timecop.travel(travel_time)
-    assert_equal Configs::Schedule.current.count, 1
   end
   test 'current everywday' do
-    content = FactoryBot.build("Configs::Schedule")
-    content.wday  = Configs::Schedule::EVERY
-    content.save
-    now = Time.zone.now
-    travel_time = Time.new(now.year, now.month, now.day, content.hour, content.min, 0, Time.zone.formatted_offset)
-    Timecop.travel(travel_time)
-    assert_equal Configs::Schedule.current.count, 1
+    100.times do
+      Configs::Schedule.delete_all
+      content = FactoryBot.build("Configs::Schedule")
+      content.wday  = Configs::Schedule::EVERY
+      content.save
+      now = Time.zone.now
+      travel_time = Time.new(now.year, now.month, now.day, content.hour, content.min, 0, Time.zone.formatted_offset)
+      Timecop.travel(travel_time)
+      assert_equal Configs::Schedule.current.count, 1
+    end
   end
 end
