@@ -144,7 +144,8 @@ ja:
       "configs/tokens/slack": Slack API
       "configs/tokens/smtp": SMTP Setting
       "configs/tokens/twitter": Twitter API
-      "contents/web": 記事情報
+      "contents/web": From Web Site
+      "contents/tweet": From Twitter
       "posts/twitter": Twitter投稿
       inquiry: 問い合わせ
     errors:

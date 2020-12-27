@@ -1,4 +1,5 @@
 en:
+  related_contents: Related Content
   tagcloud: Tag Cloud
   request_removing: Request removing
   top_page: Top page
@@ -6,6 +7,7 @@ en:
   sidekiq: Sidekiq
   read_more: Read More
   be_shared_content_list: "List of contents %{name} shared."
+  content_list: Content List
   shared_at: shared date
   media: Media
   information: Information
