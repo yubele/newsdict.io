@@ -1,3 +1,4 @@
 en:
+  timelines:
     paper:
       weekly_title: Articles from %{from_date} to %{to_date}

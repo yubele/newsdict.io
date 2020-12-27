@@ -1,4 +1,5 @@
 ja:
+  related_contents: 関連コンテンツ
   tagcloud: タグクラウド
   request_removing: 削除リクエスト
   top_page: トップページ
@@ -6,6 +7,7 @@ ja:
   sidekiq: ジョブ管理
   read_more: もっと見る（記事のサイトに飛びます）
   be_shared_content_list: "%{name}がシェアした記事一覧"
+  content_list: "記事一覧"
   shared_at: シェア日付
   media: メディア
   information: 情報

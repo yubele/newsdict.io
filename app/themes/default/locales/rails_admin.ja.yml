@@ -1,7 +1,8 @@
 ja:
   admin:
     navigation:
-      sources: ソース元
+      content: 記事
+      source: ソース元
       setting: 設定
       portal_setting: ポータル画面設定
       crawling_setting: クローリング設定

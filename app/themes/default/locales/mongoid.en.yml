@@ -140,7 +140,8 @@ en:
       "configs/schedule": Exec Schedule
       "configs/global": Global Settings
       "configs/hook": Hook of Notify Settings
-      "contents/web": "contents data"
+      "contents/web": From Web Site
+      "contents/tweet": From Twitter
       "configs/tokens/chatwork": Chatwork API
       "configs/tokens/slack": Slack API
       "configs/tokens/smtp": SMTP Setting
