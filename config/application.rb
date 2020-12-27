@@ -66,5 +66,7 @@ module Newsdict
     config.mongoid.logger = Logger.new(Rails.root.join('log', 'mongoid.log'))
     # `@import` can require the paths. (sassc-rails)
     config.sass.load_paths << Rails.root.join('node_modules')
+    # Count of content per page.
+    config.count_of_content_per_page = 15
   end
 end
