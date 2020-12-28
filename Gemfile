@@ -87,7 +87,6 @@ gem 'kaminari-actionview'
 gem 'mongoid'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs'
-# Search implementation for Mongoid ORM (http://www.papodenerd.net/mongoid-search-full-text-search-for-your-mongoid-models/)
 # Search implementation for Mongoid ORM (https://github.com/mongoid/mongoid_search)
 gem 'mongoid_search'
 
