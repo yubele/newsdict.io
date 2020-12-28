@@ -10,20 +10,7 @@ unless User.where(email: ENV['ADMIN_USER_EMAIL']).exists?
   user.save!
 end
 # Global Config
-Configs::Global::KEYS.each do |key|
-  unless Configs::Global.find_by(key: key)
-    Configs::Global.create(
-      key: key,
-      value: ""
-    )
-  end
-end
+Configs::Global.tidy
 # Hook Config
-Configs::Hook::KEYS.each do |key|
-  unless Configs::Hook.find_by(key: key)
-    Configs::Hook.create(
-      key: key
-    )
-  end
-end
+Configs::Hook.tidy
 p "End of db:seed"
