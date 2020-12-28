@@ -8,5 +8,14 @@ RailsAdmin.config do |config|
         read_only true
       end
     end
+    list do
+      field :value do
+        pretty_value do
+          unless bindings[:object].value.empty?
+            '*' * 8
+          end
+        end
+      end
+    end
   end
 end

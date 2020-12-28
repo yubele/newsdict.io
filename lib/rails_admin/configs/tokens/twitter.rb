@@ -8,5 +8,35 @@ RailsAdmin.config do |config|
       field :access_token, :password
       field :access_secret, :password
     end
+    list do
+      field :consumer_key do
+        pretty_value do
+          unless bindings[:object].consumer_key.empty?
+            '*' * 8
+          end
+        end
+      end
+      field :consumer_secret do
+        pretty_value do
+          unless bindings[:object].consumer_secret.empty?
+            '*' * 8
+          end
+        end
+      end
+      field :access_token do
+        pretty_value do
+          unless bindings[:object].access_token.empty?
+            '*' * 8
+          end
+        end
+      end
+      field :access_secret do
+        pretty_value do
+          unless bindings[:object].access_secret.empty?
+            '*' * 8
+          end
+        end
+      end
+    end
   end
 end
