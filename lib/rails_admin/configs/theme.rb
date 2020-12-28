@@ -10,13 +10,7 @@ RailsAdmin.config do |config|
       field :description do
         filterable true
       end
-      field :is_active do
-        filterable true
-        # @todo implement
-        #pretty_value do
-        #  bindings[:view].render :partial => 'partials/rails_admin/switch', :locals => {object: bindings[:object]}
-        #end
-      end
+      field :is_active
     end
     edit do
       field :key do
