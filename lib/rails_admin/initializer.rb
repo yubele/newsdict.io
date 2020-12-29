@@ -15,7 +15,7 @@ RailsAdmin.config do |config|
       except ['Config', 'Configs::View', 'Configs::Theme', 'Configs::Global', 'Configs::Hook']
     end
     show do
-      except ['Configs::Tokens::Twitter']
+      except ['Configs::Tokens::TwitterAccount']
     end
     edit
     delete do

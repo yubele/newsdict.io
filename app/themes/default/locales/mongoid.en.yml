@@ -103,7 +103,7 @@ en:
         enable_starttls_auto: Enable Starttls Auto
         sender: Sernder Mailaddress
         is_default: Default
-      "configs/tokens/twitter":
+      "configs/tokens/twitter_account":
         key: Name
         description: Description
         consumer_key: Consumer Key
@@ -145,7 +145,6 @@ en:
       "configs/tokens/chatwork": Chatwork API
       "configs/tokens/slack": Slack API
       "configs/tokens/smtp": SMTP Setting
-      "configs/tokens/twitter": Twitter API
       "posts/twitter": Update Twitter
       inquiry: Inquiry
     errors:

@@ -70,6 +70,6 @@ class Sources::TwitterAccount < ::Source
   # @private
   # @return [void]
   def twitter_client
-    Configs::Tokens::Twitter.get_token
+    Configs::Tokens::TwitterAccount.get_token
   end
 end

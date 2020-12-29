@@ -77,7 +77,7 @@ class ContentTest < ActiveSupport::TestCase
   # Initialize DB
   def setup
     super
-    FactoryBot.create("Configs::Tokens::Twitter")
+    FactoryBot.create("Configs::Tokens::TwitterAccount")
   end
   test "save_form_job" do
     urls = Array.new

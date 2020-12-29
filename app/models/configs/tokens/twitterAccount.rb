@@ -1,4 +1,4 @@
-class Configs::Tokens::Twitter < Configs::Token
+class Configs::Tokens::TwitterAccount < Configs::Token
   field :consumer_key, type: String
   field :consumer_secret, type: String
   field :access_token, type: String
