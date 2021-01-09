@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.2'
+ruby '3.0.0'
 # Autoload dotenv in Rails. (https://github.com/bkeepers/dotenv)
 gem 'dotenv-rails', require: 'dotenv/rails-now'
 
@@ -43,7 +43,7 @@ gem 'sidekiq-scheduler'
 # Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat'
+gem 'web_stat', '>= 0.4.0'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
@@ -84,7 +84,8 @@ gem 'kaminari-actionview'
 # mongodb
 ##
 # Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
-gem 'mongoid'
+# ::I18n.translate takes keyword arguments …
+gem 'mongoid', git: 'https://github.com/yubele/mongoid.git', branch: 'master'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs'
 # Search implementation for Mongoid ORM (https://github.com/mongoid/mongoid_search)
@@ -102,10 +103,9 @@ gem "slack-notifier"
 # system gems
 ##
 # Full-stack web application framework. (https://rubyonrails.org)
-gem 'rails'
-# Use Puma as the app server
-# Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (http://puma.io)
-# Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (https://puma.io)
+gem 'rails', '6.1.1'
+gem 'rss'
+gem 'webrick'
 gem 'puma'
 # Ruby FFI (https://github.com/ffi/ffi/wiki)
 gem 'ffi'

@@ -6,6 +6,8 @@ class Configs::Global < Config
   KEYS = [
     :recaptcha_v3_secret_key,
     :recaptcha_v3_site_key,
+    :recaptcha_v2_secret_key,
+    :recaptcha_v2_site_key,
     :google_translate_api,
     :facebook_app_id,
     :facebook_app_secret,
