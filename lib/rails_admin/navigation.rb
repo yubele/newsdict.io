@@ -72,7 +72,7 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 17
   end
-  config.model "Configs::Tokens::Twitter" do
+  config.model "Configs::Tokens::TwitterAccount" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 18
   end

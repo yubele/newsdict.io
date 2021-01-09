@@ -4,7 +4,7 @@ class Sources::TwitterAccountTest < ActiveSupport::TestCase
   # Initialize DB
   def setup
     super
-    config = FactoryBot.create("Configs::Tokens::Twitter")
+    config = FactoryBot.create("Configs::Tokens::TwitterAccount")
     twitter = FactoryBot.build("Posts::Twitter")
     twitter.twitter_token_id = config.id
     twitter.save

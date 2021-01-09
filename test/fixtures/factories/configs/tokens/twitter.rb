@@ -1,10 +1,9 @@
 FactoryBot.define do
-    factory "Configs::Tokens::Twitter" do
-        key { "dummy" }
-        consumer_key { "dummy" }
-        consumer_secret { "dummy" }
-        access_token { "dummy" }
-        access_secret { "dummy" }
-        is_default { true }
+    factory "Configs::Tokens::TwitterAccount" do
+        key { Faker::Alphanumeric.alphanumeric(number: 5, min_alpha: 5) }
+        consumer_key { Faker::Alphanumeric.alphanumeric(number: 5, min_alpha: 5) }
+        consumer_secret { Faker::Alphanumeric.alphanumeric(number: 5, min_alpha: 5) }
+        access_token { Faker::Alphanumeric.alphanumeric(number: 5, min_alpha: 5) }
+        access_secret { Faker::Alphanumeric.alphanumeric(number: 5, min_alpha: 5) }
     end
 end

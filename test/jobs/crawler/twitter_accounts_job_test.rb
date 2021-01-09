@@ -4,7 +4,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
   # Initialize DB
   def setup
     super
-    FactoryBot.create("Configs::Tokens::Twitter")
+    FactoryBot.create("Configs::Tokens::TwitterAccount")
   end
   test "Don't record duplicate unique news" do
     twitter_account = Sources::TwitterAccount.new({:name => :yubele})

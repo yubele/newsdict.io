@@ -70,12 +70,6 @@ class Sources::TwitterAccount < ::Source
   # @private
   # @return [void]
   def twitter_client
-    default_twitter = Configs::Tokens::Twitter.find_by(is_default: true)
-    Twitter::REST::Client.new do |config|
-      config.consumer_key        = default_twitter.consumer_key
-      config.consumer_secret     = default_twitter.consumer_secret
-      config.access_token        = default_twitter.access_token
-      config.access_token_secret = default_twitter.access_secret
-    end
+    Configs::Tokens::TwitterAccount.get_token
   end
 end
