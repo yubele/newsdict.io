@@ -61,7 +61,7 @@ services:
     tty: true
     stdin_open: true
     container_name: '${NAMESPACE}_asciidoctor'
-    image: 'newsdict/asciidoctor.live:v0.1.20'
+    image: 'newsdict/asciidoctor.live:v0.2.2'
     command: bash src/provisioning/startup/asciidoctor/startup.sh development
     volumes:
       - local:/var/www/docker:cached
@@ -75,7 +75,7 @@ services:
     tty: true
     stdin_open: true
     container_name: '${NAMESPACE}_guard'
-    image: 'newsdict/asciidoctor.live:v0.1.20'
+    image: 'newsdict/asciidoctor.live:v0.2.2'
     command: bash src/provisioning/startup/guard/startup.sh development
     volumes:
       - local:/var/www/docker:cached
@@ -87,7 +87,7 @@ services:
     tty: true
     stdin_open: true
     container_name: '${NAMESPACE}_browser-sync'
-    image: 'newsdict/asciidoctor.live:v0.1.20'
+    image: 'newsdict/asciidoctor.live:v0.2.2'
     command: bash src/provisioning/startup/browser-sync/startup.sh development
     volumes:
       - local:/var/www/docker:cached
