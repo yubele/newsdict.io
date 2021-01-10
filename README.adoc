@@ -3,7 +3,6 @@ image:https://raw.githubusercontent.com/newsdict/newsdict.io/master/logo.png[]
 image:https://github.com/newsdict/newsdict.io/workflows/MiniTest/badge.svg[MiniTest]
 image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
 image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
-image:https://action-badges.now.sh/newsdict/newsdict.io[Build]
 
 newsdict.io is a news platform that can express the news shared by Publisher in various ways.
 
