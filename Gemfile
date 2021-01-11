@@ -219,3 +219,4 @@ group :test do
 end
 
 gem "react_on_rails", "= 12.0.4"
+gem 'mini_racer', platforms: :ruby

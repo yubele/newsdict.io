@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   # For health-check
   get "active", to: proc { [200, Hash.new, Array.new] }
   # Admin routes
