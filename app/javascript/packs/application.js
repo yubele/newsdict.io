@@ -17,13 +17,13 @@ Axios.interceptors.request.use((config) => {
 }, (error) => {
   return Promise.reject(error);
 });
-import '../css/application.scss'
-import '../imports/fontawesome.js'
-import '../imports/dropdown.js'
-import '../imports/autoscroll.js'
-import '../imports/swipe.js'
-import '../imports/fixed_header.js'
-import '../imports/web_site.js'
+import '../css/application'
+import '../imports/fontawesome'
+import '../imports/dropdown'
+import '../imports/autoscroll'
+import '../imports/swipe'
+import '../imports/fixed_header'
+import '../imports/web_site'
 // ref. https://stackoverflow.com/questions/45758837/script5009-urlsearchparams-is-undefined-in-ie-11
 (function (w) {
     w.URLSearchParams = w.URLSearchParams || function (searchString) {
