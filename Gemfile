@@ -40,7 +40,6 @@ gem "recaptcha"
 gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler'
-# Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
@@ -122,8 +121,6 @@ gem 'sassc-rails'
 gem 'uglifier'
 # Use webpack to manage app-like JavaScript modules in Rails (https://github.com/rails/webpacker)
 gem 'webpacker'
-# CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
-gem 'coffee-rails'
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
 gem 'turbolinks'
 # Create JSON structures via a Builder-style DSL (https://github.com/rails/jbuilder)
