@@ -13,6 +13,7 @@ gem 'omniauth'
 # Provides CSRF protection on OmniAuth request endpoint on Rails application. (https://github.com/cookpad/omniauth-rails_csrf_protection)
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 # Facebook OAuth2 Strategy for OmniAuth (https://github.com/mkdynamic/omniauth-facebook)
+# Facebook OAuth2 Strategy for OmniAuth (https://github.com/simi/omniauth-facebook)
 gem 'omniauth-facebook'
 # OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
 gem 'omniauth-twitter'
@@ -40,13 +41,13 @@ gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
-# Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '>= 0.4.0'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
+# Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby. (https://nokogiri.org)
 gem 'nokogiri'
 # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
 gem 'selenium-webdriver'
@@ -62,7 +63,6 @@ gem 'twitter'
 ##
 # User Manage
 ##
-# Flexible authentication solution for Rails with Warden (https://github.com/plataformatec/devise)
 # Flexible authentication solution for Rails with Warden (https://github.com/heartcombo/devise)
 gem 'devise'
 # Simple authorization solution for Rails. (https://github.com/CanCanCommunity/cancancan)
@@ -84,8 +84,9 @@ gem 'kaminari-actionview'
 # mongodb
 ##
 # Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
-# ::I18n.translate takes keyword arguments …
-gem 'mongoid', git: 'https://github.com/yubele/mongoid.git', branch: 'master'
+#  - Merge ::I18n.translate takes keyword arguments … (https://github.com/yubele/mongoid/pull/1)
+# Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
+gem 'mongoid', git: 'https://github.com/yubele/mongoid.git', branch: '86de86525eede50e173db17ed58ef6adea95a0f4'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs'
 # Search implementation for Mongoid ORM (https://github.com/mongoid/mongoid_search)
@@ -104,8 +105,11 @@ gem "slack-notifier"
 ##
 # Full-stack web application framework. (https://rubyonrails.org)
 gem 'rails', '6.1.1'
+# Family of libraries that support various formats of XML "feeds". (https://github.com/ruby/rss)
 gem 'rss'
+# HTTP server toolkit (https://github.com/ruby/webrick)
 gem 'webrick'
+# Puma is a simple, fast, threaded, and highly concurrent HTTP 1.1 server for Ruby/Rack applications (https://puma.io)
 gem 'puma'
 # Ruby FFI (https://github.com/ffi/ffi/wiki)
 gem 'ffi'
@@ -117,8 +121,6 @@ gem 'sassc-rails'
 gem 'uglifier'
 # Use webpack to manage app-like JavaScript modules in Rails (https://github.com/rails/webpacker)
 gem 'webpacker'
-# CoffeeScript adapter for the Rails asset pipeline. (https://github.com/rails/coffee-rails)
-gem 'coffee-rails'
 # Turbolinks makes navigating your web application faster (https://github.com/turbolinks/turbolinks)
 gem 'turbolinks'
 # Create JSON structures via a Builder-style DSL (https://github.com/rails/jbuilder)
@@ -164,7 +166,7 @@ end
 group :development do
   # Better error page for Rails and other Rack apps (https://github.com/BetterErrors/better_errors)
   gem 'better_errors'
-  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
+  # Retrieve the binding of a method's caller, or further up the stack. (https://github.com/banister/binding_of_caller)
   gem 'binding_of_caller'
   # Rails application preloader (https://github.com/rails/spring)
   gem 'spring'
