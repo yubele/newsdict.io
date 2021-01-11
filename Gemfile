@@ -217,3 +217,5 @@ group :test do
   # A gem providing "time travel" and "time freezing" capabilities, making it dead simple to test time-dependent code.  It provides a unified method to mock Time.now, Date.today, and DateTime.now in a single call. (https://github.com/travisjeffery/timecop)
   gem 'timecop'
 end
+
+gem "react_on_rails", "= 12.0.4"
