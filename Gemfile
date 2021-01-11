@@ -166,7 +166,6 @@ end
 group :development do
   # Better error page for Rails and other Rack apps (https://github.com/BetterErrors/better_errors)
   gem 'better_errors'
-  # Retrieve the binding of a method's caller. Can also retrieve bindings even further up the stack. (http://github.com/banister/binding_of_caller)
   # Retrieve the binding of a method's caller, or further up the stack. (https://github.com/banister/binding_of_caller)
   gem 'binding_of_caller'
   # Rails application preloader (https://github.com/rails/spring)
