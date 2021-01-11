@@ -204,6 +204,7 @@ group :document do
 end
 
 group :test do
+  
   gem 'coveralls_reborn', '~> 0.20.0', require: false
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
   gem 'capybara'
