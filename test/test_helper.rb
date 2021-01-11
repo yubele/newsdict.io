@@ -1,11 +1,13 @@
 require 'coveralls'
-Coveralls.wear!('rails')
+Coveralls.wear!
 
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'twitter_helper'
 Dir.glob(Rails.root.join('test/**/*_test.rb')).each { |file| require file}
+
+WebMock.disable_net_connect!(:allow => /coveralls\.io/)
 
 # Overwride.
 module WebDriverHelper
