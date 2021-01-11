@@ -15,6 +15,7 @@ jobs:
         echo "SLACK_ICON=https://github.com/rtCamp.png?size=48" >> $GITHUB_ENV
         echo "SLACK_CHANNEL=actions" >> $GITHUB_ENV
         echo "SLACK_USERNAME=Github Actions" >> $GITHUB_ENV
+        echo "COVERALLS_REPO_TOKEN=${{ secrets.COVERALLS_REPO_TOKEN }}" >> $GITHUB_ENV
         
     - name: Install Docker Compose
       run: |
