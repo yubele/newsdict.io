@@ -1,7 +1,7 @@
 GIT
   remote: https://github.com/yubele/mongoid.git
   revision: 86de86525eede50e173db17ed58ef6adea95a0f4
-  branch: master
+  branch: 86de86525eede50e173db17ed58ef6adea95a0f4
   specs:
     mongoid (7.3.0.alpha)
       activemodel (>= 5.1, < 6.2)
