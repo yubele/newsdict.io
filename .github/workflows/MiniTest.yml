@@ -35,6 +35,8 @@ jobs:
         set -xe
         docker/start -d web mongodb redis
         docker/rails test -v
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v1.1.2
     - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
       if: ${{ env.SLACK_WEBHOOK != null && success() }}
