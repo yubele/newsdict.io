@@ -1,3 +1,5 @@
+require "nested_form/engine"
+require "nested_form/builder_mixin"
 Rails.configuration.to_prepare do
   initializer_path =  Rails.root.join('lib', 'rails_admin', 'initializer.rb')
   # Require the rails_admins's config files.
