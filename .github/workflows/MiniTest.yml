@@ -34,7 +34,7 @@ jobs:
       run: |
         set -xe
         docker/start -d web mongodb redis
-        docker/exec CI=true COVERALLS_REPO_TOKEN=${{ secrets.COVERALLS_REPO_TOKEN }} bin/rails test -v
+        docker/rails test -v
     - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
       if: ${{ env.SLACK_WEBHOOK != null && success() }}
