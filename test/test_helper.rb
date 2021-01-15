@@ -1,8 +1,17 @@
 ENV['RAILS_ENV'] ||= 'test'
+if ENV['RAILS_ENV'] == 'test'
+  require 'simplecov'
+  require 'simplecov-lcov'
+  SimpleCov::Formatter::LcovFormatter.config.report_with_single_file = true
+  SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+  SimpleCov.start 'rails'  
+end
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'twitter_helper'
 Dir.glob(Rails.root.join('test/**/*_test.rb')).each { |file| require file}
+
+WebMock.disable_net_connect!(:allow => /coveralls\.io/)
 
 # Overwride.
 module WebDriverHelper
