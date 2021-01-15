@@ -37,7 +37,7 @@ jobs:
       uses: coverallsapp/github-action@v1.1.2
       with:
         github-token: ${{ secrets.GITHUB_TOKEN }}
-        path-to-lcov: "./coverage/lcov"
+        path-to-lcov: "./coverage/lcov/docker.lcov"
     - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
       if: ${{ env.SLACK_WEBHOOK != null && success() }}
