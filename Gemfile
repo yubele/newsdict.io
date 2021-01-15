@@ -204,6 +204,8 @@ group :document do
 end
 
 group :test do
+  gem 'simplecov', require: false
+  gem 'simplecov-lcov', require: false
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
   gem 'capybara'
   # Library for stubbing HTTP requests in Ruby. (http://github.com/bblimke/webmock)

@@ -1,8 +1,9 @@
 image:https://raw.githubusercontent.com/newsdict/newsdict.io/master/logo.png[]
 
-image:https://github.com/newsdict/newsdict.io/workflows/MiniTest/badge.svg[MiniTest]
-image:https://img.shields.io/github/v/release/newsdict/newsdict.io[Release]
-image:https://img.shields.io/github/license/newsdict/newsdict.io[License]
+image:https://github.com/newsdict/newsdict.io/workflows/MiniTest/badge.svg[link=https://github.com/newsdict/newsdict.io/actions]
+image:https://img.shields.io/github/v/release/newsdict/newsdict.io[link=https://github.com/newsdict/newsdict.io/releases]
+image:https://img.shields.io/github/license/newsdict/newsdict.io[link=https://github.com/newsdict/newsdict.io/blob/main/LICENSE]
+image:https://coveralls.io/repos/github/newsdict/newsdict.io/badge.svg[link=https://coveralls.io/github/newsdict/newsdict.io]
 
 newsdict.io is a news platform that can express the news shared by Publisher in various ways.
 

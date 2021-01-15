@@ -15,7 +15,6 @@ jobs:
         echo "SLACK_ICON=https://github.com/rtCamp.png?size=48" >> $GITHUB_ENV
         echo "SLACK_CHANNEL=actions" >> $GITHUB_ENV
         echo "SLACK_USERNAME=Github Actions" >> $GITHUB_ENV
-        
     - name: Install Docker Compose
       run: |
         set -xe
@@ -25,16 +24,20 @@ jobs:
     - name: Set up .env
       run: |
         cp .env-test .env
-
     - name: build
       run: |
         set -xe
         docker-compose build --no-cache
-        docker/start -d web mongodb redis
     - name: rails test -v
       run: |
         set -xe
+        docker/start -d web mongodb redis
         docker/rails test -v
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v1.1.2
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        path-to-lcov: "./coverage/lcov/docker.lcov"
     - name: Passed Slack Nortification
       uses: rtCamp/action-slack-notify@v2.0.0
       if: ${{ env.SLACK_WEBHOOK != null && success() }}

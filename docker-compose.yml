@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile
     image: newsdictio
     volumes:
-      - local:/var/www/docker:cached
+      - local:/var/www/docker
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/web/startup.sh development
     ports:
@@ -41,7 +41,7 @@ services:
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/worker/startup.sh development
     volumes:
-      - local:/var/www/docker:cached
+      - local:/var/www/docker
     networks:
       - app-tier
     depends_on:
@@ -52,7 +52,7 @@ services:
     container_name: '${NAMESPACE}_bundle'
     image: newsdictio
     volumes:
-      - local:/var/www/docker:cached
+      - local:/var/www/docker
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/bundle/startup.sh development
     networks:
@@ -64,7 +64,7 @@ services:
     image: 'newsdict/asciidoctor.live:v0.2.2'
     command: bash src/provisioning/startup/asciidoctor/startup.sh development
     volumes:
-      - local:/var/www/docker:cached
+      - local:/var/www/docker
     ports:
       - '8080:80'
     networks:
@@ -78,7 +78,7 @@ services:
     image: 'newsdict/asciidoctor.live:v0.2.2'
     command: bash src/provisioning/startup/guard/startup.sh development
     volumes:
-      - local:/var/www/docker:cached
+      - local:/var/www/docker
     networks:
       - app-tier
     depends_on:
@@ -90,7 +90,7 @@ services:
     image: 'newsdict/asciidoctor.live:v0.2.2'
     command: bash src/provisioning/startup/browser-sync/startup.sh development
     volumes:
-      - local:/var/www/docker:cached
+      - local:/var/www/docker
     ports:
       - '3000:3000'
       - '3001:3001'
