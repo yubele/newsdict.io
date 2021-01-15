@@ -24,8 +24,6 @@ jobs:
     - name: Set up .env
       run: |
         cp .env-test .env
-        echo "COVERALLS_REPO_TOKEN=${{ secrets.COVERALLS_REPO_TOKEN }}" >> .env
-        echo "CI=true" >> .env
     - name: build
       run: |
         set -xe

@@ -18,4 +18,4 @@ if  [ "$(ls tmp/pids/server.pid 2>&1 > /dev/null; echo $?)" != "0" ];then
     done
     echo ""
 fi
-$DOCKERCOMPOSE_EXEC web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && . .env && RUBYOPT='-W:no-deprecated' bundle exec bin/rails $*"
+$DOCKERCOMPOSE_EXEC web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && RUBYOPT='-W:no-deprecated' bundle exec bin/rails $*"

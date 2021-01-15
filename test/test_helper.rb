@@ -1,7 +1,15 @@
-require 'coveralls'
-Coveralls.wear!
-
 ENV['RAILS_ENV'] ||= 'test'
+if ENV['RAILS_ENV'] == 'test'
+  require 'simplecov'
+  require 'simplecov-lcov'
+  require 'coveralls'
+  Coveralls.wear!('rails')
+  SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter::new([
+    SimpleCov::Formatter::LcovFormatter,
+    Coveralls::SimpleCov::Formatter
+  ])
+  SimpleCov.start 'rails'  
+end
 require_relative '../config/environment'
 require 'rails/test_help'
 require 'twitter_helper'
