@@ -11,6 +11,6 @@ FactoryBot.define do
     updated_at { Faker::Time.between_dates(from: Date.today.ago(1.year), to: Date.today, period: :all) }
     _type { "Sources::WebSite" }
     source_url { Faker::Internet.url }
-    xpath { Faker::App.name[0..255] }
+    xpath { "/html/body/div/div" }
   end
 end
