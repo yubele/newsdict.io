@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Abort this process, If you set $ABORT_IF_EXIT_PID.
 set -e
 # Check to support tty.
 if [ "$(tty>/dev/null;echo $?)" != "0" ];then
@@ -13,6 +14,7 @@ if  [ "$(ls tmp/pids/server.pid 2>&1 > /dev/null; echo $?)" != "0" ];then
     echo -n "Wait to run dev server "
     while [ "$(ls tmp/pids/server.pid 2>&1 > /dev/null; echo $?)" != "0" ]
     do
+        [ -v ABORT_IF_EXIT_PID ] && kill -0 $ABORT_IF_EXIT_PID >/dev/null 2>&1 || exit 1
         echo -n "."
         sleep 1
     done
