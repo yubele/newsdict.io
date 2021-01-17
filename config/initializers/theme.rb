@@ -1,4 +1,4 @@
-Rails.application.reloade.to_prepare do
+Rails.application.reloader.to_prepare do
   Batch.single_server(:theme) do
     Configs::Theme.tidy
   end
