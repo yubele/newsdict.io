@@ -33,7 +33,7 @@ jobs:
     - name: rails test -v
       run: |
         set -xe
-        docker/start -d web mongodb redis
+        docker/start web mongodb redis
         docker/rails test -v
     - name: Coveralls GitHub Action
       uses: coverallsapp/github-action@v1.1.2
