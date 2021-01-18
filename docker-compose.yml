@@ -29,7 +29,7 @@ services:
     working_dir: /var/www/docker
     command: bash src/provisioning/startup/web/startup.sh development
     ports:
-      - '3100:3000'
+      - '3000:3000'
       - '3035:3035'
     networks:
       - app-tier
@@ -65,8 +65,6 @@ services:
     command: bash src/provisioning/startup/asciidoctor/startup.sh development
     volumes:
       - local:/var/www/docker
-    ports:
-      - '8080:80'
     networks:
       - app-tier
     depends_on:
@@ -92,7 +90,7 @@ services:
     volumes:
       - local:/var/www/docker
     ports:
-      - '3000:3000'
+      - '3100:3000'
       - '3001:3001'
     networks:
       - app-tier
