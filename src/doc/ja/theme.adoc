@@ -2,10 +2,15 @@
 
 = Theme
 
-Work In Progress
+app/themesディレクトリ配下にviewを設置することで任意のテーマ制作および選択することが可能です。 +
+テーマを作成するときはlink:https://github.com/newsdict/newsdict.io/tree/main/app/themes/default[default]を参考にしてください。
+
+== assets
+sprocket経由のassetはテーマごとに設定可能です。 +
+パスはapp/themes/{テーマ名}/assetsです。
 
 == I18n
 I18nは、テーマごとに設定可能です。
 パスはapp/themes/{テーマ名}/localesです。
 
-= link:/[目次へ戻る]
+link:/[目次へ戻る]
