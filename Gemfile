@@ -39,7 +39,7 @@ gem "recaptcha"
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
 gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
-gem 'sidekiq-scheduler'
+gem 'sidekiq-scheduler', git: 'https://github.com/yubele/sidekiq-scheduler.git'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
