@@ -75,6 +75,7 @@ gem 'cancancan-mongoid'
 ##
 # Admin for Rails (https://github.com/sferik/rails_admin)
 gem 'rails_admin'
+gem 'rails_admin_toggleable'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid'
 # Kaminari Action View adapter (https://github.com/kaminari/kaminari)

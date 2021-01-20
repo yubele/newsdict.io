@@ -92,7 +92,7 @@ class Content < ApplicationRecord
         already_content.inc(count_of_shared: 1)
       else
         # Translate
-        if attrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
+        if Cattrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
           attrs[:content_text] = EasyTranslate.translate(attrs[:content_text], :to => ENV["default_locale"])
         end
         content = Content.new(attrs)
