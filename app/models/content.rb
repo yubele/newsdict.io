@@ -111,7 +111,7 @@ class Content < ApplicationRecord
       elsif category_id
         collection = self.in(source_id: Source.where(category_id: category_id).map {|u| u.id })
       else
-        collection = self.in(source_id: Source.all.map {|u| u.id })
+        collection = self.in(source_id: Source.pluck(:id))
       end
       collection = collection.where(http_status: "200")
       unless ::Filters::HiddenContent.regexp(:exclude_url).blank?
@@ -125,7 +125,7 @@ class Content < ApplicationRecord
     # Sort the content by sort_type
     # @param [Symbol] sort_type
     # @return [Content]
-    def sortable(sort_type=:updated_at)
+    def sortable(sort_type=:created_at)
       if Content::SORT_TYPE.key?(sort_type)
         sort_type_sym = sort_type.to_sym
       end
@@ -135,7 +135,7 @@ class Content < ApplicationRecord
     # @params [String] gt
     # @params [String] lte
     # @return [Contents]
-    def term(gt, lte, key = :updated_at)
+    def term(gt, lte, key = :created_at)
       gt(key => gt).lte(key => lte)
     end
     # If it return a content, instance is uniq contents.
