@@ -11,7 +11,10 @@ module Api
     # @param [String] search search word
     # @rerurn [JSON]
     def contents(limit: Newsdict::Application.config.count_of_content_per_page, skip:0, sort: :created_at, category: nil, tag: nil, search: nil)
-      category_id = Configs::Category.find_by(key: category).id if Configs::Category.find_by(key: category)
+      options = Hash.new
+      if Configs::Category.find_by(key: category)
+        options[:category_id] = Configs::Category.find_by(key: category).id
+      end
       content = Content
       if tag
         content = Content.search_by_tag(tag)
@@ -19,7 +22,7 @@ module Api
         content = Content.search_by_mixed(search)
       end
       content
-        .contents(category_id: category_id)
+        .contents(**options)
         .sortable(sort)
         .limit(limit)
         .skip(skip)

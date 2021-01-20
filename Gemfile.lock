@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/resque/redis-namespace.git
+  revision: c31e63dc3cd5e59ef5ea394d4d46ac60d1e6f82e
+  branch: c31e63dc3cd5e59ef5ea394d4d46ac60d1e6f82e
+  specs:
+    redis-namespace (1.8.0)
+      redis (>= 3.0.4)
+
+GIT
   remote: https://github.com/yubele/mongoid.git
   revision: 86de86525eede50e173db17ed58ef6adea95a0f4
   branch: 86de86525eede50e173db17ed58ef6adea95a0f4
@@ -449,8 +457,6 @@ GEM
     recaptcha (5.6.0)
       json
     redis (4.2.5)
-    redis-namespace (1.6.0)
-      redis (>= 3.0.4)
     regexp_parser (1.8.2)
     remotipart (1.4.4)
     responders (3.0.1)
@@ -641,7 +647,7 @@ DEPENDENCIES
   rb-inotify
   recaptcha
   redis
-  redis-namespace
+  redis-namespace!
   rss
   sassc
   sassc-rails
