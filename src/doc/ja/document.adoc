@@ -2,6 +2,17 @@
 
 = Document
 
-Work In Progress
+このドキュメントはlink:https://asciidoctor.live/[asciidoctor.life]を使用しています。 +
+railsのyardはlink:/yard[/yard]にあります。
 
-= link:/[目次へ戻る]
+== gurdコンテナ
+guardコンテナにより*.rb, .adocファイルの変更をwatchしています。
+
+link:https://github.com/newsdict/newsdict.io/blob/main/Guardfile[Guardfile]
+
+== browser-syncコンテナ
+browser-syncコンテナによりリアルタイムにドキュメント反映を行っています。
+
+link:https://github.com/newsdict/newsdict.io/blob/main/docker-compose.yml#L86[browser-sync]
+
+link:/[目次へ戻る]

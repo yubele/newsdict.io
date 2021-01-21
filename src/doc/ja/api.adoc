@@ -1,7 +1,13 @@
 :toc: left
 
 = Api
+外部からアクセス可能なAPI仕様です
 
-Work In Progress
+include::google_translate.adoc[]
 
-= link:/[目次へ戻る]
+== コンテンツの取得
+記事のautoloadに使用されています。外部からの読み込み制限は行っていません。
+ 
+ /api/v1/contents.json?skip={offset値}&limit={上限値}&category={category名}
+
+link:/[目次へ戻る]
