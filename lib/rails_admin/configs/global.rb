@@ -16,6 +16,7 @@ RailsAdmin.config do |config|
           end
         end
       end
+      field :enabled, :toggle
     end
   end
 end

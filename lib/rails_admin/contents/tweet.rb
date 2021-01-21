@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.model "Contents::Web" do
+  config.model "Contents::Tweet" do
     list do
       field :title
       field :created_at

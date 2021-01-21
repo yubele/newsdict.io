@@ -22,5 +22,6 @@ RailsAdmin.config do |config|
       except ['Config', 'Configs::Theme', 'Configs::Global', 'Configs::Hook']
     end
     show_in_app
+    toggle
   end
 end

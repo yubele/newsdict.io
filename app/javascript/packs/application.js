@@ -20,7 +20,7 @@ Axios.interceptors.request.use((config) => {
 import '../css/application.scss'
 import '../imports/fontawesome.js'
 import '../imports/dropdown.js'
-import '../imports/autoscroll.js'
+import '../imports/autoscroll.js.erb'
 import '../imports/swipe.js'
 import '../imports/fixed_header.js'
 import '../imports/web_site.js'
