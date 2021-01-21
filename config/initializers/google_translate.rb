@@ -1,6 +1,7 @@
 # Google Translate
-Rails.configuration.to_prepare do
-  if Configs::Global.find_by(key: :google_translate_api)
-    EasyTranslate.api_key = Configs::Global.find_by(key: :google_translate_api).value
+Rails.application.reloader.to_prepare do
+  api = Configs::Global.find_by(key: :google_translate_api)
+  if api && api.value && api.enabled
+    EasyTranslate.api_key = api.value
   end
 end

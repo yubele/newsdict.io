@@ -33,7 +33,8 @@ jobs:
     - name: rails test -v
       run: |
         set -xe
-        docker/start --abort-on-container-exit web mongodb redis &
+        docker/start -d mongodb redis
+        docker-compose up --abort-on-container-exit web &
         export ABORT_IF_EXIT_PID=$!
         docker/rails test -v
     - name: Coveralls GitHub Action
