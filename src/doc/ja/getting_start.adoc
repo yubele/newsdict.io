@@ -4,4 +4,4 @@ include::google_translate.adoc[]
 
 include::../../../README.adoc[]
 
-= link:/[目次へ戻る]
+link:/[目次へ戻る]

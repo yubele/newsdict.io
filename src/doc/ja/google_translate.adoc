@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
 function googleTranslateElementInit() {
-  new google.translate.TranslateElement({pageLanguage: 'ja'}, 'google_translate_element');
+  new google.translate.TranslateElement({pageLanguage: 'ja', includedLanguages: 'en,ja'}, 'google_translate_element');
 }
 </script>
 

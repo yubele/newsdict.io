@@ -4,4 +4,4 @@
 
 Work In Progress
 
-= link:/[目次へ戻る]
+link:/[目次へ戻る]

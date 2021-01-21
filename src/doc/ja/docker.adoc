@@ -1,15 +1,92 @@
 :toc: left
 
+= newsdict.ioで使用するコンテナについて
+
 include::google_translate.adoc[]
 
-=== 前提
-developmentサーバを起動した状態で行ってください。 +
-起動方法はReadme.adocに記載してあります。
+== 概要
 
-== gemのバージョンアップ方法
+環境は、docker-composeを使って開発環境用に構成されています。dockerディレクトリでは、docker-composeの操作用スクリプト、src/provisioningにはコンテナ作成時に呼び出すスクリプトを格納しています。
+
+== 各コンテナの役割
+
+[%header,format=csv]
+|===
+コンテナ名,役割
+${NAMESPACE}_redis,redisコンテナ
+${NAMESPACE}_mongodb,mongodbコンテナ
+${NAMESPACE}_web,newsdict.io rails
+${NAMESPACE}_worker,newsdict.io worker (sidekiq)
+${NAMESPACE}_bundle,Gemのupdateなどに使うためのコンテナ ${NAMESPACE}_web が起動できなかった場合にも使える
+${NAMESPACE}_asciidoctor,ドキュメントを管理するコンテナ
+${NAMESPACE}_guard,ドキュメントの変更をリアルタイムに監視するためのguadコンテナ
+${NAMESPACE}_browser-sync,asciidoctorの変更をリアルタイムにブラウザに反映
+|===
+
+= ディレクトリ構成
+
+```
+docker + start                                                       <= docker-composeの起動スクリプト
+       |
+       + bundle                                                      <= bundle install/update用スクリプト
+       |
+       + rails                                                       <= webコンテナ上でのrailsコマンド実行スクリプト
+       | 
+       + exec                                                        <= webコンテナ上での任意コマンド実行スクリプト
+       |
+       + status                                                      <= コンテナ待ち受け状態のチェックコマンド
+.
+.
+.
+src    - provisioning + nginx + sites-available + default            <= ドキュメントサーバ用nginxファイル
+                      |
+                      +  startup + asciidoctor                        <= asciidoctorコンテナの起動用スクリプト
+                                |
+                                + bootstrap                          <= コンテナ共通の起動用スクリプト
+                                |
+                                + browser-sync                       <= asciidoctorコンテナの起動用スクリプト
+                                |
+                                + bundle                             <= bundleコンテナの起動用スクリプト
+                                |
+                                + guard                              <= asciidoctorのguardコンテナの起動用スクリプト
+                                |
+                                + web                                <= newsdict.ioのrailsコンテナ用スクリプト
+                                |
+                                + worker                             <= newsdict.ioのWorker用スクリプト
+                         
+.
+.
+.
+```
+
+== 主要な使い方
+
+=== コンテナの起動方法
+
+==== バックグラウンド起動
+```
+$ docker/start -d
+```
+
+==== webコンテナの起動ログを出力させながら起動
+```
+$ docker/start attach web
+```
+
+=== 全コンテナの起動ログを出力させながら起動
+```
+$ docker/start
+```
+
+=== gemのバージョンアップ方法
 
 ```
 $ docker/bundle update [gem名]
 ```
 
-= link:/[目次へ戻る]
+=== MiniTestの実行
+```
+$ docker/rails test -v
+```
+
+link:/[目次へ戻る]
