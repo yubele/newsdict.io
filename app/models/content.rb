@@ -41,10 +41,9 @@ class Content < ApplicationRecord
   # @params [Array] options
   # @return [Integer] page number
   def page_num(options = {})
-    column = options[:by] || :id
-    order  = options[:order] || :asc
+    column = attributes.keys.find{|v| v==options[:by].to_s } || :id
+    order  = options[:order] == :desc ? :desc : :asc
     per    = options[:per] || self.class.default_per_page
-
     operator = (order == :asc ? "<=" : ">=")
     (self.class.where("#{column} #{operator} ?" => read_attribute(column)).order("#{column} #{order}").count.to_f / per).ceil
   end
