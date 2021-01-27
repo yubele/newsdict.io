@@ -46,7 +46,6 @@ gem 'redis-namespace', git: 'https://github.com/resque/redis-namespace.git', bra
 gem 'web_stat', '>= 0.4.0'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
-# Nokogiri (鋸) is an HTML, XML, SAX, and Reader parser (https://nokogiri.org)
 # Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby. (https://nokogiri.org)
 gem 'nokogiri'
 # The next generation developer focused tool for automated testing of webapps (https://github.com/SeleniumHQ/selenium)
@@ -84,8 +83,7 @@ gem 'kaminari-actionview'
 ##
 # mongodb
 ##
-# Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
-#  - Merge ::I18n.translate takes keyword arguments … (https://github.com/yubele/mongoid/pull/1)
+# Merge ::I18n.translate takes keyword arguments … (https://github.com/yubele/mongoid/pull/1)
 # Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
 gem 'mongoid', git: 'https://github.com/yubele/mongoid.git', branch: '86de86525eede50e173db17ed58ef6adea95a0f4'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
@@ -162,6 +160,7 @@ group :development, :test do
   gem 'byebug'
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails'
+  gem 'brakeman'
 end
 
 group :development do
