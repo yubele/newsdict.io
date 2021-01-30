@@ -66,7 +66,7 @@ Rails.application.configure do
   if ENV['WEBPACK_DEV_SERVER_PUBLIC'].present?
     config.action_controller.asset_host = Proc.new do |source|
       if source.starts_with?('/assets')
-        "#{ENV['WEBPACK_DEV_SERVER_PUBLIC']}:3100"
+        "#{ENV['WEBPACK_DEV_SERVER_PUBLIC']}:3000"
       else
         "#{ENV['WEBPACK_DEV_SERVER_PUBLIC']}:3035"
       end

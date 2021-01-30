@@ -36,10 +36,11 @@ module Api
             k.include?("created_at") ||
             k.include?("updated_at")
           }.merge({
+            "expanded_domain" => URI.parse(c.expanded_url).host,
             "created_at" => in_time_zone(c.created_at),
             "created_at_human_format" => c.created_at.to_s(:human),
             "updated_at" => in_time_zone(c.updated_at),
-            "content_text" => c.content_text.truncate(80),
+            "content_text" => c.language_code == "ja" ? c.content_text.truncate(80) : c.content_text.truncate(160),
             "shared_text" => c.shared_text.nil? ? "" : c.shared_text.truncate(50),
             "id" => c.id.to_s,
             "longer_tags" => tag_element(c.longer_tags),
