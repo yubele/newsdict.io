@@ -41,9 +41,10 @@ gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler', git: 'https://github.com/yubele/sidekiq-scheduler.git'
 # Namespaces Redis commands. (http://github.com/resque/redis-namespace)
+# Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace', git: 'https://github.com/resque/redis-namespace.git', branch: 'c31e63dc3cd5e59ef5ea394d4d46ac60d1e6f82e'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '>= 0.4.0'
+gem 'web_stat', '>= 0.4.1'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby. (https://nokogiri.org)
@@ -74,6 +75,7 @@ gem 'cancancan-mongoid'
 ##
 # Admin for Rails (https://github.com/sferik/rails_admin)
 gem 'rails_admin'
+# Make any boolean field easily toggleable on\off from index view in rails admin (https://gitlab.com/rocket-science/rails_admin_toggleable)
 gem 'rails_admin_toggleable'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid'
@@ -160,6 +162,7 @@ group :development, :test do
   gem 'byebug'
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer (https://github.com/thoughtbot/factory_bot_rails)
   gem 'factory_bot_rails'
+  # Security vulnerability scanner for Ruby on Rails. (https://brakemanscanner.org)
   gem 'brakeman'
 end
 
@@ -204,7 +207,9 @@ group :document do
 end
 
 group :test do
+  # Code coverage for Ruby (https://github.com/simplecov-ruby/simplecov)
   gem 'simplecov', require: false
+  # Custom SimpleCov formatter to generate a lcov style coverage. (http://github.com/fortissimo1997/simplecov-lcov)
   gem 'simplecov-lcov', require: false
   # Capybara aims to simplify the process of integration testing Rack applications, such as Rails, Sinatra or Merb (https://github.com/teamcapybara/capybara)
   gem 'capybara'
