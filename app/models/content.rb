@@ -47,6 +47,11 @@ class Content < ApplicationRecord
     operator = (order == :asc ? "<=" : ">=")
     (self.class.where("#{column} #{operator} ?" => read_attribute(column)).order("#{column} #{order}").count.to_f / per).ceil
   end
+  
+  # Crawl original URL
+  #  Implement in child class.
+  # @return [String] url
+  def source_url; end
 
   class << self
     # Set attributes by `WebStat` gems
@@ -84,7 +89,7 @@ class Content < ApplicationRecord
     # @param [Hash] attrs
     # @return [void]
     def save_form_job(attrs)
-      already_content = Content.unique?(url: attrs[:exclude_url], title: attrs[:title])
+      already_content = unique?(url: attrs[:exclude_url], title: attrs[:title])
       # Check duplicated contents
       if already_content && already_content.source.update?(already_content, attrs)
         already_content.update_attributes(attrs)
@@ -94,7 +99,7 @@ class Content < ApplicationRecord
         if attrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
           attrs[:content_text] = EasyTranslate.translate(attrs[:content_text], :to => ENV["default_locale"])
         end
-        content = Content.new(attrs)
+        content = new(attrs)
         content.count_of_shared = 1
         content.save
       end
