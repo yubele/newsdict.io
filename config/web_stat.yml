@@ -4,7 +4,7 @@ development: &development
   # Split regular expression for titles
   regex_to_sprit_title: '\||-|:|｜|：|〜|\~| – '
   # User Agent
-  user_agent: "web_stat gem agent"
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) web_stat gem agent"
   # Eyecatch image xpaths
   eyecatch_image_xpaths:
     - '/html/head/meta[@property="twitter:image"]/@content'
