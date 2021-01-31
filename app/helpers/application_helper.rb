@@ -27,7 +27,9 @@ module ApplicationHelper
     else
       fqdn = "#{uri.scheme}://#{uri.host}:#{uri.port}"
     end
-    if relative_path.match(Regexp.new("^//")) || relative_path.match(Regexp.new("^http"))
+    if relative_path.nil?
+      fqdn
+    elsif relative_path.match(Regexp.new("^//")) || relative_path.match(Regexp.new("^http"))
       relative_path
     elsif relative_path.match(Regexp.new("^/"))
       "#{fqdn}#{relative_path}"

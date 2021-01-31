@@ -28,6 +28,8 @@ module Newsdict
     config.i18n.available_locales = [:ja, :en]
     # Set locale
     config.i18n.default_locale = ENV["default_locale"]
+    # BREAKING CHANGE: Fallbacks
+    config.i18n.fallbacks = [I18n.default_locale]
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
     # Recursively including all model subdirectories
