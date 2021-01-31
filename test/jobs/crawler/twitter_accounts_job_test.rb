@@ -30,6 +30,10 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
         ::CrawlersJob.perform_now(twitter_account, url: generated_url, unique_id: tweet.id)
       end
     end
+    # Check to return `Contents::Tweet`
+    Content.all.each do |content|
+      assert_equal content.class, Contents::Tweet
+    end
     assert_equal count, Content.all.count
   end
   test "queued job" do
