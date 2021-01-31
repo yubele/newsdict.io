@@ -25,11 +25,11 @@ class Configs::Theme < Config
     def apply
       ActionController::Base.prepend_view_path  "app/themes/#{activated_theme.key}"
       I18n.load_path += Dir[Rails.root.join('app', 'themes', activated_theme.key, 'locales', '*.{rb,yml}')]
-      Rails.application.config.assets.paths += [
+      Rails.application.config.assets.paths.unshift(
         Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'config'),
         Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'javascripts'),
         Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'stylesheets'),
-        Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'images')]
+        Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'images'))
       activated_theme
     end
     # Tidy Configs::Theme
