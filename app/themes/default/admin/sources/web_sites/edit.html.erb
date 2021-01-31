@@ -10,17 +10,8 @@
         <div class="buttons">
             <div class="field is-horizontal">
                 <div class="field-body">
-                    <%= f.text_field(:id, disabled: true, placeholder: :URL, hidden: true) %>
-                    <div class="field-label is-normal">
-                        <label class="label"><%= t('.name') %></label>
-                    </div>
-                    <div class="field">
-                        <p class="control is-expanded has-icons-left">
-                            <div class="select">
-                                <%= f.text_field :name, class: :input %>
-                            </div>
-                        </p>
-                    </div>
+                    <%= f.text_field :id, disabled: true, hidden: true %>
+                    <%= f.text_field :name, disabled: true, hidden: true %>
                     <div class="field-label is-normal">
                         <label class="label"><%= t('.category_id') %></label>
                     </div>
