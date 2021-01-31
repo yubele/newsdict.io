@@ -12,7 +12,6 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 gem 'omniauth'
 # Provides CSRF protection on OmniAuth request endpoint on Rails application. (https://github.com/cookpad/omniauth-rails_csrf_protection)
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
-# Facebook OAuth2 Strategy for OmniAuth (https://github.com/mkdynamic/omniauth-facebook)
 # Facebook OAuth2 Strategy for OmniAuth (https://github.com/simi/omniauth-facebook)
 gem 'omniauth-facebook'
 # OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
@@ -40,11 +39,10 @@ gem "recaptcha"
 gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
 gem 'sidekiq-scheduler', git: 'https://github.com/yubele/sidekiq-scheduler.git'
-# Namespaces Redis commands. (http://github.com/resque/redis-namespace)
 # Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace', git: 'https://github.com/resque/redis-namespace.git', branch: 'c31e63dc3cd5e59ef5ea394d4d46ac60d1e6f82e'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '>= 0.4.1'
+gem 'web_stat', '>= 0.4.4'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby. (https://nokogiri.org)
