@@ -132,6 +132,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.5.1)
       msgpack (~> 1.0)
+    brakeman (4.10.1)
     bson (4.11.1)
     buftok (0.2.0)
     builder (3.2.4)
@@ -601,6 +602,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
+  brakeman
   bulma-rails
   bundler-audit
   byebug
