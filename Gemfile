@@ -75,6 +75,7 @@ gem 'cancancan-mongoid'
 gem 'rails_admin'
 # Make any boolean field easily toggleable on\off from index view in rails admin (https://gitlab.com/rocket-science/rails_admin_toggleable)
 gem 'rails_admin_toggleable'
+gem 'ckeditor'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid'
 # Kaminari Action View adapter (https://github.com/kaminari/kaminari)

@@ -11,4 +11,10 @@ class PortalsController < ApplicationController
     end
     @contents = JSON.parse(contents(**params.permit([:sort, :category, :tag, :search]).to_hash.symbolize_keys), object_class: OpenStruct)
   end
+  # Page
+  # @param url_suffix
+  def page(url_suffix)
+    @page = Page.find_by(url_suffix: url_suffix)
+    @title = @page.title
+  end
 end

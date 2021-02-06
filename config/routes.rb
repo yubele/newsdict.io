@@ -44,6 +44,7 @@ Rails.application.routes.draw do
       resource :contents, only: [:show]
     end
   end
+  get "/pages/:url_suffix", to: "portals#page", as: :page
   authenticated :user do
     get "/category/:category", to: "dashboards#show", as: :dashboards_category
     get "/tag/:tag", to: "dashboards#show", as: :dashboards_tag

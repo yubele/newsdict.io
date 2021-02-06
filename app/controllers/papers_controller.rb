@@ -12,7 +12,6 @@ class PapersController < ApplicationController
     from_time = Time.strptime(from_date, '%Y%m%d').midnight
     to_time = Time.strptime(to_date, '%Y%m%d').end_of_day
     @paper = Paper.new
-    @paper.user = User.find_by(email: ENV['ADMIN_USER_EMAIL'])
     @contents = Content.contents.sortable(params[:sort]).gte(:created_at => from_time).lte(:created_at => to_time).page(params[:page])
     @paper.title = @title = I18n.t('paper.term.title', from_date: I18n.l(from_time, format: :only_date), to_date: I18n.l(to_time, format: :only_date))
     render :show
@@ -20,7 +19,6 @@ class PapersController < ApplicationController
   def one_day(date)
     time = Time.strptime(date, '%Y%m%d')
     @paper = Paper.new
-    @paper.user = User.find_by(email: ENV['ADMIN_USER_EMAIL'])
     @contents = Content.contents.sortable(params[:sort]).gte(:created_at => time.midnight).lte(:created_at => time.end_of_day).page(params[:page])
     @paper.title = I18n.t('paper.one_day.title', date: I18n.l(time, format: :only_date))
     render :show
