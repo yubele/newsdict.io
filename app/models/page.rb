@@ -6,5 +6,5 @@ class Page < ApplicationRecord
   include Mongoid::Timestamps
   validates :url_suffix, presence: true
   validates :title, presence: true
-  validates :content, presence: true
+  validates :content, presence: true, length: [1..200]
 end
