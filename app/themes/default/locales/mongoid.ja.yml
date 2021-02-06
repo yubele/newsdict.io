@@ -126,6 +126,10 @@ ja:
         unique_id: 識別番号
         created_at: 作成日時
         updated_at: 更新日時
+      page:
+        url_suffix: URL
+        title: タイトル
+        content: 本文
     models:
       "filters/hidden_content": 非表示にするコンテンツ
       "filters/ignore_crawl_content": クロール時に除外するコンテンツ
@@ -148,6 +152,7 @@ ja:
       "contents/tweet": From Twitter
       "posts/twitter": Twitter投稿
       inquiry: 問い合わせ
+      page: ページ管理
     errors:
       messages:
         invalid: 正しい文字を入れてください

@@ -126,6 +126,10 @@ en:
         unique_id: Unique id
         created_at: created_at
         updated_at: updated_at
+      page:
+        suffix: Url Suffix
+        title: Title
+        content: Content
     models:
       "filters/hidden_content": Content to hide
       "filters/ignore_crawl_content": Content to exclude when crawling
@@ -147,6 +151,7 @@ en:
       "configs/tokens/smtp": SMTP Setting
       "posts/twitter": Update Twitter
       inquiry: Inquiry
+      page: Page
     errors:
       messages:
         invalid: invalid
