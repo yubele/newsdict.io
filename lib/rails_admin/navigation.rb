@@ -1,6 +1,5 @@
 RailsAdmin.config do |config|
   config.excluded_models = [:Source, :Content, :Config, :Filter, :Paper,
-    # Deprecated class
     "Sources::WebUrl", "Sources::WebSection", "Sources::Url", "Theme", "Configs::Token", "CollectTag",
     "Users::Omniauth", "Users::Omniauths::Google", "Users::Omniauths::Facebook", "Users::Omniauths::Twitter",
     "Post", "Batch", "Friendship", "Follower"]
@@ -80,8 +79,12 @@ RailsAdmin.config do |config|
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 19
   end
-  config.model "User" do
+  config.model "Page" do
     navigation_label I18n.t('admin.navigation.admin_setting')
     weight 20
+  end
+  config.model "User" do
+    navigation_label I18n.t('admin.navigation.admin_setting')
+    weight 21
   end
 end
