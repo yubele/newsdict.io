@@ -20,13 +20,13 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'admin/omniauth_callbacks'
   }
   # Feed routes
-  resource :rss, path: "/rss/", controller: "portals/rss", action: :show, only: [:show] do
+  resource :rss, path: "/rss/", controller: "portal/rss", action: :show, only: [:show] do
     collection do
       get "/category/:category/", as: :category
       get "/tag/:keyword/", as: :tag
     end
   end
-  get "/sources/:id/", to: "portals/sources#show", as: :sources
+  get "/sources/:id/", to: "portal/sources#show", as: :sources
   resources :contents, only: :show
   get "/paper/term/:from_date/:to_date/", to: "papers#term", as: :paper_term
   get "/paper/term/:date/", to: "papers#one_day", as: :paper_oneday
@@ -46,10 +46,10 @@ Rails.application.routes.draw do
   end
   get "/pages/:url_suffix", to: "portals#page", as: :page
   authenticated :user do
-    get "/category/:category", to: "dashboards#show", as: :dashboards_category
-    get "/tag/:tag", to: "dashboards#show", as: :dashboards_tag
-    get "/search/", to: "dashboards#show", as: :dashboards_search
-    root :to => "dashboards#show", :as => "user_authenticated_root"
+    get "/category/:category", to: "portal/dashboards#show", as: :dashboards_category
+    get "/tag/:tag", to: "portal/dashboards#show", as: :dashboards_tag
+    get "/search/", to: "portal/dashboards#show", as: :dashboards_search
+    root :to => "portal/dashboards#show", :as => "user_authenticated_root"
   end
   unauthenticated :user do
     resource :portals, path: "/category/:category/", controller: "portals", action: :show, only: [:show], as: :category

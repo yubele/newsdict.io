@@ -1,4 +1,4 @@
-class Portals::SourcesController < PortalsController
+class Portal::SourcesController < PortalsController
   # Show source page.
   def show(id)
     @source = Source.find_by(id: id)
