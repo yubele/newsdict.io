@@ -1,4 +1,5 @@
-class Portal::SourcesController < PortalsController
+class Portals::SourcesController < PortalsController
+  include Api::ContentsControllerConcern
   # Show source page.
   def show(id)
     @source = Source.find_by(id: id)

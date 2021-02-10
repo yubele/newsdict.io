@@ -1,4 +1,4 @@
-class Portal::RssController < PortalsController
+class Portals::RssController < PortalsController
   layout false
   # Feed the data of `Contents`
   def show
