@@ -57,4 +57,7 @@ Rails.application.routes.draw do
     resource :portals, path: "/search/", controller: "portals", action: :show, only: [:show], as: :search
     root to: "portals#show"
   end
+  
+  # In config.exception_app, zeitwerk gives a decreated error, so I get a 404 page here.
+  get "*path", to: "errors#exceptions_app"
 end

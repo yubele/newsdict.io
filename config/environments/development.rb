@@ -15,6 +15,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
+  # If you want to output 404 page, that set false.
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
