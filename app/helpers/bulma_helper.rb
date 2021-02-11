@@ -3,7 +3,7 @@ module BulmaHelper
   # create tag cloud elements
   # @return [String]
   def create_tag_cloud
-    tags = CollectTag.cloud(limit: 100)
+    tags = CollectTag.cloud
     unit = tags.to_a.count / TAGCLOUD_CLASSES.count
     elements = []
     tags.each_with_index do |tag, index|
