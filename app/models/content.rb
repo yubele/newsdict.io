@@ -26,6 +26,7 @@ class Content < ApplicationRecord
   validates_uniqueness_of :unique_id, :allow_nil => true
   validates :language_code, length: {minimum: 2, maximum: 2}
   validates :unique_id, length: {maximum: 255}
+  validates :shared_text, length: { minimum: 0, allow_nil: false, message: "can't be nil" }
   SORT_TYPE = {
     :created_at => {created_at: :desc},
     :updated_at => {updated_at: :desc},
