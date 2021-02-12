@@ -69,6 +69,6 @@ module Newsdict
     # `@import` can require the paths. (sassc-rails)
     config.sass.load_paths << Rails.root.join('node_modules')
     # Count of content per page.
-    config.count_of_content_per_page = 15
+    config.count_of_content_per_page = 20
   end
 end

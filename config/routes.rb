@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'admin/omniauth_callbacks'
   }
   # Feed routes
-  resource :rss, path: "/rss/", controller: "portals/rss", action: :show, only: [:show] do
+  resource :rss, path: "/rss/", controller: "portal/rss", action: :show, only: [:show] do
     collection do
       get "/category/:category/", as: :category
       get "/tag/:keyword/", as: :tag
@@ -46,10 +46,10 @@ Rails.application.routes.draw do
   end
   get "/pages/:url_suffix", to: "portals#page", as: :page
   authenticated :user do
-    get "/category/:category", to: "dashboards#show", as: :dashboards_category
-    get "/tag/:tag", to: "dashboards#show", as: :dashboards_tag
-    get "/search/", to: "dashboards#show", as: :dashboards_search
-    root :to => "dashboards#show", :as => "user_authenticated_root"
+    get "/category/:category", to: "portals/dashboards#show", as: :dashboards_category
+    get "/tag/:tag", to: "portals/dashboards#show", as: :dashboards_tag
+    get "/search/", to: "portals/dashboards#show", as: :dashboards_search
+    root :to => "portals/dashboards#show", :as => "user_authenticated_root"
   end
   unauthenticated :user do
     resource :portals, path: "/category/:category/", controller: "portals", action: :show, only: [:show], as: :category
@@ -57,4 +57,7 @@ Rails.application.routes.draw do
     resource :portals, path: "/search/", controller: "portals", action: :show, only: [:show], as: :search
     root to: "portals#show"
   end
+  
+  # In config.exception_app, zeitwerk gives a decreated error, so I get a 404 page here.
+  get "*path", to: "errors#exceptions_app"
 end

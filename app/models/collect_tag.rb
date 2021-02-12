@@ -1,6 +1,6 @@
 # Save the tags stored in Content for the tag cloud.
 class CollectTag < ApplicationRecord
-  CLOUD_LIMIT = 20
+  DEFAULT_CLOUD_LIMIT = 20
   include Mongoid::Document
   field :name, type: String
   field :length, type: Integer
@@ -16,9 +16,13 @@ class CollectTag < ApplicationRecord
     end
     # Tag Cloud
     # @param [Integer] min_length Minimum tag name length
+    # @param [Integer] Get the tag for x days.
+    # @param [Integer] max_length 
     # @return [Array]
-    def cloud(min_length: 2)
-      where(:length.gt => min_length).order_by(count: :desc).limit(self::CLOUD_LIMIT)
+    def cloud(min_length: 3, days_ago: 30, max_length: 10, limit: DEFAULT_CLOUD_LIMIT)
+      content = where(:length.gte => min_length, :updated_at.gte => (Time.zone.now - days_ago.days)).order_by(count: :desc).limit(limit)
+      content = content.lte(length: max_length) if max_length
+      content
     end
   end
 end

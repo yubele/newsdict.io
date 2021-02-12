@@ -31,7 +31,7 @@
     queue: collects
   schedules_job:
     enabled: true
-    cron: '0 * * * * *'
+    cron: '30 * * * * *'
     class: SchedulesJob
     queue: notifies
   manual_save_relations_twitter_acccount:

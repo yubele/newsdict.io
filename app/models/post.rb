@@ -31,11 +31,25 @@ class Post < ApplicationRecord
     time.localtime(Time.zone.formatted_offset)
     "#{ENV["PROD_FQDN"]}#{paper_oneday_path(date: time.strftime("%Y%m%d"))}"
   end
+  # Get paper url of yesterday
+  # @return [String]
+  def _binding_paper_url_for_yesterday
+    time = Time.new
+    time.localtime(Time.zone.formatted_offset)
+    "#{ENV["PROD_FQDN"]}#{paper_oneday_path(date: (time - 1.day).strftime("%Y%m%d"))}"
+  end
   # Get date
   # @return [String]
   def _binding_date
     time = Time.new
     time.localtime(Time.zone.formatted_offset)
     time.strftime("%Y/%m/%d")
+  end
+  # Get yesterday
+  # @return [String]
+  def _binding_yesterday
+    time = Time.new
+    time.localtime(Time.zone.formatted_offset)
+    (time - 1.day).strftime("%Y/%m/%d")
   end
 end

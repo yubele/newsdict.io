@@ -13,6 +13,8 @@ module Crawler
           end
         rescue Twitter::Error::NotFound
           raise "Twitter::Error::NotFound : #{twitter_account.name}"
+        rescue Twitter::Error::Unauthorized
+          raise "Twitter::Error::Unauthorized: #{twitter_account.name}"
         end
       end
     end

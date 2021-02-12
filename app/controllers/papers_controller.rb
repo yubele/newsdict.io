@@ -20,7 +20,7 @@ class PapersController < ApplicationController
     time = Time.strptime(date, '%Y%m%d')
     @paper = Paper.new
     @contents = Content.contents.sortable(params[:sort]).gte(:created_at => time.midnight).lte(:created_at => time.end_of_day).page(params[:page])
-    @paper.title = I18n.t('paper.one_day.title', date: I18n.l(time, format: :only_date))
+    @paper.title = @title = I18n.t('paper.one_day.title', date: I18n.l(time, format: :only_date))
     render :show
   end
 end

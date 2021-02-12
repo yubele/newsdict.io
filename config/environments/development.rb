@@ -15,6 +15,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
+  # If you want to output 404 page, that set false.
   config.consider_all_requests_local = true
 
   # Enable/disable caching. By default caching is disabled.
@@ -67,7 +68,7 @@ Rails.application.configure do
   # webpacker domain
   if ENV['WEBPACK_DEV_SERVER_PUBLIC'].present?
     config.action_controller.asset_host = Proc.new do |source|
-      if source.starts_with?('/assets')
+      if source.starts_with?('/assets') || source.starts_with?('/user_icon')
         "#{ENV['WEBPACK_DEV_SERVER_PUBLIC']}:3000"
       else
         "#{ENV['WEBPACK_DEV_SERVER_PUBLIC']}:3035"

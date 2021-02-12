@@ -16,6 +16,7 @@ class CrawlersJob < ApplicationJob
     attrs = model.set_attributes_by_web_stat(object, web_stat)
     attrs[:unique_id] = unique_id
     attrs[:shared_text] = shared_text
+    object.touch
     model.save_form_job(attrs)
   rescue Mechanize::RobotsDisallowedError,
           Mechanize::ResponseCodeError => e
