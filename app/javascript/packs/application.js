@@ -18,6 +18,7 @@ Axios.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 import '../css/application.scss'
+import '../imports/autoload.js'
 import '../imports/fontawesome.js'
 import '../imports/dropdown.js'
 import '../imports/autoscroll.js.erb'
