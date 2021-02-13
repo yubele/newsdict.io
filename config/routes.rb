@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'admin/omniauth_callbacks'
   }
   # Feed routes
-  resource :rss, path: "/rss/", controller: "portal/rss", action: :show, only: [:show] do
+  resource :rss, path: "/rss/", controller: "portals/rss", action: :show, only: [:show] do
     collection do
       get "/category/:category/", as: :category
       get "/tag/:keyword/", as: :tag
