@@ -38,7 +38,9 @@ module Newsdict
     config.active_job.queue_adapter = :sidekiq
     # Web site's prefix used by Source
     config.web_site_prefix = {
-      twitter_account: 'https://twitter.com'}
+      twitter_account: 'https://twitter.com',
+      facebook_account: 'https://facebook.com'
+    }
     # path of `mecab-dict-index` in worker
     config.path_of_mecab_dict_index = "/usr/lib/mecab/mecab-dict-index"
     # path of custom mecab dictinary
