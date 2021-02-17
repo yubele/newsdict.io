@@ -296,6 +296,10 @@ GEM
     kaminari-mongoid (1.0.1)
       kaminari-core (~> 1.0)
       mongoid
+    koala (3.0.0)
+      addressable
+      faraday
+      json (>= 1.8)
     libv8 (8.4.255.0)
     listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -634,6 +638,7 @@ DEPENDENCIES
   jbuilder
   kaminari-actionview
   kaminari-mongoid
+  koala
   listen
   mimemagic
   mini_magick

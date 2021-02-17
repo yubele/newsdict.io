@@ -57,6 +57,8 @@ gem 'easy_translate'
 ##
 # A Ruby interface to the Twitter API. (http://sferik.github.com/twitter/)
 gem 'twitter'
+# A lightweight, flexible library for Facebook with support for the Graph API, the REST API, realtime updates, and OAuth authentication. (http://github.com/arsduo/koala)
+gem "koala"
 
 ##
 # User Manage
@@ -75,6 +77,7 @@ gem 'cancancan-mongoid'
 gem 'rails_admin'
 # Make any boolean field easily toggleable on\off from index view in rails admin (https://gitlab.com/rocket-science/rails_admin_toggleable)
 gem 'rails_admin_toggleable'
+# Rails gem for easy integration ckeditor in your application (https://github.com/galetahub/ckeditor)
 gem 'ckeditor'
 # Kaminari Mongoid adapter (https://github.com/kaminari/kaminari-mongoid)
 gem 'kaminari-mongoid'
