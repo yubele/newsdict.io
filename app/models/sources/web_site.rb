@@ -25,8 +25,13 @@ class Sources::WebSite < ::Source
   # Get external urls
   def urls
     hrefs = Array.new
-    ::Nokogiri::HTML(WebDriverHelper.get_source(source_url))
-    .xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }
+    begin
+      html = ::Nokogiri::HTML(WebDriverHelper.get_source(source_url))
+    rescue
+      mech = Mechanize.new { |_mech| _mech.user_agent = WebStat::Configure.get["user_agent"] }
+      html = mech.get(url, [], nil, { 'Accept-Language' => 'ja'})
+    end
+    html.xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }
     .uniq.each do |href|
       hrefs << ApplicationHelper.create_full_url(source_url, href)
     end
