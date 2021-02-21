@@ -8,7 +8,7 @@ module BulmaHelper
     elements = []
     tags.each_with_index do |tag, index|
       element = "<span class='tag "
-      element << TAGCLOUD_CLASSES[((index) / unit).floor]
+      element << TAGCLOUD_CLASSES[(index / (unit+1)).floor]
       element << "'>#{link_to tag.name, tag_path(tag.name)}</span>"
       elements << element
     end
