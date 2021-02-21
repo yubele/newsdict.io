@@ -29,7 +29,7 @@ class Sources::WebSite < ::Source
       html = ::Nokogiri::HTML(WebDriverHelper.get_source(source_url))
     rescue
       mech = Mechanize.new { |_mech| _mech.user_agent = WebStat::Configure.get["user_agent"] }
-      html = mech.get(url, [], nil, { 'Accept-Language' => 'ja'})
+      html = mech.get(source_url, [], nil, { 'Accept-Language' => 'ja'})
     end
     html.xpath("#{xpath}//a/@href").map {|a| a.value unless a.value.blank? }
     .uniq.each do |href|
