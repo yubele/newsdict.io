@@ -4,7 +4,7 @@ class Page < ApplicationRecord
   field :title, type: String
   field :content, type: String
   include Mongoid::Timestamps
-  validates :url_suffix, presence: true
+  validates :url_suffix, presence: true, length: { maximum: 255 }
   validates :title, presence: true
-  validates :content, presence: true, length: {minimum: 1, maximum: 200}
+  validates :content, presence: true
 end
