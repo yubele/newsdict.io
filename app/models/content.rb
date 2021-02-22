@@ -161,7 +161,7 @@ class Content < ApplicationRecord
     # @param [String] keyword
     # @return [Content]
     def search_by_tag(keyword)
-      self.where(:tags => keyword)
+      self.in(:tags => keyword)
     end
     # Search content by category_name
     # @param [String] keyword

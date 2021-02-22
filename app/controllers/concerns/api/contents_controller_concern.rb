@@ -17,7 +17,7 @@ module Api
       end
       content = Content
       if tag
-        content = Content.search_by_tag(tag)
+        content = Content.search_by_tag(tag.split(","))
       elsif search
         content = Content.search_by_mixed(search)
       end

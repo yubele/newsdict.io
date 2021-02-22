@@ -6,6 +6,8 @@ class PortalsController < ApplicationController
       @rss_path = category_rss_path(params[:category])
       @category_name = params[:category]
     else
+      tags = CollectTag.cloud(limit: 3)
+      params[:tag] = tags.pluck(:name).join(',')
       @rss_path = rss_path
       @category_name = I18n.t(:top_page)
     end

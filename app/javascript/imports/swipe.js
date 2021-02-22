@@ -22,8 +22,8 @@ function setSwipe(elem) {
     });
 
     t.addEventListener('touchend', function(e) {
-        var nextElement = document.querySelector('.is-active').nextElementSibling
-        var previousElement = document.querySelector('.is-active').previousElementSibling
+        var nextElement = document.querySelector('.swipe-active').nextElementSibling
+        var previousElement = document.querySelector('.swipe-active').previousElementSibling
         if (startX > moveX && startX > moveX + dist && nextElement) {
             document.location = nextElement.querySelector('a').href
         }
