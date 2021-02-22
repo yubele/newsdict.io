@@ -11,7 +11,7 @@ RailsAdmin.config do |config|
     list do
       field :value do
         pretty_value do
-          unless bindings[:object].value.empty?
+          if bindings[:object].value
             '*' * 8
           end
         end
