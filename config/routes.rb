@@ -59,5 +59,5 @@ Rails.application.routes.draw do
   end
   
   # In config.exception_app, zeitwerk gives a decreated error, so I get a 404 page here.
-  get "*path", to: "errors#exceptions_app"
+  get "*path", to: "application#exceptions_app"
 end

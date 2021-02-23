@@ -1,6 +1,17 @@
 class ApplicationController < ActionController::Base
+  include Api::ContentsControllerConcern
   before_action :set_recaptcha, :set_action_mailer, :set_host, :hook_of_restart_all_server
   before_action :configure_permitted_parameters, if: :devise_controller?
+  #unless Rails.env.development?
+    rescue_from StandardError, with: :exceptions_app
+    rescue_from Mongoid::Errors::DocumentNotFound, with: :exceptions_app
+  #end
+
+  def exceptions_app
+    tags = CollectTag.cloud(limit: 3).pluck(:name)
+    @contents = JSON.parse(contents(tag: tags.join(',')), object_class: OpenStruct)
+    render template: 'errors/exceptions_app', status: 404
+  end
 
   protected
   # Set domain for devise mail
