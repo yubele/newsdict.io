@@ -71,6 +71,10 @@ class Content < ApplicationRecord
         :source_id => object.id,
         :user_id => object.user_id
       }
+      # Add the tags
+      web_stat[:tags].each do |name|
+        CollectTag.add(name)
+      end
       # image
       unless web_stat[:eyecatch_image_path].nil?
         blob = File.read(web_stat[:eyecatch_image_path])
