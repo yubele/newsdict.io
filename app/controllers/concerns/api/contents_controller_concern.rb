@@ -2,7 +2,7 @@ module Api
   module ContentsControllerConcern
     include ApplicationHelper
     extend ActiveSupport::Concern
-    # Use api and timeline_controller
+    # Use api and portal_controller
     # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
