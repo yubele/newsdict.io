@@ -32,6 +32,15 @@ function setSwipe(elem) {
         }
     });
 }
+function inElement(element, className) {
+    if(element && element.classList && element.classList.contains(className)) {
+        return true
+    } else if (element.classList) {
+        return inElement(element.parentNode, className)
+    } else {
+        return false
+    }
+}
 (function() {
-     setSwipe('.swipeContainer');
+     setSwipe('.swipeContainer')
 })(window)
