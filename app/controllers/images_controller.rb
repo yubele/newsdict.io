@@ -7,7 +7,7 @@ class ImagesController < ApplicationController
     elsif content && content.image_svg
       send_data content.image_svg, type: 'image/svg+xml'
     else
-      raise ::ImageNotFoundException
+      redirect_to ActionController::Base.helpers.image_path("noimage")
     end
   end
   # View user's icon
