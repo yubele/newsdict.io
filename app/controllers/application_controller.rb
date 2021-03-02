@@ -8,9 +8,7 @@ class ApplicationController < ActionController::Base
   #end
 
   def exceptions_app
-    tags = CollectTag.cloud(limit: 3).pluck(:name)
-    @contents = JSON.parse(contents(tag: tags.join(',')), object_class: OpenStruct)
-    render template: 'errors/exceptions_app', status: 404
+    redirect_to not_found_path
   end
 
   protected
