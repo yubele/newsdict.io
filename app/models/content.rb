@@ -76,7 +76,7 @@ class Content < ApplicationRecord
         CollectTag.add(name)
       end
       # image
-      unless web_stat[:eyecatch_image_path].nil?
+      if web_stat[:eyecatch_image_path]
         blob = File.read(web_stat[:eyecatch_image_path])
         begin
           # Binary
