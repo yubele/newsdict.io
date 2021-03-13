@@ -2,7 +2,7 @@ module Api
   module ContentsControllerConcern
     include ApplicationHelper
     extend ActiveSupport::Concern
-    # Use api and timeline_controller
+    # Use api and portal_controller
     # @param [Integer] limit default: 25
     # @param [Integer] skip default: 0
     # @param [String] sort default: Content::SORT_TYPE[:updated_at]
@@ -17,7 +17,7 @@ module Api
       end
       content = Content
       if tag
-        content = Content.search_by_tag(tag)
+        content = Content.search_by_tag(tag.split(","))
       elsif search
         content = Content.search_by_mixed(search)
       end

@@ -71,8 +71,12 @@ class Content < ApplicationRecord
         :source_id => object.id,
         :user_id => object.user_id
       }
+      # Add the tags
+      web_stat[:tags].each do |name|
+        CollectTag.add(name)
+      end
       # image
-      unless web_stat[:eyecatch_image_path].nil?
+      if web_stat[:eyecatch_image_path]
         blob = File.read(web_stat[:eyecatch_image_path])
         begin
           # Binary
@@ -161,7 +165,7 @@ class Content < ApplicationRecord
     # @param [String] keyword
     # @return [Content]
     def search_by_tag(keyword)
-      self.where(:tags => keyword)
+      self.in(:tags => keyword)
     end
     # Search content by category_name
     # @param [String] keyword

@@ -560,10 +560,10 @@ GEM
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
-    web_stat (0.4.4)
+    web_stat (0.4.7)
       bundler (>= 2.0.2)
       cld (>= 0.8.0)
-      mechanize (>= 2.7)
+      mechanize (>= 2.7.7)
       natto (>= 1.1.2)
       nokogiri (>= 1.10.4)
       pdf-reader (= 2.4.0)
@@ -678,7 +678,7 @@ DEPENDENCIES
   uglifier
   vue-rails-form-builder
   web-console
-  web_stat (>= 0.4.4)
+  web_stat (>= 0.4.7)
   webmock
   webpacker
   webrick
