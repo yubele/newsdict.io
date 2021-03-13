@@ -42,7 +42,7 @@ gem 'sidekiq-scheduler', git: 'https://github.com/yubele/sidekiq-scheduler.git'
 # Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace', git: 'https://github.com/resque/redis-namespace.git', branch: 'c31e63dc3cd5e59ef5ea394d4d46ac60d1e6f82e'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '>= 0.4.4'
+gem 'web_stat', '>= 0.4.7'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby. (https://nokogiri.org)
@@ -104,7 +104,7 @@ gem "slack-notifier"
 # system gems
 ##
 # Full-stack web application framework. (https://rubyonrails.org)
-gem 'rails', '6.1.1'
+gem 'rails', '6.1.3'
 # Family of libraries that support various formats of XML "feeds". (https://github.com/ruby/rss)
 gem 'rss'
 # HTTP server toolkit (https://github.com/ruby/webrick)

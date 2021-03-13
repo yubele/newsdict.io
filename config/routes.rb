@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'admin/omniauth_callbacks'
   }
   # Feed routes
-  resource :rss, path: "/rss/", controller: "portal/rss", action: :show, only: [:show] do
+  resource :rss, path: "/rss/", controller: "portals/rss", action: :show, only: [:show] do
     collection do
       get "/category/:category/", as: :category
       get "/tag/:keyword/", as: :tag
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     resource :portals, path: "/search/", controller: "portals", action: :show, only: [:show], as: :search
     root to: "portals#show"
   end
-  
+  get "/not_found", to: "errors#not_found", as: :not_found
   # In config.exception_app, zeitwerk gives a decreated error, so I get a 404 page here.
-  get "*path", to: "errors#exceptions_app"
+  get "*path", to: "application#exceptions_app"
 end

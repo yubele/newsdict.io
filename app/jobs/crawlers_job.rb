@@ -5,7 +5,7 @@ class CrawlersJob < ApplicationJob
   # @param [String] url
   # @param [Mixed] unique_id
   # @param [String] shared_text
-  def perform(object, url:, unique_id: nil, shared_text: nil)
+  def perform(object, url:, unique_id: nil, shared_text: "")
     web_stat = WebStat.stat_by_url(url, userdics: Configs::MecabDic.userdics )
     case(object.class)
     when Sources::TwitterAccount, Sources::Relations::TwitterAccount

@@ -22,8 +22,8 @@ function setSwipe(elem) {
     });
 
     t.addEventListener('touchend', function(e) {
-        var nextElement = document.querySelector('.is-active').nextElementSibling
-        var previousElement = document.querySelector('.is-active').previousElementSibling
+        var nextElement = document.querySelector('.swipe-active').nextElementSibling
+        var previousElement = document.querySelector('.swipe-active').previousElementSibling
         if (startX > moveX && startX > moveX + dist && nextElement) {
             document.location = nextElement.querySelector('a').href
         }
@@ -32,6 +32,15 @@ function setSwipe(elem) {
         }
     });
 }
+function inElement(element, className) {
+    if(element && element.classList && element.classList.contains(className)) {
+        return true
+    } else if (element.classList) {
+        return inElement(element.parentNode, className)
+    } else {
+        return false
+    }
+}
 (function() {
-     setSwipe('.swipeContainer');
+     setSwipe('.swipeContainer')
 })(window)
