@@ -7,7 +7,7 @@ class ContentsController < ApplicationController
     raise ActionController::RoutingError.new('Not Found') if @content.nil?
     @related_contents = Array.new
     @content.tags.each do |tag|
-      @related_contents.concat(JSON.parse(contents(tag: tag), object_class: OpenStruct))
+      @related_contents.concat(contents(tag: tag))
     end
     @contents = Content.contents(name: @content.source.name)
       .sortable

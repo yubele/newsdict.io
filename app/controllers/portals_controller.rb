@@ -9,7 +9,7 @@ class PortalsController < ApplicationController
       @rss_path = rss_path
       @category_name = I18n.t(:top_page)
     end
-    @contents = JSON.parse(contents(**params.permit([:sort, :category, :tag, :search]).to_hash.symbolize_keys), object_class: OpenStruct)
+    @contents = contents(**params.permit([:sort, :category, :tag, :search]).to_hash.symbolize_keys)
   end
   # Page
   # @param url_suffix
