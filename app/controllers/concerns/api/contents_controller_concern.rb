@@ -10,18 +10,19 @@ module Api
     # @param [String] tag sarch by tag
     # @param [String] search search word
     # @rerurn [JSON]
-    def contents(limit: Newsdict::Application.config.count_of_content_per_page, skip:0, sort: :created_at, category: nil, tag: nil, search: nil)
+    def contents(limit: Newsdict::Application.config.count_of_content_per_page, skip:0, sort: :created_at, category: nil, tag: nil, search: nil, model: Content, is_json: true)
       options = Hash.new
       if Configs::Category.find_by(key: category)
         options[:category_id] = Configs::Category.find_by(key: category).id
       end
-      content = Content
       if tag
-        content = Content.search_by_tag(tag.split(","))
+        content = model.search_by_tag(tag.split(","))
       elsif search
-        content = Content.search_by_mixed(search)
+        content = model.search_by_mixed(search)
+      else
+        content = model
       end
-      content
+      hash = content
         .contents(**options)
         .sortable(sort)
         .limit(limit)
@@ -55,6 +56,11 @@ module Api
             }
           })
         }.to_json
+        if is_json
+          JSON.parse(hash, object_class: OpenStruct)
+        else
+          hash
+        end
     end
   end
 end
