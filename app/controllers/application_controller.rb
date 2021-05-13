@@ -2,10 +2,10 @@ class ApplicationController < ActionController::Base
   include Api::ContentsControllerConcern
   before_action :set_recaptcha, :set_action_mailer, :set_host, :hook_of_restart_all_server
   before_action :configure_permitted_parameters, if: :devise_controller?
-  #unless Rails.env.development?
+  unless Rails.env.development?
     rescue_from StandardError, with: :exceptions_app
     rescue_from Mongoid::Errors::DocumentNotFound, with: :exceptions_app
-  #end
+  end
 
   def exceptions_app
     redirect_to not_found_path
