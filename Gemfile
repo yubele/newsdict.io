@@ -11,7 +11,7 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # A generalized Rack framework for multiple-provider authentication. (https://github.com/omniauth/omniauth)
 gem 'omniauth'
 # Provides CSRF protection on OmniAuth request endpoint on Rails application. (https://github.com/cookpad/omniauth-rails_csrf_protection)
-gem 'omniauth-rails_csrf_protection', '~> 0.1'
+gem 'omniauth-rails_csrf_protection', '~> 1.0'
 # Facebook OAuth2 Strategy for OmniAuth (https://github.com/simi/omniauth-facebook)
 gem 'omniauth-facebook'
 # OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
