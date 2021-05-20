@@ -47,4 +47,7 @@ Rails.application.configure do
 
   # mongoid log level
   config.mongoid.logger.level = Logger::INFO
+
+  config.cache_store = :redis_cache_store, { url: "redis://redis:6379/0/cache" }
+  config.session_store :cache_store, key: ENV['NAMESPACE']
 end

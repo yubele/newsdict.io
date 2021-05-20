@@ -104,7 +104,7 @@ gem "slack-notifier", git: "https://github.com/yubele/slack-notifier.git", branc
 # system gems
 ##
 # Full-stack web application framework. (https://rubyonrails.org)
-gem 'rails', '6.1.3'
+gem 'rails', '6.1.3.2'
 # Family of libraries that support various formats of XML "feeds". (https://github.com/ruby/rss)
 gem 'rss'
 # HTTP server toolkit (https://github.com/ruby/webrick)
@@ -156,7 +156,7 @@ gem 'exception_notification'
 
 group :development, :test do
   # Fast debugging with Pry. (https://github.com/deivid-rodriguez/pry-byebug)
-  gem 'pry-byebug'
+  gem 'pry-byebug', '3.9.0'
   # Ruby fast debugger - base + CLI (https://github.com/deivid-rodriguez/byebug)
   gem 'byebug'
   # factory_bot_rails provides integration between factory_bot and rails 5.0 or newer (https://github.com/thoughtbot/factory_bot_rails)

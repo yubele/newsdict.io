@@ -12,7 +12,7 @@ require 'twitter_helper'
 Dir.glob(Rails.root.join('test/**/*_test.rb')).each { |file| require file}
 
 WebMock.disable_net_connect!(:allow => /coveralls\.io/)
-
+DatabaseCleaner[:redis].db = "redis://#{Rails.application.config_for(:redis)[:host]}/0"
 # Overwride.
 module WebDriverHelper
   # Get source
