@@ -10,15 +10,18 @@ class Configs::Tokens::TwitterAccount < Configs::Token
   class << self
     # Get Twitter::REST::Client instance
     # @private
-    # @return [void]
-    def get_token
+    # @return [Array] key, client]
+    def client
       account = self.all.sample
-      Twitter::REST::Client.new do |config|
-        config.consumer_key        = account.consumer_key
-        config.consumer_secret     = account.consumer_secret
-        config.access_token        = account.access_token
-        config.access_token_secret = account.access_secret
-      end
+      {
+        :key => account.key,
+        :token => Twitter::REST::Client.new do |config|
+          config.consumer_key        = account.consumer_key
+          config.consumer_secret     = account.consumer_secret
+          config.access_token        = account.access_token
+          config.access_token_secret = account.access_secret
+        end
+      }
     end
   end
 end
