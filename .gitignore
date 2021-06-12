@@ -51,9 +51,6 @@
 # document
 /src/doc/**/*.tmp.adoc
 
-# Generated docker
-/bin
-
 # sitemaps
 public/shared/sitemap*.xml.gz
 
