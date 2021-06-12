@@ -6,7 +6,7 @@ class Sources::TwitterAccount < ::Source
   # Get the tweets.
   # @return `Contents::Tweet`s
   def contents
-    twitter_client.user_timeline(name).map(&:to_content).flatten
+    twitter_client[:token].user_timeline(name).map(&:to_content).flatten
   end
   # Get Twitter Account URL
   # @return [String] twitter url
@@ -36,19 +36,24 @@ class Sources::TwitterAccount < ::Source
   # @return [BSON::Binary] image
   def icon
     unless icon_blob
-      save_icon_blob_from_url(twitter_client.user(self.name).profile_image_url_https)
+      save_icon_blob_from_url(twitter_client[:token].user(self.name).profile_image_url_https)
     end
     icon_blob
   end
   # Get home_timeline.entries.url.urls
   #  API Reference. https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-home_timeline
   def user_timeline
-    twitter_client.user_timeline(self.name)
+    begin
+      tokens = twitter_client
+      tokens[:token].user_timeline(self.name)
+    rescue => e
+      raise "#{e.message} twitter account name: #{self.name} token name#{tokens[:key]}"
+    end
   end
   # Get friends.
   # @return follow users.
   def relation_accounts
-    twitter_client.friends(self.name).map do |friend|
+    twitter_client[:token].friends(self.name).map do |friend|
       parent_account = Sources::TwitterAccount.find_by(name: self.name)
       account = Sources::Relations::TwitterAccount.find_or_create_by(
         user_id: friend.id,
@@ -70,6 +75,6 @@ class Sources::TwitterAccount < ::Source
   # @private
   # @return [void]
   def twitter_client
-    Configs::Tokens::TwitterAccount.get_token
+    Configs::Tokens::TwitterAccount.client
   end
 end

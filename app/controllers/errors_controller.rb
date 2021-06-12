@@ -1,6 +1,6 @@
 class ErrorsController < ApplicationController
   def not_found
-    @contents = contents
+    @related_contents = contents
     respond_to do |format|
       format.all {
         render 'errors/exceptions_app',

@@ -16,7 +16,6 @@ bundle config --global with 'development document test'
 bundle install
 # Only run web, because these should not overlap.
 if [ "$APP_TYPE" = "web" ];then
-  . $(dirname $BASH_SOURCE)/production.sh
   # In development, create marker after `bundler installed`.
   mkdir -p tmp/locks
   touch tmp/locks/installed.asciidoctor.lock
