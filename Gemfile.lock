@@ -139,7 +139,7 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
-    brakeman (5.0.1)
+    brakeman (5.0.4)
     bson (4.12.0)
     buftok (0.2.0)
     builder (3.2.4)
@@ -303,7 +303,7 @@ GEM
     kaminari-mongoid (1.0.1)
       kaminari-core (~> 1.0)
       mongoid
-    libv8 (8.4.255.0-x86_64-linux)
+    libv8 (8.4.255.0)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
