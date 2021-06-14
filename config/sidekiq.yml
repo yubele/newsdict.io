@@ -31,13 +31,13 @@
     queue: notifies
   manual_save_relations_twitter_acccount:
     enabled: false
-    class: Relations::TwitterAccountsJob
+    class: Relation::TwitterAccountsJob
     queue: relations
-:concurrency: 1
+:concurrency: 10
 :queues:
-  - crawlers
   - notifies
+  - crawlers
+  - relations
   - mecab_dics
   - sitemaps
   - collects
-  - relations
