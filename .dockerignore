@@ -3,6 +3,3 @@
 /.bundle
 /.git
 /public/packs
-/config/master.key
-/config/credentials.yml.enc
-/config/credentials

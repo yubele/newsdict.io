@@ -11,7 +11,7 @@ gem 'dotenv-rails', require: 'dotenv/rails-now'
 # A generalized Rack framework for multiple-provider authentication. (https://github.com/omniauth/omniauth)
 gem 'omniauth'
 # Provides CSRF protection on OmniAuth request endpoint on Rails application. (https://github.com/cookpad/omniauth-rails_csrf_protection)
-gem 'omniauth-rails_csrf_protection', '~> 0.1'
+gem 'omniauth-rails_csrf_protection'
 # Facebook OAuth2 Strategy for OmniAuth (https://github.com/simi/omniauth-facebook)
 gem 'omniauth-facebook'
 # OmniAuth strategy for Twitter (https://github.com/arunagw/omniauth-twitter)
@@ -38,9 +38,9 @@ gem "recaptcha"
 # Simple, efficient background processing for Ruby (http://sidekiq.org)
 gem 'sidekiq'
 # Light weight job scheduling extension for Sidekiq (https://moove-it.github.io/sidekiq-scheduler/)
-gem 'sidekiq-scheduler', git: 'https://github.com/yubele/sidekiq-scheduler.git'
+gem 'sidekiq-scheduler'
 # Namespaces Redis commands. (https://github.com/resque/redis-namespace)
-gem 'redis-namespace', git: 'https://github.com/resque/redis-namespace.git', branch: 'c31e63dc3cd5e59ef5ea394d4d46ac60d1e6f82e'
+gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
 gem 'web_stat', '>= 0.4.7'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
@@ -98,7 +98,7 @@ gem 'mongoid_search'
 # Ruby bindings of ChatWork API (https://github.com/asonas/chatwork-ruby)
 gem 'chatwork'
 # A slim ruby wrapper for posting to slack webhooks (http://github.com/stevenosloan/slack-notifier)
-gem "slack-notifier", git: "https://github.com/yubele/slack-notifier.git", branch: "master"
+gem "slack-notifier"
 
 ##
 # system gems

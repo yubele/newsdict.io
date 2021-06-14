@@ -1,4 +1,4 @@
-class Relations::TwitterAccountsJob < ApplicationJob
+class Relation::TwitterAccountsJob < ApplicationJob
   def perform
     Sources::TwitterAccount.all.each do |twitter_account|
       begin
