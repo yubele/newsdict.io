@@ -32,9 +32,9 @@ class Configs::Theme < Config
         Rails.root.join('app', 'themes', activated_theme.key, 'assets', 'images'))
       activated_theme
     end
-    # Tidy Configs::Theme
+    # Clean the `Configs::Theme` records.
     # @return [void]
-    def tidy
+    def clean
       # Insert the theme directories to Configs::themes if ConfigsTheme has not it.
       exist_dirnames.each do |exist_dirname|
         unless where(key: exist_dirname).exists?
@@ -49,7 +49,7 @@ class Configs::Theme < Config
         # Duplicate check
         #  Because `uniquess` is not enabled in` initializer`.
         if where(key: theme.key).count > 1
-          theme.deletegit 
+          theme.delete
         end
       end
       # Check active default theme, if Configs::Theme has not `is_active=true`;
