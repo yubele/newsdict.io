@@ -34,7 +34,7 @@ class Configs::Theme < Config
     end
     # Clean the `Configs::Theme` records.
     # @return [void]
-    def clean
+    def tidy
       # Insert the theme directories to Configs::themes if ConfigsTheme has not it.
       exist_dirnames.each do |exist_dirname|
         unless where(key: exist_dirname).exists?
