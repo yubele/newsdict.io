@@ -6,6 +6,6 @@ Rails.application.reloader.to_prepare do
 end
 Rails.application.config.after_initialize do
   Batch.single_server(:theme) do
-    Configs::Theme.clean
+    Configs::Theme.tidy
   end
 end
