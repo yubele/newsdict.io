@@ -6,26 +6,27 @@
     "browser-sync": "browser-sync start --server doc --cwd doc --files '**/*' --logLevel debug"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
-    "@rails/webpacker": "5.2.1",
+    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@rails/webpacker": "5.4.0",
     "axios": "^0.21.1",
-    "browser-sync": "^2.26.12",
-    "bulma": "^0.9.1",
+    "browser-sync": "^2.26.14",
+    "bulma": "^0.9.3",
     "bulma-switch": "^2.0.0",
     "bulma-timeline": "^3.0.4",
     "core-js": "3",
-    "dotenv": "^8.2.0",
-    "npm-check-updates": "^9.0.1",
+    "dotenv": "^10.0.0",
+    "npm-check-updates": "^11.7.1",
     "rails-erb-loader": "^5.5.2",
-    "socket.io": "2.4.0",
-    "vue-loader": "^15.9.1",
-    "vue-template-compiler": "^2.6.11",
-    "vue2": "^1.0.0",
-    "webpack-merge": "^5.1.4"
+    "socket.io": "4.1.2",
+    "vue-loader": "^15.9.7",
+    "vue-template-compiler": "^2.6.14",
+    "vue": "^2.6.14",
+    "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
     "lodash.throttle": "^4.1.1",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.2",
+    "npm-check-updates": "11.7.1"
   },
   "version": "0.0.0"
 }
