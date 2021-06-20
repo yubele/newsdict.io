@@ -11,9 +11,7 @@ class Batch < ApplicationRecord
     # @param [Block] block
     # @return [mixe]
     def single_server(name)
-      if find_by(name: name, :updated_at.gt => self::DEFAULT_EXPIRE_ONETIME).nil? &&
-      # If this method called at initilizer, Auto timestamp not working.
-      new(name: name).upsert
+      if find_or_create_by(name: name) && find_by(name: name, :updated_at.gt => self::DEFAULT_EXPIRE_ONETIME).try(:touch)
         yield
       end
     end

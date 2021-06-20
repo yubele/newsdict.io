@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/yubele/mongoid.git
-  revision: 86de86525eede50e173db17ed58ef6adea95a0f4
-  branch: 86de86525eede50e173db17ed58ef6adea95a0f4
+  revision: 3a46c7d6bb32e16cd475d9f5b6add67272faa1e3
+  branch: add-ruby3.0
   specs:
-    mongoid (7.3.0.alpha)
+    mongoid (7.3.0)
       activemodel (>= 5.1, < 6.2)
       mongo (>= 2.10.5, < 3.0.0)
 
