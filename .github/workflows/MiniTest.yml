@@ -1,12 +1,9 @@
 name: MiniTest
 
 on:
-  push:
-    branches: [ main ]
   pull_request:
     branches: 
     - main
-    - develop
 jobs:
   build:
     runs-on: ubuntu-latest
