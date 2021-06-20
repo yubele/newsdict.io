@@ -22,7 +22,7 @@ class Post < ApplicationRecord
   # Get the hash tags of the recent tags
   # @return [String]
   def _binding_recent_tags
-    "#" + CollectTag.cloud(limit:3, days_ago: 1).map(&:name).join(" #")
+    "#" + CollectTag.cloud(limit:6, days_ago: 1).map(&:name).join(" #")
   end
   # Get paper url of today
   # @return [String]
