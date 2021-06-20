@@ -18,15 +18,13 @@
     "npm-check-updates": "^11.7.1",
     "rails-erb-loader": "^5.5.2",
     "socket.io": "4.1.2",
+    "vue": "^2.6.14",
     "vue-loader": "^15.9.7",
     "vue-template-compiler": "^2.6.14",
-    "vue": "^2.6.14",
     "webpack-merge": "^5.8.0"
   },
   "devDependencies": {
-    "lodash.throttle": "^4.1.1",
-    "webpack-dev-server": "^3.11.2",
-    "npm-check-updates": "11.7.1"
+    "lodash.throttle": "^4.1.1"
   },
   "version": "0.0.0"
 }
