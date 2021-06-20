@@ -86,7 +86,7 @@ gem 'kaminari-actionview'
 ##
 # Merge ::I18n.translate takes keyword arguments … (https://github.com/yubele/mongoid/pull/1)
 # Elegant Persistence in Ruby for MongoDB. (https://mongoid.org)
-gem 'mongoid'
+gem 'mongoid', git: 'https://github.com/yubele/mongoid.git', branch: 'add-ruby3.0'
 # A MongoDB GridFS implementation for Mongoid (https://github.com/mongoid/mongoid-grid_fs)
 gem 'mongoid-grid_fs'
 # Search implementation for Mongoid ORM (https://github.com/mongoid/mongoid_search)
