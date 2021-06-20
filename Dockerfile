@@ -18,12 +18,12 @@ RUN cp -r src/provisioning/startup /startup
 # Init gems
 RUN echo "gem: --no-rdoc --no-ri" > ~/.gemrc
 RUN . /etc/profile.d/rvm.sh && \
-  bundle config --global without 'development test' && \
-  bundle config --global system true && \
-  bundle config --global jobs 10 && \
-  bundle config --global build.nokogiri --use-system-libraries && \
+  bundle config without 'development test' && \
+  bundle config system true && \
+  bundle config jobs 10 && \
+  bundle config build.nokogiri --use-system-libraries && \
   bundle install && \
-  bundle config --global frozen true
+  bundle config frozen true
 
 # If you are running the development environment, the pid file will remain, so delete the pid file
 RUN if [ -f /var/www/docker/tmp/pids/server.pid ]; then \

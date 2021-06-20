@@ -9,20 +9,16 @@ do
   sleep 1
 done
 # Set bundle configs
-bundle config --global --delete without
-bundle config --global --delete frozen
-bundle config --global system true
-bundle config --global with 'development document test'
+bundle config --delete without
+bundle config --delete frozen
+bundle config system true
+bundle config with 'development document test'
 bundle install
 # Only run web, because these should not overlap.
 if [ "$APP_TYPE" = "web" ];then
   # In development, create marker after `bundler installed`.
   mkdir -p tmp/locks
-  touch tmp/locks/installed.asciidoctor.lock
-  touch tmp/locks/installed.browser-sync.lock
-  touch tmp/locks/installed.guard.lock
   touch tmp/locks/installed.worker.lock
-  touch tmp/locks/installed.bundle.lock
 fi
 bundle exec bin/rails tmp:clear
 # Create cert
