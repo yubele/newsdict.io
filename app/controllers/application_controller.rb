@@ -4,10 +4,17 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   unless Rails.env.development?
     rescue_from StandardError, with: :exceptions_app
-    rescue_from Mongoid::Errors::DocumentNotFound, with: :exceptions_app
+    rescue_from Mongoid::Errors::DocumentNotFound, ActionController::BadRequest, with: :not_found
   end
 
-  def exceptions_app
+  def exceptions_app(exception)
+    ExceptionNotifier.notify_exception(
+      exception,
+      env: request.env, data: { message: 'was doing something wrong' }
+    )
+    redirect_to not_found_path
+  end
+  def not_found
     redirect_to not_found_path
   end
 

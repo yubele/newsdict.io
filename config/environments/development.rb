@@ -86,5 +86,4 @@ Rails.application.configure do
   config.mongoid.logger.level = Logger::INFO
 
   config.force_ssl = true
-  
 end

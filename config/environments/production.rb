@@ -128,13 +128,4 @@ Rails.application.configure do
 
   # mongoid log level
   config.mongoid.logger.level = Logger::INFO
-
-  # Notify the errors
-  config.middleware.use ExceptionNotification::Rack,
-    ignore_exceptions: ["ImageNotFoundException"] + ExceptionNotifier.ignored_exceptions,
-    email: {
-      email_prefix: '[PREFIX] ',
-      sender_address: %{"notifier" <#{ENV['SENDER_EMAIL']}>},
-      exception_recipients: %W{#{ENV['ADMIN_USER_EMAIL']}}
-    }
 end
