@@ -15,7 +15,7 @@ class Source < ApplicationRecord
   field :icon_blob, type: BSON::Binary
   validates :alias, length: { maximum: 20 }
   include Mongoid::Timestamps
-  belongs_to :category, class_name: "Configs::Category", required: false
+  belongs_to :category, class_name: "Configs::Category", required: true
   has_many :content, dependent: :destroy
   # Get name
   # @return [String]
