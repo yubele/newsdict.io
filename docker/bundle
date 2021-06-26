@@ -5,4 +5,4 @@ if [ "$(tty>/dev/null;echo $?)" != "0" ];then
 else
     DOCKERCOMPOSE_EXEC="docker-compose exec"
 fi
-$DOCKERCOMPOSE_EXEC bundle /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && bundle $*"
+$DOCKERCOMPOSE_EXEC web /bin/bash -c ". /etc/profile.d/rvm.sh && . /root/.nvm/nvm.sh && bundle $*"
