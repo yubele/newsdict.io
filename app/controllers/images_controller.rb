@@ -14,7 +14,7 @@ class ImagesController < ApplicationController
   # @params [BSON::ObjectId] id
   def user_icon(id)
     source = Source.find(id)
-    if source.icon
+    if source&.icon
       send_data source.icon_blob.data, :type => 'image', :disposition => 'inline'
     else
       raise ::ImageNotFoundException
