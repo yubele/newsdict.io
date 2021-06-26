@@ -3,3 +3,4 @@
 /.bundle
 /.git
 /public/packs
+/tmp/sockets/puma.sock

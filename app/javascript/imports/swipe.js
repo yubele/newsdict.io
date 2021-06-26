@@ -10,13 +10,11 @@ function setSwipe(elem) {
     var dist = 80;
     var pos = 1;
     t.addEventListener('touchstart', function(e) {
-        //e.preventDefault();
         startX = e.touches[0].pageX;
         startY = e.touches[0].pageY;
     });
 
     t.addEventListener('touchmove', function(e) {
-        //e.preventDefault();
         moveX = e.changedTouches[0].pageX;
         moveY = e.changedTouches[0].pageY;
     });
@@ -42,5 +40,12 @@ function inElement(element, className) {
     }
 }
 (function() {
-     setSwipe('.swipeContainer')
+  setSwipe('.swipeContainer')
+  // Move to the top of the swipe bar.
+  if (document.querySelector('.swipeContainer')) {
+    const activeItem = document.querySelector('.is-active')
+    activeItem.scrollIntoView({
+      inline: 'center'
+    });
+  }
 })(window)

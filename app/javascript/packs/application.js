@@ -23,7 +23,6 @@ import '../imports/fontawesome.js'
 import '../imports/dropdown.js'
 import '../imports/autoscroll.js.erb'
 import '../imports/swipe.js'
-import '../imports/fixed_header.js'
 import '../imports/web_site.js'
 import '../imports/navbar-burger.js'
 // ref. https://stackoverflow.com/questions/45758837/script5009-urlsearchparams-is-undefined-in-ie-11
