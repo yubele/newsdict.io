@@ -20,6 +20,7 @@ class Content < ApplicationRecord
   field :user_id, type: BSON::ObjectId
   field :count_of_shared, type: Integer
   field :unique_id, type: String
+  field :last_modified_at, type: DateTime
   include Mongoid::Timestamps
   belongs_to :source, optional: true
   belongs_to :user, optional: true
@@ -69,7 +70,8 @@ class Content < ApplicationRecord
         :language_code => web_stat[:language_code],
         :tags => web_stat[:tags],
         :source_id => object.id,
-        :user_id => object.user_id
+        :user_id => object.user_id,
+        :last_modified_at => web_stat[:last_modified_at]
       }
       # Add the tags
       web_stat[:tags].each do |name|

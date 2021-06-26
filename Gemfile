@@ -42,7 +42,7 @@ gem 'sidekiq-scheduler'
 # Namespaces Redis commands. (https://github.com/resque/redis-namespace)
 gem 'redis-namespace'
 # Get the status of  the web pages. (https://github.com/newsdict/web_stat)
-gem 'web_stat', '>= 0.4.7'
+gem 'web_stat', '>= 0.5.2'
 # Manipulate images with minimal use of memory via ImageMagick / GraphicsMagick (https://github.com/minimagick/minimagick)
 gem 'mini_magick'
 # Nokogiri (鋸) makes it easy and painless to work with XML and HTML from Ruby. (https://nokogiri.org)

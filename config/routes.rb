@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For health-check
-  get "active", to: proc { [200, Hash.new, Array.new] }
+  get "healthz", to: proc { [200, Hash.new, Array.new] }
   # Admin routes
   devise_scope :user do
     scope module: :admin do

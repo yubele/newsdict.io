@@ -12,12 +12,14 @@ development: &development
     - '//img[@class="attachment-post-thumbnail"]/@src'
     - '//div[@id="content"]//img/@src'
     - '//img/@src'
-  thumbnail_regex:
-    youtube:
-      - '%r{^https://www.youtube.com/watch\?v=([^&]+)}'
-      - 'http://img.youtube.com/vi/\1/default.jpg'
   userdic: ""
   use_chromedirver: false
+  id_extraction_regexs:
+    youtube: '^https://www.youtube.com/watch\?v=([^&]+)'
+  thumbnail_regex:
+    youtube: 'http://img.youtube.com/vi/\1/default.jpg'
+  api_keys:
+    youtube: <%= ENV['YOUTUBE_API_KEY'] %>
 test:
   <<: *development
 production:
