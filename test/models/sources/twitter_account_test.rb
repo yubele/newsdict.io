@@ -31,7 +31,7 @@ class Sources::TwitterAccountTest < ActiveSupport::TestCase
     twitter_account.relation_accounts.each do |account|
       assert_equal account.class, Sources::Relations::TwitterAccount
     end
-    count = twitter_account.relation_accounts.count
-    assert_equal Sources::Relations::TwitterAccount.all.count, count
+
+    assert_equal Sources::Relations::TwitterAccount.all.count, twitter_account.relation_accounts.count
   end
 end

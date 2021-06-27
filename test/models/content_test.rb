@@ -1,6 +1,7 @@
 
 require 'test_helper'
 class ContentTest < ActiveSupport::TestCase
+  
   test 'search_by_title' do
     faker_contents = Array.new
     100.times do
@@ -8,8 +9,10 @@ class ContentTest < ActiveSupport::TestCase
     end
     sample_faker_content = faker_contents.sample
     searched_content = Content.search_by_title(sample_faker_content.title).first
+    
     assert_equal sample_faker_content, searched_content
   end
+  
   test 'search_by_tag' do
     faker_contents = Array.new
     100.times do
@@ -17,9 +20,11 @@ class ContentTest < ActiveSupport::TestCase
     end
     sample_faker_content = faker_contents.sample
     searched_contents = Content.search_by_tag(sample_faker_content.tags.first)
+    
     assert_equal 1, searched_contents.count
     assert_equal sample_faker_content.tags, searched_contents.first.tags
   end
+  
   test 'search_by_category_name' do
     faker_contents = Array.new
     faker_categorys = Array.new
@@ -38,9 +43,11 @@ class ContentTest < ActiveSupport::TestCase
     end
     keyword = faker_categorys.sample.key
     searched_contents = Content.search_by_category_name(keyword)
+    
     assert_equal 1, searched_contents.count
     assert_equal searched_contents.first.source.category.key, keyword
   end
+  
   test "search_by_mixed(title)" do
     faker_contents = Array.new
     faker_categorys = Array.new
@@ -74,14 +81,16 @@ class ContentTest < ActiveSupport::TestCase
     keyword = sample_faker_content.source.category.key
     search.call(keyword)
   end
+  
   # Initialize DB
   def setup
     super
     FactoryBot.create("Configs::Tokens::TwitterAccount")
   end
+  
   test "save_form_job" do
     urls = Array.new
-    twitter_account = Sources::TwitterAccount.new({:name => :yubele})
+    twitter_account = FactoryBot.create("Sources::TwitterAccount", name: :yubele)
     # user_timeline mock
     stub_get('/1.1/statuses/user_timeline.json').with(query: {screen_name: :yubele}).to_return(body: fixture('web_mock/twitter/statuses.json'), headers: {content_type: 'application/json; charset=utf-8'})
     twitter_account.urls.each do |url|
@@ -98,7 +107,7 @@ class ContentTest < ActiveSupport::TestCase
   test "Count of shared" do
     count_of_shared = 5
     urls = Array.new
-    twitter_account = Sources::TwitterAccount.new({:name => :yubele})
+    twitter_account = FactoryBot.create("Sources::TwitterAccount", name: :yubele)
     twitter_account.save
     # user_timeline mock
     stub_get('/1.1/statuses/user_timeline.json').with(query: {screen_name: :yubele}).to_return(body: fixture('web_mock/twitter/statuses.json'), headers: {content_type: 'application/json; charset=utf-8'})

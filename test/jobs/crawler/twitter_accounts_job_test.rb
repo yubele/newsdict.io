@@ -6,8 +6,9 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
     super
     FactoryBot.create("Configs::Tokens::TwitterAccount")
   end
+  
   test "Don't record duplicate unique news" do
-    twitter_account = Sources::TwitterAccount.new({:name => :yubele})
+    twitter_account = FactoryBot.create("Sources::TwitterAccount", name: :yubele)
     twitter_account.save
     # user_timeline mock
     stub_get('/1.1/statuses/user_timeline.json').with(query: {screen_name: :yubele}).to_return(body: fixture('web_mock/twitter/statuses.json'), headers: {content_type: 'application/json; charset=utf-8'})
@@ -21,6 +22,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
         ::CrawlersJob.perform_now(twitter_account, url: url[:expanded_url], unique_id: tweet.id)
       end
     end
+    
     count = Content.all.count
     # Equeued `Crawler::BaseJob` uniqueress
     twitter_account.user_timeline.each do |tweet|
@@ -36,6 +38,7 @@ class Crawler::TwitterAccountsJobTestJob < ActiveJob::TestCase
     end
     assert_equal count, Content.all.count
   end
+  
   test "queued job" do
     user = FactoryBot.create(:user)
     twitter_account = FactoryBot.create("Sources::TwitterAccount")
