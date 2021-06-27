@@ -74,7 +74,6 @@ module Newsdict
     config.count_of_content_per_page = 20
     # Notify the errors
     config.middleware.use ExceptionNotification::Rack,
-      ignore_exceptions: ["ImageNotFoundException"] + ExceptionNotifier.ignored_exceptions,
       slack: {
         webhook_url: ENV['NOTIFICATION_WEBHOOK_URL'],
         channel: '#site-alert',
