@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   def exceptions_app(exception)
     ExceptionNotifier.notify_exception(
       exception,
+      env: request.env,
       data: { 
         ua: request.env['HTTP_USER_AGENT']
       }
