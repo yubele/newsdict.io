@@ -4,7 +4,7 @@ RailsAdmin.config do |config|
     base do
       # screen name
       field :name
-      field :alias
+      field :alias_name
       # refs. https://github.com/sferik/rails_admin/wiki/Enumeration#using-the-configuration-approach
       # legacy style because mongoid-enum do not maintend long time.
       field :category_id, :enum do

@@ -2,7 +2,7 @@ RailsAdmin.config do |config|
   config.current_user_method(&:current_user)
   config.model "Sources::WebSite" do
     base do
-      fields :alias, :description, :user_id do
+      fields :alias_name, :description, :user_id do
         visible false
       end
       field :name

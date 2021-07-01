@@ -101,7 +101,7 @@ class Content < ApplicationRecord
       if already_content && already_content.source.update?(already_content, attrs)
         already_content.update_attributes(attrs)
         already_content.inc(count_of_shared: 1)
-      else
+      elsif already_content&.unique_id != attrs[:unique_id].to_s
         # Translate
         if attrs[:language_code] != ENV["default_locale"] && EasyTranslate.api_key.present?
           attrs[:content_text] = EasyTranslate.translate(attrs[:content_text], :to => ENV["default_locale"])

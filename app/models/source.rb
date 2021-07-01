@@ -11,7 +11,7 @@ class Source < ApplicationRecord
   field :description, type: String
   field :fetch_at, type: DateTime
   field :icon_blob, type: BSON::Binary
-  
+
   # Get name
   # @return [String]
   def view_name
