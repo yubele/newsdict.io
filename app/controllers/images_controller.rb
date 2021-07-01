@@ -19,5 +19,9 @@ class ImagesController < ApplicationController
     else
       raise ::ImageNotFoundException
     end
+  rescue ActionDispatch::Http::MimeNegotiation::InvalidType,
+    ActionDispatch::Http::MimeNegotiation::InvalidType,
+    ::ImageNotFoundException
+    redirect_to ActionController::Base.helpers.image_path("noimage_user")
   end
 end
