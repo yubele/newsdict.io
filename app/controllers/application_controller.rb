@@ -4,21 +4,19 @@ class ApplicationController < ActionController::Base
   before_action :set_recaptcha, :set_action_mailer, :set_host, :hook_of_restart_all_server
   before_action :configure_permitted_parameters, if: :devise_controller?
   
-  rescue_from StandardError, with: :exceptions_app
-  rescue_from Mongoid::Errors::DocumentNotFound, with: :not_found
+  rescue_from StandardError, Mongoid::Errors::DocumentNotFound,
+    ActionController::BadRequest, ArgumentError, with: :exceptions_app
 
   def exceptions_app(exception)
-    ExceptionNotifier.notify_exception(
-      exception,
-      env: request.env,
-      data: { 
-        ua: request.env['HTTP_USER_AGENT']
-      }
-    )
-    redirect_to not_found_path
-  end
-  
-  def not_found
+    if Rails.env.development? || (!exception.is_a?(ActionController::BadRequest) && !exception.is_a?(ArgumentError))
+      ExceptionNotifier.notify_exception(
+        exception,
+        env: request.env,
+        data: { 
+          ua: request.env['HTTP_USER_AGENT']
+        }
+      )
+    end
     redirect_to not_found_path
   end
 
