@@ -9,10 +9,10 @@ class ImagesController < ApplicationController
     else
       raise ::ImageNotFoundException
     end
-  rescue ActionDispatch::Http::MimeNegotiation::InvalidType,
-    ::ImageNotFoundException
+  rescue ActionDispatch::Http::MimeNegotiation::InvalidType, ::ImageNotFoundException
     redirect_to ActionController::Base.helpers.image_path("noimage")
   end
+
   # View user's icon
   # @params [BSON::ObjectId] id
   def user_icon(id)
@@ -22,8 +22,7 @@ class ImagesController < ApplicationController
     else
       raise ::ImageNotFoundException
     end
-  rescue ActionDispatch::Http::MimeNegotiation::InvalidType,
-    ::ImageNotFoundException
+  rescue ActionDispatch::Http::MimeNegotiation::InvalidType, ::ImageNotFoundException
     redirect_to ActionController::Base.helpers.image_path("noimage_user")
   end
 end

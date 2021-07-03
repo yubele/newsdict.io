@@ -61,7 +61,7 @@ module VueHelper
     if is_vue
       "'/sources/' + content.source.id + '/'"
     else
-      sources_path(content.source.id)
+      source_path(content.source.id)
     end
   end
 

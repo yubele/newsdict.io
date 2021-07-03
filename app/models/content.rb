@@ -29,6 +29,7 @@ class Content < ApplicationRecord
   validates :unique_id, length: {maximum: 255}
   validates :shared_text, length: { minimum: 0, allow_nil: false, message: "can't be nil" }
   SORT_TYPE = {
+    :last_modified_at => {last_modified_at: :desc},
     :created_at => {created_at: :desc},
     :updated_at => {updated_at: :desc},
     :count_of_shared => {count_of_shared: :desc}
@@ -136,7 +137,7 @@ class Content < ApplicationRecord
     # Sort the content by sort_type
     # @param [Symbol] sort_type
     # @return [Content]
-    def sortable(sort_type=:created_at)
+    def sortable(sort_type=:last_modified_at)
       if Content::SORT_TYPE.key?(sort_type)
         sort_type_sym = sort_type.to_sym
       end
@@ -146,7 +147,7 @@ class Content < ApplicationRecord
     # @params [String] gt
     # @params [String] lte
     # @return [Contents]
-    def term(gt, lte, key = :created_at)
+    def term(gt, lte, key = :last_modified_at)
       gt(key => gt).lte(key => lte)
     end
     # If it return a content, instance is uniq contents.

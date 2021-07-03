@@ -10,7 +10,7 @@ module Api
     # @param [String] tag sarch by tag
     # @param [String] search search word
     # @rerurn [JSON]
-    def contents(limit: Newsdict::Application.config.count_of_content_per_page, skip:0, sort: :created_at, category: nil, tag: nil, search: nil, model: Content, is_json: true)
+    def contents(limit: Newsdict::Application.config.count_of_content_per_page, skip:0, sort: :last_modified_at, category: nil, tag: nil, search: nil, model: Content, is_json: true)
       options = Hash.new
       if Configs::Category.find_by(key: category)
         options[:category_id] = Configs::Category.find_by(key: category).id
@@ -34,10 +34,13 @@ module Api
             k.include?("expanded_url") ||
             k.include?("language_code") ||
             k.include?("count_of_shared") ||
+            k.include?("last_modified_at") ||
             k.include?("created_at") ||
             k.include?("updated_at")
           }.merge({
             "expanded_domain" => URI.parse(c.expanded_url).host,
+            "last_modified_at" => c.last_modified_at.nil? ? in_time_zone(c.updated_at) : in_time_zone(c.last_modified_at),
+            "last_modified_at_human_format" => c.last_modified_at.nil? ? c.updated_at.to_s(:human) : c.last_modified_at.to_s(:human),
             "created_at" => in_time_zone(c.created_at),
             "created_at_human_format" => c.created_at.to_s(:human),
             "updated_at" => in_time_zone(c.updated_at),
