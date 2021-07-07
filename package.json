@@ -15,7 +15,7 @@
     "bulma-timeline": "^3.0.4",
     "core-js": "3",
     "dotenv": "^10.0.0",
-    "npm-check-updates": "^11.7.1",
+    "npm-check-updates": "^11.8.2",
     "rails-erb-loader": "^5.5.2",
     "socket.io": "4.1.2",
     "vue": "^2.6.14",
